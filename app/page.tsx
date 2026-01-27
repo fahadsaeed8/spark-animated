@@ -418,6 +418,57 @@ export default function LandingPage() {
           toggleActions: "play none none reverse",
         },
       });
+
+      // Animate background particles
+      const particles = finalSectionRef.current.querySelectorAll(".bg-particle");
+      particles.forEach((particle, i) => {
+        gsap.to(particle, {
+          y: -100,
+          x: (i % 2 === 0 ? 1 : -1) * 50,
+          opacity: 0.6,
+          scale: 1.2,
+          duration: 3 + (i % 3),
+          repeat: -1,
+          yoyo: true,
+          ease: "sine.inOut",
+          delay: i * 0.2,
+        });
+      });
+
+      // Continuous floating animation for heading
+      const heading = finalSectionRef.current.querySelector("h2");
+      if (heading) {
+        gsap.to(heading, {
+          y: -10,
+          duration: 2,
+          repeat: -1,
+          yoyo: true,
+          ease: "sine.inOut",
+        });
+      }
+
+      // Pulse animation for button
+      const button = finalSectionRef.current.querySelector("button");
+      if (button) {
+        gsap.to(button, {
+          scale: 1.02,
+          duration: 2,
+          repeat: -1,
+          yoyo: true,
+          ease: "sine.inOut",
+        });
+      }
+
+      // Animate gradient background
+      const gradientBg = finalSectionRef.current.querySelector(".gradient-bg");
+      if (gradientBg) {
+        gsap.to(gradientBg, {
+          backgroundPosition: "200% 200%",
+          duration: 10,
+          repeat: -1,
+          ease: "none",
+        });
+      }
     }
   }, []);
 
@@ -552,15 +603,40 @@ export default function LandingPage() {
         {/* FINAL CTA SECTION */}
         <section
           ref={finalSectionRef}
-          className="h-screen w-screen flex items-center justify-center relative"
+          className="h-screen w-screen flex items-center justify-center relative overflow-hidden"
         >
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/5 to-transparent" />
+          {/* Animated gradient background */}
+          <div 
+            className="gradient-bg absolute inset-0 opacity-30"
+            style={{
+              background: "linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0.1) 100%)",
+              backgroundSize: "200% 200%",
+            }}
+          />
+          
+          {/* Background particles */}
+          {[...Array(15)].map((_, i) => (
+            <div
+              key={i}
+              className="bg-particle absolute w-2 h-2 bg-white rounded-full opacity-20"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+              }}
+            />
+          ))}
+          
+          {/* Glowing orbs */}
+          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-white/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "0s" }} />
+          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-white/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1.5s" }} />
+          <div className="absolute top-1/2 left-1/2 w-48 h-48 bg-white/5 rounded-full blur-2xl animate-pulse transform -translate-x-1/2 -translate-y-1/2" style={{ animationDelay: "0.75s" }} />
+          
           <div className="text-center relative z-10 px-4">
             <h2 className="text-5xl md:text-7xl font-bold mb-8">
               Ready to Create?
             </h2>
             <button
-              className="px-12 py-6 border-2 border-white rounded-full text-xl font-semibold hover:bg-white hover:text-black transition-all duration-300 transform hover:scale-105 relative overflow-hidden group"
+              className="px-14! py-2! m-10! border border-white rounded-full text-xl font-semibold hover:bg-white hover:text-black transition-all duration-300 transform hover:scale-105 relative overflow-hidden group"
               onMouseEnter={(e) => {
                 gsap.to(e.currentTarget, {
                   scale: 1.05,
