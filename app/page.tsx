@@ -11,39 +11,46 @@ export default function LandingPage() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [currentPage, setCurrentPage] = useState(0); // 0: Home, 1: About, 2: Contact
+  
+  // Pages with different background images
+  const pages = [
+    {
+      id: 0,
+      title: "Home",
+      bgImage: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1920&q=80",
+    },
+    {
+      id: 1,
+      title: "About",
+      bgImage: "https://images.unsplash.com/photo-1557683316-973673baf926?w=1920&q=80",
+    },
+    {
+      id: 2,
+      title: "Contact",
+      bgImage: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=80",
+    },
+  ];
 
-  // Circular Navigation System
+  // Navigation System - Button + Scroll
+  useEffect(() => {
+    const rotationPerPage = 360 / pages.length; // 120 degrees per page
+    const rotation = currentPage * rotationPerPage;
+    
+    if (circleContainerRef.current) {
+      gsap.to(circleContainerRef.current, {
+        rotationY: -rotation,
+        duration: 1,
+        ease: "power2.out",
+      });
+    }
+  }, [currentPage]);
+
+  // Scroll-based Navigation
   useEffect(() => {
     let scrollDelta = 0;
-    let rotation = 0;
-    const rotationSpeed = 120; // Degrees per scroll (120° = 1/3 of circle for 3 pages)
     let isScrolling = false;
     let scrollTimeout: NodeJS.Timeout;
-
-    // Disable normal scrolling
-    document.body.style.overflow = "hidden";
-    document.documentElement.style.overflow = "hidden";
-
-    const updateRotation = (delta: number) => {
-      scrollDelta += delta;
-      rotation = Math.round(scrollDelta / 100) * rotationSpeed;
-      
-      // Normalize rotation to 0-360
-      rotation = ((rotation % 360) + 360) % 360;
-      
-      // Determine current page (0: Home, 1: About, 2: Contact)
-      const pageIndex = Math.round(rotation / 120) % 3;
-      setCurrentPage(pageIndex);
-      
-      // Apply rotation to circle container
-      if (circleContainerRef.current) {
-        gsap.to(circleContainerRef.current, {
-          rotationY: -rotation,
-          duration: 0.8,
-          ease: "power2.out",
-        });
-      }
-    };
+    const scrollThreshold = 50; // Minimum scroll to change page
 
     const handleWheel = (e: WheelEvent) => {
       e.preventDefault();
@@ -54,9 +61,22 @@ export default function LandingPage() {
       clearTimeout(scrollTimeout);
       scrollTimeout = setTimeout(() => {
         isScrolling = false;
-      }, 100);
+        scrollDelta = 0; // Reset after pause
+      }, 300);
 
-      updateRotation(e.deltaY);
+      scrollDelta += e.deltaY;
+      
+      // Change page on scroll threshold
+      if (Math.abs(scrollDelta) >= scrollThreshold) {
+        if (scrollDelta > 0) {
+          // Scroll down - next page
+          setCurrentPage((prev) => (prev + 1) % pages.length);
+        } else {
+          // Scroll up - previous page
+          setCurrentPage((prev) => (prev - 1 + pages.length) % pages.length);
+        }
+        scrollDelta = 0; // Reset after page change
+      }
     };
 
     window.addEventListener("wheel", handleWheel, { passive: false });
@@ -64,10 +84,12 @@ export default function LandingPage() {
     return () => {
       window.removeEventListener("wheel", handleWheel);
       clearTimeout(scrollTimeout);
-      document.body.style.overflow = "";
-      document.documentElement.style.overflow = "";
     };
-  }, []);
+  }, [pages.length]);
+
+  const handlePageChange = (pageIndex: number) => {
+    setCurrentPage(pageIndex);
+  };
 
   // Cursor effect (desktop only)
   useEffect(() => {
@@ -122,6 +144,37 @@ export default function LandingPage() {
 
   return (
     <div ref={containerRef} className="bg-black text-white relative min-h-screen w-screen overflow-hidden">
+      {/* Dynamic Background Image */}
+      <div 
+        key={currentPage}
+        className="fixed inset-0 z-0 transition-opacity duration-1000"
+        style={{
+          backgroundImage: `url('${pages[currentPage].bgImage}')`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        <div className="absolute inset-0 bg-black/60" />
+      </div>
+
+      {/* Navigation Buttons */}
+      <div className="fixed top-8 left-8 z-50 flex flex-col gap-3">
+        {pages.map((page, index) => (
+          <button
+            key={page.id}
+            onClick={() => handlePageChange(index)}
+            className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 ${
+              currentPage === index
+                ? "bg-white text-black shadow-lg scale-105"
+                : "bg-white/10 text-white backdrop-blur-md border border-white/20 hover:bg-white/20"
+            }`}
+          >
+            {page.title}
+          </button>
+        ))}
+      </div>
+
       {/* Custom Cursor - Desktop Only */}
       <div
         ref={cursorRef}
@@ -253,11 +306,12 @@ export default function LandingPage() {
 
       {/* Page Indicator */}
       <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 flex gap-4">
-        {[0, 1, 2].map((index) => (
-          <div
-            key={index}
-            className={`w-3 h-3 rounded-full transition-all duration-500 ${
-              currentPage === index ? "bg-white scale-125" : "bg-white/30"
+        {pages.map((page, index) => (
+          <button
+            key={page.id}
+            onClick={() => handlePageChange(index)}
+            className={`w-3 h-3 rounded-full transition-all duration-500 cursor-pointer ${
+              currentPage === index ? "bg-white scale-125" : "bg-white/30 hover:bg-white/50"
             }`}
           />
         ))}
