@@ -1363,12 +1363,20 @@ export default function LandingPage() {
             <h2 className="text-5xl md:text-7xl font-bold mb-16 text-center">
               Our Services
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
                 { icon: "🎨", title: "Design", desc: "Creative and modern design solutions" },
                 { icon: "💻", title: "Development", desc: "Cutting-edge web development" },
                 { icon: "📱", title: "Mobile Apps", desc: "Native and cross-platform apps" },
                 { icon: "🚀", title: "Marketing", desc: "Digital marketing strategies" },
+                { icon: "🎯", title: "SEO", desc: "Search engine optimization services" },
+                { icon: "📊", title: "Analytics", desc: "Data-driven insights and reporting" },
+                { icon: "🔒", title: "Security", desc: "Enterprise-grade security solutions" },
+                { icon: "☁️", title: "Cloud", desc: "Cloud infrastructure and migration" },
+                { icon: "🤖", title: "AI/ML", desc: "Artificial intelligence integration" },
+                { icon: "🎬", title: "Video", desc: "Professional video production" },
+                { icon: "📸", title: "Photography", desc: "High-quality photography services" },
+                { icon: "✍️", title: "Content", desc: "Engaging content creation" },
               ].map((service, index) => (
                 <div
                   key={index}
