@@ -8,6 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 export default function LandingPage() {
   const [hasEntered, setHasEntered] = useState(false);
   const [currentScene, setCurrentScene] = useState(0);
+  const [isRotating, setIsRotating] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
   const portalRef = useRef<HTMLDivElement>(null);
   const storyRef = useRef<HTMLDivElement>(null);
@@ -21,67 +22,105 @@ export default function LandingPage() {
   const dragStartY = useRef(0);
   const dragThreshold = 50;
 
-  // Handle "Enter the Circle" CTA click
+  // Handle "Enter the Circle" CTA click - Fixed animation
   const handleEnterCircle = () => {
     if (hasEntered) return;
 
     const portal = portalRef.current;
     const hero = heroRef.current;
     const character = characterRef.current;
+    const characterCircle = character?.querySelector(".character-circle");
     const ctaButton = hero?.querySelector("button");
 
-    if (!portal || !hero || !character) return;
+    if (!portal || !hero || !character || !characterCircle) return;
+
+    // Disable button during animation
+    const button = ctaButton as HTMLButtonElement;
+    if (button) button.disabled = true;
 
     const tl = gsap.timeline();
 
-    // Step 1: Show portal ring
-    tl.to(portal, {
-      opacity: 1,
-      scale: 1,
-      duration: 0.6,
-      ease: "power2.out",
-    });
-
-    // Step 2: Hide CTA button
+    // Step 1: Hide CTA button
     if (ctaButton) {
       tl.to(
         ctaButton,
         {
           opacity: 0,
           scale: 0.9,
-          duration: 0.3,
+          duration: 0.4,
           ease: "power2.in",
         },
-        "-=0.2",
+        "start",
       );
     }
 
-    // Step 3: Character moves forward
-    tl.to(
-      character,
-      {
-        opacity: 0,
-        scale: 0.3,
-        y: -100,
-        duration: 1,
-        ease: "power2.in",
-      },
-      "-=0.3",
-    );
+    // Step 2: Create portal ring FROM character circle (center me aayega)
+    // Get character circle position and dimensions
+    const charRect = characterCircle.getBoundingClientRect();
+    const centerX = window.innerWidth / 2;
+    const centerY = window.innerHeight / 2;
 
-    // Step 4: Portal expands
+    // Set portal at character center (character circle ke exact center mein)
+    gsap.set(portal, {
+      left: "50%",
+      top: "50%",
+      xPercent: -50,
+      yPercent: -50,
+      opacity: 0,
+      scale: 0.3,
+      borderWidth: "3px",
+    });
+
     tl.to(
       portal,
       {
-        scale: 1.2,
-        opacity: 0.7,
+        opacity: 1,
+        scale: 1.2, // Character circle se thoda bada
         duration: 0.8,
-        ease: "power2.inOut",
+        ease: "power2.out",
       },
-      "-=0.5",
+      "start+=0.2",
     );
 
-    // Step 5: Fade out hero
+    // Step 3: Character shrinks and disappears INTO the portal
+    tl.to(
+      characterCircle,
+      {
+        scale: 0.2,
+        opacity: 0,
+        duration: 1.2,
+        ease: "power3.in",
+      },
+      "start+=0.4",
+    );
+
+    // Step 4: Portal expands and glows
+    tl.to(
+      portal,
+      {
+        scale: 3, // Zyada expand hoga
+        opacity: 0.8,
+        borderWidth: "6px",
+        boxShadow: "0 0 100px rgba(255, 255, 255, 0.7)",
+        duration: 1.2,
+        ease: "power2.inOut",
+      },
+      "start+=0.8",
+    );
+
+    // Step 5: Portal contracts and disappears
+    tl.to(
+      portal,
+      {
+        scale: 0,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.in",
+      },
+      "start+=1.8",
+    );
+
+    // Step 6: Fade out hero and enable story flow
     tl.to(
       hero,
       {
@@ -94,11 +133,11 @@ export default function LandingPage() {
           initializeInteractions();
         },
       },
-      "-=0.2",
+      "start+=2.2",
     );
   };
 
-  // Initialize both wheel and drag interactions
+  // Initialize both wheel and drag interactions - SCROLL BASED
   const initializeInteractions = () => {
     if (!circleContainerRef.current) return;
 
@@ -110,35 +149,52 @@ export default function LandingPage() {
       transformStyle: "preserve-3d",
     });
 
-    // WHEEL EVENT - for mouse wheel
+    // WHEEL EVENT - for mouse wheel (SCROLL DOWN = NEXT, SCROLL UP = PREVIOUS)
     let scrollDelta = 0;
-    let isRotating = false;
+    let wheelRotationTimeout: NodeJS.Timeout;
+    let isScrolling = false;
 
     const handleWheel = (e: WheelEvent) => {
       e.preventDefault();
 
-      if (isRotating) return;
-      isRotating = true;
+      if (isRotating || isScrolling) return;
+      isScrolling = true;
 
       scrollDelta += e.deltaY;
-      const threshold = 80;
+      const threshold = 50; // Lower threshold for faster response
 
       if (Math.abs(scrollDelta) >= threshold) {
         if (scrollDelta > 0) {
-          setCurrentScene((prev) => Math.min(prev + 1, totalScenes - 1));
+          // Scroll DOWN = NEXT scene
+          let nextScene = currentScene + 1;
+          if (nextScene >= totalScenes) nextScene = 0; // Loop back to first
+          setCurrentScene(nextScene);
         } else {
-          setCurrentScene((prev) => Math.max(prev - 1, 0));
+          // Scroll UP = PREVIOUS scene
+          let prevScene = currentScene - 1;
+          if (prevScene < 0) prevScene = totalScenes - 1; // Loop to last
+          setCurrentScene(prevScene);
         }
         scrollDelta = 0;
-      }
 
-      setTimeout(() => {
-        isRotating = false;
-      }, 500);
+        // Set rotating state
+        setIsRotating(true);
+        clearTimeout(wheelRotationTimeout);
+        wheelRotationTimeout = setTimeout(() => {
+          setIsRotating(false);
+          isScrolling = false;
+        }, 800);
+      } else {
+        setTimeout(() => {
+          isScrolling = false;
+        }, 100);
+      }
     };
 
     // MOUSE DRAG EVENTS - for click and drag
     const handleMouseDown = (e: MouseEvent) => {
+      if (isRotating) return;
+
       setIsDragging(true);
       dragStartX.current = e.clientX;
       dragStartY.current = e.clientY;
@@ -146,7 +202,7 @@ export default function LandingPage() {
     };
 
     const handleMouseMove = (e: MouseEvent) => {
-      if (!isDragging) return;
+      if (!isDragging || isRotating) return;
 
       const deltaX = e.clientX - dragStartX.current;
       const deltaY = e.clientY - dragStartY.current;
@@ -156,13 +212,23 @@ export default function LandingPage() {
         Math.abs(deltaX) > dragThreshold
       ) {
         if (deltaX > 0) {
-          setCurrentScene((prev) => Math.max(prev - 1, 0));
+          // Drag right - previous scene
+          let prevScene = currentScene - 1;
+          if (prevScene < 0) prevScene = totalScenes - 1; // Loop to last
+          setCurrentScene(prevScene);
         } else {
-          setCurrentScene((prev) => Math.min(prev + 1, totalScenes - 1));
+          // Drag left - next scene
+          let nextScene = currentScene + 1;
+          if (nextScene >= totalScenes) nextScene = 0; // Loop back to first
+          setCurrentScene(nextScene);
         }
 
-        dragStartX.current = e.clientX;
         setIsDragging(false);
+        setIsRotating(true);
+
+        setTimeout(() => {
+          setIsRotating(false);
+        }, 800);
       }
     };
 
@@ -172,15 +238,15 @@ export default function LandingPage() {
 
     // TOUCH EVENTS - for mobile
     const handleTouchStart = (e: TouchEvent) => {
-      if (e.touches.length === 1) {
-        setIsDragging(true);
-        dragStartX.current = e.touches[0].clientX;
-        dragStartY.current = e.touches[0].clientY;
-      }
+      if (isRotating || e.touches.length !== 1) return;
+
+      setIsDragging(true);
+      dragStartX.current = e.touches[0].clientX;
+      dragStartY.current = e.touches[0].clientY;
     };
 
     const handleTouchMove = (e: TouchEvent) => {
-      if (!isDragging || e.touches.length !== 1) return;
+      if (!isDragging || isRotating || e.touches.length !== 1) return;
 
       const deltaX = e.touches[0].clientX - dragStartX.current;
       const deltaY = e.touches[0].clientY - dragStartY.current;
@@ -190,18 +256,49 @@ export default function LandingPage() {
         Math.abs(deltaX) > dragThreshold
       ) {
         if (deltaX > 0) {
-          setCurrentScene((prev) => Math.max(prev - 1, 0));
+          // Swipe right - previous scene
+          let prevScene = currentScene - 1;
+          if (prevScene < 0) prevScene = totalScenes - 1; // Loop to last
+          setCurrentScene(prevScene);
         } else {
-          setCurrentScene((prev) => Math.min(prev + 1, totalScenes - 1));
+          // Swipe left - next scene
+          let nextScene = currentScene + 1;
+          if (nextScene >= totalScenes) nextScene = 0; // Loop back to first
+          setCurrentScene(nextScene);
         }
 
-        dragStartX.current = e.touches[0].clientX;
         setIsDragging(false);
+        setIsRotating(true);
+
+        setTimeout(() => {
+          setIsRotating(false);
+        }, 800);
       }
     };
 
     const handleTouchEnd = () => {
       setIsDragging(false);
+    };
+
+    // KEYBOARD EVENTS - for arrow keys
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (isRotating) return;
+
+      if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+        // Next scene
+        let nextScene = currentScene + 1;
+        if (nextScene >= totalScenes) nextScene = 0;
+        setCurrentScene(nextScene);
+        setIsRotating(true);
+        setTimeout(() => setIsRotating(false), 800);
+      } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+        // Previous scene
+        let prevScene = currentScene - 1;
+        if (prevScene < 0) prevScene = totalScenes - 1;
+        setCurrentScene(prevScene);
+        setIsRotating(true);
+        setTimeout(() => setIsRotating(false), 800);
+      }
     };
 
     // Add all event listeners
@@ -212,6 +309,7 @@ export default function LandingPage() {
     window.addEventListener("touchstart", handleTouchStart);
     window.addEventListener("touchmove", handleTouchMove);
     window.addEventListener("touchend", handleTouchEnd);
+    window.addEventListener("keydown", handleKeyDown);
 
     // Cleanup function
     return () => {
@@ -222,10 +320,12 @@ export default function LandingPage() {
       window.removeEventListener("touchstart", handleTouchStart);
       window.removeEventListener("touchmove", handleTouchMove);
       window.removeEventListener("touchend", handleTouchEnd);
+      window.removeEventListener("keydown", handleKeyDown);
+      clearTimeout(wheelRotationTimeout);
     };
   };
 
-  // Update rotation when scene changes
+  // Update rotation when scene changes - INFINITE LOOP
   useEffect(() => {
     if (!hasEntered || !circleContainerRef.current) return;
 
@@ -233,10 +333,17 @@ export default function LandingPage() {
     const rotationPerScene = 360 / totalScenes;
     const rotation = -currentScene * rotationPerScene;
 
+    // Smooth rotation animation
     gsap.to(circleContainerRef.current, {
       rotationY: rotation,
-      duration: 1.5,
+      duration: 1.0, // Faster rotation
       ease: "power3.inOut",
+      onComplete: () => {
+        // Set rotating state to false after animation
+        setTimeout(() => {
+          setIsRotating(false);
+        }, 100);
+      },
     });
   }, [currentScene, hasEntered]);
 
@@ -244,11 +351,8 @@ export default function LandingPage() {
   useEffect(() => {
     if (!hasEntered) {
       document.body.style.overflow = "hidden";
-      document.body.style.position = "fixed";
-      document.body.style.width = "100%";
     } else {
-      document.body.style.overflow = "auto";
-      document.body.style.position = "relative";
+      document.body.style.overflow = "hidden"; // Keep hidden for wheel scrolling
     }
   }, [hasEntered]);
 
@@ -293,9 +397,27 @@ export default function LandingPage() {
     } else if (hasEntered) {
       document.body.style.cursor = "grab";
     } else {
-      document.body.style.cursor = "default";
+      document.body.style.cursor = "pointer";
     }
   }, [hasEntered, isDragging]);
+
+  // Auto-rotate infinite loop (after last scene, go back to first)
+  useEffect(() => {
+    if (!hasEntered) return;
+
+    const autoRotateInterval = setInterval(() => {
+      if (!isRotating) {
+        setCurrentScene((prev) => {
+          const next = prev + 1;
+          return next >= 4 ? 0 : next;
+        });
+        setIsRotating(true);
+        setTimeout(() => setIsRotating(false), 1000);
+      }
+    }, 10000); // Auto rotate every 10 seconds
+
+    return () => clearInterval(autoRotateInterval);
+  }, [hasEntered, isRotating]);
 
   return (
     <div
@@ -305,46 +427,46 @@ export default function LandingPage() {
         cursor: hasEntered ? (isDragging ? "grabbing" : "grab") : "default",
       }}
     >
-      {/* Hero Section (Scene 1) */}
+      {/* Hero Section (Scene 1) - FIXED BACKGROUND */}
       <div
         ref={heroRef}
         className={`fixed inset-0 z-50 flex items-center justify-center ${
           hasEntered ? "pointer-events-none opacity-0" : ""
         }`}
       >
-        {/* Minimal Background - Premium & Calm */}
+        {/* Main Background - For entire hero section */}
         <div className="absolute inset-0 bg-gradient-to-b from-neutral-950 via-black to-black" />
 
-        {/* Subtle ambient light */}
-        <div className="absolute inset-0 bg-gradient-radial from-white/5 via-transparent to-transparent opacity-50" />
+        {/* Background Image - ONLY for character section (not entire hero) */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[200vw] h-[200vh] bg-cover bg-center bg-no-repeat opacity-20"
+            style={{
+              backgroundImage: `url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1920&q=80')`,
+            }}
+          >
+            <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />
+          </div>
+        </div>
 
-        {/* Character - Centered, Prominent */}
+        {/* Subtle ambient light */}
+        <div className="absolute inset-0 bg-gradient-radial from-white/5 via-transparent to-transparent opacity-30" />
+
+        {/* Character Container - Centered */}
         <div
           ref={characterRef}
-          className="relative z-10 flex flex-col items-center justify-center"
+          className="relative z-20 flex flex-col items-center justify-center"
         >
-          {/* Background Image */}
-          <div className="absolute inset-0 w-full h-full overflow-hidden">
-            <div
-              className="w-full h-full bg-cover bg-center bg-no-repeat opacity-30"
-              style={{
-                backgroundImage: `url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1920&q=80')`,
-              }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/80" />
-            </div>
-          </div>
-
           {/* Single Character - Premium Design */}
-          <div className="relative mb-16 z-10">
+          <div className="relative mb-16">
             {/* Character Circle - Minimal & Elegant */}
-            <div className="w-56 h-56 md:w-72 md:h-72 rounded-full bg-gradient-to-br from-white/10 via-white/5 to-transparent border border-white/10 flex items-center justify-center backdrop-blur-[2px] shadow-2xl animate-float">
+            <div className="character-circle w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-white/10 via-white/5 to-transparent border-2 border-white/15 flex items-center justify-center backdrop-blur-[4px] shadow-2xl">
               {/* Inner glow */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/5 to-transparent" />
+              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/10 to-transparent" />
 
               {/* Character Icon */}
               <svg
-                className="w-32 h-32 md:w-40 md:h-40 text-white/90 relative z-10"
+                className="w-36 h-36 md:w-44 md:h-44 text-white/95 relative z-10"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -358,15 +480,16 @@ export default function LandingPage() {
               </svg>
             </div>
 
-            {/* Portal Ring - Round Circle Animation */}
+            {/* Portal Ring - Will appear from center */}
             <div
               ref={portalRef}
-              className="absolute rounded-full border-2 border-white/50 pointer-events-none"
+              className="absolute rounded-full border-2 border-white/60 pointer-events-none z-30"
               style={{
-                top: "50%",
+                position: "absolute",
                 left: "50%",
-                width: "120%",
-                height: "120%",
+                top: "50%",
+                width: "300px",
+                height: "300px",
                 transform: "translate(-50%, -50%)",
                 opacity: 0,
                 scale: 0,
@@ -379,13 +502,18 @@ export default function LandingPage() {
           {/* CTA Button - Clear & Premium */}
           <button
             onClick={handleEnterCircle}
-            className="group relative px-10 py-4 md:px-14 md:py-5 bg-white text-black rounded-full font-medium text-base md:text-lg tracking-wide hover:bg-white/95 transition-all duration-500 shadow-xl hover:shadow-2xl hover:scale-105 active:scale-100"
+            className="group relative px-12 py-5 md:px-16 md:py-6 bg-white text-black rounded-full font-medium text-lg md:text-xl tracking-wide hover:bg-white/95 transition-all duration-500 shadow-2xl hover:shadow-3xl hover:scale-105 active:scale-100 cursor-pointer z-20"
           >
             <span className="relative z-10">Enter the Circle</span>
 
             {/* Button glow effect */}
-            <div className="absolute inset-0 rounded-full bg-white/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute inset-0 rounded-full bg-white/30 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           </button>
+
+          {/* Instruction text */}
+          <p className="mt-10 text-white/50 text-sm font-light tracking-wide z-20">
+            Click to begin your journey
+          </p>
         </div>
       </div>
 
@@ -399,6 +527,15 @@ export default function LandingPage() {
           perspective: "2000px",
         }}
       >
+        {/* Background for story section */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-neutral-950 to-black" />
+
+        {/* Subtle rotating background effect */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl" />
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl" />
+        </div>
+
         {/* Circular Container - Rotates like Earth */}
         <div
           ref={circleContainerRef}
@@ -407,7 +544,7 @@ export default function LandingPage() {
             transformStyle: "preserve-3d",
           }}
         >
-          {/* Scene 2: Community - Position 0° */}
+          {/* Scene 1: Community - Position 0° */}
           <section
             className="story-section absolute w-full h-full flex items-center justify-center"
             style={{
@@ -420,7 +557,7 @@ export default function LandingPage() {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
                 {/* Character on left with Background Image */}
                 <div className="relative flex justify-center lg:justify-end">
-                  {/* Background Image */}
+                  {/* Background Image - ONLY for this section */}
                   <div className="absolute inset-0 -z-10 opacity-20">
                     <div
                       className="w-full h-full bg-cover bg-center rounded-2xl"
@@ -535,7 +672,7 @@ export default function LandingPage() {
             </div>
           </section>
 
-          {/* Scene 3: Events - Position 90° */}
+          {/* Scene 2: Events - Position 90° */}
           <section
             className="story-section absolute w-full h-full flex items-center justify-center"
             style={{
@@ -668,7 +805,7 @@ export default function LandingPage() {
             </div>
           </section>
 
-          {/* Scene 4: Matchmaking - Position 180° */}
+          {/* Scene 3: Matchmaking - Position 180° */}
           <section
             className="story-section absolute w-full h-full flex items-center justify-center"
             style={{
@@ -797,7 +934,7 @@ export default function LandingPage() {
             </div>
           </section>
 
-          {/* Scene 5: Final - Position 270° */}
+          {/* Scene 4: Final - Position 270° */}
           <section
             className="story-section absolute w-full h-full flex items-center justify-center"
             style={{
@@ -826,7 +963,6 @@ export default function LandingPage() {
                   <div className="absolute inset-0 flex items-center justify-center p-4">
                     {/* Background Image - Dummy/Placeholder */}
                     <div className="relative w-full h-full rounded-lg overflow-hidden">
-                      {/* Dummy Image - Using gradient as placeholder, can replace with actual image */}
                       <div
                         className="w-full h-full bg-cover bg-center bg-no-repeat"
                         style={{
@@ -919,8 +1055,52 @@ export default function LandingPage() {
                   </button>
                 </div>
               </div>
+
+              {/* Navigation Indicator */}
+              <div className="flex justify-center items-center gap-3 mt-16">
+                <div
+                  className={`h-2 rounded-full transition-all duration-300 ${currentScene === 0 ? "w-8 bg-white" : "w-2 bg-white/30"}`}
+                />
+                <div
+                  className={`h-2 rounded-full transition-all duration-300 ${currentScene === 1 ? "w-8 bg-white" : "w-2 bg-white/30"}`}
+                />
+                <div
+                  className={`h-2 rounded-full transition-all duration-300 ${currentScene === 2 ? "w-8 bg-white" : "w-2 bg-white/30"}`}
+                />
+                <div
+                  className={`h-2 rounded-full transition-all duration-300 ${currentScene === 3 ? "w-8 bg-white" : "w-2 bg-white/30"}`}
+                />
+              </div>
+
+              {/* Instruction text */}
+              <p className="text-center mt-8 text-white/50 text-sm font-light tracking-wide">
+                Scroll down for next • Scroll up for previous • Last scene loops
+                back to first
+              </p>
             </div>
           </section>
+        </div>
+
+        {/* Scroll instruction */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+          <div className="flex flex-col items-center gap-2 animate-bounce">
+            <svg
+              className="w-6 h-6 text-white/60"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M19 14l-7 7m0 0l-7-7m7 7V3"
+              />
+            </svg>
+            <p className="text-white/50 text-sm font-light">
+              Scroll to navigate
+            </p>
+          </div>
         </div>
       </div>
     </div>
