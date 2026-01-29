@@ -439,23 +439,23 @@ export default function LandingPage() {
     }
   }, [hasEntered, isDragging]);
 
-  // Auto-rotate infinite loop (after last scene, go back to first)
-  useEffect(() => {
-    if (!hasEntered) return;
+  // Auto-rotate disabled - only manual scroll/drag works
+  // useEffect(() => {
+  //   if (!hasEntered) return;
 
-    const autoRotateInterval = setInterval(() => {
-      if (!isRotating) {
-        setCurrentScene((prev) => {
-          const next = prev + 1;
-          return next >= 4 ? 0 : next;
-        });
-        setIsRotating(true);
-        setTimeout(() => setIsRotating(false), 1000);
-      }
-    }, 10000); // Auto rotate every 10 seconds
+  //   const autoRotateInterval = setInterval(() => {
+  //     if (!isRotating) {
+  //       setCurrentScene((prev) => {
+  //         const next = prev + 1;
+  //         return next >= 4 ? 0 : next;
+  //       });
+  //       setIsRotating(true);
+  //       setTimeout(() => setIsRotating(false), 1000);
+  //     }
+  //   }, 10000); // Auto rotate every 10 seconds
 
-    return () => clearInterval(autoRotateInterval);
-  }, [hasEntered, isRotating]);
+  //   return () => clearInterval(autoRotateInterval);
+  // }, [hasEntered, isRotating]);
 
   return (
     <div
@@ -635,18 +635,18 @@ export default function LandingPage() {
 
                   {/* Content Block on right - Professional Design */}
                   <div className="content-block space-y-8">
-                    <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 rounded-full text-xs font-semibold tracking-wider uppercase backdrop-blur-md border border-white/20">
-                      <div className="w-2 h-2 bg-white/60 rounded-full" />
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 rounded-full text-xs font-semibold tracking-wider uppercase backdrop-blur-md border border-white/20">
+                      <div className="w-1 h-1 bg-white/60 rounded-full" />
                       Community
                     </div>
 
-                    <h2 className="text-5xl md:text-7xl font-bold leading-[1.1] tracking-tight">
+                    <h2 className="text-5xl md:text-4xl font-bold leading-[1.1] tracking-tight">
                       Connect with
                       <br />
                       Like-Minded People
                     </h2>
 
-                    <p className="text-xl text-white/70 leading-relaxed max-w-xl font-light">
+                    <p className="text-md text-white/70 leading-relaxed max-w-xl font-light">
                       Join a vibrant community where meaningful connections are
                       made. Share experiences, build friendships, and grow
                       together.
@@ -777,8 +777,8 @@ export default function LandingPage() {
 
                     <p className="text-xl text-white/70 leading-relaxed max-w-xl font-light">
                       Discover and attend curated events that bring people
-                      together. From casual meetups to special occasions, there's
-                      always something happening.
+                      together. From casual meetups to special occasions,
+                      there's always something happening.
                     </p>
 
                     {/* Professional UI Cards */}
@@ -911,9 +911,9 @@ export default function LandingPage() {
                     </h2>
 
                     <p className="text-xl text-white/70 leading-relaxed max-w-xl font-light">
-                      Our intelligent matching system connects you with people who
-                      share your interests, values, and goals. Start meaningful
-                      conversations today.
+                      Our intelligent matching system connects you with people
+                      who share your interests, values, and goals. Start
+                      meaningful conversations today.
                     </p>
 
                     {/* Professional UI Cards */}
@@ -1090,8 +1090,9 @@ export default function LandingPage() {
                     Real Connections
                   </h2>
                   <p className="text-xl md:text-2xl text-white/60 leading-relaxed max-w-3xl mx-auto font-light">
-                    Experience the joy of genuine connections. Join Circle Society
-                    and start your journey toward meaningful relationships today.
+                    Experience the joy of genuine connections. Join Circle
+                    Society and start your journey toward meaningful
+                    relationships today.
                   </p>
 
                   {/* Professional Final CTAs */}
@@ -1124,8 +1125,8 @@ export default function LandingPage() {
 
                 {/* Instruction text */}
                 <p className="text-center mt-8 text-white/50 text-sm font-light tracking-wide">
-                  Scroll down for next • Scroll up for previous • Last scene loops
-                  back to first
+                  Scroll down for next • Scroll up for previous • Last scene
+                  loops back to first
                 </p>
               </div>
             </section>
