@@ -366,10 +366,9 @@ export default function LandingPage() {
 
     const handleMouseMove = (e: MouseEvent) => {
       const x = (e.clientX / window.innerWidth - 0.5) * 2;
-      const y = (e.clientY / window.innerHeight - 0.5) * 2;
-
+      // vertical tilt band kar diya, sirf left-right par subtle rotate
       const rotateY = x * 10; // left-right tilt
-      const rotateX = -y * 8; // up-down tilt
+      const rotateX = 0;
 
       gsap.to(worldRef.current, {
         rotationY: rotateY,
