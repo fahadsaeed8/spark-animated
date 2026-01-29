@@ -31,12 +31,6 @@ body {
   overflow-x: hidden;
 }
 
-@media (min-width: 768px) {
-  body {
-    cursor: none;
-  }
-}
-
 /* Smooth scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
@@ -61,35 +55,36 @@ body {
   color: #fff;
 }
 
-/* Animations */
+/* Minimal Animations - CSS Transforms Only */
 @keyframes float {
   0%, 100% {
     transform: translateY(0px);
   }
   50% {
-    transform: translateY(-20px);
+    transform: translateY(-15px);
   }
 }
 
-@keyframes pulse-glow {
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Radial gradient utility */
+.bg-gradient-radial {
+  background: radial-gradient(circle at center, var(--tw-gradient-stops));
+}
+
+/* Simple pulse - opacity only (no morphing) */
+@keyframes pulse {
   0%, 100% {
     opacity: 0.3;
-    transform: scale(1);
   }
   50% {
     opacity: 0.6;
-    transform: scale(1.1);
   }
 }
 
-/* Smooth transitions */
+/* Smooth transitions - minimal */
 * {
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Hide default cursor on interactive elements - Desktop only */
-@media (min-width: 768px) {
-  a, button, [role="button"] {
-    cursor: none;
-  }
+  transition-timing-function: ease-out;
 }
