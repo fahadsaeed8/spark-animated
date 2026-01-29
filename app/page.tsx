@@ -605,12 +605,12 @@ export default function LandingPage() {
                   <div className="relative flex justify-center lg:justify-end lg:items-center w-full max-w-full overflow-hidden">
                     {/* Background Image - ONLY for this section */}
                     <div className="absolute inset-0 -z-10 opacity-20 w-full max-w-full">
-                      <div
+                      {/* <div
                         className="w-full h-full bg-cover bg-center rounded-2xl max-w-full"
                         style={{
                           backgroundImage: `url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80')`,
                         }}
-                      />
+                      /> */}
                       <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent rounded-2xl" />
                     </div>
 
@@ -635,7 +635,7 @@ export default function LandingPage() {
 
                   {/* Content Block on right - Professional Design */}
                   <div className="content-block space-y-6 md:space-y-8 lg:pt-8 w-full max-w-full overflow-hidden">
-                    <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 rounded-full text-xs font-semibold tracking-wider uppercase backdrop-blur-md border border-white/20">
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-[10px] font-semibold tracking-wider uppercase ">
                       <div className="w-1 h-1 bg-white/60 rounded-full" />
                       Community
                     </div>
@@ -784,8 +784,8 @@ export default function LandingPage() {
 
                   {/* Content Block on right */}
                   <div className="content-block space-y-8 order-1 lg:order-2">
-                    <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 rounded-full text-xs font-semibold tracking-wider uppercase backdrop-blur-md border border-white/20">
-                      <div className="w-2 h-2 bg-white/60 rounded-full" />
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-[10px] font-semibold tracking-wider uppercase ">
+                      <div className="w-1 h-1 bg-white/60 rounded-full" />
                       Events
                     </div>
 
@@ -939,8 +939,8 @@ export default function LandingPage() {
 
                   {/* Content Block on right */}
                   <div className="content-block space-y-8">
-                    <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 rounded-full text-xs font-semibold tracking-wider uppercase backdrop-blur-md border border-white/20">
-                      <div className="w-2 h-2 bg-white/60 rounded-full" />
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-[10px] font-semibold tracking-wider uppercase ">
+                      <div className="w-1 h-1 bg-white/60 rounded-full" />
                       Matchmaking
                     </div>
 
