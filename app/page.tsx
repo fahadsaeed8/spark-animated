@@ -540,7 +540,7 @@ export default function LandingPage() {
           {/* CTA Button - Clear & Premium */}
           <button
             onClick={handleEnterCircle}
-            className="group relative px-12 py-5 md:px-16 md:py-6 bg-white text-black rounded-full font-medium text-lg md:text-xl tracking-wide hover:bg-white/95 transition-all duration-500 shadow-2xl hover:shadow-3xl hover:scale-105 active:scale-100 cursor-pointer z-20"
+            className="group relative px-12 py-5 md:px-16! md:py-6! my-10! bg-white text-black rounded-full font-medium text-lg md:text-xl tracking-wide hover:bg-white/95 transition-all duration-500 shadow-2xl hover:shadow-3xl hover:scale-105 active:scale-100 cursor-pointer z-20"
           >
             <span className="relative z-10">Enter the Circle</span>
 
@@ -592,21 +592,21 @@ export default function LandingPage() {
           >
             {/* Scene 1: Community - Position 0° */}
             <section
-              className="story-section absolute w-full h-full flex items-center justify-center"
+              className="story-section absolute w-full h-full flex items-center justify-center overflow-hidden"
               style={{
                 transform: "rotateY(0deg) translateZ(600px)",
                 transformStyle: "preserve-3d",
                 backfaceVisibility: "hidden",
               }}
             >
-              <div className="container mx-auto px-6 py-20 max-w-7xl">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+              <div className="container mx-auto px-4 md:px-6 lg:px-8 py-12 md:py-16 lg:py-20 max-w-7xl w-full">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-start">
                   {/* Character on left with Background Image */}
-                  <div className="relative flex justify-center lg:justify-end">
+                  <div className="relative flex justify-center lg:justify-end lg:items-center w-full max-w-full overflow-hidden">
                     {/* Background Image - ONLY for this section */}
-                    <div className="absolute inset-0 -z-10 opacity-20">
+                    <div className="absolute inset-0 -z-10 opacity-20 w-full max-w-full">
                       <div
-                        className="w-full h-full bg-cover bg-center rounded-2xl"
+                        className="w-full h-full bg-cover bg-center rounded-2xl max-w-full"
                         style={{
                           backgroundImage: `url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80')`,
                         }}
@@ -614,10 +614,10 @@ export default function LandingPage() {
                       <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent rounded-2xl" />
                     </div>
 
-                    <div className="story-character relative z-10">
-                      <div className="w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-white/15 via-white/8 to-transparent border-2 border-white/20 flex items-center justify-center backdrop-blur-md shadow-2xl">
+                    <div className="story-character relative z-10 w-full max-w-full flex justify-center lg:justify-end">
+                      <div className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 xl:w-80 xl:h-80 rounded-full bg-gradient-to-br from-white/15 via-white/8 to-transparent border-2 border-white/20 flex items-center justify-center backdrop-blur-md shadow-2xl flex-shrink-0">
                         <svg
-                          className="w-36 h-36 md:w-44 md:h-44 text-white/95"
+                          className="w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 lg:w-40 lg:h-40 xl:w-44 xl:h-44 text-white/95"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -634,30 +634,30 @@ export default function LandingPage() {
                   </div>
 
                   {/* Content Block on right - Professional Design */}
-                  <div className="content-block space-y-8">
+                  <div className="content-block space-y-6 md:space-y-8 lg:pt-8 w-full max-w-full overflow-hidden">
                     <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 rounded-full text-xs font-semibold tracking-wider uppercase backdrop-blur-md border border-white/20">
                       <div className="w-1 h-1 bg-white/60 rounded-full" />
                       Community
                     </div>
 
-                    <h2 className="text-5xl md:text-4xl font-bold leading-[1.1] tracking-tight">
+                    <h2 className="text-xl md:text-4xl lg:text-4xl font-bold leading-[1.1] tracking-tight">
                       Connect with
                       <br />
                       Like-Minded People
                     </h2>
 
-                    <p className="text-md text-white/70 leading-relaxed max-w-xl font-light">
+                    <p className="text-base md:text-sm text-white/70 leading-relaxed max-w-[60%] font-light">
                       Join a vibrant community where meaningful connections are
                       made. Share experiences, build friendships, and grow
                       together.
                     </p>
 
                     {/* Professional UI Cards */}
-                    <div className="grid grid-cols-3 gap-4 mt-10">
-                      <div className="content-card p-6 bg-white/5 rounded-xl border border-white/10 backdrop-blur-sm hover:bg-white/10 hover:border-white/20 transition-all duration-300 group">
-                        <div className="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center mb-4 group-hover:bg-white/20 transition-colors">
+                    <div className="grid grid-cols-2 gap-2 md:gap-3 lg:gap-0 mt-8 md:mt-10">
+                      <div className="">
+                        <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-white/10 flex items-center justify-center mb-3 md:mb-4 group-hover:bg-white/20 transition-colors">
                           <svg
-                            className="w-6 h-6 text-white/90"
+                            className="w-5 h-5 md:w-6 md:h-6 text-white/90"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
@@ -670,14 +670,14 @@ export default function LandingPage() {
                             />
                           </svg>
                         </div>
-                        <p className="text-sm font-medium text-white/80">
+                        <p className="text-xs md:text-sm font-medium text-white/80">
                           Groups
                         </p>
                       </div>
-                      <div className="content-card p-6 bg-white/5 rounded-xl border border-white/10 backdrop-blur-sm hover:bg-white/10 hover:border-white/20 transition-all duration-300 group">
-                        <div className="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center mb-4 group-hover:bg-white/20 transition-colors">
+                      <div className="">
+                        <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-white/10 flex items-center justify-center mb-3 md:mb-4 group-hover:bg-white/20 transition-colors">
                           <svg
-                            className="w-6 h-6 text-white/90"
+                            className="w-5 h-5 md:w-6 md:h-6 text-white/90"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
@@ -690,14 +690,14 @@ export default function LandingPage() {
                             />
                           </svg>
                         </div>
-                        <p className="text-sm font-medium text-white/80">
+                        <p className="text-xs md:text-sm font-medium text-white/80">
                           Chat
                         </p>
                       </div>
-                      <div className="content-card p-6 bg-white/5 rounded-xl border border-white/10 backdrop-blur-sm hover:bg-white/10 hover:border-white/20 transition-all duration-300 group">
-                        <div className="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center mb-4 group-hover:bg-white/20 transition-colors">
+                      <div className="">
+                        <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-white/10 flex items-center justify-center mb-3 md:mb-4 group-hover:bg-white/20 transition-colors">
                           <svg
-                            className="w-6 h-6 text-white/90"
+                            className="w-5 h-5 md:w-6 md:h-6 text-white/90"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
@@ -710,7 +710,27 @@ export default function LandingPage() {
                             />
                           </svg>
                         </div>
-                        <p className="text-sm font-medium text-white/80">
+                        <p className="text-xs md:text-sm font-medium text-white/80">
+                          Support
+                        </p>
+                      </div>
+                      <div className="">
+                        <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-white/10 flex items-center justify-center mb-3 md:mb-4 group-hover:bg-white/20 transition-colors">
+                          <svg
+                            className="w-5 h-5 md:w-6 md:h-6 text-white/90"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                            />
+                          </svg>
+                        </div>
+                        <p className="text-xs md:text-sm font-medium text-white/80">
                           Support
                         </p>
                       </div>
@@ -769,21 +789,21 @@ export default function LandingPage() {
                       Events
                     </div>
 
-                    <h2 className="text-5xl md:text-7xl font-bold leading-[1.1] tracking-tight">
+                    <h2 className="text-xl md:text-4xl font-bold leading-[1.1] tracking-tight">
                       Join Exciting
                       <br />
                       Gatherings
                     </h2>
 
-                    <p className="text-xl text-white/70 leading-relaxed max-w-xl font-light">
+                    <p className="text-sm text-white/70 leading-relaxed max-w-[60%] font-light">
                       Discover and attend curated events that bring people
                       together. From casual meetups to special occasions,
                       there's always something happening.
                     </p>
 
                     {/* Professional UI Cards */}
-                    <div className="grid grid-cols-3 gap-4 mt-10">
-                      <div className="content-card p-6 bg-white/5 rounded-xl border border-white/10 backdrop-blur-sm hover:bg-white/10 hover:border-white/20 transition-all duration-300 group">
+                    <div className="grid grid-cols-2 gap-4 mt-10">
+                      <div className="">
                         <div className="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center mb-4 group-hover:bg-white/20 transition-colors">
                           <svg
                             className="w-6 h-6 text-white/90"
@@ -803,7 +823,7 @@ export default function LandingPage() {
                           Calendar
                         </p>
                       </div>
-                      <div className="content-card p-6 bg-white/5 rounded-xl border border-white/10 backdrop-blur-sm hover:bg-white/10 hover:border-white/20 transition-all duration-300 group">
+                      <div className="">
                         <div className="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center mb-4 group-hover:bg-white/20 transition-colors">
                           <svg
                             className="w-6 h-6 text-white/90"
@@ -829,7 +849,27 @@ export default function LandingPage() {
                           Locations
                         </p>
                       </div>
-                      <div className="content-card p-6 bg-white/5 rounded-xl border border-white/10 backdrop-blur-sm hover:bg-white/10 hover:border-white/20 transition-all duration-300 group">
+                      <div className="">
+                        <div className="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center mb-4 group-hover:bg-white/20 transition-colors">
+                          <svg
+                            className="w-6 h-6 text-white/90"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                            />
+                          </svg>
+                        </div>
+                        <p className="text-sm font-medium text-white/80">
+                          RSVP
+                        </p>
+                      </div>
+                      <div className="">
                         <div className="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center mb-4 group-hover:bg-white/20 transition-colors">
                           <svg
                             className="w-6 h-6 text-white/90"
@@ -904,21 +944,21 @@ export default function LandingPage() {
                       Matchmaking
                     </div>
 
-                    <h2 className="text-5xl md:text-7xl font-bold leading-[1.1] tracking-tight">
+                    <h2 className="text-xl md:text-4xl font-bold leading-[1.1] tracking-tight">
                       Find Your
                       <br />
                       Perfect Match
                     </h2>
 
-                    <p className="text-xl text-white/70 leading-relaxed max-w-xl font-light">
+                    <p className="text-sm text-white/70 leading-relaxed max-w-[60%] font-light">
                       Our intelligent matching system connects you with people
                       who share your interests, values, and goals. Start
                       meaningful conversations today.
                     </p>
 
                     {/* Professional UI Cards */}
-                    <div className="grid grid-cols-3 gap-4 mt-10">
-                      <div className="content-card p-6 bg-white/5 rounded-xl border border-white/10 backdrop-blur-sm hover:bg-white/10 hover:border-white/20 transition-all duration-300 group">
+                    <div className="grid grid-cols-2 gap-4 mt-10">
+                      <div className="">
                         <div className="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center mb-4 group-hover:bg-white/20 transition-colors">
                           <svg
                             className="w-6 h-6 text-white/90"
@@ -938,7 +978,7 @@ export default function LandingPage() {
                           Smart AI
                         </p>
                       </div>
-                      <div className="content-card p-6 bg-white/5 rounded-xl border border-white/10 backdrop-blur-sm hover:bg-white/10 hover:border-white/20 transition-all duration-300 group">
+                      <div className="">
                         <div className="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center mb-4 group-hover:bg-white/20 transition-colors">
                           <svg
                             className="w-6 h-6 text-white/90"
@@ -958,7 +998,27 @@ export default function LandingPage() {
                           Compatibility
                         </p>
                       </div>
-                      <div className="content-card p-6 bg-white/5 rounded-xl border border-white/10 backdrop-blur-sm hover:bg-white/10 hover:border-white/20 transition-all duration-300 group">
+                      <div className="">
+                        <div className="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center mb-4 group-hover:bg-white/20 transition-colors">
+                          <svg
+                            className="w-6 h-6 text-white/90"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
+                            />
+                          </svg>
+                        </div>
+                        <p className="text-sm font-medium text-white/80">
+                          Messages
+                        </p>
+                      </div>
+                      <div className="">
                         <div className="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center mb-4 group-hover:bg-white/20 transition-colors">
                           <svg
                             className="w-6 h-6 text-white/90"
