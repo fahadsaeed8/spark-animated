@@ -11,6 +11,8 @@ gsap.registerPlugin(ScrollTrigger);
 export default function Home() {
   const collageSectionRef = useRef<HTMLElement>(null);
   const imageRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const downloadSectionRef = useRef<HTMLElement>(null);
+  const phoneRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   // Image paths - using hero.png as placeholder for now, user can change later
   const images = [
@@ -93,6 +95,79 @@ export default function Home() {
         },
       });
     });
+
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => {
+        if (trigger.vars.trigger === section) {
+          trigger.kill();
+        }
+      });
+    };
+  }, []);
+
+  // Flip animation for download section phones - DISABLED FOR NOW (design first)
+  // Will enable after design is finalized
+  useEffect(() => {
+    if (!downloadSectionRef.current) return;
+
+    const section = downloadSectionRef.current;
+    const phoneElements = phoneRefs.current.filter(Boolean) as HTMLDivElement[];
+
+    if (phoneElements.length === 0) return;
+
+    // Set all phones to show front initially (no animation for now)
+    phoneElements.forEach((phoneEl) => {
+      const flipCard = phoneEl.querySelector(".phone-flip-card") as HTMLElement;
+      if (!flipCard) return;
+      gsap.set(flipCard, {
+        rotationY: 0,
+        transformStyle: "preserve-3d",
+      });
+    });
+
+    // Animation code commented out - will enable later
+    /*
+    // Create scroll trigger for phone flip animations
+    phoneElements.forEach((phoneEl, index) => {
+      const flipCard = phoneEl.querySelector(".phone-flip-card") as HTMLElement;
+      if (!flipCard) return;
+
+      // Set initial state - all phones show back initially
+      gsap.set(flipCard, {
+        rotationY: 180,
+        transformStyle: "preserve-3d",
+      });
+
+      // Create scroll trigger for this phone with staggered timing
+      ScrollTrigger.create({
+        trigger: section,
+        start: "top 85%",
+        end: "top 15%",
+        scrub: 1,
+        onUpdate: (self) => {
+          const progress = self.progress;
+          // Stagger the flip animations - each phone flips at different scroll points
+          const delay = index * 0.15; // 0, 0.15, 0.3
+          const flipDuration = 0.4; // Each flip takes 40% of scroll
+          const startProgress = delay;
+          const endProgress = delay + flipDuration;
+          
+          if (progress < startProgress) {
+            // Before flip - show back
+            gsap.set(flipCard, { rotationY: 180 });
+          } else if (progress >= startProgress && progress <= endProgress) {
+            // During flip - animate rotation
+            const localProgress = (progress - startProgress) / flipDuration;
+            const rotation = 180 - localProgress * 180;
+            gsap.set(flipCard, { rotationY: rotation });
+          } else {
+            // After flip - show front
+            gsap.set(flipCard, { rotationY: 0 });
+          }
+        },
+      });
+    });
+    */
 
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => {
@@ -569,80 +644,231 @@ export default function Home() {
       </section>
 
       {/* DOWNLOAD APP SECTION */}
-      <section className="bg-[#f5f5f0] py-16 px-6 md:py-24 md:px-12">
-        <div className="mx-auto max-w-6xl">
-          <h2 className="mb-12 text-center text-3xl font-normal text-gray-900 md:text-4xl lg:text-5xl">
-            Download the App Now
-          </h2>
+      <section
+        ref={downloadSectionRef}
+        className="bg-[#f5f5f0] py-16 px-6 md:py-24 md:px-12 relative overflow-hidden"
+      >
+        {/* Decorative Background Elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {/* Circular Lines - Thin abstract circles */}
 
-          {/* Phone Mockups */}
-          <div className="relative mb-12 flex justify-center">
-            <div className="relative flex items-center justify-center gap-4 md:gap-8">
-              {/* Left Phone */}
-              <div className="relative z-10 w-32 transform md:w-48 lg:w-56">
-                <div className="relative rounded-[2rem] bg-gray-900 p-2 shadow-2xl">
-                  <div className="aspect-[9/19] rounded-[1.5rem] bg-white overflow-hidden">
-                    <div className="h-full w-full bg-gradient-to-b from-gray-100 to-gray-200"></div>
+          <Image
+            src="/Group 35887.svg"
+            alt="Community Groups"
+            width={210}
+            height={210}
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] opacity-30"
+          />
+
+          {/* Star-like Elements */}
+          <div className="absolute top-[15%] left-[8%] w-2 h-2 bg-[#B8860B] rounded-full opacity-40 blur-[1px]"></div>
+          <div className="absolute bottom-[20%] right-[12%] w-1.5 h-1.5 bg-[#B8860B] rounded-full opacity-50 blur-[1px]"></div>
+        </div>
+
+        <div className="mx-auto max-w-7xl relative z-10">
+          {/* Split Heading with Phones in Middle */}
+          <div className="relative mb-16 md:mb-20">
+            {/* Text and Phones Container */}
+            <div className="relative flex items-center justify-between min-h-[350px] md:min-h-[450px] lg:min-h-[550px] px-4 md:px-8">
+              {/* Left Text: "Download" */}
+              <div className="flex-shrink-0 z-10">
+                <Image
+                  src="/Download The App Now.svg"
+                  alt="Community Groups"
+                  width={210}
+                  height={210}
+                  className="w-full h-full"
+                />
+              </div>
+
+              {/* Phones in Center - Overlapping */}
+              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center z-20">
+                {/* Left Phone */}
+                <div
+                  ref={(el) => {
+                    phoneRefs.current[0] = el;
+                  }}
+                  className="relative z-10 w-24 md:w-40 lg:w-48 xl:w-56 transform -rotate-[8deg] md:-rotate-[10deg] -ml-4 md:-ml-8"
+                  style={{ perspective: "1000px" }}
+                >
+                  <div
+                    className="phone-flip-card h-full w-full"
+                    style={{
+                      transformStyle: "preserve-3d",
+                      transform: "rotateY(0deg)",
+                    }}
+                  >
+                    {/* Front - Phone with Screen */}
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        backfaceVisibility: "hidden",
+                        transform: "rotateY(0deg)",
+                      }}
+                    >
+                      <div className="relative rounded-[2rem] bg-gray-900 p-1.5 md:p-2 shadow-2xl">
+                        <div className="aspect-[9/19] rounded-[1.5rem] bg-white overflow-hidden">
+                          <Image
+                            width={100}
+                            height={100}
+                            src="/iPhone-13-Pro-Front.svg"
+                            alt="App Screen 1"
+                            className="w-full h-full"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    {/* Back - Phone Back */}
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        backfaceVisibility: "hidden",
+                        transform: "rotateY(180deg)",
+                      }}
+                    >
+                      <div className="relative rounded-[2rem] bg-gray-900 p-1.5 md:p-2 shadow-2xl">
+                        <div className="aspect-[9/19] rounded-[1.5rem] bg-gradient-to-b from-gray-800 to-gray-900"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Middle Phone */}
+                <div
+                  ref={(el) => {
+                    phoneRefs.current[1] = el;
+                  }}
+                  className="relative z-20 w-28 md:w-48 lg:w-56 xl:w-64 transform rotate-[2deg] md:rotate-[3deg]"
+                  style={{ perspective: "1000px" }}
+                >
+                  <div
+                    className="phone-flip-card h-full w-full"
+                    style={{
+                      transformStyle: "preserve-3d",
+                      transform: "rotateY(0deg)",
+                    }}
+                  >
+                    {/* Front - Phone with Screen */}
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        backfaceVisibility: "hidden",
+                        transform: "rotateY(0deg)",
+                      }}
+                    >
+                      <div className="relative rounded-[2rem] bg-gray-900 p-1.5 md:p-2 shadow-2xl">
+                        <div className="aspect-[9/19] rounded-[1.5rem] bg-white overflow-hidden">
+                          <Image
+                            src="/iPhone-13-Pro-Front (1).svg"
+                            alt="App Screen 2"
+                            fill
+                            className="object-cover"
+                            unoptimized
+                            onError={(e) => {
+                              (
+                                e.target as HTMLImageElement
+                              ).style.backgroundColor = "#16a34a";
+                            }}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    {/* Back - Phone Back */}
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        backfaceVisibility: "hidden",
+                        transform: "rotateY(180deg)",
+                      }}
+                    >
+                      <div className="relative rounded-[2rem] bg-gray-900 p-1.5 md:p-2 shadow-2xl">
+                        <div className="aspect-[9/19] rounded-[1.5rem] bg-gradient-to-b from-gray-800 to-gray-900"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right Phone */}
+                <div
+                  ref={(el) => {
+                    phoneRefs.current[2] = el;
+                  }}
+                  className="relative z-10 w-24 md:w-40 lg:w-48 xl:w-56 transform rotate-[12deg] md:rotate-[15deg] -mr-4 md:-mr-8"
+                  style={{ perspective: "1000px" }}
+                >
+                  <div
+                    className="phone-flip-card h-full w-full"
+                    style={{
+                      transformStyle: "preserve-3d",
+                      transform: "rotateY(0deg)",
+                    }}
+                  >
+                    {/* Front - Phone with Screen */}
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        backfaceVisibility: "hidden",
+                        transform: "rotateY(0deg)",
+                      }}
+                    >
+                      <div className="relative rounded-[2rem] bg-gray-900 p-1.5 md:p-2 shadow-2xl">
+                        <div className="aspect-[9/19] rounded-[1.5rem] bg-white overflow-hidden">
+                          <Image
+                            src="/iPhone-13-Pro-Front (2).svg"
+                            alt="App Screen 3"
+                            fill
+                            className="object-cover"
+                            unoptimized
+                            onError={(e) => {
+                              (
+                                e.target as HTMLImageElement
+                              ).style.backgroundColor = "#15803d";
+                            }}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    {/* Back - Phone Back */}
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        backfaceVisibility: "hidden",
+                        transform: "rotateY(180deg)",
+                      }}
+                    >
+                      <div className="relative rounded-[2rem] bg-gray-900 p-1.5 md:p-2 shadow-2xl">
+                        <div className="aspect-[9/19] rounded-[1.5rem] bg-gradient-to-b from-gray-800 to-gray-900"></div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-
-              {/* Middle Phone */}
-              <div className="relative z-20 w-36 transform md:w-56 lg:w-64">
-                <div className="relative rounded-[2rem] bg-gray-900 p-2 shadow-2xl">
-                  <div className="aspect-[9/19] rounded-[1.5rem] bg-gray-800 overflow-hidden">
-                    <div className="h-full w-full bg-gradient-to-b from-gray-700 to-gray-900"></div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right Phone */}
-              <div className="relative z-10 w-32 transform md:w-48 lg:w-56">
-                <div className="relative rounded-[2rem] bg-gray-900 p-2 shadow-2xl">
-                  <div className="aspect-[9/19] rounded-[1.5rem] bg-white overflow-hidden">
-                    <div className="h-full w-full bg-gradient-to-b from-gray-50 to-gray-100"></div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Golden Glow Effect */}
-              <div
-                className="absolute inset-0 -z-10 blur-3xl"
-                style={{
-                  background:
-                    "radial-gradient(circle, rgba(251, 191, 36, 0.2) 0%, rgba(253, 224, 71, 0.1) 50%, transparent 100%)",
-                }}
-              ></div>
             </div>
-          </div>
 
-          {/* Download Buttons */}
-          <div className="flex flex-wrap justify-center gap-4">
-            <button className="flex items-center gap-3 rounded-lg bg-black px-6 py-3 text-sm font-medium text-white transition hover:bg-gray-800 md:px-8 md:py-4">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M3 20.5v-17c0-.59.34-1.11.84-1.35L13.69 12l-9.85 9.85c-.5-.24-.84-.76-.84-1.35zm13.81-5.38L6.05 21.34l8.49-8.49 2.27 2.27zm4.12-6.01c.19-.2.19-.52 0-.72l-4.24-4.24c-.2-.2-.52-.2-.72 0L5.57 11.72c-.19.2-.19.52 0 .72l4.24 4.24c.2.2.52.2.72 0l6.4-6.4zm-1.06 7.98l-2.27-2.27-8.49 8.49 10.76-6.22z" />
-              </svg>
-              Get it on Google Play
-            </button>
+            {/* Download Buttons - Positioned below text */}
+            <div className="flex flex-wrap justify-between items-start gap-4 mt-8 md:mt-12 px-4 md:px-8">
+              {/* Left Button - Below "Download" */}
+              <div className="flex-1 min-w-[200px] max-w-[280px]">
+                <Image
+                  src="/Store download button.svg"
+                  alt="Google Play"
+                  width={24}
+                  height={24}
+                  className="w-full h-full flex-shrink-0"
+                />
+              </div>
 
-            <button className="flex items-center gap-3 rounded-lg bg-black px-6 py-3 text-sm font-medium text-white transition hover:bg-gray-800 md:px-8 md:py-4">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.4C1.79 15.25 2.18 8.13 9.5 7.9c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.9c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" />
-              </svg>
-              Download on the App Store
-            </button>
+              {/* Right Button - Below "App Now" */}
+              <div className="flex-1 min-w-[200px] max-w-[280px] ml-auto">
+                <Image
+                  src="/Store download button (1).svg"
+                  alt="App Store"
+                  width={24}
+                  height={24}
+                  className="w-full h-full flex-shrink-0"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
