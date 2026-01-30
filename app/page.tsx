@@ -76,11 +76,12 @@ export default function Home() {
         scrub: 1,
         onUpdate: (self) => {
           const progress = self.progress;
-          
+
           if (progress >= startProgress && progress <= endProgress) {
             // Calculate rotation based on progress within this image's range
-            const localProgress = (progress - startProgress) / (endProgress - startProgress);
-            const rotation = 180 - (localProgress * 180);
+            const localProgress =
+              (progress - startProgress) / (endProgress - startProgress);
+            const rotation = 180 - localProgress * 180;
             gsap.set(flipCard, { rotationY: rotation });
           } else if (progress < startProgress) {
             // Before this image's turn - show back (except first image)
@@ -193,15 +194,15 @@ export default function Home() {
       </section>
 
       {/* WHO WE ARE SECTION */}
-      <section className="bg-[#f5f5f0] py-16 px-6 md:py-24 md:px-12">
+      <section className="bg-[#f5f5f0] py-16 px-6 md:py-18 md:px-12">
         <div className="mx-auto max-w-4xl text-center">
-          <h2 className="mb-4 font-clash text-2xl font-normal text-green-700 md:text-3xl">
+          <h2 className="mb-4 text-2xl font-medium text-[#2F5D50] md:text-3xl">
             Who we are
           </h2>
-          <h3 className="mb-6 font-clash text-3xl font-semibold text-gray-900 md:text-4xl lg:text-5xl">
+          <h3 className="mb-6 font-clash text-3xl font-medium text-[#1B1B1B] md:text-4xl lg:text-5xl">
             A Social App for Real People
           </h3>
-          <p className="text-base leading-relaxed text-gray-700 md:text-lg">
+          <p className="text-base leading-relaxed text-[#5A5A5A] md:text-xl">
             Circle Society is designed to help you build meaningful connections
             — through interest-based communities, local events, and thoughtful
             interactions. No pretense, no pressure — just authentic social
@@ -211,26 +212,36 @@ export default function Home() {
       </section>
 
       {/* EASY AND SAFE FEATURES SECTION */}
-      <section className="bg-[#f5f5f0] py-16 px-6 md:py-24 md:px-12">
-        <div className="mx-auto max-w-6xl">
-          <h2 className="mb-4 text-center font-clash text-2xl font-normal text-gray-800 md:text-3xl">
+      <section className="py-16 px-6 bg-[#fbead0] md:py-24 md:px-12 relative">
+        {/* Background Image */}
+        <div
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage: "url('/Background-grey.svg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+          }}
+        ></div>
+        <div className="mx-auto max-w-6xl relative z-10">
+          <h2 className="mb-4 text-center font-clash text-2xl font-medium text-[#1B1B1B] md:text-5xl">
             Easy and safe features
           </h2>
-          <h3 className="mb-12 text-center font-clash text-3xl font-normal text-gray-900 md:text-4xl">
+          <h2 className="mb-4 text-center font-clash text-2xl font-medium text-[#1B1B1B] md:text-5xl">
             of The Circle Society app
-          </h3>
+          </h2>
 
           {/* Feature Cards */}
-          <div className="grid gap-8 md:grid-cols-3 md:gap-6 lg:gap-8">
+          <div className="grid gap-8 md:grid-cols-3 md:gap-6 md:mt-20 lg:gap-8">
             {/* Feature 1: Community Groups */}
             <div className="text-center">
               <div className="mb-6 flex justify-center">
-                <div className="rounded-lg bg-white p-8 shadow-sm">
+                <div>
                   <Image
-                    src="/Layer_1.svg"
+                    src="/Dating on POF.svg"
                     alt="Community Groups"
-                    width={120}
-                    height={120}
+                    width={220}
+                    height={220}
                     className="mx-auto"
                   />
                 </div>
@@ -247,12 +258,12 @@ export default function Home() {
             {/* Feature 2: Events You'll Love */}
             <div className="text-center">
               <div className="mb-6 flex justify-center">
-                <div className="rounded-lg bg-white p-8 shadow-sm">
+                <div>
                   <Image
-                    src="/Dating on POF.svg"
+                    src="/For our anniversary, this fool got me a card that read, 'You're the best thing I've ever found on the Internet._'.svg"
                     alt="Events You'll Love"
-                    width={120}
-                    height={120}
+                    width={220}
+                    height={220}
                     className="mx-auto"
                   />
                 </div>
@@ -268,12 +279,12 @@ export default function Home() {
             {/* Feature 3: Match & Connect */}
             <div className="text-center">
               <div className="mb-6 flex justify-center">
-                <div className="rounded-lg bg-white p-8 shadow-sm">
+                <div>
                   <Image
                     src="/pof_illustration_heart_hi.webp.svg"
                     alt="Match & Connect"
-                    width={120}
-                    height={120}
+                    width={220}
+                    height={220}
                     className="mx-auto"
                   />
                 </div>
@@ -346,7 +357,8 @@ export default function Home() {
                         style={{
                           backfaceVisibility: "hidden",
                           transform: "rotateY(180deg)",
-                          background: "linear-gradient(to bottom right, #4b5563, #1f2937)",
+                          background:
+                            "linear-gradient(to bottom right, #4b5563, #1f2937)",
                         }}
                       ></div>
                     </div>
@@ -359,20 +371,95 @@ export default function Home() {
                   {images
                     .filter((img) => !img.isCentral)
                     .map((img, idx) => {
-                      const positions: Record<string, { top?: string; left?: string; right?: string; bottom?: string; width: string; height: string }> = {
-                        "top-left": { top: "0%", left: "0%", width: "20%", height: "25%" },
-                        "top-middle-left": { top: "0%", left: "25%", width: "18%", height: "22%" },
-                        "top-middle-right": { top: "5%", right: "25%", width: "15%", height: "20%" },
-                        "top-right": { top: "0%", right: "0%", width: "18%", height: "25%" },
-                        "middle-left-1": { top: "30%", left: "0%", width: "20%", height: "22%" },
-                        "middle-left-2": { top: "55%", left: "5%", width: "18%", height: "20%" },
-                        "middle-right-1": { top: "35%", right: "5%", width: "15%", height: "18%" },
-                        "middle-right-2": { top: "25%", right: "20%", width: "18%", height: "25%" },
-                        "bottom-left-1": { top: "75%", left: "0%", width: "22%", height: "25%" },
-                        "bottom-left-2": { top: "70%", left: "25%", width: "18%", height: "20%" },
-                        "bottom-middle": { top: "80%", left: "45%", width: "15%", height: "20%" },
-                        "bottom-right-1": { top: "75%", right: "20%", width: "18%", height: "22%" },
-                        "bottom-right-2": { top: "70%", right: "0%", width: "20%", height: "25%" },
+                      const positions: Record<
+                        string,
+                        {
+                          top?: string;
+                          left?: string;
+                          right?: string;
+                          bottom?: string;
+                          width: string;
+                          height: string;
+                        }
+                      > = {
+                        "top-left": {
+                          top: "0%",
+                          left: "0%",
+                          width: "20%",
+                          height: "25%",
+                        },
+                        "top-middle-left": {
+                          top: "0%",
+                          left: "25%",
+                          width: "18%",
+                          height: "22%",
+                        },
+                        "top-middle-right": {
+                          top: "5%",
+                          right: "25%",
+                          width: "15%",
+                          height: "20%",
+                        },
+                        "top-right": {
+                          top: "0%",
+                          right: "0%",
+                          width: "18%",
+                          height: "25%",
+                        },
+                        "middle-left-1": {
+                          top: "30%",
+                          left: "0%",
+                          width: "20%",
+                          height: "22%",
+                        },
+                        "middle-left-2": {
+                          top: "55%",
+                          left: "5%",
+                          width: "18%",
+                          height: "20%",
+                        },
+                        "middle-right-1": {
+                          top: "35%",
+                          right: "5%",
+                          width: "15%",
+                          height: "18%",
+                        },
+                        "middle-right-2": {
+                          top: "25%",
+                          right: "20%",
+                          width: "18%",
+                          height: "25%",
+                        },
+                        "bottom-left-1": {
+                          top: "75%",
+                          left: "0%",
+                          width: "22%",
+                          height: "25%",
+                        },
+                        "bottom-left-2": {
+                          top: "70%",
+                          left: "25%",
+                          width: "18%",
+                          height: "20%",
+                        },
+                        "bottom-middle": {
+                          top: "80%",
+                          left: "45%",
+                          width: "15%",
+                          height: "20%",
+                        },
+                        "bottom-right-1": {
+                          top: "75%",
+                          right: "20%",
+                          width: "18%",
+                          height: "22%",
+                        },
+                        "bottom-right-2": {
+                          top: "70%",
+                          right: "0%",
+                          width: "20%",
+                          height: "25%",
+                        },
                       };
 
                       const pos = positions[img.position || ""] || {};
