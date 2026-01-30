@@ -95,16 +95,16 @@ export default function Home() {
       {/* WHO WE ARE SECTION */}
       <section className="bg-[#f5f5f0] py-16 px-6 md:py-24 md:px-12">
         <div className="mx-auto max-w-4xl text-center">
-          <h2 className="mb-4 text-2xl font-normal text-gray-800 md:text-3xl">
+          <h2 className="mb-4 font-clash text-2xl font-normal text-green-700 md:text-3xl">
             Who we are
           </h2>
-          <h3 className="mb-6 text-3xl font-normal text-gray-900 md:text-4xl lg:text-5xl">
+          <h3 className="mb-6 font-clash text-3xl font-semibold text-gray-900 md:text-4xl lg:text-5xl">
             A Social App for Real People
           </h3>
           <p className="text-base leading-relaxed text-gray-700 md:text-lg">
             Circle Society is designed to help you build meaningful connections
-            — through interest-based communal, social actions, and thoughtful
-            introductions. No pretense, no pressure — just authentic social
+            — through interest-based communities, local events, and thoughtful
+            interactions. No pretense, no pressure — just authentic social
             experiences.
           </p>
         </div>
@@ -113,10 +113,10 @@ export default function Home() {
       {/* EASY AND SAFE FEATURES SECTION */}
       <section className="bg-[#f5f5f0] py-16 px-6 md:py-24 md:px-12">
         <div className="mx-auto max-w-6xl">
-          <h2 className="mb-4 text-center text-2xl font-normal text-gray-800 md:text-3xl">
+          <h2 className="mb-4 text-center font-clash text-2xl font-normal text-gray-800 md:text-3xl">
             Easy and safe features
           </h2>
-          <h3 className="mb-12 text-center text-3xl font-normal text-gray-900 md:text-4xl">
+          <h3 className="mb-12 text-center font-clash text-3xl font-normal text-gray-900 md:text-4xl">
             of The Circle Society app
           </h3>
 
@@ -126,80 +126,20 @@ export default function Home() {
             <div className="text-center">
               <div className="mb-6 flex justify-center">
                 <div className="rounded-lg bg-white p-8 shadow-sm">
-                  <svg
-                    width="120"
-                    height="120"
-                    viewBox="0 0 120 120"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="text-gray-800"
-                    style={{ filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.1))" }}
-                  >
-                    {/* Top box - sketchy style */}
-                    <path
-                      d="M20 10 L100 10 L100 50 L20 50 Z"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      fill="none"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    <text
-                      x="60"
-                      y="32"
-                      textAnchor="middle"
-                      fontSize="9"
-                      fill="currentColor"
-                      fontFamily="Arial, sans-serif"
-                    >
-                      Where we can be you.
-                    </text>
-                    {/* Bottom left box */}
-                    <path
-                      d="M20 60 L55 60 L55 95 L20 95 Z"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      fill="none"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    {/* Fish icon */}
-                    <path
-                      d="M30 75 Q37.5 70, 37.5 75 Q37.5 80, 30 75"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      fill="none"
-                    />
-                    <circle cx="32" cy="75" r="1.5" fill="currentColor" />
-                    {/* Bottom right box */}
-                    <path
-                      d="M65 60 L100 60 L100 95 L65 95 Z"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      fill="none"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    {/* House icon */}
-                    <path
-                      d="M75 70 L82.5 65 L90 70 L90 85 L75 85 Z"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      fill="none"
-                    />
-                    <path
-                      d="M80 85 L80 75"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                    />
-                  </svg>
+                  <Image
+                    src="/Layer_1.svg"
+                    alt="Community Groups"
+                    width={120}
+                    height={120}
+                    className="mx-auto"
+                  />
                 </div>
               </div>
-              <h4 className="mb-3 text-xl font-medium text-gray-900">
+              <h4 className="mb-3 font-clash text-xl font-medium text-gray-900">
                 Community Groups
               </h4>
               <p className="text-sm leading-relaxed text-gray-700 md:text-base">
-                Join groups based on your passion — from hobbies to faith, food
+                Join groups based on your passions — from fitness to faith, food
                 to family.
               </p>
             </div>
@@ -208,103 +148,20 @@ export default function Home() {
             <div className="text-center">
               <div className="mb-6 flex justify-center">
                 <div className="rounded-lg bg-white p-8 shadow-sm">
-                  <svg
-                    width="120"
-                    height="120"
-                    viewBox="0 0 120 120"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="text-gray-800"
-                    style={{ filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.1))" }}
-                  >
-                    {/* Left person - heart head */}
-                    <path
-                      d="M35 28 C35 20, 42 15, 50 20 C58 15, 65 20, 65 28 C65 35, 50 50, 50 50 C50 50, 35 35, 35 28 Z"
-                      fill="currentColor"
-                      opacity="0.2"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                    />
-                    <line
-                      x1="50"
-                      y1="50"
-                      x2="50"
-                      y2="75"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                    />
-                    <line
-                      x1="50"
-                      y1="75"
-                      x2="38"
-                      y2="90"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                    />
-                    <line
-                      x1="50"
-                      y1="75"
-                      x2="62"
-                      y2="90"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                    />
-
-                    {/* Right person - heart head */}
-                    <path
-                      d="M85 28 C85 20, 92 15, 100 20 C108 15, 115 20, 115 28 C115 35, 100 50, 100 50 C100 50, 85 35, 85 28 Z"
-                      fill="currentColor"
-                      opacity="0.2"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                    />
-                    <line
-                      x1="100"
-                      y1="50"
-                      x2="100"
-                      y2="75"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                    />
-                    <line
-                      x1="100"
-                      y1="75"
-                      x2="88"
-                      y2="90"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                    />
-                    <line
-                      x1="100"
-                      y1="75"
-                      x2="112"
-                      y2="90"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                    />
-
-                    {/* Holding hands */}
-                    <path
-                      d="M62 70 Q70 70, 78 70"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      fill="none"
-                    />
-                  </svg>
+                  <Image
+                    src="/Dating on POF.svg"
+                    alt="Events You'll Love"
+                    width={120}
+                    height={120}
+                    className="mx-auto"
+                  />
                 </div>
               </div>
-              <h4 className="mb-3 text-xl font-medium text-gray-900">
+              <h4 className="mb-3 font-clash text-xl font-medium text-gray-900">
                 Events You'll Love
               </h4>
               <p className="text-sm leading-relaxed text-gray-700 md:text-base">
-                Find and create social meetups and experiences that matter.
+                Find and create local meetups and experiences that matter.
               </p>
             </div>
 
@@ -312,49 +169,16 @@ export default function Home() {
             <div className="text-center">
               <div className="mb-6 flex justify-center">
                 <div className="rounded-lg bg-white p-8 shadow-sm">
-                  <svg
-                    width="120"
-                    height="120"
-                    viewBox="0 0 120 120"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="text-gray-800"
-                    style={{ filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.1))" }}
-                  >
-                    {/* Heart */}
-                    <path
-                      d="M60 35 C55 25, 45 25, 45 35 C45 40, 60 55, 60 55 C60 55, 75 40, 75 35 C75 25, 65 25, 60 35 Z"
-                      fill="currentColor"
-                      opacity="0.2"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    {/* Speech bubble */}
-                    <path
-                      d="M50 70 L90 70 L90 90 L65 90 L60 95 L60 90 L50 90 Z"
-                      fill="white"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    <text
-                      x="70"
-                      y="82"
-                      textAnchor="middle"
-                      fontSize="11"
-                      fill="currentColor"
-                      fontFamily="Arial, sans-serif"
-                      fontWeight="500"
-                    >
-                      Hi
-                    </text>
-                  </svg>
+                  <Image
+                    src="/pof_illustration_heart_hi.webp.svg"
+                    alt="Match & Connect"
+                    width={120}
+                    height={120}
+                    className="mx-auto"
+                  />
                 </div>
               </div>
-              <h4 className="mb-3 text-xl font-medium text-gray-900">
+              <h4 className="mb-3 font-clash text-xl font-medium text-gray-900">
                 Match & Connect
               </h4>
               <p className="text-sm leading-relaxed text-gray-700 md:text-base">
