@@ -3,97 +3,88 @@
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default function DownloadAppSection() {
   const downloadSectionRef = useRef<HTMLElement>(null);
   const phoneRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const flipTimelines = useRef<(gsap.core.Timeline | null)[]>([]);
 
-  // Professional slow card flip animation - starts before section, sequential: 1, then 2, then 3
+  // Hover-based slow card flip animation - right to left
   useEffect(() => {
-    if (!downloadSectionRef.current) return;
-
-    const section = downloadSectionRef.current;
     const phoneElements = phoneRefs.current.filter(Boolean) as HTMLDivElement[];
     const totalPhones = phoneElements.length;
 
     if (totalPhones === 0) return;
 
-    // Set initial state - all phones show back initially (like cards)
+    // Set initial state - all phones show front initially
     phoneElements.forEach((phoneEl) => {
       const flipCard = phoneEl.querySelector(".phone-flip-card") as HTMLElement;
       if (!flipCard) return;
       gsap.set(flipCard, {
-        rotationY: 180,
+        rotationY: 0,
         transformStyle: "preserve-3d",
         scale: 0.9,
       });
     });
 
-    // Calculate longer scroll distance for slow, smooth animation
-    const scrollDistance = totalPhones * 800; // 800px per phone for slow flip
+    // Store cleanup functions
+    const cleanupFunctions: (() => void)[] = [];
 
-    // Create scroll triggers for sequential phone flip animations (like cards)
+    // Create hover animations for each phone
     phoneElements.forEach((phoneEl, index) => {
       const flipCard = phoneEl.querySelector(".phone-flip-card") as HTMLElement;
       if (!flipCard) return;
 
-      // Calculate when this phone should flip
-      const startProgress = index / totalPhones; // 0, 0.33, 0.66
-      const endProgress = (index + 1) / totalPhones; // 0.33, 0.66, 1.0
+      // Create timeline for this phone's flip animation
+      const flipTimeline = gsap.timeline({ paused: true });
 
-      ScrollTrigger.create({
-        trigger: section,
-        start: "top 85%",
-        end: "top 15%",
-        scrub: 1, // Smooth scrubbing
-        onUpdate: (self) => {
-          const progress = self.progress;
+      // Hover in - subtle 3D tilt effect (right to left) - no full flip
+      const handleMouseEnter = () => {
+        flipTimeline.clear();
+        flipTimeline.to(flipCard, {
+          rotationY: -25, // Subtle tilt, not full flip - right to left
+          scale: 1.05, // Slight scale up on hover
+          duration: 0.8, // Slow animation
+          ease: "power2.inOut", // Smooth easing
+        });
+        flipTimeline.play();
+      };
 
-          if (progress >= startProgress && progress <= endProgress) {
-            // During flip - calculate rotation with smooth easing
-            const localProgress =
-              (progress - startProgress) / (endProgress - startProgress);
+      // Hover out - return to original position
+      const handleMouseLeave = () => {
+        flipTimeline.clear();
+        flipTimeline.to(flipCard, {
+          rotationY: 0,
+          scale: 0.9,
+          duration: 0.8, // Slow animation
+          ease: "power2.inOut", // Smooth easing
+        });
+        flipTimeline.play();
+      };
 
-            // Smooth easing function for professional look (ease-in-out)
-            const easedProgress =
-              localProgress < 0.5
-                ? 2 * localProgress * localProgress
-                : 1 - Math.pow(-2 * localProgress + 2, 2) / 2;
+      // Add event listeners
+      phoneEl.addEventListener("mouseenter", handleMouseEnter);
+      phoneEl.addEventListener("mouseleave", handleMouseLeave);
 
-            // Rotate from back (180deg) to front (0deg)
-            const rotation = 180 - easedProgress * 180;
+      // Store timeline for cleanup
+      flipTimelines.current[index] = flipTimeline;
 
-            // Add subtle scale effect during flip for depth
-            const scale = 0.9 + easedProgress * 0.1; // Scale from 0.9 to 1.0
-
-            gsap.set(flipCard, {
-              rotationY: rotation,
-              scale: scale,
-            });
-          } else if (progress < startProgress) {
-            // Before this phone's turn - show back
-            gsap.set(flipCard, {
-              rotationY: 180,
-              scale: 0.9,
-            });
-          } else if (progress > endProgress) {
-            // After this phone's turn - show front
-            gsap.set(flipCard, {
-              rotationY: 0,
-              scale: 1,
-            });
-          }
-        },
+      // Store cleanup function
+      cleanupFunctions.push(() => {
+        phoneEl.removeEventListener("mouseenter", handleMouseEnter);
+        phoneEl.removeEventListener("mouseleave", handleMouseLeave);
+        if (flipTimeline) {
+          flipTimeline.kill();
+        }
       });
     });
 
+    // Cleanup all timelines and event listeners on unmount
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => {
-        if (trigger.vars.trigger === section) {
-          trigger.kill();
+      cleanupFunctions.forEach((cleanup) => cleanup());
+      flipTimelines.current.forEach((timeline) => {
+        if (timeline) {
+          timeline.kill();
         }
       });
     };
@@ -145,7 +136,7 @@ export default function DownloadAppSection() {
                 ref={(el) => {
                   phoneRefs.current[0] = el;
                 }}
-                className="relative z-10 w-24 md:w-40 lg:w-48 xl:w-56 transform -rotate-[5deg] md:-rotate-[6deg] -ml-4 md:-ml-18 -mt-8 md:-mt-12"
+                className="relative z-10 w-24 md:w-40 lg:w-48 xl:w-56 transform -rotate-[5deg] md:-rotate-[6deg] -ml-4 md:-ml-18 -mt-8 md:-mt-12 cursor-pointer"
                 style={{ perspective: "1000px" }}
               >
                 <div
@@ -180,7 +171,7 @@ export default function DownloadAppSection() {
                     className="absolute inset-0"
                     style={{
                       backfaceVisibility: "hidden",
-                      transform: "rotateY(180deg)",
+                      transform: "rotateY(-180deg)",
                     }}
                   >
                     <div className="relative rounded-[2rem] bg-gray-900 p-1.5 md:p-2 ">
@@ -192,9 +183,9 @@ export default function DownloadAppSection() {
               {/*  Middle */}
               <div
                 ref={(el) => {
-                  phoneRefs.current[0] = el;
+                  phoneRefs.current[1] = el;
                 }}
-                className="relative z-10 w-24 md:w-40 lg:w-48 xl:w-56 transform -rotate-[5deg] md:-rotate-[6deg] -ml-4 md:-ml-18 -mt-8 md:-mt-12"
+                className="relative z-10 w-24 md:w-40 lg:w-48 xl:w-56 transform -rotate-[5deg] md:-rotate-[6deg] -ml-4 md:-ml-18 -mt-8 md:-mt-12 cursor-pointer"
                 style={{ perspective: "1000px" }}
               >
                 <div
@@ -229,7 +220,7 @@ export default function DownloadAppSection() {
                     className="absolute inset-0"
                     style={{
                       backfaceVisibility: "hidden",
-                      transform: "rotateY(180deg)",
+                      transform: "rotateY(-180deg)",
                     }}
                   >
                     <div className="relative rounded-[2rem] bg-gray-900 p-1.5 md:p-2 ">
@@ -238,12 +229,12 @@ export default function DownloadAppSection() {
                   </div>
                 </div>
               </div>
-              {/*  */}
+              {/* Right Phone */}
               <div
                 ref={(el) => {
-                  phoneRefs.current[0] = el;
+                  phoneRefs.current[2] = el;
                 }}
-                className="relative z-10 w-24 md:w-40 lg:w-48 xl:w-56 transform -rotate-[5deg] md:-rotate-[6deg] -ml-4 md:-ml-18 -mt-8 md:-mt-12"
+                className="relative z-10 w-24 md:w-40 lg:w-48 xl:w-56 transform -rotate-[5deg] md:-rotate-[6deg] -ml-4 md:-ml-18 -mt-8 md:-mt-12 cursor-pointer"
                 style={{ perspective: "1000px" }}
               >
                 <div
@@ -278,7 +269,7 @@ export default function DownloadAppSection() {
                     className="absolute inset-0"
                     style={{
                       backfaceVisibility: "hidden",
-                      transform: "rotateY(180deg)",
+                      transform: "rotateY(-180deg)",
                     }}
                   >
                     <div className="relative rounded-[2rem] bg-gray-900 p-1.5 md:p-2 ">
