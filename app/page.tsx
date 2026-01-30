@@ -235,21 +235,21 @@ export default function Home() {
           <div className="grid gap-8 md:grid-cols-3 md:gap-6 md:mt-20 lg:gap-8">
             {/* Feature 1: Community Groups */}
             <div className="text-center">
-              <div className="mb-6 flex justify-center">
+              <div className="mb-6 flex justify-start">
                 <div>
                   <Image
                     src="/Dating on POF.svg"
                     alt="Community Groups"
-                    width={220}
-                    height={220}
+                    width={210}
+                    height={210}
                     className="mx-auto"
                   />
                 </div>
               </div>
-              <h4 className="mb-3 font-clash text-xl font-medium text-gray-900">
+              <h4 className="mb-3 font-clash text-xl md:text-3xl text-start font-medium text-[#1B1B1B]">
                 Community Groups
               </h4>
-              <p className="text-sm leading-relaxed text-gray-700 md:text-base">
+              <p className="text-sm leading-relaxed w-[80%] text-start text-[#5A5A5A] md:text-[22px]">
                 Join groups based on your passions — from fitness to faith, food
                 to family.
               </p>
@@ -257,42 +257,42 @@ export default function Home() {
 
             {/* Feature 2: Events You'll Love */}
             <div className="text-center">
-              <div className="mb-6 flex justify-center">
+              <div className="mb-6 flex justify-start">
                 <div>
                   <Image
                     src="/For our anniversary, this fool got me a card that read, 'You're the best thing I've ever found on the Internet._'.svg"
                     alt="Events You'll Love"
-                    width={220}
-                    height={220}
+                    width={290}
+                    height={290}
                     className="mx-auto"
                   />
                 </div>
               </div>
-              <h4 className="mb-3 font-clash text-xl font-medium text-gray-900">
+              <h4 className="mb-3 font-clash text-xl md:text-3xl text-start font-medium text-[#1B1B1B]">
                 Events You'll Love
               </h4>
-              <p className="text-sm leading-relaxed text-gray-700 md:text-base">
+              <p className="text-sm leading-relaxed w-[80%] text-start text-[#5A5A5A] md:text-[22px]">
                 Find and create local meetups and experiences that matter.
               </p>
             </div>
 
             {/* Feature 3: Match & Connect */}
             <div className="text-center">
-              <div className="mb-6 flex justify-center">
+              <div className="mb-6 flex justify-start">
                 <div>
                   <Image
                     src="/pof_illustration_heart_hi.webp.svg"
                     alt="Match & Connect"
-                    width={220}
-                    height={220}
-                    className="mx-auto"
+                    width={340}
+                    height={340}
+                    className="mx-auto "
                   />
                 </div>
               </div>
-              <h4 className="mb-3 font-clash text-xl font-medium text-gray-900">
+              <h4 className="mb-3 font-clash text-xl md:text-3xl text-start font-medium text-[#1B1B1B]">
                 Match & Connect
               </h4>
-              <p className="text-sm leading-relaxed text-gray-700 md:text-base">
+              <p className="text-sm leading-relaxed w-[80%] text-start text-[#5A5A5A] md:text-[22px]">
                 Discover people based on shared interests, not superficial
                 swipes.
               </p>
