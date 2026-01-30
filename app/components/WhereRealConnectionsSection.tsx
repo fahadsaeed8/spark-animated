@@ -80,7 +80,7 @@ export default function WhereRealConnectionsSection() {
         </div>
 
         {/* COLLAGE */}
-        <div ref={collageRef} className="absolute inset-0 z-10 ">
+        <div ref={collageRef} className="absolute inset-0 z-10">
           {/* example images – positions simple rakhe */}
           <CollageImage src="/hero.png" style={{ top: "0%", left: "0%" }} />
           <CollageImage src="/hero.png" style={{ top: "0%", right: "0%" }} />
@@ -88,13 +88,6 @@ export default function WhereRealConnectionsSection() {
           <CollageImage src="/hero.png" style={{ bottom: "0%", right: "5%" }} />
           <CollageImage src="/hero.png" style={{ top: "35%", left: "20%" }} />
           <CollageImage src="/hero.png" style={{ top: "35%", right: "20%" }} />
-          <CollageImage src="/hero.png" style={{ top: "35%", right: "30%" }} />
-          <CollageImage src="/hero.png" style={{ top: "35%", right: "40%" }} />
-          <CollageImage src="/hero.png" style={{ top: "35%", right: "50%" }} />
-          <CollageImage src="/hero.png" style={{ top: "35%", left: "30%" }} />
-          <CollageImage src="/hero.png" style={{ top: "35%", left: "40%" }} />
-          <CollageImage src="/hero.png" style={{ top: "35%", left: "50%" }} />
-          <CollageImage src="/hero.png" style={{ top: "35%", left: "60%" }} />
         </div>
       </div>
     </section>
@@ -111,7 +104,7 @@ function CollageImage({
 }) {
   return (
     <div
-      className="absolute w-[220px] h-[160px] rounded-xl overflow-hidden"
+      className="absolute w-[160px] h-[240px] rounded-xl overflow-hidden"
       style={style}
     >
       <Image src={src} alt="" fill className="object-cover" />
