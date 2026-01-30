@@ -31,7 +31,21 @@ export default function HeroSection() {
         <header className="flex items-center md:mt-5 justify-between px-6 py-5 md:px-24">
           {/* Logo - White circle with line through it */}
           <Link href={"/"} className="flex items-center ml-20">
-            <Image src={"/Layer_1.svg"} width={70} height={70} alt="logo" />
+            <div 
+              className="animate-rotate"
+              style={{
+                animation: 'rotate 10s linear infinite',
+                display: 'inline-block',
+                transformOrigin: 'center center'
+              }}
+            >
+              <Image 
+                src={"/Layer_1.svg"} 
+                width={70} 
+                height={70} 
+                alt="logo"
+              />
+            </div>
           </Link>
 
           {/* Nav Links */}

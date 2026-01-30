@@ -78,6 +78,12 @@
       cursor: pointer;
     }
   }
+
+  .animate-rotate {
+    animation: rotate 10s linear infinite;
+    display: inline-block;
+    transform-origin: center center;
+  }
 }
 
 /* Animations */
@@ -98,5 +104,14 @@
   50% {
     opacity: 0.6;
     transform: scale(1.1);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
