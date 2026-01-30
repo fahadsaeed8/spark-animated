@@ -3,18 +3,35 @@
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function DownloadAppSection() {
   const downloadSectionRef = useRef<HTMLElement>(null);
   const phoneRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const flipTimelines = useRef<(gsap.core.Timeline | null)[]>([]);
 
-  // Hover-based slow card flip animation - right to left
+  // Scroll-triggered flip animation for phones
   useEffect(() => {
+    if (!downloadSectionRef.current) return;
+
+    const section = downloadSectionRef.current;
     const phoneElements = phoneRefs.current.filter(Boolean) as HTMLDivElement[];
     const totalPhones = phoneElements.length;
 
     if (totalPhones === 0) return;
+
+    // Calculate scroll distance - each phone gets 400px of scroll
+    const scrollDistance = totalPhones * 400;
+
+    // Pin the section during scroll animation
+    const pinTrigger = ScrollTrigger.create({
+      trigger: section,
+      start: "top top",
+      end: `+=${scrollDistance}`,
+      pin: true,
+      pinSpacing: true,
+    });
 
     // Set initial state - all phones show front initially
     phoneElements.forEach((phoneEl) => {
@@ -27,64 +44,56 @@ export default function DownloadAppSection() {
       });
     });
 
-    // Store cleanup functions
-    const cleanupFunctions: (() => void)[] = [];
-
-    // Create hover animations for each phone
+    // Create scroll-triggered flip animations for each phone
     phoneElements.forEach((phoneEl, index) => {
       const flipCard = phoneEl.querySelector(".phone-flip-card") as HTMLElement;
       if (!flipCard) return;
 
-      // Create timeline for this phone's flip animation
-      const flipTimeline = gsap.timeline({ paused: true });
+      // Calculate when this phone should flip (sequential: 1, 2, 3)
+      const startProgress = index / totalPhones;
+      const endProgress = (index + 1) / totalPhones;
 
-      // Hover in - subtle 3D tilt effect (right to left) - no full flip
-      const handleMouseEnter = () => {
-        flipTimeline.clear();
-        flipTimeline.to(flipCard, {
-          rotationY: -25, // Subtle tilt, not full flip - right to left
-          scale: 1.05, // Slight scale up on hover
-          duration: 0.8, // Slow animation
-          ease: "power2.inOut", // Smooth easing
-        });
-        flipTimeline.play();
-      };
+      // Create scroll trigger for this phone's flip animation
+      ScrollTrigger.create({
+        trigger: section,
+        start: "top top",
+        end: `+=${scrollDistance}`,
+        scrub: 1, // Smooth scrubbing tied to scroll
+        onUpdate: (self) => {
+          const progress = self.progress;
 
-      // Hover out - return to original position
-      const handleMouseLeave = () => {
-        flipTimeline.clear();
-        flipTimeline.to(flipCard, {
-          rotationY: 0,
-          scale: 0.9,
-          duration: 0.8, // Slow animation
-          ease: "power2.inOut", // Smooth easing
-        });
-        flipTimeline.play();
-      };
-
-      // Add event listeners
-      phoneEl.addEventListener("mouseenter", handleMouseEnter);
-      phoneEl.addEventListener("mouseleave", handleMouseLeave);
-
-      // Store timeline for cleanup
-      flipTimelines.current[index] = flipTimeline;
-
-      // Store cleanup function
-      cleanupFunctions.push(() => {
-        phoneEl.removeEventListener("mouseenter", handleMouseEnter);
-        phoneEl.removeEventListener("mouseleave", handleMouseLeave);
-        if (flipTimeline) {
-          flipTimeline.kill();
-        }
+          if (progress >= startProgress && progress <= endProgress) {
+            // Calculate rotation based on progress within this phone's range
+            const localProgress =
+              (progress - startProgress) / (endProgress - startProgress);
+            // Flip from 0 to 180 degrees (front to back)
+            const rotation = localProgress * 180;
+            gsap.set(flipCard, { 
+              rotationY: rotation,
+              scale: 0.9 + (localProgress * 0.1), // Slight scale up during flip
+            });
+          } else if (progress < startProgress) {
+            // Before this phone's turn - show front
+            gsap.set(flipCard, { 
+              rotationY: 0,
+              scale: 0.9,
+            });
+          } else if (progress > endProgress) {
+            // After this phone's turn - show back (flipped)
+            gsap.set(flipCard, { 
+              rotationY: 180,
+              scale: 1.0,
+            });
+          }
+        },
       });
     });
 
-    // Cleanup all timelines and event listeners on unmount
+    // Cleanup on unmount
     return () => {
-      cleanupFunctions.forEach((cleanup) => cleanup());
-      flipTimelines.current.forEach((timeline) => {
-        if (timeline) {
-          timeline.kill();
+      ScrollTrigger.getAll().forEach((trigger) => {
+        if (trigger.vars.trigger === section) {
+          trigger.kill();
         }
       });
     };
