@@ -87,7 +87,7 @@ export default function DownloadAppSection() {
   return (
     <section
       ref={downloadSectionRef}
-      className="bg-[#f5f5f0] py-16 px-6 md:py-24 md:px-0 relative overflow-hidden"
+      className="bg-[#f5f5f0] py-16 px-6 md:py-38 md:px-0 relative overflow-hidden"
     >
       {/* Decorative Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -212,7 +212,7 @@ export default function DownloadAppSection() {
                       transform: "rotateY(180deg)",
                     }}
                   >
-                    <div className="relative rounded-[2rem] bg-gray-900 p-1.5 md:p-2 shadow-2xl">
+                    <div className="relative rounded-[2rem] bg-gray-900 p-1.5 md:p-2 ">
                       <div className="aspect-[9/19] rounded-[1.5rem] bg-gradient-to-b from-gray-800 to-gray-900"></div>
                     </div>
                   </div>
@@ -262,7 +262,7 @@ export default function DownloadAppSection() {
                       transform: "rotateY(180deg)",
                     }}
                   >
-                    <div className="relative rounded-[2rem] bg-gray-900 p-1.5 md:p-2 shadow-2xl">
+                    <div className="relative rounded-[2rem] bg-gray-900 p-1.5 md:p-2 ">
                       <div className="aspect-[9/19] rounded-[1.5rem] bg-gradient-to-b from-gray-800 to-gray-900"></div>
                     </div>
                   </div>
@@ -272,7 +272,7 @@ export default function DownloadAppSection() {
           </div>
 
           {/* Download Buttons - Positioned below text, aligned with "Download" and "App Now" */}
-          <div className="relative flex flex-wrap justify-between items-start gap-4 mt-8 md:mt-12 px-4 md:px-0">
+          <div className="relative flex flex-wrap justify-between items-start gap-4 mt-8 md:-mt-[180px] px-4 md:px-0">
             {/* Left Button - Below "Download" */}
             <div className="flex-1 min-w-[200px] max-w-[280px]">
               <Image
@@ -280,7 +280,7 @@ export default function DownloadAppSection() {
                 alt="Google Play"
                 width={24}
                 height={24}
-                className="w-full h-full flex-shrink-0"
+                className="w-full h-full flex-shrink-0 "
               />
             </div>
 
