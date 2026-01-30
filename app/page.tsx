@@ -13,6 +13,14 @@ export default function Home() {
           }}
         />
 
+        {/* Background Overlay (Heart/Decorative Pattern) */}
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: "url('/Background.png')",
+          }}
+        />
+
         {/* Content */}
         <div className="relative z-10 flex h-full flex-col">
           {/* NAVBAR */}
@@ -62,7 +70,7 @@ export default function Home() {
           {/* HERO CENTER */}
           <div className="flex flex-1 items-center justify-center px-6 text-start">
             <div className="max-w-5xl">
-              <h1 className="mb-10 font-clash text-4xl font-light leading-tight text-[#F5F2ED] md:text-6xl lg:text-8xl">
+              <h1 className="mb-10 font-clash text-4xl font-medium leading-tight text-[#F5F2ED] md:text-6xl lg:text-8xl">
                 The most welcoming way to date
               </h1>
 
