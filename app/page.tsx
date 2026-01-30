@@ -648,10 +648,10 @@ export default function Home() {
       </section>
 
       {/* FOOTER SECTION */}
-      <footer className="bg-[#f5f5f0] py-12 px-6 md:py-16 md:px-12">
+      <footer className="bg-[#F5F2ED] py-12 px-6 md:py-16 md:px-12">
         <div className="mx-auto max-w-6xl">
           {/* All in one row */}
-          <div className="flex flex-wrap md:gap-38 items-start">
+          <div className="flex flex-wrap md:gap-30 items-start">
             {/* Social Media Icons */}
             <div className="flex flex-row gap-4">
               <a
@@ -717,13 +717,13 @@ export default function Home() {
             </div>
             {/* Community Column */}
             <div>
-              <h5 className="mb-3 text-[15px] font-bold text-gray-900">
+              <h5 className="mb-3 text-[18px] font-bold text-black">
                 Community
               </h5>
               <ul className="space-y-2 text-sm text-black">
                 <li>
                   <a href="#" className="hover:text-gray-900 transition">
-                    Downloads
+                    Guidelines
                   </a>
                 </li>
                 <li>
@@ -733,56 +733,49 @@ export default function Home() {
                 </li>
                 <li>
                   <a href="#" className="hover:text-gray-900 transition">
-                    Events
+                    Plenty of Interests
                   </a>
                 </li>
                 <li>
                   <a href="#" className="hover:text-gray-900 transition">
-                    Blog
+                    Plenty of Cities
                   </a>
                 </li>
                 <li>
                   <a href="#" className="hover:text-gray-900 transition">
-                    Forum
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-gray-900 transition">
-                    Creators
+                    The Blog
                   </a>
                 </li>
               </ul>
             </div>
             {/* Help Column */}
             <div>
-              <h5 className="mb-3 text-[15px] font-bold text-gray-900">Help</h5>
+              <h5 className="mb-3 text-[18px] font-bold text-black">Help</h5>
               <ul className="space-y-2 text-sm text-black">
                 <li>
                   <a href="#" className="hover:text-gray-900 transition">
-                    FAQ
+                    Help Center
                   </a>
                 </li>
                 <li>
                   <a href="#" className="hover:text-gray-900 transition">
-                    Support
+                    Safety
                   </a>
                 </li>
                 <li>
                   <a href="#" className="hover:text-gray-900 transition">
-                    Privacy
+                    Security
                   </a>
                 </li>
               </ul>
             </div>
             {/* Company Column */}
             <div>
-              <h5 className="mb-3 text-[15px] font-bold text-gray-900">
-                Company
-              </h5>
+              <h5 className="mb-3 text-[18px] font-bold text-black">Company</h5>
               <ul className="space-y-2 text-sm text-black">
                 <li>
                   <a href="#" className="hover:text-gray-900 transition">
-                    About Us
+                    Press
                   </a>
                 </li>
                 <li>
@@ -794,9 +787,7 @@ export default function Home() {
             </div>
             {/* Legal Column */}
             <div>
-              <h5 className="mb-3 text-[15px] font-bold text-gray-900">
-                Legal
-              </h5>
+              <h5 className="mb-3 text-[18px] font-bold text-black">Legal</h5>
               <ul className="space-y-2 text-sm text-black">
                 <li>
                   <a href="#" className="hover:text-gray-900 transition">
@@ -810,12 +801,12 @@ export default function Home() {
                 </li>
                 <li>
                   <a href="#" className="hover:text-gray-900 transition">
-                    Community Guidelines
+                    Consumer Health Data Policy
                   </a>
                 </li>
                 <li>
                   <a href="#" className="hover:text-gray-900 transition">
-                    Content Policy
+                    Accessibility Statement
                   </a>
                 </li>
                 <li>
@@ -826,6 +817,33 @@ export default function Home() {
                 <li>
                   <a href="#" className="hover:text-gray-900 transition">
                     Intellectual Property
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-gray-900 transition">
+                    Publication Details
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-gray-900 transition">
+                    Colorado Safety Policy Information
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="hover:text-gray-900 transition flex items-center gap-1"
+                  >
+                    Your Privacy Choices
+                    <span className="inline-block w-8 h-8 rounded-full flex items-center justify-center">
+                      <Image
+                        src={"SVG.svg"}
+                        alt=""
+                        width={100}
+                        height={100}
+                        className="md:mt-1"
+                      />{" "}
+                    </span>
                   </a>
                 </li>
               </ul>
