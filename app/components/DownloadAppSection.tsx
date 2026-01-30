@@ -87,7 +87,7 @@ export default function DownloadAppSection() {
   return (
     <section
       ref={downloadSectionRef}
-      className="bg-[#f5f5f0] py-16 px-6 md:py-24 md:px-12 relative overflow-hidden"
+      className="bg-[#f5f5f0] py-16 px-6 md:py-24 md:px-0 relative overflow-hidden"
     >
       {/* Decorative Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -124,13 +124,13 @@ export default function DownloadAppSection() {
             </div>
 
             {/* Phones - Diagonal arrangement from top-left to bottom-right, overlapping text */}
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center z-20">
+            <div className="absolute left-1/2 top-1/2 -ml-32 -mt-42 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center z-20">
               {/* Left Phone - Top-left position */}
               <div
                 ref={(el) => {
                   phoneRefs.current[0] = el;
                 }}
-                className="relative z-10 w-24 md:w-40 lg:w-48 xl:w-56 transform -rotate-[8deg] md:-rotate-[10deg] -ml-4 md:-ml-8 -mt-8 md:-mt-12"
+                className="relative z-10 w-24 md:w-40 lg:w-48 xl:w-56 transform -rotate-[5deg] md:-rotate-[6deg] -ml-4 md:-ml-18 -mt-8 md:-mt-12"
                 style={{ perspective: "1000px" }}
               >
                 <div
@@ -149,7 +149,7 @@ export default function DownloadAppSection() {
                     }}
                   >
                     <div className="relative  p-1.5 md:p-2 ">
-                      <div className="aspect-[9/19] w-[700px] h-[700px] overflow-hidden">
+                      <div className="aspect-[9/19] w-[600px] h-[600px] overflow-hidden">
                         <Image
                           width={900}
                           height={900}
@@ -168,7 +168,7 @@ export default function DownloadAppSection() {
                 ref={(el) => {
                   phoneRefs.current[1] = el;
                 }}
-                className="relative z-20 w-28 md:w-48 lg:w-56 xl:w-64 transform rotate-[2deg] md:rotate-[3deg]"
+                className="relative z-20 w-28 md:w-48 lg:w-56 xl:w-64 transform rotate-[3deg] md:rotate-[4deg]"
                 style={{ perspective: "1000px" }}
               >
                 {/* Sparkle element near bottom left of central phone */}
@@ -193,7 +193,7 @@ export default function DownloadAppSection() {
                     }}
                   >
                     <div className="relative  p-1.5 md:p-2 ">
-                      <div className="aspect-[9/19] w-[700px] h-[700px] overflow-hidden">
+                      <div className="aspect-[9/19] w-[600px] h-[600px] overflow-hidden">
                         <Image
                           width={900}
                           height={900}
@@ -224,7 +224,7 @@ export default function DownloadAppSection() {
                 ref={(el) => {
                   phoneRefs.current[2] = el;
                 }}
-                className="relative z-10 w-24 md:w-40 lg:w-48 xl:w-56 transform rotate-[12deg] md:rotate-[15deg] -mr-4 md:-mr-8 -mb-8 md:-mb-12"
+                className="relative z-10 w-24 md:w-40 lg:w-48 xl:w-56 transform rotate-[8deg] md:rotate-[10deg] -mr-4 md:-mr-8 -mb-8 md:-mb-12"
                 style={{ perspective: "1000px" }}
               >
                 <div
@@ -243,7 +243,7 @@ export default function DownloadAppSection() {
                     }}
                   >
                     <div className="relative  p-1.5 md:p-2 ">
-                      <div className="aspect-[9/19] w-[700px] h-[700px] overflow-hidden">
+                      <div className="aspect-[9/19] w-[600px] h-[600px] overflow-hidden">
                         <Image
                           width={900}
                           height={900}
@@ -272,7 +272,7 @@ export default function DownloadAppSection() {
           </div>
 
           {/* Download Buttons - Positioned below text, aligned with "Download" and "App Now" */}
-          <div className="relative flex flex-wrap justify-between items-start gap-4 mt-8 md:mt-12 px-4 md:px-8">
+          <div className="relative flex flex-wrap justify-between items-start gap-4 mt-8 md:mt-12 px-4 md:px-0">
             {/* Left Button - Below "Download" */}
             <div className="flex-1 min-w-[200px] max-w-[280px]">
               <Image
