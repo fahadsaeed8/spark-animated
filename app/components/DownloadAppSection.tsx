@@ -11,69 +11,84 @@ export default function DownloadAppSection() {
   const downloadSectionRef = useRef<HTMLElement>(null);
   const phoneRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-  // Flip animation for download section phones - DISABLED FOR NOW (design first)
-  // Will enable after design is finalized
+  // Professional slow card flip animation - starts before section, sequential: 1, then 2, then 3
   useEffect(() => {
     if (!downloadSectionRef.current) return;
 
     const section = downloadSectionRef.current;
     const phoneElements = phoneRefs.current.filter(Boolean) as HTMLDivElement[];
+    const totalPhones = phoneElements.length;
 
-    if (phoneElements.length === 0) return;
+    if (totalPhones === 0) return;
 
-    // Set all phones to show front initially (no animation for now)
+    // Set initial state - all phones show back initially (like cards)
     phoneElements.forEach((phoneEl) => {
       const flipCard = phoneEl.querySelector(".phone-flip-card") as HTMLElement;
       if (!flipCard) return;
       gsap.set(flipCard, {
-        rotationY: 0,
+        rotationY: 180,
         transformStyle: "preserve-3d",
+        scale: 0.9,
       });
     });
 
-    // Animation code commented out - will enable later
-    /*
-    // Create scroll trigger for phone flip animations
+    // Calculate longer scroll distance for slow, smooth animation
+    const scrollDistance = totalPhones * 800; // 800px per phone for slow flip
+
+    // Create scroll triggers for sequential phone flip animations (like cards)
     phoneElements.forEach((phoneEl, index) => {
       const flipCard = phoneEl.querySelector(".phone-flip-card") as HTMLElement;
       if (!flipCard) return;
 
-      // Set initial state - all phones show back initially
-      gsap.set(flipCard, {
-        rotationY: 180,
-        transformStyle: "preserve-3d",
-      });
+      // Calculate when this phone should flip
+      const startProgress = index / totalPhones; // 0, 0.33, 0.66
+      const endProgress = (index + 1) / totalPhones; // 0.33, 0.66, 1.0
 
-      // Create scroll trigger for this phone with staggered timing
       ScrollTrigger.create({
         trigger: section,
         start: "top 85%",
         end: "top 15%",
-        scrub: 1,
+        scrub: 1, // Smooth scrubbing
         onUpdate: (self) => {
           const progress = self.progress;
-          // Stagger the flip animations - each phone flips at different scroll points
-          const delay = index * 0.15; // 0, 0.15, 0.3
-          const flipDuration = 0.4; // Each flip takes 40% of scroll
-          const startProgress = delay;
-          const endProgress = delay + flipDuration;
-          
-          if (progress < startProgress) {
-            // Before flip - show back
-            gsap.set(flipCard, { rotationY: 180 });
-          } else if (progress >= startProgress && progress <= endProgress) {
-            // During flip - animate rotation
-            const localProgress = (progress - startProgress) / flipDuration;
-            const rotation = 180 - localProgress * 180;
-            gsap.set(flipCard, { rotationY: rotation });
-          } else {
-            // After flip - show front
-            gsap.set(flipCard, { rotationY: 0 });
+
+          if (progress >= startProgress && progress <= endProgress) {
+            // During flip - calculate rotation with smooth easing
+            const localProgress =
+              (progress - startProgress) / (endProgress - startProgress);
+
+            // Smooth easing function for professional look (ease-in-out)
+            const easedProgress =
+              localProgress < 0.5
+                ? 2 * localProgress * localProgress
+                : 1 - Math.pow(-2 * localProgress + 2, 2) / 2;
+
+            // Rotate from back (180deg) to front (0deg)
+            const rotation = 180 - easedProgress * 180;
+
+            // Add subtle scale effect during flip for depth
+            const scale = 0.9 + easedProgress * 0.1; // Scale from 0.9 to 1.0
+
+            gsap.set(flipCard, {
+              rotationY: rotation,
+              scale: scale,
+            });
+          } else if (progress < startProgress) {
+            // Before this phone's turn - show back
+            gsap.set(flipCard, {
+              rotationY: 180,
+              scale: 0.9,
+            });
+          } else if (progress > endProgress) {
+            // After this phone's turn - show front
+            gsap.set(flipCard, {
+              rotationY: 0,
+              scale: 1,
+            });
           }
         },
       });
     });
-    */
 
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => {
@@ -97,12 +112,12 @@ export default function DownloadAppSection() {
           alt="Community Groups"
           width={210}
           height={210}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] opacity-30"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:w-[900px] md:h-[900px] opacity-30"
         />
 
         {/* Star-like Elements */}
-        <div className="absolute top-[15%] left-[8%] w-2 h-2 bg-[#B8860B] rounded-full opacity-40 blur-[1px]"></div>
-        <div className="absolute bottom-[20%] right-[12%] w-1.5 h-1.5 bg-[#B8860B] rounded-full opacity-50 blur-[1px]"></div>
+        {/* <div className="absolute top-[15%] left-[8%] w-2 h-2 bg-[#B8860B] rounded-full opacity-40 blur-[1px]"></div>
+        <div className="absolute bottom-[20%] right-[12%] w-1.5 h-1.5 bg-[#B8860B] rounded-full opacity-50 blur-[1px]"></div> */}
       </div>
 
       <div className="mx-auto max-w-7xl relative z-10">
@@ -148,58 +163,14 @@ export default function DownloadAppSection() {
                       transform: "rotateY(0deg)",
                     }}
                   >
-                    <div className="relative  p-1.5 md:p-2 ">
-                      <div className="aspect-[9/19] w-[600px] h-[600px] overflow-hidden">
+                    <div className="relative p-1.5 md:p-2 ">
+                      <div className="aspect-[9/19] w-[650px] h-[650px] overflow-hidden">
                         <Image
                           width={900}
                           height={900}
                           src="/iPhone-13-Pro-Front.svg"
                           alt="App Screen 1"
-                          className="w-full h-full"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Middle Phone - Center, with sparkle */}
-              <div
-                ref={(el) => {
-                  phoneRefs.current[1] = el;
-                }}
-                className="relative z-20 w-28 md:w-48 lg:w-56 xl:w-64 transform rotate-[3deg] md:rotate-[4deg]"
-                style={{ perspective: "1000px" }}
-              >
-                {/* Sparkle element near bottom left of central phone */}
-                <div className="absolute -bottom-2 -left-2 md:-bottom-4 md:-left-4 w-3 h-3 md:w-4 md:h-4 z-30">
-                  <div className="w-full h-full bg-[#B8860B] rounded-full opacity-60 blur-[2px]"></div>
-                  <div className="absolute inset-0 w-full h-full bg-[#B8860B] rounded-full opacity-40 blur-[4px] scale-150"></div>
-                </div>
-
-                <div
-                  className="phone-flip-card h-full w-full"
-                  style={{
-                    transformStyle: "preserve-3d",
-                    transform: "rotateY(0deg)",
-                  }}
-                >
-                  {/* Front - Phone with Screen */}
-                  <div
-                    className="absolute inset-0"
-                    style={{
-                      backfaceVisibility: "hidden",
-                      transform: "rotateY(0deg)",
-                    }}
-                  >
-                    <div className="relative  p-1.5 md:p-2 ">
-                      <div className="aspect-[9/19] w-[600px] h-[600px] overflow-hidden">
-                        <Image
-                          width={900}
-                          height={900}
-                          src="/iPhone-13-Pro-Front (1).svg"
-                          alt="App Screen 1"
-                          className="w-full h-full"
+                          className="w-full h-full md:-mt-12"
                         />
                       </div>
                     </div>
@@ -218,13 +189,12 @@ export default function DownloadAppSection() {
                   </div>
                 </div>
               </div>
-
-              {/* Right Phone - Bottom-right position */}
+              {/*  Middle */}
               <div
                 ref={(el) => {
-                  phoneRefs.current[2] = el;
+                  phoneRefs.current[0] = el;
                 }}
-                className="relative z-10 w-24 md:w-40 lg:w-48 xl:w-56 transform rotate-[8deg] md:rotate-[10deg] -mr-4 md:-mr-8 -mb-8 md:-mb-12"
+                className="relative z-10 w-24 md:w-40 lg:w-48 xl:w-56 transform -rotate-[5deg] md:-rotate-[6deg] -ml-4 md:-ml-18 -mt-8 md:-mt-12"
                 style={{ perspective: "1000px" }}
               >
                 <div
@@ -242,14 +212,63 @@ export default function DownloadAppSection() {
                       transform: "rotateY(0deg)",
                     }}
                   >
-                    <div className="relative  p-1.5 md:p-2 ">
-                      <div className="aspect-[9/19] w-[600px] h-[600px] overflow-hidden">
+                    <div className="relative p-1.5 md:p-2 ">
+                      <div className="aspect-[9/19] w-[650px] h-[650px] overflow-hidden">
+                        <Image
+                          width={900}
+                          height={900}
+                          src="/iPhone-13-Pro-Front (1).svg"
+                          alt="App Screen 1"
+                          className="w-full h-full md:-mt-12"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  {/* Back - Phone Back */}
+                  <div
+                    className="absolute inset-0"
+                    style={{
+                      backfaceVisibility: "hidden",
+                      transform: "rotateY(180deg)",
+                    }}
+                  >
+                    <div className="relative rounded-[2rem] bg-gray-900 p-1.5 md:p-2 ">
+                      <div className="aspect-[9/19] rounded-[1.5rem] bg-gradient-to-b from-gray-800 to-gray-900"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/*  */}
+              <div
+                ref={(el) => {
+                  phoneRefs.current[0] = el;
+                }}
+                className="relative z-10 w-24 md:w-40 lg:w-48 xl:w-56 transform -rotate-[5deg] md:-rotate-[6deg] -ml-4 md:-ml-18 -mt-8 md:-mt-12"
+                style={{ perspective: "1000px" }}
+              >
+                <div
+                  className="phone-flip-card h-full w-full"
+                  style={{
+                    transformStyle: "preserve-3d",
+                    transform: "rotateY(0deg)",
+                  }}
+                >
+                  {/* Front - Phone with Screen */}
+                  <div
+                    className="absolute inset-0"
+                    style={{
+                      backfaceVisibility: "hidden",
+                      transform: "rotateY(0deg)",
+                    }}
+                  >
+                    <div className="relative p-1.5 md:p-2 ">
+                      <div className="aspect-[9/19] w-[650px] h-[650px] overflow-hidden">
                         <Image
                           width={900}
                           height={900}
                           src="/iPhone-13-Pro-Front (2).svg"
                           alt="App Screen 1"
-                          className="w-full h-full"
+                          className="w-full h-full md:-mt-12"
                         />
                       </div>
                     </div>
