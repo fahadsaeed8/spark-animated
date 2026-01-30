@@ -118,7 +118,7 @@ export default function DownloadAppSection() {
                   alt="Download The App Now"
                   width={210}
                   height={210}
-                  className="w-full max-w-4xl h-auto"
+                  className="w-full max-w-full h-auto"
                 />
               </div>
             </div>
@@ -148,28 +148,16 @@ export default function DownloadAppSection() {
                       transform: "rotateY(0deg)",
                     }}
                   >
-                    <div className="relative rounded-[2rem] bg-gray-900 p-1.5 md:p-2 shadow-2xl">
-                      <div className="aspect-[9/19] rounded-[1.5rem] bg-white overflow-hidden">
+                    <div className="relative  p-1.5 md:p-2 ">
+                      <div className="aspect-[9/19] w-[700px] h-[700px] overflow-hidden">
                         <Image
-                          width={100}
-                          height={100}
+                          width={900}
+                          height={900}
                           src="/iPhone-13-Pro-Front.svg"
                           alt="App Screen 1"
                           className="w-full h-full"
                         />
                       </div>
-                    </div>
-                  </div>
-                  {/* Back - Phone Back */}
-                  <div
-                    className="absolute inset-0"
-                    style={{
-                      backfaceVisibility: "hidden",
-                      transform: "rotateY(180deg)",
-                    }}
-                  >
-                    <div className="relative rounded-[2rem] bg-gray-900 p-1.5 md:p-2 shadow-2xl">
-                      <div className="aspect-[9/19] rounded-[1.5rem] bg-gradient-to-b from-gray-800 to-gray-900"></div>
                     </div>
                   </div>
                 </div>
@@ -188,7 +176,7 @@ export default function DownloadAppSection() {
                   <div className="w-full h-full bg-[#B8860B] rounded-full opacity-60 blur-[2px]"></div>
                   <div className="absolute inset-0 w-full h-full bg-[#B8860B] rounded-full opacity-40 blur-[4px] scale-150"></div>
                 </div>
-                
+
                 <div
                   className="phone-flip-card h-full w-full"
                   style={{
@@ -204,19 +192,14 @@ export default function DownloadAppSection() {
                       transform: "rotateY(0deg)",
                     }}
                   >
-                    <div className="relative rounded-[2rem] bg-gray-900 p-1.5 md:p-2 shadow-2xl">
-                      <div className="aspect-[9/19] rounded-[1.5rem] bg-white overflow-hidden">
+                    <div className="relative  p-1.5 md:p-2 ">
+                      <div className="aspect-[9/19] w-[700px] h-[700px] overflow-hidden">
                         <Image
+                          width={900}
+                          height={900}
                           src="/iPhone-13-Pro-Front (1).svg"
-                          alt="App Screen 2"
-                          fill
-                          className="object-cover"
-                          unoptimized
-                          onError={(e) => {
-                            (
-                              e.target as HTMLImageElement
-                            ).style.backgroundColor = "#16a34a";
-                          }}
+                          alt="App Screen 1"
+                          className="w-full h-full"
                         />
                       </div>
                     </div>
@@ -259,19 +242,14 @@ export default function DownloadAppSection() {
                       transform: "rotateY(0deg)",
                     }}
                   >
-                    <div className="relative rounded-[2rem] bg-gray-900 p-1.5 md:p-2 shadow-2xl">
-                      <div className="aspect-[9/19] rounded-[1.5rem] bg-white overflow-hidden">
+                    <div className="relative  p-1.5 md:p-2 ">
+                      <div className="aspect-[9/19] w-[700px] h-[700px] overflow-hidden">
                         <Image
+                          width={900}
+                          height={900}
                           src="/iPhone-13-Pro-Front (2).svg"
-                          alt="App Screen 3"
-                          fill
-                          className="object-cover"
-                          unoptimized
-                          onError={(e) => {
-                            (
-                              e.target as HTMLImageElement
-                            ).style.backgroundColor = "#15803d";
-                          }}
+                          alt="App Screen 1"
+                          className="w-full h-full"
                         />
                       </div>
                     </div>
@@ -322,4 +300,3 @@ export default function DownloadAppSection() {
     </section>
   );
 }
-
