@@ -219,7 +219,7 @@ export default function DownloadAppSection() {
                           height={900}
                           src="/iPhone-13-Pro-Front (1).svg"
                           alt="App Screen 1"
-                          className="w-full h-full md:-mt-12"
+                          className="w-full h-full md:-ml-5"
                         />
                       </div>
                     </div>
@@ -268,7 +268,7 @@ export default function DownloadAppSection() {
                           height={900}
                           src="/iPhone-13-Pro-Front (2).svg"
                           alt="App Screen 1"
-                          className="w-full h-full md:-mt-12"
+                          className="w-full h-full md:mt-20 md:-ml-15"
                         />
                       </div>
                     </div>
