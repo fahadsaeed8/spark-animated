@@ -128,10 +128,6 @@ export default function DownloadAppSection() {
           height={210}
           className="absolute top-[60%] left-1/2 -translate-x-1/2 -translate-y-1/2 md:w-[800px] md:h-[800px] opacity-100"
         />
-
-        {/* Star-like Elements */}
-        {/* <div className="absolute top-[15%] left-[8%] w-2 h-2 bg-[#B8860B] rounded-full opacity-40 blur-[1px]"></div>
-        <div className="absolute bottom-[20%] right-[12%] w-2 h-2 bg-[#B8860B] rounded-full opacity-50 blur-[1px]"></div> */}
       </div>
 
       <div className="mx-auto max-w-7xl relative z-10">
@@ -197,8 +193,16 @@ export default function DownloadAppSection() {
                       transform: "rotateY(-180deg)",
                     }}
                   >
-                    <div className="relative rounded-[2rem] bg-gray-900 p-1.5 md:p-2 ">
-                      <div className="aspect-[9/19] rounded-[1.5rem] bg-gradient-to-b from-gray-800 to-gray-900"></div>
+                    <div className="relative p-1.5 md:p-2 ">
+                      <div className="aspect-[9/19] w-[650px] h-[650px] overflow-hidden">
+                        <Image
+                          width={900}
+                          height={900}
+                          src="/iPhone-13-Pro-Front (2).svg"
+                          alt="App Screen 1 Back"
+                          className="w-full h-full md:-mt-12"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -246,8 +250,16 @@ export default function DownloadAppSection() {
                       transform: "rotateY(-180deg)",
                     }}
                   >
-                    <div className="relative rounded-[2rem] bg-gray-900 p-1.5 md:p-2 ">
-                      <div className="aspect-[9/19] rounded-[1.5rem] bg-gradient-to-b from-gray-800 to-gray-900"></div>
+                    <div className="relative p-1.5 md:p-2 ">
+                      <div className="aspect-[9/19] w-[650px] h-[650px] overflow-hidden">
+                        <Image
+                          width={900}
+                          height={900}
+                          src="/iPhone-13-Pro-Front (1).svg"
+                          alt="App Screen 2 Back"
+                          className="w-full h-full md:-ml-5"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -295,8 +307,16 @@ export default function DownloadAppSection() {
                       transform: "rotateY(-180deg)",
                     }}
                   >
-                    <div className="relative rounded-[2rem] bg-gray-900 p-1.5 md:p-2 ">
-                      <div className="aspect-[9/19] rounded-[1.5rem] bg-gradient-to-b from-gray-800 to-gray-900"></div>
+                    <div className="relative p-1.5 md:p-2 ">
+                      <div className="aspect-[9/19] w-[650px] h-[650px] overflow-hidden">
+                        <Image
+                          width={900}
+                          height={900}
+                          src="/iPhone-13-Pro-Front.svg"
+                          alt="App Screen 3 Back"
+                          className="w-full h-full md:mt-20 md:-ml-15"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
