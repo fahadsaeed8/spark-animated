@@ -717,10 +717,10 @@ export default function Home() {
             </div>
             {/* Community Column */}
             <div>
-              <h5 className="mb-3 text-sm font-medium text-gray-900">
+              <h5 className="mb-3 text-[15px] font-bold text-gray-900">
                 Community
               </h5>
-              <ul className="space-y-2 text-sm text-gray-700">
+              <ul className="space-y-2 text-sm text-black">
                 <li>
                   <a href="#" className="hover:text-gray-900 transition">
                     Downloads
@@ -755,8 +755,8 @@ export default function Home() {
             </div>
             {/* Help Column */}
             <div>
-              <h5 className="mb-3 text-sm font-medium text-gray-900">Help</h5>
-              <ul className="space-y-2 text-sm text-gray-700">
+              <h5 className="mb-3 text-[15px] font-bold text-gray-900">Help</h5>
+              <ul className="space-y-2 text-sm text-black">
                 <li>
                   <a href="#" className="hover:text-gray-900 transition">
                     FAQ
@@ -776,10 +776,10 @@ export default function Home() {
             </div>
             {/* Company Column */}
             <div>
-              <h5 className="mb-3 text-sm font-medium text-gray-900">
+              <h5 className="mb-3 text-[15px] font-bold text-gray-900">
                 Company
               </h5>
-              <ul className="space-y-2 text-sm text-gray-700">
+              <ul className="space-y-2 text-sm text-black">
                 <li>
                   <a href="#" className="hover:text-gray-900 transition">
                     About Us
@@ -794,8 +794,10 @@ export default function Home() {
             </div>
             {/* Legal Column */}
             <div>
-              <h5 className="mb-3 text-sm font-medium text-gray-900">Legal</h5>
-              <ul className="space-y-2 text-sm text-gray-700">
+              <h5 className="mb-3 text-[15px] font-bold text-gray-900">
+                Legal
+              </h5>
+              <ul className="space-y-2 text-sm text-black">
                 <li>
                   <a href="#" className="hover:text-gray-900 transition">
                     Terms of Service
