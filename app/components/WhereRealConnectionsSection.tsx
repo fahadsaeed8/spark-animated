@@ -62,13 +62,13 @@ export default function WhereRealConnectionsSection() {
         Where real connections come to life
       </h2>
 
-      <div className="relative w-full max-w-6xl md:mt-[180px] h-[80vh]">
+      <div className="relative w-full max-w-6xl md:mt-[80px] h-[80vh]">
         {/* HERO PORTRAIT IMAGE */}
         <div
           ref={heroRef}
           className="absolute inset-0 flex items-center justify-center z-20"
         >
-          <div className="relative w-[320px] h-[520px] rounded-2xl overflow-hidden shadow-xl">
+          <div className="relative w-[320px] h-[480px] rounded-2xl overflow-hidden shadow-xl">
             <Image
               src="/hero.png"
               alt="Hero"
@@ -80,7 +80,7 @@ export default function WhereRealConnectionsSection() {
         </div>
 
         {/* COLLAGE */}
-        <div ref={collageRef} className="absolute inset-0 z-10">
+        <div ref={collageRef} className="absolute inset-0 z-10 ">
           {/* example images – positions simple rakhe */}
           <CollageImage src="/hero.png" style={{ top: "0%", left: "0%" }} />
           <CollageImage src="/hero.png" style={{ top: "0%", right: "0%" }} />
@@ -88,6 +88,13 @@ export default function WhereRealConnectionsSection() {
           <CollageImage src="/hero.png" style={{ bottom: "0%", right: "5%" }} />
           <CollageImage src="/hero.png" style={{ top: "35%", left: "20%" }} />
           <CollageImage src="/hero.png" style={{ top: "35%", right: "20%" }} />
+          <CollageImage src="/hero.png" style={{ top: "35%", right: "30%" }} />
+          <CollageImage src="/hero.png" style={{ top: "35%", right: "40%" }} />
+          <CollageImage src="/hero.png" style={{ top: "35%", right: "50%" }} />
+          <CollageImage src="/hero.png" style={{ top: "35%", left: "30%" }} />
+          <CollageImage src="/hero.png" style={{ top: "35%", left: "40%" }} />
+          <CollageImage src="/hero.png" style={{ top: "35%", left: "50%" }} />
+          <CollageImage src="/hero.png" style={{ top: "35%", left: "60%" }} />
         </div>
       </div>
     </section>
