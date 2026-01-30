@@ -650,108 +650,70 @@ export default function Home() {
       {/* FOOTER SECTION */}
       <footer className="bg-[#f5f5f0] py-12 px-6 md:py-16 md:px-12">
         <div className="mx-auto max-w-6xl">
-          {/* Social Media Icons - Row */}
-          <div className="mb-8 flex flex-row gap-4">
-            <a
-              href="#"
-              className="text-gray-700 transition hover:text-gray-900"
-              aria-label="Instagram"
-            >
-              <Image
-                src="/Item → Link → SVG.svg"
-                alt="Instagram"
-                width={20}
-                height={20}
-              />
-            </a>
-            <a
-              href="#"
-              className="text-gray-700 transition hover:text-gray-900"
-              aria-label="Facebook"
-            >
-              <Image
-                src="/Item → Link → SVG (1).svg"
-                alt="Facebook"
-                width={20}
-                height={20}
-              />
-            </a>
-            <a
-              href="#"
-              className="text-gray-700 transition hover:text-gray-900"
-              aria-label="Twitter"
-            >
-              <Image
-                src="/Item → Link → SVG (2).svg"
-                alt="Twitter"
-                width={20}
-                height={20}
-              />
-            </a>
-            <a
-              href="#"
-              className="text-gray-700 transition hover:text-gray-900"
-              aria-label="LinkedIn"
-            >
-              <Image
-                src="/Item → Link → SVG (3).svg"
-                alt="LinkedIn"
-                width={20}
-                height={20}
-              />
-            </a>
-            <a
-              href="#"
-              className="text-gray-700 transition hover:text-gray-900"
-              aria-label="YouTube"
-            >
-              <Image
-                src="/Item → Link → SVG (4).svg"
-                alt="YouTube"
-                width={20}
-                height={20}
-              />
-            </a>
-          </div>
-          {/* Navigation Links */}
-          <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
-            {/* Legal Column */}
-            <div>
-              <h5 className="mb-3 text-sm font-medium text-gray-900">
-                Legal
-              </h5>
-              <ul className="space-y-2 text-sm text-gray-700">
-                <li>
-                  <a href="#" className="hover:text-gray-900 transition">
-                    Terms of Service
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-gray-900 transition">
-                    Privacy Policy
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-gray-900 transition">
-                    Community Guidelines
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-gray-900 transition">
-                    Content Policy
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-gray-900 transition">
-                    Cookie Policy
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-gray-900 transition">
-                    Intellectual Property
-                  </a>
-                </li>
-              </ul>
+          {/* All in one row */}
+          <div className="flex flex-wrap md:gap-38 items-start">
+            {/* Social Media Icons */}
+            <div className="flex flex-row gap-4">
+              <a
+                href="#"
+                className="text-gray-700 transition hover:text-gray-900"
+                aria-label="Instagram"
+              >
+                <Image
+                  src="/Item → Link → SVG.svg"
+                  alt="Instagram"
+                  width={20}
+                  height={20}
+                />
+              </a>
+              <a
+                href="#"
+                className="text-gray-700 transition hover:text-gray-900"
+                aria-label="Facebook"
+              >
+                <Image
+                  src="/Item → Link → SVG (1).svg"
+                  alt="Facebook"
+                  width={20}
+                  height={20}
+                />
+              </a>
+              <a
+                href="#"
+                className="text-gray-700 transition hover:text-gray-900"
+                aria-label="Twitter"
+              >
+                <Image
+                  src="/Item → Link → SVG (2).svg"
+                  alt="Twitter"
+                  width={20}
+                  height={20}
+                />
+              </a>
+              <a
+                href="#"
+                className="text-gray-700 transition hover:text-gray-900"
+                aria-label="LinkedIn"
+              >
+                <Image
+                  src="/Item → Link → SVG (3).svg"
+                  alt="LinkedIn"
+                  width={20}
+                  height={20}
+                />
+              </a>
+              <a
+                href="#"
+                className="text-gray-700 transition hover:text-gray-900"
+                aria-label="YouTube"
+              >
+                <Image
+                  src="/Item → Link → SVG (4).svg"
+                  alt="YouTube"
+                  width={20}
+                  height={20}
+                />
+              </a>
             </div>
             {/* Community Column */}
             <div>
@@ -826,6 +788,42 @@ export default function Home() {
                 <li>
                   <a href="#" className="hover:text-gray-900 transition">
                     Careers
+                  </a>
+                </li>
+              </ul>
+            </div>
+            {/* Legal Column */}
+            <div>
+              <h5 className="mb-3 text-sm font-medium text-gray-900">Legal</h5>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li>
+                  <a href="#" className="hover:text-gray-900 transition">
+                    Terms of Service
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-gray-900 transition">
+                    Privacy Policy
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-gray-900 transition">
+                    Community Guidelines
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-gray-900 transition">
+                    Content Policy
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-gray-900 transition">
+                    Cookie Policy
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-gray-900 transition">
+                    Intellectual Property
                   </a>
                 </li>
               </ul>
