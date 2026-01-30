@@ -68,19 +68,19 @@ export default function DownloadAppSection() {
               (progress - startProgress) / (endProgress - startProgress);
             // Flip from 0 to 180 degrees (front to back)
             const rotation = localProgress * 180;
-            gsap.set(flipCard, { 
+            gsap.set(flipCard, {
               rotationY: rotation,
-              scale: 0.9 + (localProgress * 0.1), // Slight scale up during flip
+              scale: 0.9 + localProgress * 0.1, // Slight scale up during flip
             });
           } else if (progress < startProgress) {
             // Before this phone's turn - show front
-            gsap.set(flipCard, { 
+            gsap.set(flipCard, {
               rotationY: 0,
               scale: 0.9,
             });
           } else if (progress > endProgress) {
             // After this phone's turn - show back (flipped)
-            gsap.set(flipCard, { 
+            gsap.set(flipCard, {
               rotationY: 180,
               scale: 1.0,
             });
@@ -114,10 +114,24 @@ export default function DownloadAppSection() {
           height={210}
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:w-[900px] md:h-[900px] opacity-30"
         />
+        <Image
+          src="/Ellipse 2.svg"
+          alt="Community Groups"
+          width={210}
+          height={210}
+          className="absolute top-40 left-1/2 -translate-x-1/2 -translate-y-1/2 md:w-[800px] md:h-[800px] opacity-100"
+        />
+        <Image
+          src="/Ellipse 2.svg"
+          alt="Community Groups"
+          width={210}
+          height={210}
+          className="absolute top-[60%] left-1/2 -translate-x-1/2 -translate-y-1/2 md:w-[800px] md:h-[800px] opacity-100"
+        />
 
         {/* Star-like Elements */}
         {/* <div className="absolute top-[15%] left-[8%] w-2 h-2 bg-[#B8860B] rounded-full opacity-40 blur-[1px]"></div>
-        <div className="absolute bottom-[20%] right-[12%] w-1.5 h-1.5 bg-[#B8860B] rounded-full opacity-50 blur-[1px]"></div> */}
+        <div className="absolute bottom-[20%] right-[12%] w-2 h-2 bg-[#B8860B] rounded-full opacity-50 blur-[1px]"></div> */}
       </div>
 
       <div className="mx-auto max-w-7xl relative z-10">
