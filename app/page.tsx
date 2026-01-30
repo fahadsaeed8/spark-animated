@@ -650,9 +650,10 @@ export default function Home() {
       {/* FOOTER SECTION */}
       <footer className="bg-[#f5f5f0] py-12 px-6 md:py-16 md:px-12">
         <div className="mx-auto max-w-6xl">
-          <div className="mb-8 flex flex-wrap items-start justify-between gap-8">
-            {/* Social Media Icons */}
-            <div className="flex gap-4">
+          {/* Navigation Links */}
+          <div className="grid grid-cols-2 gap-8 md:grid-cols-5">
+            {/* Social Media Icons Column */}
+            <div className="flex flex-col gap-4">
               <a
                 href="#"
                 className="text-gray-700 transition hover:text-gray-900"
@@ -729,132 +730,120 @@ export default function Home() {
                 </svg>
               </a>
             </div>
-
-            {/* Navigation Links */}
-            <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
-              {/* Community Column */}
-              <div>
-                <h5 className="mb-3 text-sm font-medium text-gray-900">
-                  Community
-                </h5>
-                <ul className="space-y-2 text-sm text-gray-700">
-                  <li>
-                    <a href="#" className="hover:text-gray-900 transition">
-                      Downloads
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="hover:text-gray-900 transition">
-                      Success Stories
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="hover:text-gray-900 transition">
-                      Events
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="hover:text-gray-900 transition">
-                      Blog
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="hover:text-gray-900 transition">
-                      Forum
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="hover:text-gray-900 transition">
-                      Creators
-                    </a>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Help Column */}
-              <div>
-                <h5 className="mb-3 text-sm font-medium text-gray-900">Help</h5>
-                <ul className="space-y-2 text-sm text-gray-700">
-                  <li>
-                    <a href="#" className="hover:text-gray-900 transition">
-                      FAQ
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="hover:text-gray-900 transition">
-                      Support
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="hover:text-gray-900 transition">
-                      Privacy
-                    </a>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Company Column */}
-              <div>
-                <h5 className="mb-3 text-sm font-medium text-gray-900">
-                  Company
-                </h5>
-                <ul className="space-y-2 text-sm text-gray-700">
-                  <li>
-                    <a href="#" className="hover:text-gray-900 transition">
-                      About Us
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="hover:text-gray-900 transition">
-                      Careers
-                    </a>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Legal Column */}
-              <div>
-                <h5 className="mb-3 text-sm font-medium text-gray-900">
-                  Legal
-                </h5>
-                <ul className="space-y-2 text-sm text-gray-700">
-                  <li>
-                    <a href="#" className="hover:text-gray-900 transition">
-                      Terms of Service
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="hover:text-gray-900 transition">
-                      Privacy Policy
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="hover:text-gray-900 transition">
-                      Community Guidelines
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="hover:text-gray-900 transition">
-                      Content Policy
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="hover:text-gray-900 transition">
-                      Cookie Policy
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="hover:text-gray-900 transition">
-                      Intellectual Property
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="hover:text-gray-900 transition">
-                      The Trust & Safety
-                    </a>
-                  </li>
-                </ul>
-              </div>
+            {/* Legal Column */}
+            <div>
+              <h5 className="mb-3 text-sm font-medium text-gray-900">
+                Legal
+              </h5>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li>
+                  <a href="#" className="hover:text-gray-900 transition">
+                    Terms of Service
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-gray-900 transition">
+                    Privacy Policy
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-gray-900 transition">
+                    Community Guidelines
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-gray-900 transition">
+                    Content Policy
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-gray-900 transition">
+                    Cookie Policy
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-gray-900 transition">
+                    Intellectual Property
+                  </a>
+                </li>
+              </ul>
+            </div>
+            {/* Community Column */}
+            <div>
+              <h5 className="mb-3 text-sm font-medium text-gray-900">
+                Community
+              </h5>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li>
+                  <a href="#" className="hover:text-gray-900 transition">
+                    Downloads
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-gray-900 transition">
+                    Success Stories
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-gray-900 transition">
+                    Events
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-gray-900 transition">
+                    Blog
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-gray-900 transition">
+                    Forum
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-gray-900 transition">
+                    Creators
+                  </a>
+                </li>
+              </ul>
+            </div>
+            {/* Help Column */}
+            <div>
+              <h5 className="mb-3 text-sm font-medium text-gray-900">Help</h5>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li>
+                  <a href="#" className="hover:text-gray-900 transition">
+                    FAQ
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-gray-900 transition">
+                    Support
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-gray-900 transition">
+                    Privacy
+                  </a>
+                </li>
+              </ul>
+            </div>
+            {/* Company Column */}
+            <div>
+              <h5 className="mb-3 text-sm font-medium text-gray-900">
+                Company
+              </h5>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li>
+                  <a href="#" className="hover:text-gray-900 transition">
+                    About Us
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-gray-900 transition">
+                    Careers
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
