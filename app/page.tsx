@@ -21,34 +21,20 @@ export default function Home() {
           }}
         />
 
+        {/* Black Gradient Overlay at Top (for Navbar area) */}
+        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/80 to-transparent z-[5]" />
+
         {/* Content */}
         <div className="relative z-10 flex h-full flex-col">
           {/* NAVBAR */}
-          <header className="flex items-center justify-between px-6 py-5 md:px-12">
+          <header className="flex items-center md:mt-5 justify-between px-6 py-5 md:px-24">
             {/* Logo - White circle with line through it */}
-            <div className="flex items-center">
-              <svg
-                width="32"
-                height="32"
-                viewBox="0 0 32 32"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="text-white"
-              >
-                <circle cx="16" cy="16" r="15" stroke="white" strokeWidth="2" />
-                <line
-                  x1="8"
-                  y1="16"
-                  x2="24"
-                  y2="16"
-                  stroke="white"
-                  strokeWidth="2"
-                />
-              </svg>
+            <div className="flex items-center ml-20">
+              <Image src={"/Layer_1.svg"} width={70} height={70} alt="logo" />
             </div>
 
             {/* Nav Links */}
-            <nav className="hidden gap-6 text-xs font-medium uppercase tracking-wide text-white md:flex lg:gap-8">
+            <nav className="hidden gap-6 md:text-[14px] font-semibold uppercase tracking-wide text-[#F5F2ED] md:flex lg:gap-8">
               <a className="hover:opacity-80 transition-opacity" href="#">
                 ABOUT
               </a>
@@ -59,7 +45,7 @@ export default function Home() {
                 ABOUT EVENT
               </a>
               <a className="hover:opacity-80 transition-opacity" href="#">
-                ABOUT KEEPER MAKING
+                ABOUT MATCH MAKING
               </a>
               <a className="hover:opacity-80 transition-opacity" href="#">
                 CONTACT US
@@ -69,18 +55,18 @@ export default function Home() {
 
           {/* HERO CENTER */}
           <div className="flex flex-1 items-center justify-center px-6 text-start">
-            <div className="max-w-5xl">
+            <div className="max-w-6xl md:mt-10">
               <h1 className="mb-10 font-clash text-4xl font-medium leading-tight text-[#F5F2ED] md:text-6xl lg:text-8xl">
                 The most welcoming way to date
               </h1>
 
               {/* Buttons */}
               <div className="flex flex-wrap justify-start gap-4">
-                <button className="rounded-lg bg-[#E69F4F] px-8 py-3 text-sm font-medium text-white transition hover:bg-orange-600">
+                <button className="rounded-full bg-[#E69F4F] px-8 py-3 text-sm font-medium text-white transition hover:bg-orange-600">
                   Download for iOS
                 </button>
 
-                <button className="rounded-lg bg-[#E69F4F] px-8 py-3 text-sm font-medium text-white transition hover:bg-orange-600">
+                <button className="rounded-full bg-[#E69F4F] px-8 py-3 text-sm font-medium text-white transition hover:bg-orange-600">
                   Download for Android
                 </button>
               </div>
