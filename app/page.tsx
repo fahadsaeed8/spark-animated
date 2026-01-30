@@ -62,11 +62,21 @@ export default function Home() {
 
               {/* Buttons */}
               <div className="flex flex-wrap justify-start gap-4">
-                <button className="rounded-full bg-[#E69F4F] px-8 py-3 text-sm font-medium text-white transition hover:bg-orange-600">
+                <button
+                  className="rounded-full px-8 py-2.5 text-sm md:text-[16px] font-semibold text-white transition hover:opacity-90"
+                  style={{
+                    background: "linear-gradient(to bottom, #D99F4F, #BF822E)",
+                  }}
+                >
                   Download for iOS
                 </button>
 
-                <button className="rounded-full bg-[#E69F4F] px-8 py-3 text-sm font-medium text-white transition hover:bg-orange-600">
+                <button
+                  className="rounded-full px-8 py-2.5 text-sm md:text-[16px] font-semibold text-white transition hover:opacity-90"
+                  style={{
+                    background: "linear-gradient(to bottom, #D99F4F, #BF822E)",
+                  }}
+                >
                   Download for Android
                 </button>
               </div>
