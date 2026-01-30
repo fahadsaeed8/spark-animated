@@ -27,7 +27,7 @@ export default function DownloadAppSection() {
     // Pin the section during scroll animation
     const pinTrigger = ScrollTrigger.create({
       trigger: section,
-      start: "top top",
+      start: "center center",
       end: `+=${scrollDistance}`,
       pin: true,
       pinSpacing: true,
@@ -56,7 +56,7 @@ export default function DownloadAppSection() {
       // Create scroll trigger for this phone's flip animation
       ScrollTrigger.create({
         trigger: section,
-        start: "top top",
+        start: "center center",
         end: `+=${scrollDistance}`,
         scrub: 1, // Smooth scrubbing tied to scroll
         onUpdate: (self) => {

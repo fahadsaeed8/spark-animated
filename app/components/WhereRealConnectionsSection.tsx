@@ -18,7 +18,7 @@ export default function WhereRealConnectionsSection() {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: sectionRef.current,
-        start: "top top",
+        start: "center center",
         end: "+=1600",
         scrub: true,
         pin: true,
