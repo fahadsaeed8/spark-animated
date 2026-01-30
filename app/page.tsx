@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -29,9 +30,9 @@ export default function Home() {
           {/* NAVBAR */}
           <header className="flex items-center md:mt-5 justify-between px-6 py-5 md:px-24">
             {/* Logo - White circle with line through it */}
-            <div className="flex items-center ml-20">
+            <Link href={"/"} className="flex items-center ml-20">
               <Image src={"/Layer_1.svg"} width={70} height={70} alt="logo" />
-            </div>
+            </Link>
 
             {/* Nav Links */}
             <nav className="hidden gap-6 md:text-[14px] font-semibold uppercase tracking-wide text-[#F5F2ED] md:flex lg:gap-8">
@@ -84,9 +85,9 @@ export default function Home() {
           </div>
 
           {/* FOOTNOTE */}
-          <div className="px-6 pb-6 text-center text-[10px] text-white opacity-70 md:px-12">
-            Terms are applied. Images are for illustrative purposes only. Prices
-            or offers are subject to change without prior notice.
+          <div className="px-6 pb-6 text-center md:text-[16px] md:-mb-4 text-white opacity-70 md:px-12">
+            Names are altered, images are illustrative and depict models:
+            Persons in videos are influencers, compensated by Hily.
           </div>
         </div>
       </section>
