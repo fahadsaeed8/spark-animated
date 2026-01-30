@@ -1,10 +1,39 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 import Image from "next/image";
+import gsap from "gsap";
 
 export default function EasyAndSafeFeaturesSection() {
+  const backgroundRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!backgroundRef.current) return;
+
+    // Continuous automatic animation - pulse/breathing effect
+    const tl = gsap.timeline({ repeat: -1, ease: "power1.inOut" });
+    
+    tl.to(backgroundRef.current, {
+      opacity: 0.6,
+      scale: 1.05,
+      duration: 3,
+    })
+    .to(backgroundRef.current, {
+      opacity: 1,
+      scale: 1,
+      duration: 3,
+    });
+
+    return () => {
+      tl.kill();
+    };
+  }, []);
+
   return (
     <section className="py-16 px-6 bg-[#fbead0] md:py-24 md:px-12 relative">
       {/* Background Image */}
       <div
+        ref={backgroundRef}
         className="absolute inset-0 z-0"
         style={{
           backgroundImage: "url('/Background-grey.svg')",
@@ -83,8 +112,7 @@ export default function EasyAndSafeFeaturesSection() {
               Match & Connect
             </h4>
             <p className="text-sm leading-relaxed w-[80%] text-start text-[#5A5A5A] md:text-[22px]">
-              Discover people based on shared interests, not superficial
-              swipes.
+              Discover people based on shared interests, not superficial swipes.
             </p>
           </div>
         </div>
@@ -92,6 +120,3 @@ export default function EasyAndSafeFeaturesSection() {
     </section>
   );
 }
-
-
-
