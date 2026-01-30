@@ -57,7 +57,12 @@ export default function WhereRealConnectionsSection() {
       ref={sectionRef}
       className="relative min-h-screen bg-black flex items-center justify-center"
     >
-      <div className="relative w-full max-w-6xl h-[80vh]">
+      {/* Title Text */}
+      <h2 className="absolute top-15 left-1/2 transform -translate-x-1/2 text-white text-4xl md:text-4xl font-clash font-medium text-center z-30">
+        Where real connections come to life
+      </h2>
+
+      <div className="relative w-full max-w-6xl md:mt-[180px] h-[80vh]">
         {/* HERO PORTRAIT IMAGE */}
         <div
           ref={heroRef}
