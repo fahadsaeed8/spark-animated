@@ -14,7 +14,6 @@ export default function Home() {
       <HeroSection />
       <WhoWeAreSection />
       <EasyAndSafeFeaturesSection />
-
       <WhereRealConnectionsSection />
       <StatisticsSection />
       <DownloadAppSection />

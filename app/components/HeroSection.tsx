@@ -1,9 +1,35 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import gsap from "gsap";
 
 export default function HeroSection() {
+  const heartBackgroundRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!heartBackgroundRef.current) return;
+
+    // Continuous automatic animation - pulse/breathing effect
+    const tl = gsap.timeline({ repeat: -1, ease: "power1.inOut" });
+    
+    tl.to(heartBackgroundRef.current, {
+      opacity: 0.6,
+      scale: 1.05,
+      duration: 3,
+    })
+    .to(heartBackgroundRef.current, {
+      opacity: 1,
+      scale: 1,
+      duration: 3,
+    });
+
+    return () => {
+      tl.kill();
+    };
+  }, []);
+
   return (
     <section className="relative h-screen w-full overflow-hidden">
       {/* Background Image */}
@@ -16,6 +42,7 @@ export default function HeroSection() {
 
       {/* Background Overlay (Heart/Decorative Pattern) */}
       <div
+        ref={heartBackgroundRef}
         className="absolute inset-0 bg-cover bg-center"
         style={{
           backgroundImage: "url('/Background.png')",
