@@ -11,16 +11,15 @@ export default function EasyAndSafeFeaturesSection() {
     if (!backgroundRef.current) return;
 
     // Continuous automatic animation - pulse/breathing effect
+    // Using opacity only to avoid overflow/scroll issues
     const tl = gsap.timeline({ repeat: -1, ease: "power1.inOut" });
     
     tl.to(backgroundRef.current, {
       opacity: 0.6,
-      scale: 1.05,
       duration: 3,
     })
     .to(backgroundRef.current, {
       opacity: 1,
-      scale: 1,
       duration: 3,
     });
 
@@ -30,7 +29,7 @@ export default function EasyAndSafeFeaturesSection() {
   }, []);
 
   return (
-    <section className="py-16 px-6 bg-[#fbead0] md:py-24 md:px-12 relative">
+    <section className="py-16 px-6 bg-[#fbead0] md:py-24 md:px-12 relative overflow-hidden">
       {/* Background Image */}
       <div
         ref={backgroundRef}
