@@ -115,3 +115,8 @@
     transform: rotate(360deg);
   }
 }
+
+/* Radial gradient utility */
+.bg-gradient-radial {
+  background: radial-gradient(circle at center, var(--tw-gradient-stops));
+}

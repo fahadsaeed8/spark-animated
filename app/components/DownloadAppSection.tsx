@@ -10,6 +10,7 @@ gsap.registerPlugin(ScrollTrigger);
 export default function DownloadAppSection() {
   const downloadSectionRef = useRef<HTMLElement>(null);
   const phoneRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const headingRef = useRef<HTMLDivElement>(null);
 
   // Scroll-triggered flip animation for phones
   useEffect(() => {
@@ -24,6 +25,9 @@ export default function DownloadAppSection() {
     // Calculate scroll distance - each phone gets 400px of scroll
     const scrollDistance = totalPhones * 400;
 
+    // Track if phones have been shown
+    let phonesShown = false;
+
     // Pin the section during scroll animation
     const pinTrigger = ScrollTrigger.create({
       trigger: section,
@@ -31,12 +35,52 @@ export default function DownloadAppSection() {
       end: `+=${scrollDistance}`,
       pin: true,
       pinSpacing: true,
+      onEnter: () => {
+        // Show all phones when scroll animation starts
+        if (!phonesShown) {
+          phonesShown = true;
+          phoneElements.forEach((phoneEl) => {
+            gsap.to(phoneEl, {
+              opacity: 1,
+              duration: 0.6,
+              ease: "power2.out",
+            });
+          });
+        }
+      },
+      onUpdate: (self) => {
+        // Show phones when animation starts (any progress > 0)
+        if (self.progress > 0 && !phonesShown) {
+          phonesShown = true;
+          phoneElements.forEach((phoneEl) => {
+            gsap.to(phoneEl, {
+              opacity: 1,
+              duration: 0.6,
+              ease: "power2.out",
+            });
+          });
+        }
+      },
+      onLeaveBack: () => {
+        // Hide phones when scrolling back up before animation
+        phonesShown = false;
+        phoneElements.forEach((phoneEl) => {
+          gsap.to(phoneEl, {
+            opacity: 0,
+            duration: 0.3,
+            ease: "power2.in",
+          });
+        });
+      },
     });
 
-    // Set initial state - all phones show front initially
+    // Set initial state - all phones hidden initially, show front when visible
     phoneElements.forEach((phoneEl) => {
       const flipCard = phoneEl.querySelector(".phone-flip-card") as HTMLElement;
       if (!flipCard) return;
+      gsap.set(phoneEl, {
+        opacity: 0,
+      });
       gsap.set(flipCard, {
         rotationY: 0,
         transformStyle: "preserve-3d",
@@ -99,6 +143,38 @@ export default function DownloadAppSection() {
     };
   }, []);
 
+  // Animate heading fade-in from top
+  useEffect(() => {
+    if (!downloadSectionRef.current || !headingRef.current) return;
+
+    gsap.set(headingRef.current, {
+      opacity: 0,
+      y: -30,
+    });
+
+    ScrollTrigger.create({
+      trigger: downloadSectionRef.current,
+      start: "top 80%",
+      toggleActions: "play none none none",
+      onEnter: () => {
+        gsap.to(headingRef.current, {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power2.out",
+        });
+      },
+    });
+
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => {
+        if (trigger.vars.trigger === downloadSectionRef.current) {
+          trigger.kill();
+        }
+      });
+    };
+  }, []);
+
   return (
     <section
       ref={downloadSectionRef}
@@ -137,7 +213,7 @@ export default function DownloadAppSection() {
           <div className="relative min-h-[350px] md:min-h-[450px] lg:min-h-[550px] px-4 md:px-8">
             {/* Text: "Download the App Now" - Centered, phones will overlap */}
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-full">
-              <div className="flex items-center justify-center">
+              <div ref={headingRef} className="flex items-center justify-center">
                 <Image
                   src="/Download The App Now.svg"
                   alt="Download The App Now"
@@ -155,7 +231,7 @@ export default function DownloadAppSection() {
                 ref={(el) => {
                   phoneRefs.current[0] = el;
                 }}
-                className="relative z-10 w-24 md:w-40 lg:w-48 xl:w-56 transform -rotate-[5deg] md:-rotate-[6deg] -ml-4 md:-ml-18 -mt-8 md:-mt-12 cursor-pointer"
+                className="relative z-10 w-24 md:w-40 lg:w-48 xl:w-56 transform -rotate-[5deg] md:-rotate-[6deg] -ml-4 md:-ml-18 -mt-8 md:-mt-12 cursor-pointer opacity-0"
                 style={{ perspective: "1000px" }}
               >
                 <div
@@ -212,7 +288,7 @@ export default function DownloadAppSection() {
                 ref={(el) => {
                   phoneRefs.current[1] = el;
                 }}
-                className="relative z-10 w-24 md:w-40 lg:w-48 xl:w-56 transform -rotate-[5deg] md:-rotate-[6deg] -ml-4 md:-ml-18 -mt-8 md:-mt-12 cursor-pointer"
+                className="relative z-10 w-24 md:w-40 lg:w-48 xl:w-56 transform -rotate-[5deg] md:-rotate-[6deg] -ml-4 md:-ml-18 -mt-8 md:-mt-12 cursor-pointer opacity-0"
                 style={{ perspective: "1000px" }}
               >
                 <div
@@ -269,7 +345,7 @@ export default function DownloadAppSection() {
                 ref={(el) => {
                   phoneRefs.current[2] = el;
                 }}
-                className="relative z-10 w-24 md:w-40 lg:w-48 xl:w-56 transform -rotate-[5deg] md:-rotate-[6deg] -ml-4 md:-ml-18 -mt-8 md:-mt-12 cursor-pointer"
+                className="relative z-10 w-24 md:w-40 lg:w-48 xl:w-56 transform -rotate-[5deg] md:-rotate-[6deg] -ml-4 md:-ml-18 -mt-8 md:-mt-12 cursor-pointer opacity-0"
                 style={{ perspective: "1000px" }}
               >
                 <div
