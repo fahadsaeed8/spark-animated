@@ -30,14 +30,14 @@ export default function HeroSection() {
 
     const tl = gsap.timeline();
 
-    // Step 1: Hide CTA button and instruction text quickly
+    // Step 1: Hide CTA button and instruction text
     if (ctaButton) {
       tl.to(
         ctaButton,
         {
           opacity: 0,
           scale: 0.9,
-          duration: 0.2,
+          duration: 0.4,
           ease: "power2.in",
         },
         "start",
@@ -49,7 +49,7 @@ export default function HeroSection() {
         instructionText,
         {
           opacity: 0,
-          duration: 0.2,
+          duration: 0.4,
           ease: "power2.in",
         },
         "start",
@@ -69,11 +69,11 @@ export default function HeroSection() {
       {
         scale: 0.2,
         opacity: 0,
-        duration: 0.9,
+        duration: 1.5,
         ease: "power3.in",
         transformOrigin: "center center",
       },
-      "start+=0.1",
+      "start+=0.2",
     );
 
     // Hero overlay fades out at the SAME time - next page appears
@@ -82,14 +82,14 @@ export default function HeroSection() {
       {
         opacity: 0,
         pointerEvents: "none",
-        duration: 0.8,
+        duration: 1.4,
         ease: "power2.in",
         onComplete: () => {
           setHasEntered(true);
           document.body.style.overflow = "auto";
         },
       },
-      "start+=0.1", // Same time as character zoom
+      "start+=0.2", // Same time as character zoom
     );
   };
 
