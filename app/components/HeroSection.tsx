@@ -12,17 +12,17 @@ export default function HeroSection() {
   const portalRef = useRef<HTMLDivElement>(null);
   const characterRef = useRef<HTMLDivElement>(null);
 
-  // Handle "Enter the Circle" CTA click - Fixed animation
+  // Handle "Enter the Circle" CTA click - Character zooms in and next page appears
   const handleEnterCircle = () => {
     if (hasEntered) return;
 
-    const portal = portalRef.current;
     const hero = heroRef.current;
     const character = characterRef.current;
     const characterCircle = character?.querySelector(".character-circle");
     const ctaButton = hero?.querySelector("button[data-enter-circle]");
+    const instructionText = hero?.querySelector("p");
 
-    if (!portal || !hero || !character || !characterCircle) return;
+    if (!hero || !character || !characterCircle) return;
 
     // Disable button during animation
     const button = ctaButton as HTMLButtonElement;
@@ -30,99 +30,66 @@ export default function HeroSection() {
 
     const tl = gsap.timeline();
 
-    // Step 1: Hide CTA button
+    // Step 1: Hide CTA button and instruction text quickly
     if (ctaButton) {
       tl.to(
         ctaButton,
         {
           opacity: 0,
           scale: 0.9,
-          duration: 0.4,
+          duration: 0.2,
           ease: "power2.in",
         },
         "start",
       );
     }
 
-    // Step 2: Create portal ring FROM character circle (center me aayega)
-    // Get character circle position and dimensions
-    const charRect = characterCircle.getBoundingClientRect();
-    const centerX = window.innerWidth / 2;
-    const centerY = window.innerHeight / 2;
+    if (instructionText) {
+      tl.to(
+        instructionText,
+        {
+          opacity: 0,
+          duration: 0.2,
+          ease: "power2.in",
+        },
+        "start",
+      );
+    }
 
-    // Set portal at character center (character circle ke exact center mein)
-    gsap.set(portal, {
-      left: "50%",
-      top: "50%",
-      xPercent: -50,
-      yPercent: -50,
-      opacity: 0,
-      scale: 0.3,
-      borderWidth: "3px",
+    // Step 2: Character zooms OUT (scale down) - going inside character
+    // Ensure starting scale is 1, transform origin is center
+    gsap.set(characterCircle, { 
+      scale: 1,
+      transformOrigin: "center center"
     });
-
-    tl.to(
-      portal,
-      {
-        opacity: 1,
-        scale: 1.2, // Character circle se thoda bada
-        duration: 0.8,
-        ease: "power2.out",
-      },
-      "start+=0.2",
-    );
-
-    // Step 3: Character shrinks and disappears INTO the portal
+    
+    // Character zooms OUT (gets SMALLER - scale decreases) - going inside
     tl.to(
       characterCircle,
       {
         scale: 0.2,
         opacity: 0,
-        duration: 1.2,
+        duration: 0.9,
         ease: "power3.in",
+        transformOrigin: "center center",
       },
-      "start+=0.4",
+      "start+=0.1",
     );
 
-    // Step 4: Portal expands and glows
-    tl.to(
-      portal,
-      {
-        scale: 3, // Zyada expand hoga
-        opacity: 0.8,
-        borderWidth: "6px",
-        boxShadow: "0 0 100px rgba(255, 255, 255, 0.7)",
-        duration: 1.2,
-        ease: "power2.inOut",
-      },
-      "start+=0.8",
-    );
-
-    // Step 5: Portal contracts and disappears
-    tl.to(
-      portal,
-      {
-        scale: 0,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power3.in",
-      },
-      "start+=1.8",
-    );
-
-    // Step 6: Fade out hero and enable story flow
+    // Hero overlay fades out at the SAME time - next page appears
     tl.to(
       hero,
       {
         opacity: 0,
-        duration: 0.6,
+        pointerEvents: "none",
+        duration: 0.8,
         ease: "power2.in",
         onComplete: () => {
           setHasEntered(true);
           document.body.style.overflow = "auto";
         },
       },
-      "start+=2.2",
+      "start+=0.1", // Same time as character zoom
     );
   };
 
