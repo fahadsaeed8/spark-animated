@@ -32,6 +32,11 @@ export default function WhereRealConnectionsSection() {
       scale: 0.9,
     });
 
+    // Set initial margin-top to 0 for hero
+    gsap.set(heroRef.current, {
+      marginTop: "0px",
+    });
+
     // Animate heading fade-in from top when section enters view
     if (headingRef.current) {
       gsap.set(headingRef.current, {
@@ -54,10 +59,11 @@ export default function WhereRealConnectionsSection() {
       });
     }
 
-    // HERO → shrink & move center
+    // HERO → shrink & move center with margin-top during animation
     tl.to(heroRef.current, {
       scale: 0.35,
       y: "-10%",
+      marginTop: "110px", // mt-30 equivalent (30 * 4px = 120px)
       ease: "none",
     });
 
