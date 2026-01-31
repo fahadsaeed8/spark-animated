@@ -203,7 +203,7 @@ export default function HeroSection() {
               backgroundImage: `url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1920&q=80')`,
             }}
           >
-            <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/80" />
           </div>
         </div>
 
@@ -218,24 +218,20 @@ export default function HeroSection() {
           {/* Single Character - Premium Design */}
           <div className="relative">
             {/* Character Circle - Minimal & Elegant */}
-            <div className="character-circle w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-white/10 via-white/5 to-transparent border-2 border-white/15 flex items-center justify-center backdrop-blur-[4px] shadow-2xl">
+            <div className="character-circle w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-white/10 via-white/5 to-transparent border-2 border-white/15 flex items-center justify-center backdrop-blur-[4px] shadow-2xl overflow-hidden">
               {/* Inner glow */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/10 to-transparent" />
+              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/10 to-transparent z-10" />
 
-              {/* Character Icon */}
-              <svg
-                className="w-36 h-36 md:w-44 md:h-44 text-white/95 relative z-10"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.2}
-                  d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+              {/* Character Image */}
+              <div className="relative z-0 w-full h-full">
+                <Image
+                  src="/hero.png"
+                  alt="Character"
+                  fill
+                  className="object-cover rounded-full"
+                  priority
                 />
-              </svg>
+              </div>
             </div>
 
             {/* Portal Ring - Will appear from center */}
