@@ -132,12 +132,11 @@ export default function HeroSection() {
     // Continuous automatic animation - pulse/breathing effect
     // Using opacity only to avoid overflow/scroll issues
     const tl = gsap.timeline({ repeat: -1, ease: "power1.inOut" });
-    
+
     tl.to(heartBackgroundRef.current, {
       opacity: 0.6,
       duration: 3,
-    })
-    .to(heartBackgroundRef.current, {
+    }).to(heartBackgroundRef.current, {
       opacity: 1,
       duration: 3,
     });
@@ -182,7 +181,10 @@ export default function HeroSection() {
   }, [hasEntered]);
 
   return (
-    <section className="relative h-screen w-full overflow-hidden" style={{ overflow: 'hidden' }}>
+    <section
+      className="relative h-screen w-full overflow-hidden"
+      style={{ overflow: "hidden" }}
+    >
       {/* Character Hero Overlay - Fixed on top */}
       <div
         ref={heroRef}
@@ -211,10 +213,10 @@ export default function HeroSection() {
         {/* Character Container - Centered */}
         <div
           ref={characterRef}
-          className="relative z-20 flex flex-col items-center justify-center"
+          className="relative z-20 mt-34 flex flex-col items-center justify-center"
         >
           {/* Single Character - Premium Design */}
-          <div className="relative mb-16">
+          <div className="relative">
             {/* Character Circle - Minimal & Elegant */}
             <div className="character-circle w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-white/10 via-white/5 to-transparent border-2 border-white/15 flex items-center justify-center backdrop-blur-[4px] shadow-2xl">
               {/* Inner glow */}
@@ -300,20 +302,15 @@ export default function HeroSection() {
         <header className="flex items-center md:mt-5 justify-between px-6 py-5 md:px-24">
           {/* Logo - White circle with line through it */}
           <Link href={"/"} className="flex items-center ml-20">
-            <div 
+            <div
               className="animate-rotate"
               style={{
-                animation: 'rotate 10s linear infinite',
-                display: 'inline-block',
-                transformOrigin: 'center center'
+                animation: "rotate 10s linear infinite",
+                display: "inline-block",
+                transformOrigin: "center center",
               }}
             >
-              <Image 
-                src={"/Layer_1.svg"} 
-                width={70} 
-                height={70} 
-                alt="logo"
-              />
+              <Image src={"/Layer_1.svg"} width={70} height={70} alt="logo" />
             </div>
           </Link>
 
@@ -369,11 +366,10 @@ export default function HeroSection() {
 
         {/* FOOTNOTE */}
         <div className="px-6 pb-6 text-center md:text-[16px] md:-mb-4 text-white opacity-70 md:px-12">
-          Names are altered, images are illustrative and depict models:
-          Persons in videos are influencers, compensated by Hily.
+          Names are altered, images are illustrative and depict models: Persons
+          in videos are influencers, compensated by Hily.
         </div>
       </div>
     </section>
   );
 }
-
