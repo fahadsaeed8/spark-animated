@@ -58,11 +58,11 @@ export default function HeroSection() {
 
     // Step 2: Character zooms OUT (scale down) - going inside character
     // Ensure starting scale is 1, transform origin is center
-    gsap.set(characterCircle, { 
+    gsap.set(characterCircle, {
       scale: 1,
-      transformOrigin: "center center"
+      transformOrigin: "center center",
     });
-    
+
     // Character zooms OUT (gets SMALLER - scale decreases) - going inside
     tl.to(
       characterCircle,
@@ -224,7 +224,7 @@ export default function HeroSection() {
           <button
             onClick={handleEnterCircle}
             data-enter-circle
-            className="group relative px-12 py-5 md:px-16 md:py-6 my-10 bg-white text-black rounded-full font-medium text-lg md:text-xl tracking-wide hover:bg-white/95 transition-all duration-500 shadow-2xl hover:shadow-3xl hover:scale-105 active:scale-100 cursor-pointer z-20"
+            className="group relative px-12 py-5 md:px-16 md:py-4 font-clash my-10 bg-white text-black rounded-full font-medium text-lg md:text-xl tracking-wide hover:bg-white/95 transition-all duration-500 shadow-2xl hover:shadow-3xl hover:scale-105 active:scale-100 cursor-pointer z-20"
           >
             <span className="relative z-10">Enter the Circle</span>
 
@@ -233,19 +233,22 @@ export default function HeroSection() {
           </button>
 
           {/* Instruction text */}
-          <p className="mt-10 text-white/50 text-sm font-light tracking-wide z-20">
+          <p className="mt-10 text-white/50 font-clash text-sm  tracking-wide z-20">
             Click to begin your journey
           </p>
         </div>
       </div>
 
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage: "url('/hero.png')",
-        }}
-      />
+      {/* Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src="/hero-video.mp4" type="video/mp4" />
+      </video>
 
       {/* Background Overlay (Heart/Decorative Pattern) */}
       <div
