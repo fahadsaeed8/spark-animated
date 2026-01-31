@@ -12,6 +12,7 @@ export default function HeroSection() {
   const portalRef = useRef<HTMLDivElement>(null);
   const characterRef = useRef<HTMLDivElement>(null);
   const heroTitleRef = useRef<HTMLHeadingElement>(null);
+  const footnoteRef = useRef<HTMLDivElement>(null);
 
   // Handle "Enter the Circle" CTA click - Character zooms in and next page appears
   const handleEnterCircle = () => {
@@ -162,6 +163,27 @@ export default function HeroSection() {
     // Animate title zoom in with slow speed
     gsap.to(heroTitleRef.current, {
       opacity: 1,
+      scale: 1,
+      duration: 2.0,
+      ease: "power2.out",
+      delay: 0.3,
+    });
+  }, [hasEntered]);
+
+  // Animate footnote zoom in when overlay disappears
+  useEffect(() => {
+    if (!hasEntered || !footnoteRef.current) return;
+
+    // Set initial state - text starts small and invisible
+    gsap.set(footnoteRef.current, {
+      opacity: 0,
+      scale: 0.5,
+      transformOrigin: "center center",
+    });
+
+    // Animate footnote zoom in with slow speed
+    gsap.to(footnoteRef.current, {
+      opacity: 0.7,
       scale: 1,
       duration: 2.0,
       ease: "power2.out",
@@ -356,7 +378,10 @@ export default function HeroSection() {
         </div>
 
         {/* FOOTNOTE */}
-        <div className="px-6 pb-6 text-center md:text-[16px] md:-mb-4 text-white opacity-70 md:px-12">
+        <div
+          ref={footnoteRef}
+          className="px-6 pb-6 text-center md:text-[16px] md:-mb-4 text-white opacity-70 md:px-12"
+        >
           Names are altered, images are illustrative and depict models: Persons
           in videos are influencers, compensated by Hily.
         </div>
