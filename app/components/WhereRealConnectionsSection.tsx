@@ -11,6 +11,7 @@ export default function WhereRealConnectionsSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
   const collageRef = useRef<HTMLDivElement>(null);
+  const headingRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
     if (!sectionRef.current || !heroRef.current || !collageRef.current) return;
@@ -30,6 +31,28 @@ export default function WhereRealConnectionsSection() {
       opacity: 0,
       scale: 0.9,
     });
+
+    // Animate heading fade-in from top when section enters view
+    if (headingRef.current) {
+      gsap.set(headingRef.current, {
+        opacity: 0,
+        y: -30,
+      });
+
+      ScrollTrigger.create({
+        trigger: sectionRef.current,
+        start: "top 80%",
+        toggleActions: "play none none none",
+        onEnter: () => {
+          gsap.to(headingRef.current, {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power2.out",
+          });
+        },
+      });
+    }
 
     // HERO → shrink & move center
     tl.to(heroRef.current, {
@@ -58,7 +81,10 @@ export default function WhereRealConnectionsSection() {
       className="relative min-h-screen bg-black flex md:pb-[50px] items-center justify-center"
     >
       {/* Title Text */}
-      <h2 className="absolute top-5 left-1/2 transform -translate-x-1/2 text-white text-4xl md:text-4xl font-clash font-medium text-center z-30">
+      <h2
+        ref={headingRef}
+        className="absolute top-5 left-1/2 transform -translate-x-1/2 text-white text-4xl md:text-4xl font-clash font-medium text-center z-30"
+      >
         Where real connections come to life
       </h2>
 

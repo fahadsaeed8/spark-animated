@@ -11,6 +11,7 @@ export default function HeroSection() {
   const heroRef = useRef<HTMLDivElement>(null);
   const portalRef = useRef<HTMLDivElement>(null);
   const characterRef = useRef<HTMLDivElement>(null);
+  const heroTitleRef = useRef<HTMLHeadingElement>(null);
 
   // Handle "Enter the Circle" CTA click - Character zooms in and next page appears
   const handleEnterCircle = () => {
@@ -145,6 +146,27 @@ export default function HeroSection() {
         delay: 0.5,
       });
     }
+  }, [hasEntered]);
+
+  // Animate hero title zoom in when overlay disappears
+  useEffect(() => {
+    if (!hasEntered || !heroTitleRef.current) return;
+
+    // Set initial state - text starts small and invisible
+    gsap.set(heroTitleRef.current, {
+      opacity: 0,
+      scale: 0.5,
+      transformOrigin: "center center",
+    });
+
+    // Animate title zoom in with slow speed
+    gsap.to(heroTitleRef.current, {
+      opacity: 1,
+      scale: 1,
+      duration: 2.0,
+      ease: "power2.out",
+      delay: 0.3,
+    });
   }, [hasEntered]);
 
   return (
@@ -303,7 +325,10 @@ export default function HeroSection() {
         {/* HERO CENTER */}
         <div className="flex flex-1 items-center justify-center px-6 text-start">
           <div className="max-w-6xl md:mt-10">
-            <h1 className="mb-10 font-clash text-4xl font-medium leading-tight text-[#F5F2ED] md:text-6xl lg:text-8xl">
+            <h1
+              ref={heroTitleRef}
+              className="mb-10 font-clash text-4xl font-medium leading-tight text-[#F5F2ED] md:text-6xl lg:text-8xl"
+            >
               The most welcoming way to date
             </h1>
 

@@ -10,6 +10,7 @@ gsap.registerPlugin(ScrollTrigger);
 export default function DownloadAppSection() {
   const downloadSectionRef = useRef<HTMLElement>(null);
   const phoneRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const headingRef = useRef<HTMLDivElement>(null);
 
   // Scroll-triggered flip animation for phones
   useEffect(() => {
@@ -99,6 +100,38 @@ export default function DownloadAppSection() {
     };
   }, []);
 
+  // Animate heading fade-in from top
+  useEffect(() => {
+    if (!downloadSectionRef.current || !headingRef.current) return;
+
+    gsap.set(headingRef.current, {
+      opacity: 0,
+      y: -30,
+    });
+
+    ScrollTrigger.create({
+      trigger: downloadSectionRef.current,
+      start: "top 80%",
+      toggleActions: "play none none none",
+      onEnter: () => {
+        gsap.to(headingRef.current, {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power2.out",
+        });
+      },
+    });
+
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => {
+        if (trigger.vars.trigger === downloadSectionRef.current) {
+          trigger.kill();
+        }
+      });
+    };
+  }, []);
+
   return (
     <section
       ref={downloadSectionRef}
@@ -137,7 +170,7 @@ export default function DownloadAppSection() {
           <div className="relative min-h-[350px] md:min-h-[450px] lg:min-h-[550px] px-4 md:px-8">
             {/* Text: "Download the App Now" - Centered, phones will overlap */}
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-full">
-              <div className="flex items-center justify-center">
+              <div ref={headingRef} className="flex items-center justify-center">
                 <Image
                   src="/Download The App Now.svg"
                   alt="Download The App Now"
