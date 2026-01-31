@@ -213,7 +213,7 @@ export default function HeroSection() {
         {/* Character Container - Centered */}
         <div
           ref={characterRef}
-          className="relative z-20 mt-34 flex flex-col items-center justify-center"
+          className="relative z-20  flex flex-col items-center justify-center"
         >
           {/* Single Character - Premium Design */}
           <div className="relative">
