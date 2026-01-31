@@ -63,7 +63,7 @@ export default function WhereRealConnectionsSection() {
     tl.to(heroRef.current, {
       scale: 0.35,
       y: "-10%",
-      marginTop: "110px", // mt-30 equivalent (30 * 4px = 120px)
+      marginTop: "110px",
       ease: "none",
     });
 
