@@ -94,7 +94,7 @@ export default function WhereRealConnectionsSection() {
           ref={heroRef}
           className="absolute inset-0 flex items-center justify-center z-20"
         >
-          <div className="relative w-[387px] h-[480px] rounded-2xl overflow-hidden shadow-xl">
+          <div className="relative w-[417px] h-[480px] rounded-2xl overflow-hidden shadow-xl">
             <Image
               src="/Rectangle 40820.svg"
               alt="Hero"
@@ -110,7 +110,7 @@ export default function WhereRealConnectionsSection() {
           {/* example images – positions simple rakhe */}
           <CollageImage
             src="/Rectangle 40836.svg"
-            style={{ top: "0%", left: "2%" }}
+            style={{ top: "0%", left: "0%" }}
           />
           <CollageImage
             src="/Rectangle 40838.svg"
@@ -118,29 +118,33 @@ export default function WhereRealConnectionsSection() {
           />
           <CollageImage
             src="/Rectangle 40839.svg"
-            style={{ top: "75%", left: "2%" }}
+            style={{ top: "75%", left: "0%" }}
           />
           <CollageImage
             src="/Rectangle 40837.svg"
-            style={{ top: "5%", left: "16%" }}
+            style={{ top: "0%", left: "20%" }}
           />
           <CollageImage
+            src="/Rectangle 40843.svg"
+            style={{ top: "37%", left: "20%" }}
+          />
+
+          <CollageImage
             src="/Rectangle 40840.svg"
-            style={{ top: "65%", left: "16%" }}
+            style={{ top: "75%", left: "20%" }}
           />
           <CollageImage
             src="/Rectangle 40841.svg"
-            style={{ top: "15%", left: "30%" }}
+            style={{ top: "0%", left: "43.5%" }}
           />
           <CollageImage
             src="/Rectangle 40842.svg"
-            style={{ top: "55%", left: "30%" }}
+            style={{ top: "75%", left: "43.5%" }}
           />
           {/* right */}
-
           <CollageImage
             src="/Rectangle 40847.svg"
-            style={{ top: "0%", right: "2%" }}
+            style={{ top: "0%", right: "0%" }}
           />
           <CollageImage
             src="/Rectangle 40848.svg"
@@ -148,24 +152,28 @@ export default function WhereRealConnectionsSection() {
           />
           <CollageImage
             src="/Rectangle 40849.svg"
-            style={{ top: "75%", right: "2%" }}
+            style={{ top: "75%", right: "0%" }}
           />
           <CollageImage
             src="/Rectangle 40843.svg"
-            style={{ top: "5%", right: "16%" }}
+            style={{ top: "0%", right: "20%" }}
+          />
+          <CollageImage
+            src="/Rectangle 40836.svg"
+            style={{ top: "37%", right: "20%" }}
           />
           <CollageImage
             src="/Rectangle 40846.svg"
-            style={{ top: "65%", right: "16%" }}
+            style={{ top: "75%", right: "20%" }}
           />
-          <CollageImage
+          {/* <CollageImage
             src="/Rectangle 40844.svg"
             style={{ top: "15%", right: "30%" }}
           />
           <CollageImage
             src="/Rectangle 40845.svg"
             style={{ top: "55%", right: "30%" }}
-          />
+          /> */}
         </div>
       </div>
     </section>
@@ -182,7 +190,7 @@ function CollageImage({
 }) {
   return (
     <div
-      className="absolute w-[130px] h-[160px] rounded-xl overflow-hidden"
+      className="absolute w-[150px] h-[160px] rounded-xl overflow-hidden"
       style={style}
     >
       <Image src={src} alt="" fill className="object-cover" />
