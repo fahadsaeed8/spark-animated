@@ -120,7 +120,7 @@ export default function DownloadAppSection() {
   return (
     <section
       ref={downloadSectionRef}
-      className="bg-[#f5f5f0] py-12 sm:py-16 px-4 sm:px-6 md:py-38 md:px-0 relative overflow-hidden"
+      className="bg-[#f5f5f0] py-12 sm:py-16 px-4 sm:px-6 md:pt-38 md:px-0 relative overflow-hidden"
     >
       {/* Decorative Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -170,7 +170,7 @@ export default function DownloadAppSection() {
             </div>
 
             {/* Phones - Diagonal arrangement from top-left to bottom-right, overlapping text */}
-            <div className="absolute left-1/2 top-1/2 -ml-32 mt-20 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center z-20">
+            <div className="absolute left-1/2 top-1/2 -ml-32 md:mt-30 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center z-20">
               {/* Left Phone - Appears on first scroll */}
               <div
                 ref={phone1Ref}
