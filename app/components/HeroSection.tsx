@@ -102,7 +102,8 @@ export default function HeroSection() {
       tl.to(
         portalLayer1,
         {
-          boxShadow: "0 0 30px rgba(255, 255, 255, 0.4), 0 0 60px rgba(255, 255, 255, 0.2)",
+          boxShadow:
+            "0 0 30px rgba(255, 255, 255, 0.4), 0 0 60px rgba(255, 255, 255, 0.2)",
           duration: 1.2,
           ease: "power2.out",
         },
@@ -136,7 +137,8 @@ export default function HeroSection() {
       tl.to(
         portalLayer2,
         {
-          boxShadow: "0 0 50px rgba(255, 255, 255, 0.5), 0 0 100px rgba(255, 255, 255, 0.3), 0 0 150px rgba(255, 255, 255, 0.15)",
+          boxShadow:
+            "0 0 50px rgba(255, 255, 255, 0.5), 0 0 100px rgba(255, 255, 255, 0.3), 0 0 150px rgba(255, 255, 255, 0.15)",
           duration: 1.4,
           ease: "power2.out",
         },
@@ -170,7 +172,8 @@ export default function HeroSection() {
       tl.to(
         portalLayer3,
         {
-          boxShadow: "0 0 80px rgba(255, 255, 255, 0.6), 0 0 150px rgba(255, 255, 255, 0.4), 0 0 220px rgba(255, 255, 255, 0.25), 0 0 300px rgba(255, 255, 255, 0.1)",
+          boxShadow:
+            "0 0 80px rgba(255, 255, 255, 0.6), 0 0 150px rgba(255, 255, 255, 0.4), 0 0 220px rgba(255, 255, 255, 0.25), 0 0 300px rgba(255, 255, 255, 0.1)",
           duration: 1.6,
           ease: "power2.out",
         },
@@ -408,7 +411,8 @@ export default function HeroSection() {
                 top: "50%",
                 transform: "translate(-50%, -50%)",
                 transformOrigin: "center center",
-                background: "radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 50%, transparent 80%)",
+                background:
+                  "radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 50%, transparent 80%)",
               }}
             />
 
@@ -422,7 +426,8 @@ export default function HeroSection() {
                 top: "50%",
                 transform: "translate(-50%, -50%)",
                 transformOrigin: "center center",
-                background: "radial-gradient(circle, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.04) 50%, transparent 85%)",
+                background:
+                  "radial-gradient(circle, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.04) 50%, transparent 85%)",
               }}
             />
 
@@ -436,7 +441,8 @@ export default function HeroSection() {
                 top: "50%",
                 transform: "translate(-50%, -50%)",
                 transformOrigin: "center center",
-                background: "radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.03) 50%, transparent 90%)",
+                background:
+                  "radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.03) 50%, transparent 90%)",
               }}
             />
           </div>
