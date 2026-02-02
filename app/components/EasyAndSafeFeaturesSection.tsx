@@ -107,7 +107,7 @@ export default function EasyAndSafeFeaturesSection() {
   return (
     <section
       ref={sectionRef}
-      className="py-16 px-6 bg-[#fbead0] md:py-24 md:px-12 relative overflow-hidden"
+      className="py-12 px-4 sm:py-16 sm:px-6 bg-[#fbead0] md:py-24 md:px-12 relative overflow-hidden"
     >
       {/* Background Image */}
       <div
@@ -123,13 +123,13 @@ export default function EasyAndSafeFeaturesSection() {
       <div className="mx-auto max-w-6xl relative z-10">
         <h2
           ref={h2Ref1}
-          className="mb-4 text-center font-clash text-2xl font-medium text-[#1B1B1B] md:text-5xl"
+          className="mb-2 sm:mb-4 text-center font-clash text-xl sm:text-2xl font-medium text-[#1B1B1B] md:text-5xl"
         >
           Easy and safe features
         </h2>
         <h2
           ref={h2Ref2}
-          className="mb-4 text-center font-clash text-2xl font-medium text-[#1B1B1B] md:text-5xl"
+          className="mb-6 sm:mb-4 text-center font-clash text-xl sm:text-2xl font-medium text-[#1B1B1B] md:text-5xl md:mb-4"
         >
           of The Circle Society app
         </h2>
@@ -137,25 +137,25 @@ export default function EasyAndSafeFeaturesSection() {
         {/* Feature Cards */}
         <div
           ref={featureCardsRef}
-          className="grid gap-8 md:grid-cols-3 md:gap-6 md:mt-20 lg:gap-8"
+          className="grid gap-6 sm:gap-8 md:grid-cols-3 md:gap-6 md:mt-20 lg:gap-8"
         >
           {/* Feature 1: Community Groups */}
           <div className="text-center feature-item">
-            <div className="mb-6 flex justify-start">
-              <div>
+            <div className="mb-4 sm:mb-6 flex justify-center md:justify-start">
+              <div className="w-full max-w-[280px] sm:max-w-[320px] md:max-w-[340px]">
                 <Image
                   src="/community groups.jpg.jpeg"
                   alt="Community Groups"
                   width={340}
                   height={340}
-                  className="mx-auto"
+                  className="w-full h-auto"
                 />
               </div>
             </div>
-            <h4 className="mb-3 font-clash text-xl md:text-3xl text-start font-medium text-[#1B1B1B]">
+            <h4 className="mb-2 sm:mb-3 font-clash text-lg sm:text-xl md:text-3xl text-center md:text-start font-medium text-[#1B1B1B]">
               Community Groups
             </h4>
-            <p className="text-sm leading-relaxed w-[80%] text-start text-[#5A5A5A] md:text-[22px]">
+            <p className="text-xs sm:text-sm leading-relaxed w-full sm:w-[80%] text-center md:text-start text-[#5A5A5A] md:text-[22px] mx-auto md:mx-0">
               Join groups based on your passions — from fitness to faith, food
               to family.
             </p>
@@ -163,42 +163,42 @@ export default function EasyAndSafeFeaturesSection() {
 
           {/* Feature 2: Events You'll Love */}
           <div className="text-center feature-item">
-            <div className="mb-6 flex justify-start">
-              <div>
+            <div className="mb-4 sm:mb-6 flex justify-center md:justify-start">
+              <div className="w-full max-w-[280px] sm:max-w-[320px] md:max-w-[340px]">
                 <Image
                   src="/events.jpg.jpeg"
                   alt="Events You'll Love"
                   width={340}
                   height={340}
-                  className="mx-auto"
+                  className="w-full h-auto"
                 />
               </div>
             </div>
-            <h4 className="mb-3 font-clash text-xl md:text-3xl text-start font-medium text-[#1B1B1B]">
+            <h4 className="mb-2 sm:mb-3 font-clash text-lg sm:text-xl md:text-3xl text-center md:text-start font-medium text-[#1B1B1B]">
               Events You'll Love
             </h4>
-            <p className="text-sm leading-relaxed w-[80%] text-start text-[#5A5A5A] md:text-[22px]">
+            <p className="text-xs sm:text-sm leading-relaxed w-full sm:w-[80%] text-center md:text-start text-[#5A5A5A] md:text-[22px] mx-auto md:mx-0">
               Find and create local meetups and experiences that matter.
             </p>
           </div>
 
           {/* Feature 3: Match & Connect */}
           <div className="text-center feature-item">
-            <div className="mb-6 flex justify-start">
-              <div>
+            <div className="mb-4 sm:mb-6 flex justify-center md:justify-start">
+              <div className="w-full max-w-[280px] sm:max-w-[320px] md:max-w-[340px]">
                 <Image
                   src="/match & connect.jpg.jpeg"
                   alt="Match & Connect"
                   width={340}
                   height={340}
-                  className="mx-auto "
+                  className="w-full h-auto"
                 />
               </div>
             </div>
-            <h4 className="mb-3 font-clash text-xl md:text-3xl text-start font-medium text-[#1B1B1B]">
+            <h4 className="mb-2 sm:mb-3 font-clash text-lg sm:text-xl md:text-3xl text-center md:text-start font-medium text-[#1B1B1B]">
               Match & Connect
             </h4>
-            <p className="text-sm leading-relaxed w-[80%] text-start text-[#5A5A5A] md:text-[22px]">
+            <p className="text-xs sm:text-sm leading-relaxed w-full sm:w-[80%] text-center md:text-start text-[#5A5A5A] md:text-[22px] mx-auto md:mx-0">
               Discover people based on shared interests, not superficial swipes.
             </p>
           </div>
