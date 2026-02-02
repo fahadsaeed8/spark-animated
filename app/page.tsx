@@ -14,9 +14,12 @@ export default function Home() {
   useEffect(() => {
     // Scroll to top immediately on page load/refresh
     window.scrollTo({ top: 0, behavior: "instant" });
-    
+
     // Prevent scroll restoration
-    if (typeof window !== "undefined" && "scrollRestoration" in window.history) {
+    if (
+      typeof window !== "undefined" &&
+      "scrollRestoration" in window.history
+    ) {
       window.history.scrollRestoration = "manual";
     }
   }, []);
