@@ -2,12 +2,12 @@ import Image from "next/image";
 
 export default function FooterSection() {
   return (
-    <footer className="bg-[#F5F2ED] py-8 sm:py-12 px-4 sm:px-6 md:py-16 md:px-12">
+    <footer className="bg-[#F5F2ED] py-12 px-6 md:py-16 md:px-12">
       <div className="mx-auto max-w-6xl">
-        {/* All in one row */}
-        <div className="flex flex-col sm:flex-row flex-wrap gap-8 sm:gap-10 md:gap-30 items-start">
+        {/* Mobile: Stacked layout, Desktop: All in one row */}
+        <div className="flex flex-col md:flex-row md:flex-wrap md:gap-30 items-start gap-8 md:gap-30">
           {/* Social Media Icons */}
-          <div className="flex flex-row gap-3 sm:gap-4 w-full sm:w-auto">
+          <div className="flex flex-row gap-4 w-full md:w-auto">
             <a
               href="#"
               className="text-gray-700 transition hover:text-gray-900"
@@ -18,7 +18,6 @@ export default function FooterSection() {
                 alt="Instagram"
                 width={20}
                 height={20}
-                className="w-5 h-5 sm:w-5 sm:h-5"
               />
             </a>
             <a
@@ -31,7 +30,6 @@ export default function FooterSection() {
                 alt="Facebook"
                 width={20}
                 height={20}
-                className="w-5 h-5 sm:w-5 sm:h-5"
               />
             </a>
             <a
@@ -44,7 +42,6 @@ export default function FooterSection() {
                 alt="Twitter"
                 width={20}
                 height={20}
-                className="w-5 h-5 sm:w-5 sm:h-5"
               />
             </a>
             <a
@@ -57,7 +54,6 @@ export default function FooterSection() {
                 alt="LinkedIn"
                 width={20}
                 height={20}
-                className="w-5 h-5 sm:w-5 sm:h-5"
               />
             </a>
             <a
@@ -70,14 +66,13 @@ export default function FooterSection() {
                 alt="YouTube"
                 width={20}
                 height={20}
-                className="w-5 h-5 sm:w-5 sm:h-5"
               />
             </a>
           </div>
           {/* Community Column */}
-          <div className="w-full sm:w-auto min-w-[150px]">
-            <h5 className="mb-2 sm:mb-3 text-base sm:text-[18px] font-bold text-black">Community</h5>
-            <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-black">
+          <div className="w-full md:w-auto">
+            <h5 className="mb-3 text-[18px] font-bold text-black">Community</h5>
+            <ul className="space-y-2 text-sm text-black">
               <li>
                 <a href="#" className="hover:text-gray-900 transition">
                   Guidelines
@@ -106,9 +101,9 @@ export default function FooterSection() {
             </ul>
           </div>
           {/* Help Column */}
-          <div className="w-full sm:w-auto min-w-[150px]">
-            <h5 className="mb-2 sm:mb-3 text-base sm:text-[18px] font-bold text-black">Help</h5>
-            <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-black">
+          <div className="w-full md:w-auto">
+            <h5 className="mb-3 text-[18px] font-bold text-black">Help</h5>
+            <ul className="space-y-2 text-sm text-black">
               <li>
                 <a href="#" className="hover:text-gray-900 transition">
                   Help Center
@@ -127,9 +122,9 @@ export default function FooterSection() {
             </ul>
           </div>
           {/* Company Column */}
-          <div className="w-full sm:w-auto min-w-[150px]">
-            <h5 className="mb-2 sm:mb-3 text-base sm:text-[18px] font-bold text-black">Company</h5>
-            <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-black">
+          <div className="w-full md:w-auto">
+            <h5 className="mb-3 text-[18px] font-bold text-black">Company</h5>
+            <ul className="space-y-2 text-sm text-black">
               <li>
                 <a href="#" className="hover:text-gray-900 transition">
                   Press
@@ -143,9 +138,9 @@ export default function FooterSection() {
             </ul>
           </div>
           {/* Legal Column */}
-          <div className="w-full sm:w-auto min-w-[150px]">
-            <h5 className="mb-2 sm:mb-3 text-base sm:text-[18px] font-bold text-black">Legal</h5>
-            <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-black">
+          <div className="w-full md:w-auto">
+            <h5 className="mb-3 text-[18px] font-bold text-black">Legal</h5>
+            <ul className="space-y-2 text-sm text-black">
               <li>
                 <a href="#" className="hover:text-gray-900 transition">
                   Terms of Service
@@ -192,14 +187,14 @@ export default function FooterSection() {
                   className="hover:text-gray-900 transition flex items-center gap-1"
                 >
                   Your Privacy Choices
-                  <span className="inline-block w-6 h-6 sm:w-8 sm:h-8 rounded-full flex items-center justify-center">
+                  <span className="inline-block w-8 h-8 rounded-full flex items-center justify-center">
                     <Image
                       src={"SVG.svg"}
                       alt=""
                       width={100}
                       height={100}
-                      className="w-6 h-6 sm:w-8 sm:h-8 md:mt-1"
-                    />
+                      className="md:mt-1"
+                    />{" "}
                   </span>
                 </a>
               </li>
@@ -210,5 +205,3 @@ export default function FooterSection() {
     </footer>
   );
 }
-
-
