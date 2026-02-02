@@ -1,62 +1,119 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import Image from "next/image";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function DownloadAppSection() {
   const downloadSectionRef = useRef<HTMLElement>(null);
-  const [phone1Visible, setPhone1Visible] = useState(false);
-  const [phone2Visible, setPhone2Visible] = useState(false);
-  const [phone3Visible, setPhone3Visible] = useState(false);
+  const headingRef = useRef<HTMLDivElement>(null);
+  const phone1Ref = useRef<HTMLDivElement>(null);
+  const phone2Ref = useRef<HTMLDivElement>(null);
+  const phone3Ref = useRef<HTMLDivElement>(null);
 
-  // Simple scroll-triggered reveal for phones
+  // Animate heading fade-in when section reaches center
   useEffect(() => {
-    const handleScroll = () => {
-      if (!downloadSectionRef.current) return;
+    if (!downloadSectionRef.current || !headingRef.current) return;
 
-      const section = downloadSectionRef.current;
-      const rect = section.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
+    gsap.set(headingRef.current, {
+      opacity: 0,
+      y: -30,
+    });
 
-      // Check if section is in viewport
-      if (rect.top < windowHeight && rect.bottom > 0) {
-        // Calculate how much the section has scrolled into view
-        // Start when section top is at 70% of viewport
-        const startPoint = windowHeight * 0.7;
-        // End when section top is at -20% (scrolled past)
-        const endPoint = -windowHeight * 0.2;
-        const totalRange = startPoint - endPoint;
-
-        // Current position relative to start
-        const currentPosition = startPoint - rect.top;
-        const scrollProgress = Math.max(
-          0,
-          Math.min(1, currentPosition / totalRange),
-        );
-
-        // Show first phone when scroll progress > 0.1
-        setPhone1Visible(scrollProgress > 0.1);
-
-        // Show second phone when scroll progress > 0.4
-        setPhone2Visible(scrollProgress > 0.4);
-
-        // Show third phone when scroll progress > 0.7
-        setPhone3Visible(scrollProgress > 0.7);
-      } else {
-        // Hide phones when section is out of view
-        setPhone1Visible(false);
-        setPhone2Visible(false);
-        setPhone3Visible(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", handleScroll, { passive: true });
-    handleScroll(); // Check initial state
+    ScrollTrigger.create({
+      trigger: downloadSectionRef.current,
+      start: "center center",
+      toggleActions: "play none none none",
+      onEnter: () => {
+        gsap.to(headingRef.current, {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power2.out",
+        });
+      },
+    });
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleScroll);
+      ScrollTrigger.getAll().forEach((trigger) => {
+        if (trigger.vars.trigger === downloadSectionRef.current) {
+          trigger.kill();
+        }
+      });
+    };
+  }, []);
+
+  // Pin section and animate phones sequentially
+  useEffect(() => {
+    if (!downloadSectionRef.current) return;
+
+    const section = downloadSectionRef.current;
+    const phone1 = phone1Ref.current;
+    const phone2 = phone2Ref.current;
+    const phone3 = phone3Ref.current;
+
+    if (!phone1 || !phone2 || !phone3) return;
+
+    // Set initial state - all phones hidden
+    gsap.set([phone1, phone2, phone3], {
+      opacity: 0,
+      scale: 0.8,
+    });
+
+    // Scroll distance for animation (each phone gets ~400px)
+    const scrollDistance = 1200;
+
+    // Create timeline for phone animations
+    const phoneTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: section,
+        start: "center center",
+        end: `+=${scrollDistance}`,
+        pin: true,
+        pinSpacing: true,
+        scrub: 1, // Smooth scrubbing tied to scroll
+      },
+    });
+
+    // Animate phones sequentially
+    phoneTimeline
+      .to(phone1, {
+        opacity: 1,
+        scale: 1,
+        duration: 0.4,
+        ease: "power2.out",
+      })
+      .to(
+        phone2,
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 0.4,
+          ease: "power2.out",
+        },
+        "-=0.2", // Start slightly before phone1 finishes
+      )
+      .to(
+        phone3,
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 0.4,
+          ease: "power2.out",
+        },
+        "-=0.2", // Start slightly before phone2 finishes
+      );
+
+    return () => {
+      phoneTimeline.kill();
+      ScrollTrigger.getAll().forEach((trigger) => {
+        if (trigger.vars.trigger === section) {
+          trigger.kill();
+        }
+      });
     };
   }, []);
 
@@ -98,7 +155,10 @@ export default function DownloadAppSection() {
           <div className="relative min-h-[250px] sm:min-h-[300px] md:min-h-[450px] lg:min-h-[550px] px-2 sm:px-4 md:px-8">
             {/* Text: "Download the App Now" - Centered, phones will overlap */}
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-full px-2 sm:px-4">
-              <div className="flex items-center justify-center">
+              <div
+                ref={headingRef}
+                className="flex items-center justify-center"
+              >
                 <Image
                   src="/Download The App Now.svg"
                   alt="Download The App Now"
@@ -110,12 +170,11 @@ export default function DownloadAppSection() {
             </div>
 
             {/* Phones - Diagonal arrangement from top-left to bottom-right, overlapping text */}
-            <div className="absolute mt-14 left-1/2 top-1/2 -ml-32  -translate-x-1/2 -translate-y-1/2 flex items-center justify-center z-20">
+            <div className="absolute left-1/2 top-1/2 -ml-32 mt-20 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center z-20">
               {/* Left Phone - Appears on first scroll */}
               <div
-                className={`relative z-10 w-24 md:w-40 lg:w-48 xl:w-56 transform -rotate-[5deg] md:-rotate-[6deg] -ml-4 md:-ml-18 -mt-8 md:-mt-12 transition-opacity duration-500 ${
-                  phone1Visible ? "opacity-100" : "opacity-0"
-                }`}
+                ref={phone1Ref}
+                className="relative z-10 w-24 md:w-40 lg:w-48 xl:w-56 transform -rotate-[5deg] md:-rotate-[6deg] -ml-4 md:-ml-18 -mt-8 md:-mt-12"
               >
                 <div className="relative p-1.5 md:p-2">
                   <div className="aspect-[9/19] w-[650px] h-[650px] overflow-hidden">
@@ -131,9 +190,8 @@ export default function DownloadAppSection() {
               </div>
               {/* Middle Phone - Appears on second scroll */}
               <div
-                className={`relative z-10 w-24 md:w-40 lg:w-48 xl:w-56 transform -rotate-[5deg] md:-rotate-[6deg] -ml-4 md:-ml-18 -mt-8 md:-mt-12 transition-opacity duration-500 ${
-                  phone2Visible ? "opacity-100" : "opacity-0"
-                }`}
+                ref={phone2Ref}
+                className="relative z-10 w-24 md:w-40 lg:w-48 xl:w-56 transform -rotate-[5deg] md:-rotate-[6deg] -ml-4 md:-ml-18 -mt-8 md:-mt-12"
               >
                 <div className="relative p-1.5 md:p-2">
                   <div className="aspect-[9/19] w-[650px] h-[650px] overflow-hidden">
@@ -149,9 +207,8 @@ export default function DownloadAppSection() {
               </div>
               {/* Right Phone - Appears on third scroll */}
               <div
-                className={`relative z-10 w-24 md:w-40 lg:w-48 xl:w-56 transform -rotate-[5deg] md:-rotate-[6deg] -ml-4 md:-ml-18 -mt-8 md:-mt-12 transition-opacity duration-500 ${
-                  phone3Visible ? "opacity-100" : "opacity-0"
-                }`}
+                ref={phone3Ref}
+                className="relative z-10 w-24 md:w-40 lg:w-48 xl:w-56 transform -rotate-[5deg] md:-rotate-[6deg] -ml-4 md:-ml-18 -mt-8 md:-mt-12"
               >
                 <div className="relative p-1.5 md:p-2">
                   <div className="aspect-[9/19] w-[650px] h-[650px] overflow-hidden">
