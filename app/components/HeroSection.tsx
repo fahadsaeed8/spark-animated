@@ -229,7 +229,7 @@ export default function HeroSection() {
           {/* Single Character - Premium Design */}
           <div className="relative">
             {/* Character Circle - Minimal & Elegant */}
-            <div className="character-circle w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-white/10 via-white/5 to-transparent border-2 border-white/15 flex items-center justify-center backdrop-blur-[4px] shadow-2xl overflow-hidden">
+            <div className="character-circle w-48 h-48 sm:w-56 sm:h-56 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-white/10 via-white/5 to-transparent border-2 border-white/15 flex items-center justify-center backdrop-blur-[4px] shadow-2xl overflow-hidden">
               {/* Inner glow */}
               <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/10 to-transparent z-10" />
 
@@ -248,13 +248,11 @@ export default function HeroSection() {
             {/* Portal Ring - Will appear from center */}
             <div
               ref={portalRef}
-              className="absolute rounded-full border-2 border-white/60 pointer-events-none z-30"
+              className="absolute rounded-full border-2 border-white/60 pointer-events-none z-30 w-[200px] h-[200px] sm:w-[250px] sm:h-[250px] md:w-[300px] md:h-[300px]"
               style={{
                 position: "absolute",
                 left: "50%",
                 top: "50%",
-                width: "300px",
-                height: "300px",
                 transform: "translate(-50%, -50%)",
                 opacity: 0,
                 scale: 0,
@@ -268,7 +266,7 @@ export default function HeroSection() {
           <button
             onClick={handleEnterCircle}
             data-enter-circle
-            className="group relative px-12 py-5 md:px-16 md:py-4 font-clash my-10 bg-white text-black rounded-full font-medium text-lg md:text-xl tracking-wide hover:bg-white/95 transition-all duration-500 shadow-2xl hover:shadow-3xl hover:scale-105 active:scale-100 cursor-pointer z-20"
+            className="group relative px-8 py-3 sm:px-10 sm:py-4 md:px-16 md:py-4 font-clash my-6 sm:my-8 md:my-10 bg-white text-black rounded-full font-medium text-base sm:text-lg md:text-xl tracking-wide hover:bg-white/95 transition-all duration-500 shadow-2xl hover:shadow-3xl hover:scale-105 active:scale-100 cursor-pointer z-20"
           >
             <span className="relative z-10">Enter the Circle</span>
 
@@ -277,7 +275,7 @@ export default function HeroSection() {
           </button>
 
           {/* Instruction text */}
-          <p className="mt-10 text-white/50 font-clash text-sm  tracking-wide z-20">
+          <p className="mt-6 sm:mt-8 md:mt-10 text-white/50 font-clash text-xs sm:text-sm tracking-wide z-20 px-4 text-center">
             Click to begin your journey
           </p>
         </div>
@@ -309,9 +307,9 @@ export default function HeroSection() {
       {/* Content */}
       <div className="relative z-10 flex h-full flex-col">
         {/* NAVBAR */}
-        <header className="flex items-center md:mt-5 justify-between px-6 py-5 md:px-24">
+        <header className="flex items-center md:mt-5 justify-between px-4 sm:px-6 py-4 md:py-5 md:px-24">
           {/* Logo - White circle with line through it */}
-          <Link href={"/"} className="flex items-center ml-20">
+          <Link href={"/"} className="flex items-center ml-0 md:ml-20">
             <div
               className="animate-rotate"
               style={{
@@ -320,7 +318,7 @@ export default function HeroSection() {
                 transformOrigin: "center center",
               }}
             >
-              <Image src={"/Layer_1.svg"} width={70} height={70} alt="logo" />
+              <Image src={"/Layer_1.svg"} width={50} height={50} alt="logo" className="md:w-[70px] md:h-[70px]" />
             </div>
           </Link>
 
@@ -345,19 +343,19 @@ export default function HeroSection() {
         </header>
 
         {/* HERO CENTER */}
-        <div className="flex flex-1 items-center justify-center px-6 text-start">
-          <div className="max-w-6xl md:mt-10">
+        <div className="flex flex-1 items-center justify-center px-4 sm:px-6 text-start">
+          <div className="max-w-6xl md:mt-10 w-full">
             <h1
               ref={heroTitleRef}
-              className="mb-10 font-clash text-4xl font-medium leading-tight text-[#F5F2ED] md:text-6xl lg:text-8xl"
+              className="mb-6 sm:mb-8 md:mb-10 font-clash text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-medium leading-tight text-[#F5F2ED]"
             >
               The most welcoming way to date
             </h1>
 
             {/* Buttons */}
-            <div className="flex flex-wrap justify-start gap-4">
+            <div className="flex flex-col sm:flex-row flex-wrap justify-start gap-3 sm:gap-4">
               <button
-                className="rounded-full px-8 py-2.5 text-sm md:text-[16px] font-semibold text-white transition hover:opacity-90"
+                className="rounded-full px-6 py-2 sm:px-8 sm:py-2.5 text-xs sm:text-sm md:text-[16px] font-semibold text-white transition hover:opacity-90 w-full sm:w-auto"
                 style={{
                   background: "linear-gradient(to bottom, #D99F4F, #BF822E)",
                 }}
@@ -366,7 +364,7 @@ export default function HeroSection() {
               </button>
 
               <button
-                className="rounded-full px-8 py-2.5 text-sm md:text-[16px] font-semibold text-white transition hover:opacity-90"
+                className="rounded-full px-6 py-2 sm:px-8 sm:py-2.5 text-xs sm:text-sm md:text-[16px] font-semibold text-white transition hover:opacity-90 w-full sm:w-auto"
                 style={{
                   background: "linear-gradient(to bottom, #D99F4F, #BF822E)",
                 }}
@@ -380,7 +378,7 @@ export default function HeroSection() {
         {/* FOOTNOTE */}
         <div
           ref={footnoteRef}
-          className="px-6 pb-6 text-center md:text-[16px] md:-mb-4 text-white opacity-70 md:px-12"
+          className="px-4 sm:px-6 pb-4 sm:pb-6 text-center text-xs sm:text-sm md:text-[16px] md:-mb-4 text-white opacity-70 md:px-12"
         >
           Names are altered, images are illustrative and depict models: Persons
           in videos are influencers, compensated by Hily.
