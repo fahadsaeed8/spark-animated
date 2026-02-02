@@ -115,6 +115,13 @@ export default function HeroSection() {
     };
   }, []);
 
+  // Scroll to top on page refresh to show "Enter the Circle" section
+  useEffect(() => {
+    // Scroll to top when component mounts (page refresh)
+    window.scrollTo({ top: 0, behavior: "instant" });
+    document.body.style.overflow = hasEntered ? "auto" : "hidden";
+  }, []);
+
   // Hero Section Entrance Animation
   useEffect(() => {
     if (hasEntered) return;
