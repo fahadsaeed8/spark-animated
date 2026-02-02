@@ -16,6 +16,8 @@ export default function HeroSection() {
   const characterRef = useRef<HTMLDivElement>(null);
   const heroTitleRef = useRef<HTMLHeadingElement>(null);
   const footnoteRef = useRef<HTMLDivElement>(null);
+  const ctaButtonRef = useRef<HTMLButtonElement>(null);
+  const instructionTextRef = useRef<HTMLParagraphElement>(null);
 
   // Handle "Enter the Circle" CTA click - Character zooms in and next page appears
   const handleEnterCircle = () => {
@@ -28,38 +30,36 @@ export default function HeroSection() {
     const portalLayer1 = portalLayer1Ref.current;
     const portalLayer2 = portalLayer2Ref.current;
     const portalLayer3 = portalLayer3Ref.current;
-    const ctaButton = hero?.querySelector("button[data-enter-circle]");
-    const instructionText = hero?.querySelector("p");
+    const ctaButton = ctaButtonRef.current;
+    const instructionText = instructionTextRef.current;
 
     if (!hero || !character || !characterCircle) return;
 
     // Disable button during animation
-    const button = ctaButton as HTMLButtonElement;
-    if (button) button.disabled = true;
+    if (ctaButton) ctaButton.disabled = true;
 
     const tl = gsap.timeline();
 
-    // Step 1: Hide CTA button and instruction text
+    // Step 1: Hide CTA button and instruction text immediately (no animation)
     if (ctaButton) {
-      tl.to(
+      // Directly hide button - no movement animation
+      tl.set(
         ctaButton,
         {
           opacity: 0,
-          scale: 0.9,
-          duration: 0.4,
-          ease: "power2.in",
+          display: "none",
         },
         "start",
       );
     }
 
     if (instructionText) {
-      tl.to(
+      // Directly hide text - no movement animation
+      tl.set(
         instructionText,
         {
           opacity: 0,
-          duration: 0.4,
-          ease: "power2.in",
+          display: "none",
         },
         "start",
       );
@@ -276,13 +276,31 @@ export default function HeroSection() {
 
     const character = characterRef.current;
     const hero = heroRef.current;
-    const ctaButton = hero?.querySelector("button[data-enter-circle]");
+    const ctaButton = ctaButtonRef.current;
+    const instructionText = instructionTextRef.current;
 
     if (!character || !hero) return;
 
     gsap.set(character, { opacity: 0, y: 20 });
     if (ctaButton) {
-      gsap.set(ctaButton, { opacity: 0, y: 15 });
+      gsap.set(ctaButton, { 
+        opacity: 0, 
+        y: 15, 
+        x: 0, 
+        scale: 1,
+        transformOrigin: "center center",
+        force3D: true
+      });
+    }
+    if (instructionText) {
+      gsap.set(instructionText, { 
+        opacity: 0, 
+        y: 15, 
+        x: 0, 
+        scale: 1,
+        transformOrigin: "center center",
+        force3D: true
+      });
     }
 
     gsap.to(character, {
@@ -300,6 +318,16 @@ export default function HeroSection() {
         duration: 0.6,
         ease: "none",
         delay: 0.5,
+      });
+    }
+
+    if (instructionText) {
+      gsap.to(instructionText, {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        ease: "none",
+        delay: 0.7,
       });
     }
   }, [hasEntered]);
@@ -449,6 +477,7 @@ export default function HeroSection() {
 
           {/* CTA Button - Clear & Premium */}
           <button
+            ref={ctaButtonRef}
             onClick={handleEnterCircle}
             data-enter-circle
             className="group relative px-8 py-3 sm:px-10 sm:py-4 md:px-16 md:py-4 font-clash my-6 sm:my-8 md:my-10 bg-white text-black rounded-full font-medium text-base sm:text-lg md:text-xl tracking-wide hover:bg-white/95 transition-all duration-500 shadow-2xl hover:shadow-3xl hover:scale-105 active:scale-100 cursor-pointer z-20"
@@ -460,7 +489,7 @@ export default function HeroSection() {
           </button>
 
           {/* Instruction text */}
-          <p className="mt-6 sm:mt-8 md:mt-10 text-white/50 font-clash text-xs sm:text-sm tracking-wide z-20 px-4 text-center">
+          <p ref={instructionTextRef} className="mt-6 sm:mt-8 md:mt-10 text-white/50 font-clash text-xs sm:text-sm tracking-wide z-20 px-4 text-center">
             Click to begin your journey
           </p>
         </div>
