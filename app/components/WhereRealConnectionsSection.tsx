@@ -26,10 +26,10 @@ export default function WhereRealConnectionsSection() {
       },
     });
 
-    // initial states
+    // initial states - collage starts much smaller for dramatic shrink effect on scroll up
     gsap.set(collageRef.current, {
       opacity: 0,
-      scale: 0.9,
+      scale: 0.4,
     });
 
     // Set initial margin-top to 0 for hero
@@ -67,7 +67,7 @@ export default function WhereRealConnectionsSection() {
       ease: "none",
     });
 
-    // COLLAGE → fade & open
+    // COLLAGE → fade & expand (shrinks back to 0.6 when scrolling up)
     tl.to(
       collageRef.current,
       {
