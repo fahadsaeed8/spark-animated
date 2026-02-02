@@ -10,9 +10,14 @@ export default function HeroSection() {
   const [hasEntered, setHasEntered] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
   const portalRef = useRef<HTMLDivElement>(null);
+  const portalLayer1Ref = useRef<HTMLDivElement>(null);
+  const portalLayer2Ref = useRef<HTMLDivElement>(null);
+  const portalLayer3Ref = useRef<HTMLDivElement>(null);
   const characterRef = useRef<HTMLDivElement>(null);
   const heroTitleRef = useRef<HTMLHeadingElement>(null);
   const footnoteRef = useRef<HTMLDivElement>(null);
+  const ctaButtonRef = useRef<HTMLButtonElement>(null);
+  const instructionTextRef = useRef<HTMLParagraphElement>(null);
 
   // Handle "Enter the Circle" CTA click - Character zooms in and next page appears
   const handleEnterCircle = () => {
@@ -21,77 +26,220 @@ export default function HeroSection() {
     const hero = heroRef.current;
     const character = characterRef.current;
     const characterCircle = character?.querySelector(".character-circle");
-    const ctaButton = hero?.querySelector("button[data-enter-circle]");
-    const instructionText = hero?.querySelector("p");
+    const portal = portalRef.current;
+    const portalLayer1 = portalLayer1Ref.current;
+    const portalLayer2 = portalLayer2Ref.current;
+    const portalLayer3 = portalLayer3Ref.current;
+    const ctaButton = ctaButtonRef.current;
+    const instructionText = instructionTextRef.current;
 
     if (!hero || !character || !characterCircle) return;
 
     // Disable button during animation
-    const button = ctaButton as HTMLButtonElement;
-    if (button) button.disabled = true;
+    if (ctaButton) ctaButton.disabled = true;
 
     const tl = gsap.timeline();
 
-    // Step 1: Hide CTA button and instruction text
+    // Step 1: Hide CTA button and instruction text immediately (no animation)
     if (ctaButton) {
-      tl.to(
+      // Directly hide button - no movement animation
+      tl.set(
         ctaButton,
         {
           opacity: 0,
-          scale: 0.9,
-          duration: 0.4,
-          ease: "power2.in",
+          display: "none",
         },
         "start",
       );
     }
 
     if (instructionText) {
-      tl.to(
+      // Directly hide text - no movement animation
+      tl.set(
         instructionText,
         {
           opacity: 0,
-          duration: 0.4,
-          ease: "power2.in",
+          display: "none",
         },
         "start",
       );
     }
 
-    // Step 2: Character zooms OUT (scale down) - going inside character
-    // Ensure starting scale is 1, transform origin is center
+    // Step 2: Morning Flower Bloom Animation - Multi-layered, soft glow, gradual expansion
+    // Layer 1: Innermost - Soft, calm, focused glow (starts first)
+    if (portalLayer1) {
+      gsap.set(portalLayer1, {
+        width: "60px",
+        height: "60px",
+        opacity: 0.3,
+        transformOrigin: "center center",
+      });
+
+      // Soft glow starts - calm and focused
+      tl.to(
+        portalLayer1,
+        {
+          opacity: 0.8,
+          duration: 0.6,
+          ease: "power1.out",
+        },
+        "start+=0.1",
+      );
+
+      // First layer expands gently
+      tl.to(
+        portalLayer1,
+        {
+          width: "200px",
+          height: "200px",
+          duration: 1.2,
+          ease: "power2.out",
+        },
+        "start+=0.3",
+      );
+
+      // Glow intensifies as it expands
+      tl.to(
+        portalLayer1,
+        {
+          boxShadow:
+            "0 0 30px rgba(255, 255, 255, 0.4), 0 0 60px rgba(255, 255, 255, 0.2)",
+          duration: 1.2,
+          ease: "power2.out",
+        },
+        "start+=0.3",
+      );
+    }
+
+    // Layer 2: Middle layer - Opens after first layer
+    if (portalLayer2) {
+      gsap.set(portalLayer2, {
+        width: "80px",
+        height: "80px",
+        opacity: 0,
+        transformOrigin: "center center",
+      });
+
+      // Second layer starts expanding
+      tl.to(
+        portalLayer2,
+        {
+          opacity: 0.6,
+          width: "400px",
+          height: "400px",
+          duration: 1.4,
+          ease: "power2.out",
+        },
+        "start+=0.5",
+      );
+
+      // Glow builds up
+      tl.to(
+        portalLayer2,
+        {
+          boxShadow:
+            "0 0 50px rgba(255, 255, 255, 0.5), 0 0 100px rgba(255, 255, 255, 0.3), 0 0 150px rgba(255, 255, 255, 0.15)",
+          duration: 1.4,
+          ease: "power2.out",
+        },
+        "start+=0.5",
+      );
+    }
+
+    // Layer 3: Outer layer - Full balanced form
+    if (portalLayer3) {
+      gsap.set(portalLayer3, {
+        width: "100px",
+        height: "100px",
+        opacity: 0,
+        transformOrigin: "center center",
+      });
+
+      // Third layer opens - full balanced form
+      tl.to(
+        portalLayer3,
+        {
+          opacity: 0.5,
+          width: "700px",
+          height: "700px",
+          duration: 1.6,
+          ease: "power2.out",
+        },
+        "start+=0.7",
+      );
+
+      // Full glow effect - balanced and complete
+      tl.to(
+        portalLayer3,
+        {
+          boxShadow:
+            "0 0 80px rgba(255, 255, 255, 0.6), 0 0 150px rgba(255, 255, 255, 0.4), 0 0 220px rgba(255, 255, 255, 0.25), 0 0 300px rgba(255, 255, 255, 0.1)",
+          duration: 1.6,
+          ease: "power2.out",
+        },
+        "start+=0.7",
+      );
+    }
+
+    // All layers fade out together - balanced completion
+    if (portalLayer1 && portalLayer2 && portalLayer3) {
+      tl.to(
+        [portalLayer1, portalLayer2, portalLayer3],
+        {
+          opacity: 0,
+          duration: 0.8,
+          ease: "power2.in",
+        },
+        "start+=1.8",
+      );
+    }
+
+    // Step 3: Character circle zooms IN (picture bhari ho) - smooth and gentle
+    // Ensure starting scale is small, transform origin is center
     gsap.set(characterCircle, {
-      scale: 1,
+      scale: 0.8,
+      opacity: 0.9,
       transformOrigin: "center center",
     });
 
-    // Character zooms OUT (gets SMALLER - scale decreases) - going inside
+    // Character zooms IN smoothly - picture bhari hoti hai, flower bloom ke saath
     tl.to(
       characterCircle,
       {
-        scale: 0.2,
-        opacity: 0,
-        duration: 1.5,
-        ease: "power3.in",
+        scale: 1.8, // Bari hoti jati hai
+        opacity: 1,
+        duration: 1.8,
+        ease: "power2.out", // Smooth zoom in
         transformOrigin: "center center",
       },
-      "start+=0.2",
+      "start+=0.3", // Start with flower bloom animation
     );
 
-    // Hero overlay fades out at the SAME time - next page appears
+    // Fade out after zoom in completes
+    tl.to(
+      characterCircle,
+      {
+        opacity: 0,
+        duration: 0.6,
+        ease: "power2.in",
+      },
+      "start+=2.0",
+    );
+
+    // Step 4: Hero overlay fades out after animations complete
     tl.to(
       hero,
       {
         opacity: 0,
         pointerEvents: "none",
-        duration: 1.4,
+        duration: 1.2,
         ease: "power2.in",
         onComplete: () => {
           setHasEntered(true);
           document.body.style.overflow = "auto";
         },
       },
-      "start+=0.2", // Same time as character zoom
+      "start+=1.8", // After character zoom out completes
     );
   };
 
@@ -115,19 +263,44 @@ export default function HeroSection() {
     };
   }, []);
 
+  // Scroll to top on page refresh to show "Enter the Circle" section
+  useEffect(() => {
+    // Scroll to top when component mounts (page refresh)
+    window.scrollTo({ top: 0, behavior: "instant" });
+    document.body.style.overflow = hasEntered ? "auto" : "hidden";
+  }, []);
+
   // Hero Section Entrance Animation
   useEffect(() => {
     if (hasEntered) return;
 
     const character = characterRef.current;
     const hero = heroRef.current;
-    const ctaButton = hero?.querySelector("button[data-enter-circle]");
+    const ctaButton = ctaButtonRef.current;
+    const instructionText = instructionTextRef.current;
 
     if (!character || !hero) return;
 
     gsap.set(character, { opacity: 0, y: 20 });
     if (ctaButton) {
-      gsap.set(ctaButton, { opacity: 0, y: 15 });
+      gsap.set(ctaButton, { 
+        opacity: 0, 
+        y: 15, 
+        x: 0, 
+        scale: 1,
+        transformOrigin: "center center",
+        force3D: true
+      });
+    }
+    if (instructionText) {
+      gsap.set(instructionText, { 
+        opacity: 0, 
+        y: 15, 
+        x: 0, 
+        scale: 1,
+        transformOrigin: "center center",
+        force3D: true
+      });
     }
 
     gsap.to(character, {
@@ -145,6 +318,16 @@ export default function HeroSection() {
         duration: 0.6,
         ease: "none",
         delay: 0.5,
+      });
+    }
+
+    if (instructionText) {
+      gsap.to(instructionText, {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        ease: "none",
+        delay: 0.7,
       });
     }
   }, [hasEntered]);
@@ -229,7 +412,7 @@ export default function HeroSection() {
           {/* Single Character - Premium Design */}
           <div className="relative">
             {/* Character Circle - Minimal & Elegant */}
-            <div className="character-circle w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-white/10 via-white/5 to-transparent border-2 border-white/15 flex items-center justify-center backdrop-blur-[4px] shadow-2xl overflow-hidden">
+            <div className="character-circle w-48 h-48 sm:w-56 sm:h-56 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-white/10 via-white/5 to-transparent border-2 border-white/15 flex items-center justify-center backdrop-blur-[4px] shadow-2xl overflow-hidden">
               {/* Inner glow */}
               <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/10 to-transparent z-10" />
 
@@ -245,30 +428,59 @@ export default function HeroSection() {
               </div>
             </div>
 
-            {/* Portal Ring - Will appear from center */}
+            {/* Morning Flower Bloom - Multi-layered Portal Rings */}
+            {/* Layer 1: Innermost - Soft, calm, focused glow */}
             <div
-              ref={portalRef}
-              className="absolute rounded-full border-2 border-white/60 pointer-events-none z-30"
+              ref={portalLayer1Ref}
+              className="absolute rounded-full border border-white/40 pointer-events-none z-30"
               style={{
                 position: "absolute",
                 left: "50%",
                 top: "50%",
-                width: "300px",
-                height: "300px",
                 transform: "translate(-50%, -50%)",
-                opacity: 0,
-                scale: 0,
                 transformOrigin: "center center",
-                boxShadow: "0 0 40px rgba(255, 255, 255, 0.3)",
+                background:
+                  "radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 50%, transparent 80%)",
+              }}
+            />
+
+            {/* Layer 2: Middle layer - Gradual expansion */}
+            <div
+              ref={portalLayer2Ref}
+              className="absolute rounded-full border border-white/50 pointer-events-none z-30"
+              style={{
+                position: "absolute",
+                left: "50%",
+                top: "50%",
+                transform: "translate(-50%, -50%)",
+                transformOrigin: "center center",
+                background:
+                  "radial-gradient(circle, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.04) 50%, transparent 85%)",
+              }}
+            />
+
+            {/* Layer 3: Outer layer - Full balanced form */}
+            <div
+              ref={portalLayer3Ref}
+              className="absolute rounded-full border border-white/60 pointer-events-none z-30"
+              style={{
+                position: "absolute",
+                left: "50%",
+                top: "50%",
+                transform: "translate(-50%, -50%)",
+                transformOrigin: "center center",
+                background:
+                  "radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.03) 50%, transparent 90%)",
               }}
             />
           </div>
 
           {/* CTA Button - Clear & Premium */}
           <button
+            ref={ctaButtonRef}
             onClick={handleEnterCircle}
             data-enter-circle
-            className="group relative px-12 py-5 md:px-16 md:py-4 font-clash my-10 bg-white text-black rounded-full font-medium text-lg md:text-xl tracking-wide hover:bg-white/95 transition-all duration-500 shadow-2xl hover:shadow-3xl hover:scale-105 active:scale-100 cursor-pointer z-20"
+            className="group relative px-8 py-3 sm:px-10 sm:py-4 md:px-16 md:py-4 font-clash my-6 sm:my-8 md:my-10 bg-white text-black rounded-full font-medium text-base sm:text-lg md:text-xl tracking-wide hover:bg-white/95 transition-all duration-500 shadow-2xl hover:shadow-3xl hover:scale-105 active:scale-100 cursor-pointer z-20"
           >
             <span className="relative z-10">Enter the Circle</span>
 
@@ -277,7 +489,7 @@ export default function HeroSection() {
           </button>
 
           {/* Instruction text */}
-          <p className="mt-10 text-white/50 font-clash text-sm  tracking-wide z-20">
+          <p ref={instructionTextRef} className="mt-6 sm:mt-8 md:mt-10 text-white/50 font-clash text-xs sm:text-sm tracking-wide z-20 px-4 text-center">
             Click to begin your journey
           </p>
         </div>
@@ -309,9 +521,9 @@ export default function HeroSection() {
       {/* Content */}
       <div className="relative z-10 flex h-full flex-col">
         {/* NAVBAR */}
-        <header className="flex items-center md:mt-5 justify-between px-6 py-5 md:px-24">
+        <header className="flex items-center md:mt-5 justify-between px-4 sm:px-6 py-4 md:py-5 md:px-24">
           {/* Logo - White circle with line through it */}
-          <Link href={"/"} className="flex items-center ml-20">
+          <Link href={"/"} className="flex items-center ml-0 md:ml-20">
             <div
               className="animate-rotate"
               style={{
@@ -320,7 +532,13 @@ export default function HeroSection() {
                 transformOrigin: "center center",
               }}
             >
-              <Image src={"/Layer_1.svg"} width={70} height={70} alt="logo" />
+              <Image
+                src={"/Layer_1.svg"}
+                width={50}
+                height={50}
+                alt="logo"
+                className="md:w-[70px] md:h-[70px]"
+              />
             </div>
           </Link>
 
@@ -345,19 +563,19 @@ export default function HeroSection() {
         </header>
 
         {/* HERO CENTER */}
-        <div className="flex flex-1 items-center justify-center px-6 text-start">
-          <div className="max-w-6xl md:mt-10">
+        <div className="flex flex-1 items-center justify-center px-4 sm:px-6 text-start">
+          <div className="max-w-6xl md:mt-10 w-full">
             <h1
               ref={heroTitleRef}
-              className="mb-10 font-clash text-4xl font-medium leading-tight text-[#F5F2ED] md:text-6xl lg:text-8xl"
+              className="mb-6 sm:mb-8 md:mb-10 font-clash text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-medium leading-tight text-[#F5F2ED]"
             >
               The most welcoming way to date
             </h1>
 
             {/* Buttons */}
-            <div className="flex flex-wrap justify-start gap-4">
+            <div className="flex flex-col sm:flex-row flex-wrap justify-start gap-3 sm:gap-4">
               <button
-                className="rounded-full px-8 py-2.5 text-sm md:text-[16px] font-semibold text-white transition hover:opacity-90"
+                className="rounded-full px-6 py-2 sm:px-8 sm:py-2.5 text-xs sm:text-sm md:text-[16px] font-semibold text-white transition hover:opacity-90 w-full sm:w-auto"
                 style={{
                   background: "linear-gradient(to bottom, #D99F4F, #BF822E)",
                 }}
@@ -366,7 +584,7 @@ export default function HeroSection() {
               </button>
 
               <button
-                className="rounded-full px-8 py-2.5 text-sm md:text-[16px] font-semibold text-white transition hover:opacity-90"
+                className="rounded-full px-6 py-2 sm:px-8 sm:py-2.5 text-xs sm:text-sm md:text-[16px] font-semibold text-white transition hover:opacity-90 w-full sm:w-auto"
                 style={{
                   background: "linear-gradient(to bottom, #D99F4F, #BF822E)",
                 }}
@@ -380,7 +598,7 @@ export default function HeroSection() {
         {/* FOOTNOTE */}
         <div
           ref={footnoteRef}
-          className="px-6 pb-6 text-center md:text-[16px] md:-mb-4 text-white opacity-70 md:px-12"
+          className="px-4 sm:px-6 pb-4 sm:pb-6 text-center text-xs sm:text-sm md:text-[16px] md:-mb-4 text-white opacity-70 md:px-12"
         >
           Names are altered, images are illustrative and depict models: Persons
           in videos are influencers, compensated by Hily.

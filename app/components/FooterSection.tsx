@@ -4,10 +4,10 @@ export default function FooterSection() {
   return (
     <footer className="bg-[#F5F2ED] py-12 px-6 md:py-16 md:px-12">
       <div className="mx-auto max-w-6xl">
-        {/* All in one row */}
-        <div className="flex flex-wrap md:gap-30 items-start">
+        {/* Mobile: Stacked layout, Desktop: All in one row */}
+        <div className="flex flex-col md:flex-row md:flex-wrap md:gap-30 items-start gap-8 md:gap-30">
           {/* Social Media Icons */}
-          <div className="flex flex-row gap-4">
+          <div className="flex flex-row gap-4 w-full md:w-auto">
             <a
               href="#"
               className="text-gray-700 transition hover:text-gray-900"
@@ -70,7 +70,7 @@ export default function FooterSection() {
             </a>
           </div>
           {/* Community Column */}
-          <div>
+          <div className="w-full md:w-auto">
             <h5 className="mb-3 text-[18px] font-bold text-black">Community</h5>
             <ul className="space-y-2 text-sm text-black">
               <li>
@@ -101,7 +101,7 @@ export default function FooterSection() {
             </ul>
           </div>
           {/* Help Column */}
-          <div>
+          <div className="w-full md:w-auto">
             <h5 className="mb-3 text-[18px] font-bold text-black">Help</h5>
             <ul className="space-y-2 text-sm text-black">
               <li>
@@ -122,7 +122,7 @@ export default function FooterSection() {
             </ul>
           </div>
           {/* Company Column */}
-          <div>
+          <div className="w-full md:w-auto">
             <h5 className="mb-3 text-[18px] font-bold text-black">Company</h5>
             <ul className="space-y-2 text-sm text-black">
               <li>
@@ -138,7 +138,7 @@ export default function FooterSection() {
             </ul>
           </div>
           {/* Legal Column */}
-          <div>
+          <div className="w-full md:w-auto">
             <h5 className="mb-3 text-[18px] font-bold text-black">Legal</h5>
             <ul className="space-y-2 text-sm text-black">
               <li>
@@ -205,5 +205,3 @@ export default function FooterSection() {
     </footer>
   );
 }
-
-

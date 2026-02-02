@@ -26,10 +26,10 @@ export default function WhereRealConnectionsSection() {
       },
     });
 
-    // initial states
+    // initial states - collage starts much smaller for dramatic shrink effect on scroll up
     gsap.set(collageRef.current, {
       opacity: 0,
-      scale: 0.9,
+      scale: 0.4,
     });
 
     // Set initial margin-top to 0 for hero
@@ -67,7 +67,7 @@ export default function WhereRealConnectionsSection() {
       ease: "none",
     });
 
-    // COLLAGE → fade & open
+    // COLLAGE → fade & expand (shrinks back to 0.6 when scrolling up)
     tl.to(
       collageRef.current,
       {
@@ -84,23 +84,23 @@ export default function WhereRealConnectionsSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen bg-black flex md:pb-[50px] items-center justify-center"
+      className="relative min-h-screen bg-black flex md:pb-[50px] items-center justify-center px-4 sm:px-6"
     >
       {/* Title Text */}
       <h2
         ref={headingRef}
-        className="absolute top-5 left-1/2 transform -translate-x-1/2 text-white text-4xl md:text-4xl font-clash font-medium text-center z-30"
+        className="absolute top-4 sm:top-5 left-1/2 transform -translate-x-1/2 text-white text-xl sm:text-2xl md:text-4xl font-clash font-medium text-center z-30 px-4"
       >
         Where real connections come to life
       </h2>
 
-      <div className="relative w-full max-w-6xl md:mt-[80px] h-[80vh]">
+      <div className="relative w-full max-w-6xl md:mt-[80px] h-[60vh] sm:h-[70vh] md:h-[80vh]">
         {/* HERO PORTRAIT IMAGE */}
         <div
           ref={heroRef}
           className="absolute inset-0 flex items-center justify-center z-20"
         >
-          <div className="relative w-[417px] h-[480px] rounded-2xl overflow-hidden shadow-xl">
+          <div className="relative w-[200px] h-[230px] sm:w-[280px] sm:h-[320px] md:w-[417px] md:h-[480px] rounded-2xl overflow-hidden shadow-xl">
             <Image
               src="/Rectangle 40820.svg"
               alt="Hero"
@@ -196,7 +196,7 @@ function CollageImage({
 }) {
   return (
     <div
-      className="absolute w-[150px] h-[160px] rounded-xl overflow-hidden"
+      className="absolute w-[60px] h-[65px] sm:w-[90px] sm:h-[100px] md:w-[120px] md:h-[130px] lg:w-[150px] lg:h-[160px] rounded-xl overflow-hidden"
       style={style}
     >
       <Image src={src} alt="" fill className="object-cover" />
