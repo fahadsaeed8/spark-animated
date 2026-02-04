@@ -203,7 +203,7 @@ const HeroSection = () => {
               <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-orange-500/20 to-amber-500/20 rounded-xl border border-orange-500/30 backdrop-blur-sm flex items-center justify-center">
                 <span className="text-2xl font-bold text-orange-300">30%</span>
               </div>
-              <div className="absolute -bottom-4 -left-4 w-20 h-20 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-xl border border-blue-500/30 backdrop-blur-sm flex items-center justify-center">
+              <div className="absolute -bottom-5 -left-4 w-12 h-12 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-xl border border-blue-500/30 backdrop-blur-sm flex items-center justify-center">
                 <svg
                   className="w-10 h-10 text-blue-300"
                   fill="currentColor"
