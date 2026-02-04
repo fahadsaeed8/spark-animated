@@ -102,6 +102,12 @@ const ComparisonSection = () => {
       title: "Scale & Automate",
       description: "Set up automations, upsells, and testimonials for growth.",
     },
+    {
+      number: 8,
+      title: "Get Expert Feedback (Live)",
+      description:
+        "Share your offer, get expert feedback, and improve it instantly.",
+    },
   ];
 
   return (

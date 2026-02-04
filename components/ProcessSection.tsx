@@ -343,7 +343,7 @@ const ProcessSection = () => {
               {curriculumModules.map((module, index) => (
                 <div
                   key={module.id}
-                  className="bg-white rounded-xl overflow-hidden border-2 border-transparent hover:border-orange-500/50 transition-all cursor-pointer"
+                  className="bg-white/40 rounded-xl overflow-hidden border border-transparent hover:border-orange-500/50 transition-all cursor-pointer"
                   onClick={() =>
                     setExpandedModule(
                       expandedModule === module.id ? null : module.id,
