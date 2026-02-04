@@ -81,10 +81,21 @@ const CommunitySection = () => {
     { value: "5,000+", label: "Active Members" },
   ];
 
-  // Mock profile avatars
+  // Mock profile avatars with images
+  const profileImages = [
+    "/hero.png",
+    "/community groups.jpg.jpeg",
+    "/events.jpg.jpeg",
+    "/match & connect.jpg.jpeg",
+    "/hero.png",
+    "/community groups.jpg.jpeg",
+    "/events.jpg.jpeg",
+  ];
+
   const profiles = Array.from({ length: 7 }, (_, i) => ({
     id: i,
     name: `Member ${i + 1}`,
+    image: profileImages[i],
   }));
 
   return (
@@ -168,7 +179,7 @@ const CommunitySection = () => {
                   {feature.icon}
                 </div>
 
-                <h3 className="text-2xl font-bold text-white mb-3 font-clash">
+                <h3 className="text-2xl font-medium text-white mb-3 font-clash">
                   {feature.title}
                 </h3>
                 <p className="text-gray-300 leading-relaxed">
@@ -192,12 +203,12 @@ const CommunitySection = () => {
                 With Our Platform
               </span>
             </h3>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg text-white-600 max-w-3xl mx-auto">
               Building a business is easy. Finding customers? That's the hard
               part. You've got the product, the idea, the passion but no one's
               buying yet. That's why we built our platform.
             </p>
-            <p className="text-base text-gray-500 mt-4 font-medium">
+            <p className="text-base text-white-500 mt-4 font-medium">
               It's not just another website tool—it's your AI-powered marketing
               system.
             </p>
@@ -216,7 +227,7 @@ const CommunitySection = () => {
                 {/* Icon/Emoji */}
                 <div className="text-4xl mb-4">{feature.icon}</div>
 
-                <h4 className="text-lg font-bold text-gray-900 mb-2 font-clash">
+                <h4 className="text-lg font-medium text-gray-900 mb-2 font-clash">
                   {feature.title}
                 </h4>
                 <p className="text-sm text-gray-600 leading-relaxed">
@@ -252,12 +263,18 @@ const CommunitySection = () => {
                   }}
                 >
                   <div className="w-14 h-14 lg:w-16 lg:h-16 rounded-full bg-gradient-to-br from-orange-400 to-amber-500 p-0.5 group-hover:scale-110 transition-transform">
-                    <div className="w-full h-full rounded-full bg-gradient-to-br from-slate-700 to-slate-800 flex items-center justify-center text-white font-bold text-sm border-2 border-slate-900">
-                      {profile.name.charAt(profile.name.length - 1)}
+                    <div className="w-full h-full rounded-full overflow-hidden border-2 border-slate-900">
+                      <Image
+                        src={profile.image}
+                        alt={profile.name}
+                        width={64}
+                        height={64}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                   </div>
                   {index === profiles.length - 1 && (
-                    <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-gradient-to-br from-lime-400 to-green-500 rounded-full border-2 border-slate-900 flex items-center justify-center">
+                    <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-gradient-to-br from-lime-400 to-green-500 rounded-full border-2 border-slate-900 flex items-center justify-center z-10">
                       <svg
                         className="w-3 h-3 text-black"
                         fill="currentColor"
@@ -300,4 +317,3 @@ const CommunitySection = () => {
 };
 
 export default CommunitySection;
-
