@@ -6,6 +6,7 @@ import ProcessSection from "@/components/ProcessSection";
 import CommunitySection from "@/components/CommunitySection";
 import FAQSection from "@/components/FAQSection";
 import CtaSection from "@/components/CtaSection";
+import FooterSection from "@/components/FooterSection";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <CommunitySection />
       <FAQSection />
       <CtaSection />
+      <FooterSection />
     </main>
   );
 }

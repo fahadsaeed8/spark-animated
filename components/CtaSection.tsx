@@ -1,6 +1,6 @@
 const CtaSection = () => {
   return (
-    <div className="mb-10 md:p-5 md:mb-20">
+    <div className="mb-10 p-5 md:mb-20">
       {/* CTA Section - Gradient Background */}
       <div className="relative bg-gradient-to-r from-orange-200 via-amber-100 to-orange-200 rounded-3xl p-12 lg:p-16 overflow-hidden">
         {/* Background Pattern */}
