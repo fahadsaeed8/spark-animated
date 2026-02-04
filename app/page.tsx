@@ -3,6 +3,7 @@ import FeaturesSection from "@/components/FeaturesSection";
 import OfferSection from "@/components/OfferSection";
 import ComparisonSection from "@/components/ComparisonSection";
 import ProcessSection from "@/components/ProcessSection";
+import CommunitySection from "@/components/CommunitySection";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <FeaturesSection />
       <ComparisonSection />
       <ProcessSection />
+      <CommunitySection />
     </main>
   );
 }
