@@ -31,7 +31,7 @@ const FeaturesSection = () => {
   ];
 
   return (
-    <section className="relative w-full py-24 lg:py-12 overflow-hidden bg-gradient-to-b from-white/75 via-slate-900 to-black">
+    <section className="relative w-full py-24 lg:py-12 overflow-hidden bg-gradient-to-b from-black via-slate-900 to-white/75">
       {/* Background decorative elements - same as hero */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 right-1/4 w-96 h-96 bg-gradient-to-br from-orange-500/10 to-amber-500/10 rounded-full blur-3xl"></div>
@@ -59,12 +59,19 @@ const FeaturesSection = () => {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="group relative bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-xl border border-gray-700/50 rounded-2xl p-6 lg:p-8 hover:border-orange-500/50 transition-all overflow-hidden"
+              className="group relative bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-xl border hover:border-gray-700/50 rounded-2xl p-6 lg:p-6 border-orange-500/30 transition-all overflow-hidden"
             >
               {/* Gradient overlay on hover */}
               <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-amber-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
 
               <div className="relative z-10">
+                {/* Content */}
+                <h3 className="text-xl sm:text-2xl font-medium text-white mb-3 lg:mb-4 font-clash">
+                  {feature.title}
+                </h3>
+                <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
+                  {feature.description}
+                </p>
                 {/* Image */}
                 <div className="relative aspect-video rounded-xl overflow-hidden bg-gradient-to-br from-orange-400/20 to-amber-500/20 border border-orange-500/30 mb-6">
                   <Image
@@ -75,18 +82,7 @@ const FeaturesSection = () => {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
-
-                {/* Content */}
-                <h3 className="text-xl sm:text-2xl font-medium text-white mb-3 lg:mb-4 font-clash">
-                  {feature.title}
-                </h3>
-                <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
-                  {feature.description}
-                </p>
               </div>
-
-              {/* Corner accent */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-orange-500/10 to-transparent rounded-bl-2xl"></div>
             </div>
           ))}
         </div>
