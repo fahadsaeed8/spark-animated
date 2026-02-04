@@ -134,7 +134,9 @@ const HeroSection = () => {
                       <h3 className="text-xl font-bold text-white">
                         Alex Johnson
                       </h3>
-                      <p className="text-sm text-gray-400">Senior Instructor</p>
+                      <p className="text-sm text-gray-400 font-clash">
+                        Senior Instructor
+                      </p>
                     </div>
                   </div>
 
@@ -144,13 +146,17 @@ const HeroSection = () => {
                       <div className="text-2xl font-bold text-orange-400">
                         30+
                       </div>
-                      <div className="text-sm text-gray-400">Courses</div>
+                      <div className="text-sm text-gray-400 font-clash">
+                        Courses
+                      </div>
                     </div>
                     <div className="bg-slate-800/50 rounded-lg p-4 border border-gray-700/50">
                       <div className="text-2xl font-bold text-amber-400">
                         50K+
                       </div>
-                      <div className="text-sm text-gray-400">Students</div>
+                      <div className="text-sm text-gray-400 font-clash">
+                        Students
+                      </div>
                     </div>
                   </div>
 
