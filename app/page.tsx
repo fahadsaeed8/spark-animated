@@ -1,6 +1,7 @@
 import HeroSection from "@/components/HeroSection";
 import FeaturesSection from "@/components/FeaturesSection";
 import OfferSection from "@/components/OfferSection";
+import ComparisonSection from "@/components/ComparisonSection";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <HeroSection />
       <OfferSection />
       <FeaturesSection />
+      <ComparisonSection />
     </main>
   );
 }
