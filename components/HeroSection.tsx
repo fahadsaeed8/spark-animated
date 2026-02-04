@@ -38,7 +38,7 @@ const HeroSection = () => {
       {/* Grid pattern overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-20 lg:py-32">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-20 lg:py-16">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Content Section */}
           <div className="text-center lg:text-left space-y-8">
@@ -51,7 +51,7 @@ const HeroSection = () => {
 
             {/* Main Headline */}
             <div className="space-y-4">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[62px] font-bold leading-tight">
                 <span className="text-white font-clash">Transform Your</span>
                 <br />
                 <span className="bg-gradient-to-r from-orange-400 via-amber-400 to-yellow-400 bg-clip-text text-transparent font-clash">
@@ -117,7 +117,7 @@ const HeroSection = () => {
           <div className="relative lg:block hidden">
             <div className="relative">
               {/* Main Card */}
-              <div className="relative bg-gradient-to-br md:-mt-40 from-slate-800/50 to-slate-900/50 backdrop-blur-xl border border-gray-700/50 rounded-2xl p-8 shadow-2xl">
+              <div className="relative bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-xl border border-gray-700/50 rounded-2xl p-8 shadow-2xl">
                 {/* Profile Section */}
                 <div className="space-y-6">
                   <div className="flex items-center gap-4">
