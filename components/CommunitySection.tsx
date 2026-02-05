@@ -154,40 +154,6 @@ const CommunitySection = () => {
           ))}
         </div>
 
-        {/* Community Features - Two Cards */}
-        <div className="grid md:grid-cols-2 gap-8 mb-20">
-          {communityFeatures.map((feature, index) => (
-            <div
-              key={index}
-              className="group relative bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-8 border border-gray-700/50 hover:border-orange-500/50 transition-all duration-300 overflow-hidden"
-            >
-              {/* Device Mockup Background */}
-              <div className="absolute inset-0 opacity-10">
-                <div className="absolute top-4 left-4 w-32 h-24 bg-gradient-to-br from-orange-400/20 to-amber-400/20 rounded-lg border border-orange-500/30"></div>
-                <div className="absolute top-8 left-8 w-32 h-24 bg-gradient-to-br from-orange-500/20 to-amber-500/20 rounded-lg border border-orange-500/30 -z-10"></div>
-                <div className="absolute top-12 left-12 w-32 h-24 bg-gradient-to-br from-amber-500/20 to-yellow-500/20 rounded-lg border border-orange-500/30 -z-20"></div>
-              </div>
-
-              <div className="relative z-10">
-                {/* Icon */}
-                <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-orange-500/20 to-amber-500/20 border border-orange-500/30 flex items-center justify-center text-orange-400 mb-6 group-hover:scale-110 transition-transform">
-                  {feature.icon}
-                </div>
-
-                <h3 className="text-2xl font-medium text-white mb-3 font-clash">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-300 leading-relaxed">
-                  {feature.description}
-                </p>
-              </div>
-
-              {/* Hover Glow */}
-              <div className="absolute inset-0 bg-gradient-to-br from-orange-500/0 to-amber-500/0 group-hover:from-orange-500/5 group-hover:to-amber-500/5 transition-opacity pointer-events-none"></div>
-            </div>
-          ))}
-        </div>
-
         {/* Platform Features Section */}
         <div className="mb-20">
           <div className="text-center mb-12">
@@ -199,30 +165,36 @@ const CommunitySection = () => {
             </h3>
           </div>
 
-          {/* Platform Feature Cards Grid */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {platformFeatures.map((feature, index) => (
+          {/* Community Features - Two Cards */}
+          <div className="grid md:grid-cols-2 gap-8 mb-20">
+            {communityFeatures.map((feature, index) => (
               <div
                 key={index}
-                className="group relative bg-white rounded-2xl p-6 border-2 border-gray-200 hover:border-orange-300 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+                className="group relative bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-8 border border-gray-700/50 hover:border-orange-500/50 transition-all duration-300 overflow-hidden"
               >
-                {/* Gradient Border on Hover */}
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-orange-400 to-amber-500 opacity-0 group-hover:opacity-10 transition-opacity -z-10"></div>
+                {/* Device Mockup Background */}
+                <div className="absolute inset-0 opacity-10">
+                  <div className="absolute top-4 left-4 w-32 h-24 bg-gradient-to-br from-orange-400/20 to-amber-400/20 rounded-lg border border-orange-500/30"></div>
+                  <div className="absolute top-8 left-8 w-32 h-24 bg-gradient-to-br from-orange-500/20 to-amber-500/20 rounded-lg border border-orange-500/30 -z-10"></div>
+                  <div className="absolute top-12 left-12 w-32 h-24 bg-gradient-to-br from-amber-500/20 to-yellow-500/20 rounded-lg border border-orange-500/30 -z-20"></div>
+                </div>
 
-                {/* Icon/Emoji */}
-                <div className="text-4xl mb-4">{feature.icon}</div>
+                <div className="relative z-10">
+                  {/* Icon */}
+                  <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-orange-500/20 to-amber-500/20 border border-orange-500/30 flex items-center justify-center text-orange-400 mb-6 group-hover:scale-110 transition-transform">
+                    {feature.icon}
+                  </div>
 
-                <h4 className="text-lg font-medium text-gray-900 mb-2 font-clash">
-                  {feature.title}
-                </h4>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  {feature.description}
-                </p>
+                  <h3 className="text-2xl font-medium text-white mb-3 font-clash">
+                    {feature.title}
+                  </h3>
+                  <p className="text-gray-300 leading-relaxed">
+                    {feature.description}
+                  </p>
+                </div>
 
-                {/* Accent Line */}
-                <div
-                  className={`mt-4 h-1 w-16 rounded-full bg-gradient-to-r ${feature.color} group-hover:w-full transition-all duration-300`}
-                ></div>
+                {/* Hover Glow */}
+                <div className="absolute inset-0 bg-gradient-to-br from-orange-500/0 to-amber-500/0 group-hover:from-orange-500/5 group-hover:to-amber-500/5 transition-opacity pointer-events-none"></div>
               </div>
             ))}
           </div>
