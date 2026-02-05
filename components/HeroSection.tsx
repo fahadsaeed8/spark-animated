@@ -45,26 +45,27 @@ const HeroSection = () => {
             {/* Badge */}
             <div className="inline-flex items-center justify-center lg:justify-start">
               <span className="px-4 py-1.5 bg-gradient-to-r from-orange-500/20 to-amber-500/20 border border-orange-500/30 rounded-full text-sm font-medium text-orange-300 backdrop-blur-sm">
-                Premium Program
+                The AUGMENT MBA{" "}
               </span>
             </div>
 
             {/* Main Headline */}
             <div className="space-y-4">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[62px] font-bold leading-tight">
-                <span className="text-white font-clash">Transform Your</span>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[68px] font-bold leading-tight">
+                <span className="text-white font-clash">
+                  Learn From the Best{" "}
+                </span>
                 <br />
                 <span className="bg-gradient-to-r from-orange-400 via-amber-400 to-yellow-400 bg-clip-text text-transparent font-clash">
-                  Career in 30 Days
+                  Entrepreneurs in the World{" "}
                 </span>
               </h1>
             </div>
 
             {/* Description */}
             <p className="text-lg sm:text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-              Master the skills that matter. Join industry leaders and build
-              your future with our comprehensive program designed for ambitious
-              professionals.
+              Join the best alternative to traditional MBAs taught by the
+              founders of Wikipedia, Youtube, Shazam, and more.
             </p>
 
             {/* Social Proof */}
@@ -82,8 +83,8 @@ const HeroSection = () => {
                     />
                   ))}
                 </div>
-                <span className="text-sm text-gray-400 ml-2">
-                  10,000+ Students
+                <span className="text-xs text-gray-400 ml-2">
+                  From 5,000+ Entrepreneurs{" "}
                 </span>
               </div>
               <div className="flex items-center gap-1">
@@ -104,7 +105,7 @@ const HeroSection = () => {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-6">
               <button className="group relative px-8 py-4 bg-gradient-to-r from-orange-500 to-amber-500 text-white font-semibold rounded-lg overflow-hidden w-full sm:w-auto min-w-[200px]">
-                <span className="relative z-10">Get Started Today</span>
+                <span className="relative z-10">Enroll Now & Get 50% Off</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-amber-600 opacity-0 group-hover:opacity-100"></div>
               </button>
               <button className="px-8 py-4 border-2 border-gray-600 text-white font-semibold rounded-lg hover:border-gray-400 w-full sm:w-auto min-w-[200px]">
