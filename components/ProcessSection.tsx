@@ -454,5 +454,3 @@ const ProcessSection = () => {
 };
 
 export default ProcessSection;
-
-

@@ -76,9 +76,9 @@ const CommunitySection = () => {
   ];
 
   const communityStats = [
-    { value: "350,000+", label: "Entrepreneurs" },
-    { value: "20M+", label: "In Sales Generated" },
-    { value: "5,000+", label: "Active Members" },
+    { value: "245-USD", label: "The Augment MBA Program" },
+    { value: "1225-USD", label: "The Augment MBA Program" },
+    { value: "2450-USD", label: "The Augment MBA Program" },
   ];
 
   // Mock profile avatars with images
@@ -124,20 +124,15 @@ const CommunitySection = () => {
               />
             </svg>
             <span className="text-sm font-semibold text-orange-700 uppercase tracking-wide">
-              Thriving Community
+              SUMMER OFFER{" "}
             </span>
           </div>
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 font-clash">
-            Join a Community of
-            <br />
+            Get 50% Off & <br />
             <span className="bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-500 bg-clip-text text-transparent">
-              +5,000 Entrepreneurs
+              Lifetime Access{" "}
             </span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Connect, learn, and grow with ambitious founders building the next
-            generation of businesses
-          </p>
         </div>
 
         {/* Stats Cards */}
@@ -197,21 +192,11 @@ const CommunitySection = () => {
         <div className="mb-20">
           <div className="text-center mb-12">
             <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 font-clash">
-              Build Your Dream Business
-              <br />
+              Join a Community of <br />
               <span className="bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-500 bg-clip-text text-transparent">
-                With Our Platform
+                +5,000 Entrepreneurs {" "}
               </span>
             </h3>
-            <p className="text-lg text-white-600 max-w-3xl mx-auto">
-              Building a business is easy. Finding customers? That's the hard
-              part. You've got the product, the idea, the passion but no one's
-              buying yet. That's why we built our platform.
-            </p>
-            <p className="text-base text-white-500 mt-4 font-medium">
-              It's not just another website tool—it's your AI-powered marketing
-              system.
-            </p>
           </div>
 
           {/* Platform Feature Cards Grid */}

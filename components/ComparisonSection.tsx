@@ -66,47 +66,78 @@ const ComparisonSection = () => {
   const scheduleSessions = [
     {
       number: 1,
-      title: "Find your product idea",
-      description:
-        "Discover your most marketable skill and define who you can help.",
+      title: "Jon-David Hague",
+      description: `Whether you want to start your own 
+business, grow in your current role, or 
+embark on new career, you won’t find 
+better instructors than those at 
+Augment.org, who have done and 
+continue to do all these things.`,
     },
     {
       number: 2,
-      title: "Build your digital product",
-      description:
-        "Create your first version, a guide, mini-course, or challenge, and price it right.",
+      title: "Faye Ana-Corpuz",
+      description: `Balancing fintech, motherhood and 
+entrepreneurship felt hard, but 
+Augment’s self-phased MBA made 
+learning flexible and energizing. Will 
+definitely recommend their program!`,
     },
     {
       number: 3,
-      title: "Learn how to sell with Paid ads",
-      description: "Learn how ads work, then launch one with just $5-$10/day.",
+      title: "Andy Bacciardi",
+      description: `Being part of Augment is amazing! You 
+don't just get just education, but you 
+enter a community that is growing 
+rapidly and internationally, and this 
+creates enormous opportunities for 
+those that want to build their 
+business!`,
     },
     {
       number: 4,
-      title: "Get Expert Feedback (Live)",
-      description:
-        "Share your offer, get expert feedback, and improve it instantly.",
+      title: "Andy Smith",
+      description: `Augment transforms how you 
+approach business, with lessons 
+from experts at Google and 
+Amazon, a must for business 
+leaders.`,
     },
     {
       number: 5,
-      title: "Launch organically",
-      description: "Use your content and story to sell organically",
+      title: "Greg Lande",
+      description: `Outstanding content provided by the 
+world’s top CEOs delivered in a 
+digestible, engaging platform. 
+Couldn’t be happier with my decision!`,
     },
     {
       number: 6,
-      title: "Read Data like a Marketer",
-      description: "Learn which numbers matter and how to improve fast.",
+      title: "Gellan Watt",
+      description: `These guys and this product are 
+absolutely brilliant. If you're not doing 
+the Augment MBA program, you're 
+missing out on an incredible 
+opportunity.`,
     },
     {
       number: 7,
-      title: "Scale & Automate",
-      description: "Set up automations, upsells, and testimonials for growth.",
+      title: "Greg Lande",
+      description: `Outstanding content provided by the 
+world’s top CEOs delivered in a 
+digestible, engaging platform. 
+Couldn’t be happier with my decision!`,
     },
     {
       number: 8,
-      title: "Get Expert Feedback (Live)",
-      description:
-        "Share your offer, get expert feedback, and improve it instantly.",
+      title: "Andy Bacciardi",
+      description: `Being part of Augment is amazing! You 
+don't just get just education, but you 
+enter a community that is growing 
+rapidly and internationally, and this 
+creates enormous opportunities for 
+those that want to build their 
+business!`,
     },
   ];
 
@@ -230,20 +261,19 @@ const ComparisonSection = () => {
                 />
               </svg>
               <span className="text-sm font-semibold text-orange-700 uppercase tracking-wide">
-                Your 30-Day Journey
+                OUR COMMUNITY{" "}
               </span>
             </div>
             <h3 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 font-clash">
               <span className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
-                Program
+                What Our Students
               </span>{" "}
               <span className="bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-500 bg-clip-text text-transparent">
-                Roadmap
+                Say About Us{" "}
               </span>
             </h3>
             <p className="text-lg text-white/90 max-w-2xl mx-auto">
-              Step-by-step progression through live interactive sessions with
-              industry experts
+              Excellent Trustpilot
             </p>
           </div>
 

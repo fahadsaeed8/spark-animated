@@ -31,15 +31,13 @@ const CtaSection = () => {
         {/* Text Content */}
         <div className="relative z-10 text-center mb-8">
           <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 font-clash">
-            Start building your{" "}
+            Are you ready to{" "}
             <span className="bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-500 bg-clip-text text-transparent">
-              side income
+              learn
             </span>{" "}
-            today.
           </h3>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Join thousands of entrepreneurs who are already building their
-            digital businesses and creating multiple income streams.
+            The best entrepreneurs in the world?{" "}
           </p>
         </div>
 
