@@ -8,25 +8,25 @@ const FeaturesSection = () => {
       title: "Learn From the Best in Business",
       description:
         "Learn how the founders of your favorite companies carved their path to success - so you can find your own.",
-      image: "/hero.png",
+      image: "/image1.svg",
     },
     {
       title: "Connect With Ambitious Minds",
       description:
         "Engage with fellow students through dynamic in-person meetups and interactive online events.",
-      image: "/community groups.jpg.jpeg",
+      image: "/image4.svg",
     },
     {
       title: "Access Strategic Frameworks",
       description:
         "Access to hundreds of PDFs on top of the video courses that will help you use the best strategy for your own business.",
-      image: "/events.jpg.jpeg",
+      image: "/image2.png.svg",
     },
     {
       title: "Anywhere, Anytime, on Any Device",
       description:
         "Watch videos on your own time, wherever you are - available on laptop, tablet and smartphone.",
-      image: "/match & connect.jpg.jpeg",
+      image: "/image3.png.svg",
     },
   ];
 
@@ -43,13 +43,13 @@ const FeaturesSection = () => {
         <div className="text-center mb-16 lg:mb-20">
           <div className="inline-flex items-center justify-center mb-4">
             <span className="px-4 py-1.5 bg-gradient-to-r from-orange-500/20 to-amber-500/20 border border-orange-500/30 rounded-full text-sm font-medium text-orange-300 backdrop-blur-sm">
-              Your Way to Success
+              Your Way to sucess{" "}
             </span>
           </div>
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 font-clash">
             <span className="text-white">What is</span>{" "}
             <span className="bg-gradient-to-r from-orange-400 via-amber-400 to-yellow-400 bg-clip-text text-transparent">
-              This Challenge?
+              What is Augment?{" "}
             </span>
           </h2>
         </div>
@@ -77,8 +77,8 @@ const FeaturesSection = () => {
                   <Image
                     src={feature.image}
                     alt={feature.title}
-                    width={600}
-                    height={400}
+                    width={1600}
+                    height={1400}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
