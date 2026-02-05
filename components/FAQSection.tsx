@@ -48,13 +48,7 @@ const FAQSection = () => {
   };
 
   return (
-    <section className="relative w-full py-24 lg:py-16 overflow-hidden bg-gradient-to-b from-black via-slate-900 to-black">
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-gradient-to-br from-orange-500/10 to-amber-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-full blur-3xl"></div>
-      </div>
-
+    <section className="relative w-full py-24 lg:py-16 overflow-hidden bg-black">
       {/* Grid pattern overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
 
@@ -120,6 +114,3 @@ const FAQSection = () => {
 };
 
 export default FAQSection;
-
-
-

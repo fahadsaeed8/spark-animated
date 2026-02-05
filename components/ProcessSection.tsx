@@ -214,7 +214,7 @@ const ProcessSection = () => {
   ];
 
   return (
-    <section className="relative w-full py-24 lg:py-32 overflow-hidden bg-gradient-to-b from-slate-900/80 via-black to-orange-500/60">
+    <section className="relative w-full py-24 lg:py-32 overflow-hidden bg-black">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 right-1/4 w-96 h-96 bg-gradient-to-br from-orange-500/10 to-amber-500/10 rounded-full blur-3xl"></div>
@@ -454,4 +454,3 @@ const ProcessSection = () => {
 };
 
 export default ProcessSection;
-

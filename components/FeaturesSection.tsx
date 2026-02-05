@@ -31,7 +31,7 @@ const FeaturesSection = () => {
   ];
 
   return (
-    <section className="relative w-full py-24 lg:py-12 overflow-hidden bg-gradient-to-b from-black via-slate-900 to-white/75">
+    <section className="relative w-full py-24 lg:py-12 overflow-hidden bg-gradient-to-b from-black via-black-900 to-black">
       {/* Background decorative elements - same as hero */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 right-1/4 w-96 h-96 bg-gradient-to-br from-orange-500/10 to-amber-500/10 rounded-full blur-3xl"></div>

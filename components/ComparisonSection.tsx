@@ -142,13 +142,8 @@ business!`,
   ];
 
   return (
-    <section className="relative w-full py-24 lg:py-32 overflow-hidden bg-gradient-to-b from-white via-orange-50/30 to-orange-100/20">
+    <section className="relative w-full py-24 lg:py-32 overflow-hidden  bg-gradient-to-b from-white via-orange-50/30 to-black">
       {/* Background decorative elements - warm orange theme */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-gradient-to-br from-orange-400/20 to-amber-400/20 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-yellow-400/15 to-orange-300/15 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-br from-orange-300/10 to-yellow-300/10 rounded-full blur-3xl"></div>
-      </div>
 
       {/* Subtle wavy pattern overlay */}
       <div className="absolute inset-0 opacity-5">

@@ -99,7 +99,7 @@ const CommunitySection = () => {
   }));
 
   return (
-    <section className="relative w-full py-24 lg:py-32 overflow-hidden bg-gradient-to-b from-white via-orange-50/30 to-white">
+    <section className="relative w-full py-24 lg:py-32 overflow-hidden bg-white">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-gradient-to-br from-orange-200/20 to-amber-200/20 rounded-full blur-3xl"></div>

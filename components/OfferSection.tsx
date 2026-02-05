@@ -6,6 +6,8 @@ import { useState, useEffect, useRef } from "react";
 const OfferSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [cardsPerView, setCardsPerView] = useState(4);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const [isMobileVideoPlaying, setIsMobileVideoPlaying] = useState(false);
 
   // Responsive cards per view
   useEffect(() => {
@@ -78,15 +80,60 @@ const OfferSection = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const mobileVideoRef = useRef<HTMLVideoElement>(null);
 
-  const handleVideoClick = (video: HTMLVideoElement | null) => {
+  const handleVideoClick = (
+    video: HTMLVideoElement | null,
+    isMobile = false,
+  ) => {
     if (video) {
       if (video.paused) {
         video.play();
+        if (isMobile) {
+          setIsMobileVideoPlaying(true);
+        } else {
+          setIsVideoPlaying(true);
+        }
       } else {
         video.pause();
+        if (isMobile) {
+          setIsMobileVideoPlaying(false);
+        } else {
+          setIsVideoPlaying(false);
+        }
       }
     }
   };
+
+  // Track video play/pause events
+  useEffect(() => {
+    const video = videoRef.current;
+    const mobileVideo = mobileVideoRef.current;
+
+    const handlePlay = () => setIsVideoPlaying(true);
+    const handlePause = () => setIsVideoPlaying(false);
+    const handleMobilePlay = () => setIsMobileVideoPlaying(true);
+    const handleMobilePause = () => setIsMobileVideoPlaying(false);
+
+    if (video) {
+      video.addEventListener("play", handlePlay);
+      video.addEventListener("pause", handlePause);
+    }
+
+    if (mobileVideo) {
+      mobileVideo.addEventListener("play", handleMobilePlay);
+      mobileVideo.addEventListener("pause", handleMobilePause);
+    }
+
+    return () => {
+      if (video) {
+        video.removeEventListener("play", handlePlay);
+        video.removeEventListener("pause", handlePause);
+      }
+      if (mobileVideo) {
+        mobileVideo.removeEventListener("play", handleMobilePlay);
+        mobileVideo.removeEventListener("pause", handleMobilePause);
+      }
+    };
+  }, []);
 
   return (
     <section className="relative w-full py-24 lg:py-12 overflow-hidden bg-black">
@@ -219,6 +266,79 @@ const OfferSection = () => {
                 ))}
               </div>
             )}
+          </div>
+        </div>
+
+        {/* Video Section */}
+        <div className="mt-16 sm:mt-20 lg:mt-24 flex flex-col items-center justify-center">
+          <div className="w-full max-w-5xl mx-auto px-4 sm:px-6">
+            {/* Desktop Video */}
+            <div className="hidden md:block relative group">
+              <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-slate-800/50 to-slate-900/50 border border-gray-700/50 shadow-2xl">
+                <video
+                  ref={videoRef}
+                  className="w-full h-full object-cover"
+                  style={{ aspectRatio: "16/9" }}
+                  onClick={() => handleVideoClick(videoRef.current, false)}
+                  playsInline
+                >
+                  <source src="/hero-video.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+                {/* Play Button Overlay - Hidden when playing */}
+                {!isVideoPlaying && (
+                  <div
+                    className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/10 transition-all cursor-pointer"
+                    onClick={() => handleVideoClick(videoRef.current, false)}
+                  >
+                    <div className="w-20 h-20 sm:w-24 sm:h-24 bg-white/90 rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-lg">
+                      <svg
+                        className="w-8 h-8 sm:w-10 sm:h-10 text-gray-900 ml-1"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Mobile Video */}
+            <div className="block md:hidden relative group">
+              <div className="relative rounded-xl overflow-hidden bg-gradient-to-br from-slate-800/50 to-slate-900/50 border border-gray-700/50 shadow-2xl">
+                <video
+                  ref={mobileVideoRef}
+                  className="w-full h-full object-cover"
+                  style={{ aspectRatio: "16/9" }}
+                  onClick={() => handleVideoClick(mobileVideoRef.current, true)}
+                  playsInline
+                >
+                  <source src="/hero-video.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+                {/* Play Button Overlay - Hidden when playing */}
+                {!isMobileVideoPlaying && (
+                  <div
+                    className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/10 transition-all cursor-pointer"
+                    onClick={() =>
+                      handleVideoClick(mobileVideoRef.current, true)
+                    }
+                  >
+                    <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-lg">
+                      <svg
+                        className="w-6 h-6 text-gray-900 ml-1"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
         </div>
       </div>
