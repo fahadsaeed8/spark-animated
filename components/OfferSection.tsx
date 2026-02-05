@@ -280,7 +280,7 @@ const OfferSection = () => {
         </div>
 
         {/* Video Section */}
-        <div className="mt-16 sm:mt-20 lg:mt-14 flex flex-col items-center justify-center">
+        <div id="video-section" className="mt-16 sm:mt-20 lg:mt-14 flex flex-col items-center justify-center">
           <div className="w-full max-w-5xl mx-auto px-4 sm:px-6">
             {/* Desktop Video */}
             <div className="hidden md:block relative group">

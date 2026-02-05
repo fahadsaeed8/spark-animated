@@ -85,7 +85,15 @@ const HeroSection = () => {
                 <span className="relative z-10">Enroll Now & Get 50% Off</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-amber-600 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               </button>
-              <button className="px-6 sm:px-8 py-3 sm:py-4 border-2 border-gray-600 text-white font-semibold rounded-lg hover:border-gray-400 transition-colors w-full sm:w-auto min-w-[200px] text-sm sm:text-base">
+              <button 
+                onClick={() => {
+                  const videoSection = document.getElementById('video-section');
+                  if (videoSection) {
+                    videoSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+                }}
+                className="px-6 sm:px-8 py-3 sm:py-4 border-2 border-gray-600 text-white font-semibold rounded-lg hover:border-gray-400 transition-colors w-full sm:w-auto min-w-[200px] text-sm sm:text-base"
+              >
                 Watch Demo
               </button>
             </div>

@@ -43,9 +43,9 @@ const CtaSection = () => {
 
         {/* CTA Button */}
         <div className="relative z-10 flex justify-center">
-          <button className="group bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500 text-gray-900 font-bold py-5 px-12 rounded-xl hover:from-yellow-500 hover:via-amber-600 hover:to-orange-600 transition-all duration-300 shadow-2xl hover:shadow-orange-500/50 transform hover:scale-105 text-lg">
+          <button className="group bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500 text-white font-bold py-5 px-12 rounded-xl hover:from-yellow-500 hover:via-amber-600 hover:to-orange-600 transition-all duration-300 shadow-2xl hover:shadow-orange-500/50 transform hover:scale-105 text-lg">
             <span className="relative z-10 flex items-center gap-2">
-              Join Challenge
+              Enroll Now{" "}
               <svg
                 className="w-5 h-5 group-hover:translate-x-1 transition-transform"
                 fill="none"

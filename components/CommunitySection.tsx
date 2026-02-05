@@ -356,7 +356,7 @@ const CommunitySection = () => {
 
               {/* CTA Button */}
               <button className="bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500 text-white font-bold py-4 px-10 rounded-xl hover:from-yellow-500 hover:via-amber-600 hover:to-orange-600 transition-all duration-300 shadow-2xl hover:shadow-orange-500/50 transform hover:scale-105 text-lg">
-                Join the Challenge
+                Enroll Now{" "}
               </button>
             </div>
           </div>
