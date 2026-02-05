@@ -190,26 +190,17 @@ const OfferSection = () => {
           <div className="text-center mb-12">
             <div className="inline-flex items-center justify-center mb-6">
               <span className="px-4 py-1.5 bg-gradient-to-r from-orange-500/20 to-amber-500/20 border border-orange-500/30 rounded-full text-sm font-medium text-orange-300 backdrop-blur-sm">
-                What you'll get?
+                The Faculty{" "}
               </span>
             </div>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 font-clash">
-              <span className="text-white">A </span>
+            <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 font-clash">
               <span className="bg-gradient-to-r from-orange-400 via-amber-400 to-yellow-400 bg-clip-text text-transparent">
-                $1000+ Challenge
-              </span>
-              <span className="text-white">, Yours for </span>
-              <span className="bg-gradient-to-r from-orange-400 via-amber-400 to-yellow-400 bg-clip-text text-transparent">
-                Net $0
+                Meet Your Instructors{" "}
               </span>
             </h2>
             <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-4">
-              You pay $30, and we give you $30 back in ad credit to run your
-              first Meta ad campaign, that means the challenge pays for itself
-              and every dollar goes into your business.
-            </p>
-            <p className="text-base text-gray-400 font-medium">
-              Join the challenge for just $30 and get:
+              Learn directly from the founder of Wikipedia, Waze, Youtube,
+              Shazam and more.
             </p>
           </div>
 
