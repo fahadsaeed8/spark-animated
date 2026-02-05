@@ -51,7 +51,7 @@ const HeroSection = () => {
 
             {/* Main Headline */}
             <div className="space-y-4">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[68px] font-bold leading-tight">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[72px] font-bold leading-tight">
                 <span className="text-white font-clash">
                   Learn From the Best{" "}
                 </span>
