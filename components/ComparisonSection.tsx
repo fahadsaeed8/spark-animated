@@ -7,7 +7,7 @@ const ComparisonSection = () => {
       icon: "✗",
     },
     {
-      text: "Inflexible learning schedule",
+      text: "Inflexible learning ",
       icon: "✗",
     },
     {
@@ -15,11 +15,11 @@ const ComparisonSection = () => {
       icon: "✗",
     },
     {
-      text: "2+ year time commitment",
+      text: "2 year time commitment",
       icon: "✗",
     },
     {
-      text: "Academic instructors only",
+      text: "Academic instructors ",
       icon: "✗",
     },
     {
@@ -34,7 +34,7 @@ const ComparisonSection = () => {
 
   const ourProgram = [
     {
-      text: "$30 challenge with $30 ad credit back",
+      text: "$2,450 tuition with payment plan options",
       icon: "✓",
     },
     {
@@ -46,19 +46,19 @@ const ComparisonSection = () => {
       icon: "✓",
     },
     {
-      text: "30-day intensive program",
+      text: "2-6 month commitment",
       icon: "✓",
     },
     {
-      text: "Taught by recognized founders & experts",
+      text: "Taught by recognized founders",
       icon: "✓",
     },
     {
-      text: "Constantly updated, practical curriculum",
+      text: "Constantly updated curriculum",
       icon: "✓",
     },
     {
-      text: "Open enrollment - start immediately",
+      text: "Open Education",
       icon: "✓",
     },
   ];
@@ -163,7 +163,7 @@ const ComparisonSection = () => {
           {/* Traditional Program Card */}
           <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 lg:p-10 border border-gray-700/50 shadow-2xl">
             <h3 className="text-2xl lg:text-3xl font-bold text-white mb-6 font-clash">
-              A Traditional Program
+              A Traditional MBA{" "}
             </h3>
             <div className="h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent mb-6"></div>
             <ul className="space-y-4">
@@ -186,7 +186,7 @@ const ComparisonSection = () => {
             <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-orange-400/20 to-amber-400/20 rounded-bl-full"></div>
 
             <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-6 font-clash relative z-10">
-              The Challenge Program
+              The Augment MBA{" "}
             </h3>
             <div className="h-px bg-gradient-to-r from-transparent via-orange-300 to-transparent mb-6 relative z-10"></div>
             <ul className="space-y-4 relative z-10">
