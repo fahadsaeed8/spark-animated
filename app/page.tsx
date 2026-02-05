@@ -7,6 +7,7 @@ import CommunitySection from "@/components/CommunitySection";
 import FAQSection from "@/components/FAQSection";
 import CtaSection from "@/components/CtaSection";
 import FooterSection from "@/components/FooterSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <ComparisonSection />
       <ProcessSection />
       <CommunitySection />
+      <TestimonialsSection />
       <FAQSection />
       <CtaSection />
       <FooterSection />

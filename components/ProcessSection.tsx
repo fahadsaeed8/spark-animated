@@ -59,58 +59,6 @@ const ProcessSection = () => {
         "Customizable templates",
       ],
     },
-    {
-      step: 3,
-      title: "Commit to 7 Days of Action",
-      description:
-        "Get clear, simple action steps each day to build your digital product, price it, launch it and bring in your customers",
-      icon: (
-        <svg
-          className="w-12 h-12"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
-          />
-        </svg>
-      ),
-      details: [
-        "Daily actionable tasks",
-        "Step-by-step guidance",
-        "Progress tracking system",
-      ],
-    },
-    {
-      step: 4,
-      title: "Launch your Digital Product",
-      description:
-        "With expert coaching and our platform, you'll be ready to scale like never before",
-      icon: (
-        <svg
-          className="w-12 h-12"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M13 10V3L4 14h7v7l9-11h-7z"
-          />
-        </svg>
-      ),
-      details: [
-        "Launch with confidence",
-        "Scale your business",
-        "Ongoing support & mentorship",
-      ],
-    },
   ];
 
   const curriculumModules = [
@@ -214,7 +162,7 @@ const ProcessSection = () => {
   ];
 
   return (
-    <section className="relative w-full py-24 lg:py-32 overflow-hidden bg-black">
+    <section className="relative w-full py-24 lg:py-16 overflow-hidden bg-black">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 right-1/4 w-96 h-96 bg-gradient-to-br from-orange-500/10 to-amber-500/10 rounded-full blur-3xl"></div>
@@ -426,13 +374,15 @@ const ProcessSection = () => {
           </div>
         </div>
 
-        {/* CTA Section */}
-        <div className="text-center">
-          <button className="group relative bg-gradient-to-r from-lime-400 via-green-500 to-emerald-500 text-black font-medium py-5 px-12 rounded-xl hover:from-lime-500 hover:via-green-600 hover:to-emerald-600 transition-all duration-300 shadow-2xl hover:shadow-green-500/50 transform hover:scale-105 text-lg uppercase tracking-wide">
-            <span className="relative z-10 flex items-center gap-2">
-              Enroll Now
+        {/* Enhanced CTA Button */}
+        <div className="relative z-10 mt-8 flex justify-center">
+          <button className="group relative w-full md:w-[30%] bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-500 text-white font-bold py-4 px-8 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02]">
+            {/* Shine Effect */}
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+            <span className="relative z-10 flex items-center justify-center gap-2">
+              Enroll now{" "}
               <svg
-                className="w-5 h-5 group-hover:translate-x-1 transition-transform"
+                className="w-5 h-5 transform group-hover:translate-x-1 transition-transform"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -445,7 +395,6 @@ const ProcessSection = () => {
                 />
               </svg>
             </span>
-            <div className="absolute inset-0 bg-gradient-to-r from-lime-300 to-green-400 rounded-xl opacity-0 group-hover:opacity-20 transition-opacity"></div>
           </button>
         </div>
       </div>
@@ -454,4 +403,3 @@ const ProcessSection = () => {
 };
 
 export default ProcessSection;
-
