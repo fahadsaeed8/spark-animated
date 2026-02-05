@@ -134,10 +134,10 @@ const HeroSection = () => {
                       </div>
                       <div>
                         <h3 className="text-xl font-bold text-white">
-                          Alex Johnson
+                          Expert Founders
                         </h3>
                         <p className="text-sm text-gray-400 font-clash">
-                          Senior Instructor
+                          Wikipedia, Youtube, Shazam
                         </p>
                       </div>
                     </div>
@@ -203,10 +203,10 @@ const HeroSection = () => {
                         </svg>
                       </div>
                       <div className="text-2xl font-bold text-amber-400">
-                        50K+
+                        5K+
                       </div>
                       <div className="text-sm text-gray-400 font-clash">
-                        Students
+                        Entrepreneurs
                       </div>
                     </div>
                   </div>
@@ -257,8 +257,8 @@ const HeroSection = () => {
               </div>
 
               {/* Floating Elements */}
-              <div className="absolute -top-4 -right-4 w-13 h-13 bg-gradient-to-br from-orange-500/20 to-amber-500/20 rounded-xl border border-orange-500/30 backdrop-blur-sm flex items-center justify-center">
-                <span className="text-md font-bold text-orange-300">30%</span>
+              <div className="absolute -top-4 -right-4 w-14 h-14 bg-gradient-to-br from-orange-500/20 to-amber-500/20 rounded-xl border border-orange-500/30 backdrop-blur-sm flex items-center justify-center">
+                <span className="text-sm font-bold text-orange-300">50%</span>
               </div>
               <div className="absolute -bottom-5 -left-4 w-12 h-12 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-xl border border-blue-500/30 backdrop-blur-sm flex items-center justify-center">
                 <svg
