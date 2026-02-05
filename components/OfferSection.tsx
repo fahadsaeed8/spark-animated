@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const OfferSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -75,14 +75,21 @@ const OfferSection = () => {
     }
   };
 
-  return (
-    <section className="relative w-full py-24 lg:py-12 overflow-hidden bg-gradient-to-b from-black via-slate-900 to-white">
-      {/* Background decorative elements - same as hero */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-gradient-to-br from-orange-500/10 to-amber-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-full blur-3xl"></div>
-      </div>
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const mobileVideoRef = useRef<HTMLVideoElement>(null);
 
+  const handleVideoClick = (video: HTMLVideoElement | null) => {
+    if (video) {
+      if (video.paused) {
+        video.play();
+      } else {
+        video.pause();
+      }
+    }
+  };
+
+  return (
+    <section className="relative w-full py-24 lg:py-12 overflow-hidden bg-black">
       {/* Grid pattern overlay - same as hero */}
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
@@ -122,8 +129,6 @@ const OfferSection = () => {
                     className="min-w-full sm:min-w-[calc(50%-12px)] lg:min-w-[calc(25%-18px)] px-3"
                   >
                     <div className="group relative bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-xl border border-gray-700/50 rounded-2xl p-6 hover:border-orange-500/50 transition-all">
-                      <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-amber-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
-
                       <div className="relative z-10">
                         {/* Image */}
                         <div className="relative aspect-square rounded-xl overflow-hidden bg-gradient-to-br from-orange-400/20 to-amber-500/20 border border-orange-500/30 mb-4">
@@ -147,9 +152,6 @@ const OfferSection = () => {
                           {benefit.value}
                         </p>
                       </div>
-
-                      {/* Corner accent */}
-                      <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-orange-500/10 to-transparent rounded-bl-2xl"></div>
                     </div>
                   </div>
                 ))}
