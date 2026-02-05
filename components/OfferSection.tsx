@@ -136,7 +136,7 @@ const OfferSection = () => {
   }, []);
 
   return (
-    <section className="relative w-full py-24 lg:py-12 overflow-hidden bg-black">
+    <section className="relative w-full py-12 lg:py-12 overflow-hidden bg-black">
       {/* Grid pattern overlay - same as hero */}
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
@@ -269,8 +269,18 @@ const OfferSection = () => {
           </div>
         </div>
 
+        {/* Main Headline */}
+        <div className="flex justify-center items-center">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[72px] font-bold leading-tight px-2 text-center">
+            <span className="bg-gradient-to-r from-orange-400 via-amber-400 to-yellow-400 bg-clip-text text-transparent font-clash">
+              <span className="text-white"> Entrepreneurs</span> in
+              theWorld{" "}
+            </span>
+          </h1>
+        </div>
+
         {/* Video Section */}
-        <div className="mt-16 sm:mt-20 lg:mt-24 flex flex-col items-center justify-center">
+        <div className="mt-16 sm:mt-20 lg:mt-14 flex flex-col items-center justify-center">
           <div className="w-full max-w-5xl mx-auto px-4 sm:px-6">
             {/* Desktop Video */}
             <div className="hidden md:block relative group">

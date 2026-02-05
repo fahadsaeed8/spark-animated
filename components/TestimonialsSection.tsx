@@ -80,7 +80,7 @@ business!`,
   ];
 
   return (
-    <section className="relative w-full py-24 lg:py-32 overflow-hidden bg-black">
+    <section className="relative w-full py-14 lg:py-32 overflow-hidden bg-black">
       {/* Subtle wavy pattern overlay */}
       <div className="absolute inset-0 opacity-5">
         <svg

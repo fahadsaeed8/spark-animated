@@ -64,7 +64,7 @@ const ComparisonSection = () => {
   ];
 
   return (
-    <section className="relative w-full py-24 lg:py-2 overflow-hidden  bg-black">
+    <section className="relative w-full py-14 lg:py-2 overflow-hidden  bg-black">
       {/* Background decorative elements - warm orange theme */}
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">

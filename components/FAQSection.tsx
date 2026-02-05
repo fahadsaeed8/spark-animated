@@ -48,7 +48,7 @@ const FAQSection = () => {
   };
 
   return (
-    <section className="relative w-full py-24 lg:py-16 overflow-hidden bg-black">
+    <section className="relative w-full py-14 lg:py-16 overflow-hidden bg-black">
       {/* Grid pattern overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
 
@@ -114,4 +114,3 @@ const FAQSection = () => {
 };
 
 export default FAQSection;
-

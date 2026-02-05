@@ -1,23 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { useRef } from "react";
 
 const HeroSection = () => {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const mobileVideoRef = useRef<HTMLVideoElement>(null);
-
-  const handleVideoClick = (video: HTMLVideoElement | null) => {
-    if (video) {
-      if (video.paused) {
-        video.play();
-      } else {
-        video.pause();
-      }
-    }
-  };
   return (
-    <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-orange-500/10 to-yellow-500/10 ">
+    <section className="relative w-full md:min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-orange-500/10 to-yellow-500/10 ">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-br from-orange-500/10 to-yellow-500/10 rounded-full blur-3xl"></div>
@@ -28,7 +15,7 @@ const HeroSection = () => {
       {/* Grid pattern overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-12 sm:py-16 md:py-20 lg:py-18">
+      <div className="relative z-10 max-w-7xl  mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-12 sm:py-16 md:py-20 lg:py-18">
         <div className="flex flex-col items-center justify-center">
           {/* Content Section */}
           <div className="text-center space-y-6 sm:space-y-8 w-full max-w-4xl">
