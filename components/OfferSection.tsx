@@ -29,31 +29,31 @@ const OfferSection = () => {
       title: "LinkedIn",
       subtitle: "Tobi Oluwole",
       value: "LINKEDIN CREATOR & LINKEDIN",
-      image: "/hero.png",
+      image: "/link.jpg",
     },
     {
       title: "Microsoft & Meta",
       subtitle: "Georgia Lewis Anderson",
       value: "AI CONSULTANT",
-      image: "/community groups.jpg.jpeg",
+      image: "/geo.jpg",
     },
     {
       title: "OpenAI",
       subtitle: "Zack Kass",
       value: "EX-GTM AT OPENAI (CHATGPT)",
-      image: "/events.jpg.jpeg",
+      image: "/zack.jpg",
     },
     {
       title: "Wikipedia",
       subtitle: "Jimmy Wales",
       value: "FOUNDER OF WIKIPEDIA",
-      image: "/match & connect.jpg.jpeg",
+      image: "/wiki.jpg",
     },
     {
       title: "YouTube",
       subtitle: "Steve Chen",
       value: "FOUNDER OF YOUTUBE",
-      image: "/hero.png",
+      image: "/steve.jpg",
     },
   ];
 
@@ -74,39 +74,6 @@ const OfferSection = () => {
       setCurrentSlide(totalSlides - 1); // Loop to end
     }
   };
-
-  const instructors = [
-    {
-      name: "Alex Dwek",
-      role: "COO, Nas.io",
-      image: "/hero.png",
-      company: "Nas.io",
-    },
-    {
-      name: "Sarah Chen",
-      role: "Product Lead",
-      image: "/hero.png",
-      company: "Tech Corp",
-    },
-    {
-      name: "Michael Torres",
-      role: "Growth Expert",
-      image: "/hero.png",
-      company: "ScaleUp",
-    },
-    {
-      name: "Emily Johnson",
-      role: "Strategy Director",
-      image: "/hero.png",
-      company: "Innovate Labs",
-    },
-    {
-      name: "David Kim",
-      role: "Founder & CEO",
-      image: "/hero.png",
-      company: "NextGen",
-    },
-  ];
 
   return (
     <section className="relative w-full py-24 lg:py-12 overflow-hidden bg-gradient-to-b from-black via-slate-900 to-white">

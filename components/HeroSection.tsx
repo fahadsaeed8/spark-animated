@@ -125,7 +125,7 @@ const HeroSection = () => {
                     <div className="flex items-center gap-4">
                       <div className="w-16 h-16 rounded-full bg-gradient-to-br from-orange-400 to-amber-500 p-0.5">
                         <Image
-                          src="/hero.png"
+                          src="/link.jpg"
                           alt="Instructor"
                           width={900}
                           height={900}

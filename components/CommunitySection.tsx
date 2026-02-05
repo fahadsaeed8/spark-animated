@@ -83,13 +83,13 @@ const CommunitySection = () => {
 
   // Mock profile avatars with images
   const profileImages = [
-    "/hero.png",
-    "/community groups.jpg.jpeg",
-    "/events.jpg.jpeg",
-    "/match & connect.jpg.jpeg",
-    "/hero.png",
-    "/community groups.jpg.jpeg",
-    "/events.jpg.jpeg",
+    "/link.jpg",
+    "/geo.jpg",
+    "/zack.jpg",
+    "/wiki.jpg",
+    "/steve.jpg",
+    "/geo.jpg",
+    "/wiki.jpg",
   ];
 
   const profiles = Array.from({ length: 7 }, (_, i) => ({
