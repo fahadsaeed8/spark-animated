@@ -49,7 +49,7 @@ const FeaturesSection = () => {
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 font-clash">
             <span className="text-white">What is</span>{" "}
             <span className="bg-gradient-to-r from-orange-400 via-amber-400 to-yellow-400 bg-clip-text text-transparent">
-              What is Augment?{" "}
+              Augment?{" "}
             </span>
           </h2>
         </div>
