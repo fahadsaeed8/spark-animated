@@ -99,7 +99,7 @@ const CommunitySection = () => {
   }));
 
   return (
-    <section className="relative w-full py-24 lg:py-32 overflow-hidden bg-white">
+    <section className="relative w-full py-24 lg:py-32 overflow-hidden bg-white rounded-[35px]">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-gradient-to-br from-orange-200/20 to-amber-200/20 rounded-full blur-3xl"></div>
@@ -135,23 +135,116 @@ const CommunitySection = () => {
           </h2>
         </div>
 
-        {/* Stats Cards */}
-        <div className="grid sm:grid-cols-3 gap-6 mb-20">
-          {communityStats.map((stat, index) => (
-            <div
-              key={index}
-              className="group relative bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 rounded-2xl p-8 border border-orange-200/50 hover:border-orange-300 hover:shadow-xl transition-all duration-300"
-            >
-              <div className="text-4xl lg:text-5xl font-bold text-orange-600 mb-2 font-clash group-hover:scale-110 transition-transform">
-                {stat.value}
-              </div>
-              <div className="text-base text-gray-600 font-medium">
-                {stat.label}
-              </div>
-              {/* Decorative element */}
-              <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-orange-200/30 to-amber-200/30 rounded-bl-full"></div>
+        {/* Pricing Options - Unique Split Design */}
+        <div className="relative mb-20">
+          {/* Background Container with Dark Theme */}
+          <div className="relative bg-black rounded-3xl p-8 lg:p-12 overflow-hidden border border-gray-700/30">
+            {/* Animated Background Elements */}
+            <div className="absolute inset-0 overflow-hidden">
+              <div className="absolute -top-40 -left-40 w-80 h-80 bg-orange-500/10 rounded-full blur-3xl"></div>
+              <div className="absolute -bottom-40 -right-40 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl"></div>
             </div>
-          ))}
+
+            {/* Top Orange Accent Bar */}
+            <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-500"></div>
+
+            <div className="relative z-10">
+              {/* Header */}
+              <div className="text-center mb-12">
+                <h3 className="text-2xl lg:text-3xl font-bold text-white mb-2 font-clash">
+                  The Augment MBA Program
+                </h3>
+                <p className="text-gray-400 text-sm">
+                  Choose Your Payment Plan
+                </p>
+              </div>
+
+              {/* Pricing Options - Horizontal Layout */}
+              <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto">
+                {communityStats.slice(0, 2).map((stat, index) => {
+                  const priceMatch = stat.value.match(/(\d+)-USD/);
+                  const price = priceMatch ? priceMatch[1] : "0";
+                  const isPaymentPlan = index === 0;
+                  const isOneTime = index === 1;
+                  const isOriginal = false;
+
+                  return (
+                    <div key={index} className="group relative">
+                      {/* Pricing Box */}
+                      <div className="relative bg-gradient-to-br from-gray-800/80 to-gray-900/80 backdrop-blur-sm rounded-2xl p-6 lg:p-8 border border-gray-700/50 hover:border-orange-500/50 transition-all duration-500">
+                        {/* Pricing Display */}
+                        <div className="mb-6">
+                          {isOriginal && (
+                            <div className="text-sm text-red-400 line-through mb-2 font-medium">
+                              $2,450
+                            </div>
+                          )}
+                          <div className="flex items-baseline gap-2 flex-wrap">
+                            <span className="text-4xl lg:text-5xl font-bold text-orange-500 font-clash">
+                              ${price}
+                            </span>
+                            {isPaymentPlan && (
+                              <span className="text-base text-gray-400 font-medium">
+                                x 5 months
+                              </span>
+                            )}
+                            {isOneTime && (
+                              <span className="text-sm text-orange-500 font-semibold bg-orange-500/10 px-2 py-1 rounded">
+                                One-time
+                              </span>
+                            )}
+                          </div>
+                        </div>
+
+                        {/* Features - Compact List */}
+                        <ul className="space-y-2.5 mb-6">
+                          {[
+                            "Lifetime access & course updates",
+                            "Self-paced course",
+                            "700+ Masterclasses",
+                            "1 on 1 Office Hours",
+                            "Event & Community Access",
+                            "In-Person events",
+                            "Case studies from famous companies",
+                          ].map((feature, idx) => (
+                            <li key={idx} className="flex items-start gap-2">
+                              <span className="text-orange-500 text-base font-bold mt-0.5 flex-shrink-0">
+                                ✓
+                              </span>
+                              <span className="text-xs lg:text-sm text-gray-300 leading-relaxed">
+                                {feature}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
+
+                        {/* CTA Button */}
+                        <button className="w-full bg-gradient-to-r from-orange-500 to-amber-500 text-white font-bold py-3.5 px-6 rounded-xl hover:from-orange-600 hover:to-amber-600 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-orange-500/50 transform hover:scale-[1.02] flex items-center justify-center gap-2 group/btn">
+                          <span>Enroll Now</span>
+                          <svg
+                            className="w-5 h-5 transform group-hover/btn:translate-x-1 transition-transform"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M13 7l5 5m0 0l-5 5m5-5H6"
+                            />
+                          </svg>
+                        </button>
+
+                        {/* Hover Glow Effect */}
+                        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-orange-500/0 to-amber-500/0 group-hover:from-orange-500/5 group-hover:to-amber-500/5 transition-opacity pointer-events-none"></div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Platform Features Section */}
@@ -262,7 +355,7 @@ const CommunitySection = () => {
               </p>
 
               {/* CTA Button */}
-              <button className="bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500 text-gray-900 font-bold py-4 px-10 rounded-xl hover:from-yellow-500 hover:via-amber-600 hover:to-orange-600 transition-all duration-300 shadow-2xl hover:shadow-orange-500/50 transform hover:scale-105 text-lg">
+              <button className="bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500 text-white font-bold py-4 px-10 rounded-xl hover:from-yellow-500 hover:via-amber-600 hover:to-orange-600 transition-all duration-300 shadow-2xl hover:shadow-orange-500/50 transform hover:scale-105 text-lg">
                 Join the Challenge
               </button>
             </div>
