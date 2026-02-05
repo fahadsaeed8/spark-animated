@@ -345,7 +345,7 @@ const CommunitySection = () => {
             <div className="text-center">
               <h4 className="text-2xl lg:text-3xl font-bold text-white mb-2 font-clash">
                 Connect on our{" "}
-                <span className="bg-gradient-to-r from-lime-400 via-green-500 to-emerald-500 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500 bg-clip-text text-transparent">
                   Private Platform
                 </span>
               </h4>

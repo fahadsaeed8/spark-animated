@@ -101,179 +101,47 @@ const FooterSection = () => {
   ];
 
   return (
-    <footer className="relative w-full bg-gradient-to-b from-slate-900 via-black to-black overflow-hidden">
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-br from-orange-500/5 to-amber-500/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-500/5 to-purple-500/5 rounded-full blur-3xl"></div>
-      </div>
-
-      {/* Grid pattern overlay */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
-
-      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16 lg:py-20">
-        {/* Main Content - Asymmetric Layout */}
-        <div className="grid lg:grid-cols-12 gap-12 mb-12">
-          {/* Left Section - Logo and Tagline (Takes 4 columns) */}
-          <div className="lg:col-span-4">
-            <div className="mb-6">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500 to-amber-500 flex items-center justify-center">
-                  <span className="text-white font-bold text-xl font-clash">
-                    N
-                  </span>
-                </div>
-                <div className="flex items-baseline">
-                  <span className="text-3xl font-bold text-white font-clash">
-                    NAS
-                  </span>
-                  <span className="text-3xl font-bold bg-gradient-to-r from-orange-400 to-amber-400 bg-clip-text text-transparent font-clash">
-                    .IO
-                  </span>
-                </div>
-              </div>
-              <p className="text-gray-400 text-base leading-relaxed">
-                Bring people together and build thriving communities with our
-                powerful platform
-              </p>
-            </div>
-
-            {/* Social Media Icons - Original Format */}
-            <div className="flex flex-col gap-3">
-              <span className="text-xs uppercase tracking-wider text-gray-500 mb-2">
-                Follow Us
-              </span>
-              <div className="flex items-center gap-4 flex-wrap">
-                {socialLinks.map((social, index) => (
-                  <a
-                    key={index}
-                    href={social.href}
-                    className={`${social.color} transition-colors hover:scale-110 transform`}
-                    aria-label={social.name}
-                  >
-                    {social.icon}
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Right Section - Links Grid (Takes 8 columns) */}
-          <div className="lg:col-span-8">
-            <div className="grid sm:grid-cols-3 gap-8">
-              {/* Quick Links */}
-              <div>
-                <h3 className="text-sm font-bold text-white uppercase tracking-wider mb-6 font-clash">
-                  Quick Links
-                </h3>
-                <ul className="space-y-4">
-                  {nasLinks.map((link, index) => (
-                    <li key={index}>
-                      <a
-                        href={link.href}
-                        className="text-gray-400 hover:text-orange-400 transition-colors text-sm flex items-center gap-2 group"
-                      >
-                        <span className="w-1.5 h-1.5 rounded-full bg-orange-500/0 group-hover:bg-orange-500 transition-all"></span>
-                        {link.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Features - Split into 2 columns */}
-              <div>
-                <h3 className="text-sm font-bold text-white uppercase tracking-wider mb-6 font-clash">
-                  Features
-                </h3>
-                <ul className="space-y-4">
-                  {featuresLinks.slice(0, 5).map((link, index) => (
-                    <li key={index}>
-                      <a
-                        href={link.href}
-                        className="text-gray-400 hover:text-orange-400 transition-colors text-sm flex items-center gap-2 group"
-                      >
-                        <span className="w-1.5 h-1.5 rounded-full bg-orange-500/0 group-hover:bg-orange-500 transition-all"></span>
-                        {link.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="text-sm font-bold text-white uppercase tracking-wider mb-6 font-clash">
-                  More
-                </h3>
-                <ul className="space-y-4">
-                  {featuresLinks.slice(5).map((link, index) => (
-                    <li key={index}>
-                      <a
-                        href={link.href}
-                        className="text-gray-400 hover:text-orange-400 transition-colors text-sm flex items-center gap-2 group"
-                      >
-                        <span className="w-1.5 h-1.5 rounded-full bg-orange-500/0 group-hover:bg-orange-500 transition-all"></span>
-                        {link.label}
-                      </a>
-                    </li>
-                  ))}
-                  {companyLinks.map((link, index) => (
-                    <li key={index}>
-                      <a
-                        href={link.href}
-                        className="text-gray-400 hover:text-orange-400 transition-colors text-sm flex items-center gap-2 group"
-                      >
-                        <span className="w-1.5 h-1.5 rounded-full bg-orange-500/0 group-hover:bg-orange-500 transition-all"></span>
-                        {link.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
+    <footer className="relative w-full bg-black overflow-hidden">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16 lg:py-10">
+        {/* Main Logo - Centered */}
+        <div className="text-center mb-16">
+          <h1 className="text-6xl sm:text-7xl lg:text-8xl font-bold text-white font-clash">
+            Spark Ventures
+          </h1>
         </div>
 
         {/* Bottom Bar - Legal and Copyright */}
         <div className="border-t border-gray-800 pt-8">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            {/* Legal Links */}
+            {/* Left Side - Copyright and Info */}
+            <div className="flex items-center gap-2 text-gray-500 text-sm flex-wrap justify-center">
+              <span>© 2023</span>
+              <span>|</span>
+              <span>AUGMENT.ORG</span>
+              <span>|</span>
+              <span>ENGLISH (US)</span>
+            </div>
+
+            {/* Right Side - Legal Links */}
             <div className="flex items-center gap-6 flex-wrap justify-center">
               <a
                 href="#"
-                className="text-gray-500 hover:text-orange-400 text-sm transition-colors"
+                className="text-gray-500 hover:text-white text-sm transition-colors"
               >
-                Terms of service
+                PRIVACY POLICY
               </a>
-              <span className="text-gray-700">•</span>
               <a
                 href="#"
-                className="text-gray-500 hover:text-orange-400 text-sm transition-colors"
+                className="text-gray-500 hover:text-white text-sm transition-colors"
               >
-                Privacy Policy
+                TERMS OF SERVICE
               </a>
-              <span className="text-gray-700">•</span>
-              <div className="flex items-center gap-2 text-gray-500 hover:text-orange-400 transition-colors cursor-pointer">
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 002 2h2.945M15 11a3 3 0 11-6 0m5.945 4H9a2 2 0 01-2-2v-1a2 2 0 00-2-2 2 2 0 00-2 2v1a2 2 0 002 2h6.945M21 11a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-                <span className="text-sm">English</span>
-              </div>
-            </div>
-
-            {/* Copyright */}
-            <div className="text-gray-500 text-sm">
-              © 2025 All rights reserved
+              <a
+                href="#"
+                className="text-gray-500 hover:text-white text-sm transition-colors"
+              >
+                CONTACT
+              </a>
             </div>
           </div>
         </div>
