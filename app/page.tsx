@@ -12,6 +12,8 @@ import VideoSection from "./components/VideoSection";
 import HowCircleSocietyWorksSection from "./components/HowCircleSocietyWorksSection";
 import FaithCommunitiesSection from "./components/FaithCommunitiesSection";
 import FindYourPeopleSection from "./components/FindYourPeopleSection";
+import TestimonialsSection from "./components/TestimonialsSection";
+import Image from "next/image";
 
 export default function Home() {
   // Ensure page scrolls to top on refresh to show "Enter the Circle" section
@@ -38,6 +40,16 @@ export default function Home() {
       <HowCircleSocietyWorksSection />
       <VideoSection />
       <FindYourPeopleSection />
+      <div className="w-full h-full bg-white flex justify-center items-center">
+        <Image
+          src={"/Frame 2131326897 (1).svg"}
+          alt={"Frame"}
+          width={1900}
+          height={1900}
+          className="w-full h-auto rounded-xl max-w-[1900px] md:max-w-[1000px]"
+        />
+      </div>
+      {/* <TestimonialsSection /> */}
       <WhereRealConnectionsSection />
       <DownloadAppSection />
       <FooterSection />
