@@ -18,6 +18,9 @@ export default function HeroSection() {
   const footnoteRef = useRef<HTMLDivElement>(null);
   const ctaButtonRef = useRef<HTMLButtonElement>(null);
   const instructionTextRef = useRef<HTMLParagraphElement>(null);
+  const phoneLeftRef = useRef<HTMLDivElement>(null);
+  const phoneMiddleRef = useRef<HTMLDivElement>(null);
+  const phoneRightRef = useRef<HTMLDivElement>(null);
 
   // Handle "Enter the Circle" CTA click - Character zooms in and next page appears
   const handleEnterCircle = () => {
@@ -374,6 +377,80 @@ export default function HeroSection() {
     });
   }, [hasEntered]);
 
+  // Animate iPhone images entrance when overlay disappears
+  useEffect(() => {
+    if (!hasEntered) return;
+
+    const phones = [phoneLeftRef.current, phoneMiddleRef.current, phoneRightRef.current].filter(Boolean);
+
+    if (phones.length === 0) return;
+
+    // Set initial state - phones start invisible, scaled down, and slightly offset
+    phones.forEach((phone, index) => {
+      if (phone) {
+        gsap.set(phone, {
+          opacity: 0,
+          scale: 0.6,
+          y: 50,
+          transformOrigin: "center center",
+        });
+      }
+    });
+
+    // Staggered entrance animation - phones appear one by one
+    const tl = gsap.timeline();
+
+    phones.forEach((phone, index) => {
+      if (phone) {
+        tl.to(
+          phone,
+          {
+            opacity: 1,
+            scale: 1,
+            y: 0,
+            duration: 1.2,
+            ease: "power2.out",
+          },
+          index * 0.15, // Stagger delay of 0.15s between each phone
+        );
+      }
+    });
+  }, [hasEntered]);
+
+  // Continuous floating animation for iPhone images
+  useEffect(() => {
+    if (!hasEntered) return;
+
+    const phones = [phoneLeftRef.current, phoneMiddleRef.current, phoneRightRef.current].filter(Boolean);
+
+    if (phones.length === 0) return;
+
+    // Create floating animation for each phone with different delays
+    phones.forEach((phone, index) => {
+      if (phone) {
+        const tl = gsap.timeline({ repeat: -1, ease: "power1.inOut" });
+
+        // Different floating patterns for each phone
+        const floatAmount = 15 + index * 5; // Varying float amounts
+        const duration = 3 + index * 0.5; // Varying durations
+
+        tl.to(phone, {
+          y: -floatAmount,
+          duration: duration,
+          ease: "power1.inOut",
+        }).to(phone, {
+          y: floatAmount,
+          duration: duration,
+          ease: "power1.inOut",
+        });
+      }
+    });
+
+    return () => {
+      // Cleanup will be handled by GSAP automatically
+    };
+  }, [hasEntered]);
+
   return (
     <section
       className="relative h-screen w-full overflow-hidden"
@@ -616,7 +693,10 @@ export default function HeroSection() {
 
               <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center z-20">
                 {/* Left Phone */}
-                <div className="relative z-10 w-24 md:w-40 lg:w-48 xl:w-56 transform -rotate-[5deg] md:-rotate-[6deg] -ml-4 md:-ml-18 -mt-8 md:mt-10">
+                <div
+                  ref={phoneLeftRef}
+                  className="relative z-10 w-24 md:w-40 lg:w-48 xl:w-56 transform -rotate-[5deg] md:-rotate-[6deg] -ml-4 md:-ml-18 -mt-8 md:mt-10"
+                >
                   <div className="relative p-1.5 md:p-2">
                     <div className="aspect-[9/19] w-[570px] h-[570px] overflow-hidden">
                       <Image
@@ -630,7 +710,10 @@ export default function HeroSection() {
                   </div>
                 </div>
                 {/* Middle Phone */}
-                <div className="relative z-10 w-24 md:w-40 lg:w-48 xl:w-56 transform -rotate-[5deg] md:-rotate-[6deg] -ml-4 md:-ml-18 -mt-8 md:-mt-12">
+                <div
+                  ref={phoneMiddleRef}
+                  className="relative z-10 w-24 md:w-40 lg:w-48 xl:w-56 transform -rotate-[5deg] md:-rotate-[6deg] -ml-4 md:-ml-18 -mt-8 md:-mt-12"
+                >
                   <div className="relative p-1.5 md:p-2">
                     <div className="aspect-[9/19] w-[570px] h-[570px] overflow-hidden">
                       <Image
@@ -644,7 +727,10 @@ export default function HeroSection() {
                   </div>
                 </div>
                 {/* Right Phone */}
-                <div className="relative z-10 w-24 md:w-40 lg:w-48 xl:w-56 transform -rotate-[5deg] md:-rotate-[6deg] -ml-4 md:-ml-18 -mt-8 md:-mt-12">
+                <div
+                  ref={phoneRightRef}
+                  className="relative z-10 w-24 md:w-40 lg:w-48 xl:w-56 transform -rotate-[5deg] md:-rotate-[6deg] -ml-4 md:-ml-18 -mt-8 md:-mt-12"
+                >
                   <div className="relative p-1.5 md:p-2">
                     <div className="aspect-[9/19] w-[570px] h-[570px] overflow-hidden">
                       <Image
