@@ -65,7 +65,7 @@ export default function FaithCommunitiesSection() {
       opacity: 1,
       scale: 1,
       x: 0,
-      duration: 0.8,
+      duration: 0.4,
       ease: "back.out(1.7)",
     })
       // 2. Then heading
@@ -74,10 +74,10 @@ export default function FaithCommunitiesSection() {
         {
           opacity: 1,
           y: 0,
-          duration: 0.8,
+          duration: 0.4,
           ease: "power2.out",
         },
-        "+=0.3",
+        "+=0.1",
       )
       // 3. Then description
       .to(
@@ -85,10 +85,10 @@ export default function FaithCommunitiesSection() {
         {
           opacity: 1,
           y: 0,
-          duration: 0.8,
+          duration: 0.4,
           ease: "power2.out",
         },
-        "+=0.3",
+        "+=0.1",
       )
       // 4. Then buttons
       .to(
@@ -96,10 +96,10 @@ export default function FaithCommunitiesSection() {
         {
           opacity: 1,
           y: 0,
-          duration: 0.8,
+          duration: 0.4,
           ease: "power2.out",
         },
-        "+=0.3",
+        "+=0.1",
       );
 
     return () => {

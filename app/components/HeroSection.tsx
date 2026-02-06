@@ -36,39 +36,116 @@ export default function HeroSection() {
     const ctaButton = ctaButtonRef.current;
     const instructionText = instructionTextRef.current;
 
-    if (!hero || !character || !characterCircle) return;
+    if (!hero || !character || !characterCircle || !ctaButton) return;
 
     // Disable button during animation
-    if (ctaButton) ctaButton.disabled = true;
+    ctaButton.disabled = true;
+
+    // Get button's position and center point
+    const buttonRect = ctaButton.getBoundingClientRect();
+    const buttonCenterX = buttonRect.left + buttonRect.width / 2;
+    const buttonCenterY = buttonRect.top + buttonRect.height / 2;
+    
+    // Get viewport center for calculations
+    const viewportCenterX = window.innerWidth / 2;
+    const viewportCenterY = window.innerHeight / 2;
+    
+    // Calculate offset to move everything towards button center
+    const offsetX = buttonCenterX - viewportCenterX;
+    const offsetY = buttonCenterY - viewportCenterY;
 
     const tl = gsap.timeline();
 
-    // Step 1: Hide CTA button and instruction text immediately (no animation)
+    // Step 1: Button press effect - button scales down like being pressed
+    tl.to(
+      ctaButton,
+      {
+        scale: 0.95,
+        duration: 0.15,
+        ease: "power2.in",
+      },
+      "start",
+    );
+
+    // Step 2: Everything moves towards button center and zooms in
+    // Character moves towards button and scales up (going into button)
+    tl.to(
+      characterCircle,
+      {
+        x: offsetX * 0.3, // Move towards button
+        y: offsetY * 0.3,
+        scale: 1.5, // Zoom in as if going into button
+        duration: 0.8,
+        ease: "power2.in",
+      },
+      "start+=0.1",
+    );
+
+    // Character circle continues zooming in more dramatically
+    tl.to(
+      characterCircle,
+      {
+        scale: 2.5, // Even bigger zoom - going deep into button
+        opacity: 0.7,
+        duration: 0.6,
+        ease: "power2.in",
+      },
+      "start+=0.5",
+    );
+
+    // Instruction text also moves towards button
+    if (instructionText) {
+      tl.to(
+        instructionText,
+        {
+          x: offsetX * 0.2,
+          y: offsetY * 0.2,
+          scale: 0.8,
+          opacity: 0,
+          duration: 0.5,
+          ease: "power2.in",
+        },
+        "start+=0.1",
+      );
+    }
+
+    // Step 3: Button expands/glows as content goes into it
+    tl.to(
+      ctaButton,
+      {
+        scale: 1.1,
+        boxShadow: "0 0 60px rgba(255, 255, 255, 0.8), 0 0 120px rgba(255, 255, 255, 0.5)",
+        duration: 0.4,
+        ease: "power2.out",
+      },
+      "start+=0.3",
+    );
+
+    // Step 4: Hide button and instruction text after animation
     if (ctaButton) {
-      // Directly hide button - no movement animation
-      tl.set(
+      tl.to(
         ctaButton,
         {
           opacity: 0,
-          display: "none",
+          scale: 0,
+          duration: 0.3,
+          ease: "power2.in",
         },
-        "start",
+        "start+=0.9",
       );
     }
 
     if (instructionText) {
-      // Directly hide text - no movement animation
       tl.set(
         instructionText,
         {
-          opacity: 0,
           display: "none",
         },
-        "start",
+        "start+=0.6",
       );
     }
 
-    // Step 2: Morning Flower Bloom Animation - Multi-layered, soft glow, gradual expansion
+    // Step 5: Morning Flower Bloom Animation - Multi-layered, soft glow, gradual expansion
     // Layer 1: Innermost - Soft, calm, focused glow (starts first)
     if (portalLayer1) {
       gsap.set(portalLayer1, {
@@ -86,7 +163,7 @@ export default function HeroSection() {
           duration: 0.6,
           ease: "power1.out",
         },
-        "start+=0.1",
+        "start+=0.7",
       );
 
       // First layer expands gently
@@ -98,7 +175,7 @@ export default function HeroSection() {
           duration: 1.2,
           ease: "power2.out",
         },
-        "start+=0.3",
+        "start+=0.9",
       );
 
       // Glow intensifies as it expands
@@ -110,7 +187,7 @@ export default function HeroSection() {
           duration: 1.2,
           ease: "power2.out",
         },
-        "start+=0.3",
+        "start+=0.9",
       );
     }
 
@@ -133,7 +210,7 @@ export default function HeroSection() {
           duration: 1.4,
           ease: "power2.out",
         },
-        "start+=0.5",
+        "start+=1.1",
       );
 
       // Glow builds up
@@ -145,7 +222,7 @@ export default function HeroSection() {
           duration: 1.4,
           ease: "power2.out",
         },
-        "start+=0.5",
+        "start+=1.1",
       );
     }
 
@@ -168,7 +245,7 @@ export default function HeroSection() {
           duration: 1.6,
           ease: "power2.out",
         },
-        "start+=0.7",
+        "start+=1.3",
       );
 
       // Full glow effect - balanced and complete
@@ -180,9 +257,23 @@ export default function HeroSection() {
           duration: 1.6,
           ease: "power2.out",
         },
-        "start+=0.7",
+        "start+=1.3",
       );
     }
+
+    // Character continues zooming into button - final push
+    tl.to(
+      characterCircle,
+      {
+        scale: 3.5, // Maximum zoom - fully going into button
+        opacity: 0,
+        x: offsetX * 0.5,
+        y: offsetY * 0.5,
+        duration: 0.8,
+        ease: "power2.in",
+      },
+      "start+=0.9",
+    );
 
     // All layers fade out together - balanced completion
     if (portalLayer1 && portalLayer2 && portalLayer3) {
@@ -193,43 +284,11 @@ export default function HeroSection() {
           duration: 0.8,
           ease: "power2.in",
         },
-        "start+=1.8",
+        "start+=2.2",
       );
     }
 
-    // Step 3: Character circle zooms IN (picture bhari ho) - smooth and gentle
-    // Ensure starting scale is small, transform origin is center
-    gsap.set(characterCircle, {
-      scale: 0.8,
-      opacity: 0.9,
-      transformOrigin: "center center",
-    });
-
-    // Character zooms IN smoothly - picture bhari hoti hai, flower bloom ke saath
-    tl.to(
-      characterCircle,
-      {
-        scale: 1.8, // Bari hoti jati hai
-        opacity: 1,
-        duration: 1.8,
-        ease: "power2.out", // Smooth zoom in
-        transformOrigin: "center center",
-      },
-      "start+=0.3", // Start with flower bloom animation
-    );
-
-    // Fade out after zoom in completes
-    tl.to(
-      characterCircle,
-      {
-        opacity: 0,
-        duration: 0.6,
-        ease: "power2.in",
-      },
-      "start+=2.0",
-    );
-
-    // Step 4: Hero overlay fades out after animations complete
+    // Step 6: Hero overlay fades out after animations complete
     tl.to(
       hero,
       {
@@ -242,7 +301,7 @@ export default function HeroSection() {
           document.body.style.overflow = "auto";
         },
       },
-      "start+=1.8", // After character zoom out completes
+      "start+=2.0", // After character zoom out completes
     );
   };
 

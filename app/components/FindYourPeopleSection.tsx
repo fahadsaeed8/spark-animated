@@ -86,7 +86,7 @@ export default function FindYourPeopleSection() {
     tl.to(headingRef.current, {
       opacity: 1,
       y: 0,
-      duration: 0.8,
+      duration: 0.5,
       ease: "power2.out",
     })
       .to(
@@ -94,10 +94,10 @@ export default function FindYourPeopleSection() {
         {
           opacity: 1,
           y: 0,
-          duration: 0.8,
+          duration: 0.5,
           ease: "power2.out",
         },
-        "-=0.4",
+        "-=0.3",
       )
       // Animate images one by one with more delay
       .to(
@@ -106,10 +106,10 @@ export default function FindYourPeopleSection() {
           opacity: 1,
           scale: 1,
           rotation: 0,
-          duration: 0.8,
+          duration: 0.5,
           ease: "back.out(1.7)",
         },
-        "-=0.2",
+        "-=0.1",
       )
       .to(
         image2Ref.current,
@@ -117,10 +117,10 @@ export default function FindYourPeopleSection() {
           opacity: 1,
           scale: 1,
           rotation: 0,
-          duration: 0.8,
+          duration: 0.5,
           ease: "back.out(1.7)",
         },
-        "+=0.3",
+        "+=0.15",
       )
       .to(
         image3Ref.current,
@@ -128,10 +128,10 @@ export default function FindYourPeopleSection() {
           opacity: 1,
           scale: 1,
           rotation: 0,
-          duration: 0.8,
+          duration: 0.5,
           ease: "back.out(1.7)",
         },
-        "+=0.3",
+        "+=0.15",
       )
       .to(
         image4Ref.current,
@@ -139,20 +139,20 @@ export default function FindYourPeopleSection() {
           opacity: 1,
           scale: 1,
           rotation: 0,
-          duration: 0.8,
+          duration: 0.5,
           ease: "back.out(1.7)",
         },
-        "+=0.3",
+        "+=0.15",
       )
       .to(
         buttonsRef.current,
         {
           opacity: 1,
           y: 0,
-          duration: 0.8,
+          duration: 0.5,
           ease: "power2.out",
         },
-        "-=0.4",
+        "-=0.3",
       );
 
     return () => {

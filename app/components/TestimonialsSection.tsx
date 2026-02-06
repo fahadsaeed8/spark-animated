@@ -45,17 +45,131 @@ export default function TestimonialsSection() {
   return (
     <section
       ref={sectionRef}
-      className="bg-[#F5F2ED] py-20"
+      className="bg-[#F5F2ED] py-20 px-4 sm:px-8 lg:px-24"
     >
-      <div className="w-full">
-        <div className="w-full h-full">
-          <Image
-            src={"/Frame 2131326897 (1).svg"}
-            alt={"Frame"}
-            width={1900}
-            height={1900}
-            className="w-full h-auto"
-          />
+      <div className="max-w-7xl mx-auto">
+        {/* Heading */}
+        <div className="text-center mb-20">
+          <p className="text-sm tracking-wide text-[#5A5A5A] mb-2">
+            Testimonials
+          </p>
+          <h2
+            ref={headingRef}
+            className="font-clash text-4xl md:text-5xl lg:text-6xl text-[#1B1B1B]"
+          >
+            Real Stories From Real People
+          </h2>
+        </div>
+
+        {/* Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          {/* LEFT */}
+          <div className="space-y-24">
+            {/* Adeel */}
+            <div
+              ref={(el) => el && cardsRef.current.push(el)}
+              className="relative flex items-center gap-10"
+            >
+              <div className="max-w-md">
+                <p className="text-xl text-[#1B1B1B] mb-6">
+                  I didn't want another social app. I wanted people who actually
+                  show up. Circle Society helped me find a local community that
+                  meets weekly. It feels real, not forced.
+                </p>
+                <p className="font-medium">Adeel, Dubai</p>
+                <p className="text-[#5A5A5A]">
+                  Joined a Fitness & Community Group
+                </p>
+              </div>
+
+              <div className="relative">
+                <Image
+                  src="/Layer 99.svg"
+                  alt="arrow"
+                  width={120}
+                  height={120}
+                  className="absolute -left-24 -top-10"
+                />
+                <div className="w-[220px] h-[280px] rounded-xl overflow-hidden">
+                  <Image
+                    src="/Rectangle 40853.svg"
+                    alt="Adeel"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Noura */}
+            <div
+              ref={(el) => el && cardsRef.current.push(el)}
+              className="relative flex items-center gap-10"
+            >
+              <div className="max-w-md">
+                <p className="text-xl text-[#1B1B1B] mb-6">
+                  It feels safe because you meet through shared interests.
+                </p>
+                <p className="font-medium">Noura, UAE</p>
+                <p className="text-[#5A5A5A]">Community Member</p>
+              </div>
+
+              <div className="relative">
+                <Image
+                  src="/Layer 100.svg"
+                  alt="arrow"
+                  width={120}
+                  height={120}
+                  className="absolute -left-24 bottom-0"
+                />
+                <div className="w-[220px] h-[220px] rounded-full overflow-hidden">
+                  <Image
+                    src="/Rectangle 40854.svg"
+                    alt="Noura"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* RIGHT */}
+          <div className="relative flex justify-center lg:justify-end">
+            <div
+              ref={(el) => el && cardsRef.current.push(el)}
+              className="relative"
+            >
+              <Image
+                src="/Layer 101.svg"
+                alt="arrow"
+                width={120}
+                height={120}
+                className="absolute -right-24 top-20"
+              />
+
+              {/* Top Image */}
+              <div className="w-[260px] h-[260px] rounded-xl overflow-hidden mb-12 ml-auto">
+                <Image
+                  src="/Rectangle 40855.svg"
+                  alt="Sara"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
+              {/* Text */}
+              <div className="max-w-md text-right">
+                <p className="text-xl text-[#1B1B1B] mb-6">
+                  The events are what make this different. From art meetups to
+                  group dinners, everything is built around real activities. You
+                  meet people naturally.
+                </p>
+                <p className="font-medium">Sara, London</p>
+                <p className="text-[#5A5A5A]">Event Host</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
