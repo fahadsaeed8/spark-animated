@@ -381,7 +381,11 @@ export default function HeroSection() {
   useEffect(() => {
     if (!hasEntered) return;
 
-    const phones = [phoneLeftRef.current, phoneMiddleRef.current, phoneRightRef.current].filter(Boolean);
+    const phones = [
+      phoneLeftRef.current,
+      phoneMiddleRef.current,
+      phoneRightRef.current,
+    ].filter(Boolean);
 
     if (phones.length === 0) return;
 
@@ -416,7 +420,6 @@ export default function HeroSection() {
       }
     });
   }, [hasEntered]);
-
 
   return (
     <section
