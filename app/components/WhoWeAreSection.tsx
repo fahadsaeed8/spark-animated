@@ -13,7 +13,13 @@ export default function WhoWeAreSection() {
   const pRef = useRef<HTMLParagraphElement>(null);
 
   useEffect(() => {
-    if (!sectionRef.current || !h2Ref.current || !h3Ref.current || !pRef.current) return;
+    if (
+      !sectionRef.current ||
+      !h2Ref.current ||
+      !h3Ref.current ||
+      !pRef.current
+    )
+      return;
 
     // Set initial states - text starts from above and invisible
     gsap.set([h2Ref.current, h3Ref.current, pRef.current], {
@@ -69,7 +75,10 @@ export default function WhoWeAreSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-[#f5f5f0] py-12 sm:py-14 md:py-18 px-4 sm:px-6 md:px-12">
+    <section
+      ref={sectionRef}
+      className="bg-[#f5f5f0] py-12 sm:py-14 md:py-18 px-4 sm:px-6 md:px-12"
+    >
       <div className="mx-auto max-w-4xl text-center">
         <h2
           ref={h2Ref}
@@ -81,21 +90,18 @@ export default function WhoWeAreSection() {
           ref={h3Ref}
           className="mb-4 sm:mb-6 font-clash text-2xl sm:text-3xl font-medium text-[#1B1B1B] md:text-4xl lg:text-5xl"
         >
-          A Social App for Real People
+          A Social Hub for Everyday Life{" "}
         </h3>
         <p
           ref={pRef}
           className="text-sm sm:text-base leading-relaxed text-[#5A5A5A] md:text-xl px-2 sm:px-0"
         >
-          Circle Society is designed to help you build meaningful connections
-          — through interest-based communities, local events, and thoughtful
-          interactions. No pretense, no pressure — just authentic social
-          experiences.
+          Circle Society helps people discover communities, attend local events,
+          and build meaningful social connections. Whether you’re new to a city,
+          exploring interests, or looking for real-world activities — this is
+          where social life begins.
         </p>
       </div>
     </section>
   );
 }
-
-
-

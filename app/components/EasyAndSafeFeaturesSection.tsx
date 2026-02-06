@@ -125,13 +125,13 @@ export default function EasyAndSafeFeaturesSection() {
           ref={h2Ref1}
           className="mb-2 sm:mb-4 text-center font-clash text-xl sm:text-2xl font-medium text-[#1B1B1B] md:text-5xl"
         >
-          Easy and safe features
+          What You Can Do on
         </h2>
         <h2
           ref={h2Ref2}
           className="mb-6 sm:mb-4 text-center font-clash text-xl sm:text-2xl font-medium text-[#1B1B1B] md:text-5xl md:mb-4"
         >
-          of The Circle Society app
+          The Circle Society{" "}
         </h2>
 
         {/* Feature Cards */}
@@ -153,11 +153,10 @@ export default function EasyAndSafeFeaturesSection() {
               </div>
             </div>
             <h4 className="mb-2 sm:mb-3 font-clash text-lg sm:text-xl md:text-3xl text-center md:text-start font-medium text-[#1B1B1B]">
-              Community Groups
+              Join Communities{" "}
             </h4>
             <p className="text-xs sm:text-sm leading-relaxed w-full sm:w-[80%] text-center md:text-start text-[#5A5A5A] md:text-[22px] mx-auto md:mx-0">
-              Join groups based on your passions — from fitness to faith, food
-              to family.
+              Discover groups around shared interests, passions, and lifestyles.
             </p>
           </div>
 
@@ -175,10 +174,11 @@ export default function EasyAndSafeFeaturesSection() {
               </div>
             </div>
             <h4 className="mb-2 sm:mb-3 font-clash text-lg sm:text-xl md:text-3xl text-center md:text-start font-medium text-[#1B1B1B]">
-              Events You'll Love
+              Attend Events{" "}
             </h4>
             <p className="text-xs sm:text-sm leading-relaxed w-full sm:w-[80%] text-center md:text-start text-[#5A5A5A] md:text-[22px] mx-auto md:mx-0">
-              Find and create local meetups and experiences that matter.
+              From small meetups to large gatherings — online discovery,
+              real-life fun.{" "}
             </p>
           </div>
 
@@ -196,10 +196,11 @@ export default function EasyAndSafeFeaturesSection() {
               </div>
             </div>
             <h4 className="mb-2 sm:mb-3 font-clash text-lg sm:text-xl md:text-3xl text-center md:text-start font-medium text-[#1B1B1B]">
-              Match & Connect
+              Meet Naturally{" "}
             </h4>
             <p className="text-xs sm:text-sm leading-relaxed w-full sm:w-[80%] text-center md:text-start text-[#5A5A5A] md:text-[22px] mx-auto md:mx-0">
-              Discover people based on shared interests, not superficial swipes.
+              Connections happen through shared moments, not forced
+              matching.{" "}
             </p>
           </div>
         </div>
