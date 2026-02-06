@@ -11,6 +11,7 @@ import FooterSection from "./components/FooterSection";
 import VideoSection from "./components/VideoSection";
 import HowCircleSocietyWorksSection from "./components/HowCircleSocietyWorksSection";
 import FaithCommunitiesSection from "./components/FaithCommunitiesSection";
+import FindYourPeopleSection from "./components/FindYourPeopleSection";
 
 export default function Home() {
   // Ensure page scrolls to top on refresh to show "Enter the Circle" section
@@ -36,6 +37,7 @@ export default function Home() {
       <FaithCommunitiesSection />
       <HowCircleSocietyWorksSection />
       <VideoSection />
+      <FindYourPeopleSection />
       <WhereRealConnectionsSection />
       <DownloadAppSection />
       <FooterSection />

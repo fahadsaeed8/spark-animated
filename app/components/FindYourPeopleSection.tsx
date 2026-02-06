@@ -1,0 +1,312 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+import Image from "next/image";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
+export default function FindYourPeopleSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const headingRef = useRef<HTMLHeadingElement>(null);
+  const descriptionRef = useRef<HTMLParagraphElement>(null);
+  const image1Ref = useRef<HTMLDivElement>(null);
+  const image2Ref = useRef<HTMLDivElement>(null);
+  const image3Ref = useRef<HTMLDivElement>(null);
+  const image4Ref = useRef<HTMLDivElement>(null);
+  const buttonsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (
+      !sectionRef.current ||
+      !headingRef.current ||
+      !descriptionRef.current ||
+      !buttonsRef.current
+    )
+      return;
+
+    // Set initial states
+    gsap.set(headingRef.current, {
+      opacity: 0,
+      y: -30,
+    });
+
+    gsap.set(descriptionRef.current, {
+      opacity: 0,
+      y: 20,
+    });
+
+    if (image1Ref.current) {
+      gsap.set(image1Ref.current, {
+        opacity: 0,
+        scale: 0.8,
+        rotation: -10,
+      });
+    }
+    if (image2Ref.current) {
+      gsap.set(image2Ref.current, {
+        opacity: 0,
+        scale: 0.8,
+        rotation: 10,
+      });
+    }
+    if (image3Ref.current) {
+      gsap.set(image3Ref.current, {
+        opacity: 0,
+        scale: 0.8,
+        rotation: 10,
+      });
+    }
+    if (image4Ref.current) {
+      gsap.set(image4Ref.current, {
+        opacity: 0,
+        scale: 0.8,
+        rotation: -10,
+      });
+    }
+
+    gsap.set(buttonsRef.current, {
+      opacity: 0,
+      y: 20,
+    });
+
+    // Create timeline for animations
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top 80%",
+        end: "top 50%",
+        toggleActions: "play none none none",
+      },
+    });
+
+    // Animate elements
+    tl.to(headingRef.current, {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      ease: "power2.out",
+    })
+      .to(
+        descriptionRef.current,
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power2.out",
+        },
+        "-=0.4",
+      )
+      .to(
+        [
+          image1Ref.current,
+          image2Ref.current,
+          image3Ref.current,
+          image4Ref.current,
+        ],
+        {
+          opacity: 1,
+          scale: 1,
+          rotation: 0,
+          duration: 0.8,
+          ease: "back.out(1.7)",
+          stagger: 0.1,
+        },
+        "-=0.6",
+      )
+      .to(
+        buttonsRef.current,
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power2.out",
+        },
+        "-=0.4",
+      );
+
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => {
+        if (trigger.vars.trigger === sectionRef.current) {
+          trigger.kill();
+        }
+      });
+    };
+  }, []);
+
+  const activities = [
+    {
+      id: 1,
+      image: "/Frame 2131326921.svg",
+      label: "Bike Trips",
+      rotation: -8,
+      position: "top-left",
+    },
+    {
+      id: 2,
+      image: "/Frame 2131326922.svg",
+      label: "Hiking & Trekking",
+      rotation: 8,
+      position: "bottom-left",
+    },
+    {
+      id: 3,
+      image: "/Frame 2131326923.svg",
+      label: "Gym Crew",
+      rotation: 8,
+      position: "top-right",
+    },
+    {
+      id: 4,
+      image: "/Frame 2131326924.svg",
+      label: "Car Enthusiasts",
+      rotation: -8,
+      position: "bottom-right",
+    },
+  ];
+
+  return (
+    <section
+      ref={sectionRef}
+      className="py-12 px-4 sm:py-16 bg-[#73542A] sm:px-6 md:py-14 md:px-12 relative overflow-hidden"
+    >
+      <div className="mx-auto max-w-7xl relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr_1fr] gap-6 md:gap-8 lg:gap-12 items-center">
+          {/* Left Side - 2 Images */}
+          <div className="flex flex-col gap-4 md:gap-6 items-center md:items-start">
+            {/* Top Left Image */}
+            <div
+              ref={image1Ref}
+              className="relative transform -rotate-[8deg] hover:rotate-0 transition-transform duration-300"
+            >
+              <div className="bg-white rounded-2xl p-2 shadow-xl overflow-hidden">
+                <Image
+                  src={activities[0].image}
+                  alt={activities[0].label}
+                  width={250}
+                  height={250}
+                  className="w-full h-auto rounded-xl max-w-[200px] md:max-w-[250px]"
+                  unoptimized
+                  style={{ imageRendering: "crisp-edges" }}
+                />
+              </div>
+              <p className="text-white text-sm sm:text-base font-medium mt-2 text-center">
+                {activities[0].label}
+              </p>
+            </div>
+
+            {/* Bottom Left Image */}
+            <div
+              ref={image2Ref}
+              className="relative transform rotate-[8deg] hover:rotate-0 transition-transform duration-300 ml-4 md:ml-8 -mt-4"
+            >
+              <div className="bg-white rounded-2xl p-2 shadow-xl overflow-hidden">
+                <Image
+                  src={activities[1].image}
+                  alt={activities[1].label}
+                  width={250}
+                  height={250}
+                  className="w-full h-auto rounded-xl max-w-[200px] md:max-w-[250px]"
+                  unoptimized
+                  style={{ imageRendering: "crisp-edges" }}
+                />
+              </div>
+              <p className="text-white text-sm sm:text-base font-medium mt-2 text-center">
+                {activities[1].label}
+              </p>
+            </div>
+          </div>
+
+          {/* Center - Content & Buttons */}
+          <div className="text-center flex flex-col items-center w-full">
+            {/* Main Content */}
+            <div className="mb-8 w-full">
+              <h2
+                ref={headingRef}
+                className="font-clash text-3xl text-white sm:text-4xl md:text-5xl lg:text-6xl font-medium mb-6"
+              >
+                Find Your People. Do What You Love.
+              </h2>
+              <p
+                ref={descriptionRef}
+                className="text-lg sm:text-xl text-white md:text-2xl leading-relaxed"
+              >
+                Circle Society is built around activities, not algorithms. Join
+                communities, attend local events, and connect naturally through
+                what you enjoy doing in real life.
+              </p>
+            </div>
+
+            {/* Download Buttons */}
+            <div ref={buttonsRef} className="w-full flex justify-center">
+              <div className="flex flex-row justify-center items-center gap-3 sm:gap-4">
+                <button
+                  className="rounded-full px-6 py-2 sm:px-8 sm:py-2.5 text-xs sm:text-sm md:text-[16px] font-semibold text-white transition hover:opacity-90"
+                  style={{
+                    background: "linear-gradient(to bottom, #D99F4F, #BF822E)",
+                  }}
+                >
+                  Download for Android
+                </button>
+                <button
+                  className="rounded-full px-6 py-2 sm:px-8 sm:py-2.5 text-xs sm:text-sm md:text-[16px] font-semibold text-white transition hover:opacity-90"
+                  style={{
+                    background: "linear-gradient(to bottom, #D99F4F, #BF822E)",
+                  }}
+                >
+                  Download for iOS
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Side - 2 Images */}
+          <div className="flex flex-col gap-4 md:gap-6 items-center md:items-end">
+            {/* Top Right Image */}
+            <div
+              ref={image3Ref}
+              className="relative transform rotate-[8deg] hover:rotate-0 transition-transform duration-300 -mr-4 md:-mr-8"
+            >
+              <div className="bg-white rounded-2xl p-2 shadow-xl overflow-hidden">
+                <Image
+                  src={activities[2].image}
+                  alt={activities[2].label}
+                  width={250}
+                  height={250}
+                  className="w-full h-auto rounded-xl max-w-[200px] md:max-w-[250px]"
+                  unoptimized
+                  style={{ imageRendering: "crisp-edges" }}
+                />
+              </div>
+              <p className="text-white text-sm sm:text-base font-medium mt-2 text-center">
+                {activities[2].label}
+              </p>
+            </div>
+
+            {/* Bottom Right Image */}
+            <div
+              ref={image4Ref}
+              className="relative transform -rotate-[8deg] hover:rotate-0 transition-transform duration-300 -mt-4"
+            >
+              <div className="bg-white rounded-2xl p-2 shadow-xl overflow-hidden">
+                <Image
+                  src={activities[3].image}
+                  alt={activities[3].label}
+                  width={250}
+                  height={250}
+                  className="w-full h-auto rounded-xl max-w-[200px] md:max-w-[250px]"
+                  unoptimized
+                  style={{ imageRendering: "crisp-edges" }}
+                />
+              </div>
+              <p className="text-white text-sm sm:text-base font-medium mt-2 text-center">
+                {activities[3].label}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
