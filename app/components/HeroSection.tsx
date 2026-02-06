@@ -283,23 +283,23 @@ export default function HeroSection() {
 
     gsap.set(character, { opacity: 0, y: 20 });
     if (ctaButton) {
-      gsap.set(ctaButton, { 
-        opacity: 0, 
-        y: 15, 
-        x: 0, 
+      gsap.set(ctaButton, {
+        opacity: 0,
+        y: 15,
+        x: 0,
         scale: 1,
         transformOrigin: "center center",
-        force3D: true
+        force3D: true,
       });
     }
     if (instructionText) {
-      gsap.set(instructionText, { 
-        opacity: 0, 
-        y: 15, 
-        x: 0, 
+      gsap.set(instructionText, {
+        opacity: 0,
+        y: 15,
+        x: 0,
         scale: 1,
         transformOrigin: "center center",
-        force3D: true
+        force3D: true,
       });
     }
 
@@ -489,39 +489,22 @@ export default function HeroSection() {
           </button>
 
           {/* Instruction text */}
-          <p ref={instructionTextRef} className="mt-6 sm:mt-8 md:mt-10 text-white/50 font-clash text-xs sm:text-sm tracking-wide z-20 px-4 text-center">
+          <p
+            ref={instructionTextRef}
+            className="mt-6 sm:mt-8 md:mt-10 text-white/50 font-clash text-xs sm:text-sm tracking-wide z-20 px-4 text-center"
+          >
             Click to begin your journey
           </p>
         </div>
       </div>
 
-      {/* Background Video */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover"
-      >
-        <source src="/hero-video.mp4" type="video/mp4" />
-      </video>
-
-      {/* Background Overlay (Heart/Decorative Pattern) */}
-      <div
-        ref={heartBackgroundRef}
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage: "url('/Background.png')",
-        }}
-      />
-
-      {/* Black Gradient Overlay at Top (for Navbar area) */}
-      <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/80 to-transparent z-[5]" />
+      {/* Light Background */}
+      <div className="absolute inset-0 bg-[#F5F2ED]" />
 
       {/* Content */}
       <div className="relative z-10 flex h-full flex-col">
         {/* NAVBAR */}
-        <header className="flex items-center md:mt-5 justify-between px-4 sm:px-6 py-4 md:py-5 md:px-24">
+        <header className="flex items-center bg-white justify-between px-4 sm:px-6 py-4 md:py-5 md:px-24">
           {/* Logo - White circle with line through it */}
           <Link href={"/"} className="flex items-center ml-0 md:ml-20">
             <div
@@ -543,65 +526,105 @@ export default function HeroSection() {
           </Link>
 
           {/* Nav Links */}
-          <nav className="hidden gap-6 md:text-[14px] font-semibold uppercase tracking-wide text-[#F5F2ED] md:flex lg:gap-8">
+          <nav className="hidden gap-6 md:text-[16px] font-semibold uppercase tracking-wide text-black md:flex lg:gap-8">
             <a className="hover:opacity-80 transition-opacity" href="#">
               ABOUT
             </a>
             <a className="hover:opacity-80 transition-opacity" href="#">
-              ABOUT COMMUNITY
+              Stories{" "}
             </a>
             <a className="hover:opacity-80 transition-opacity" href="#">
-              ABOUT EVENT
+              STORE{" "}
             </a>
             <a className="hover:opacity-80 transition-opacity" href="#">
-              ABOUT MATCH MAKING
+              Contact Us{" "}
             </a>
             <a className="hover:opacity-80 transition-opacity" href="#">
-              CONTACT US
+              Download{" "}
             </a>
           </nav>
         </header>
 
         {/* HERO CENTER */}
-        <div className="flex flex-1 items-center justify-center px-4 sm:px-6 text-start">
-          <div className="max-w-6xl md:mt-10 w-full">
-            <h1
-              ref={heroTitleRef}
-              className="mb-6 sm:mb-8 md:mb-10 font-clash text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-medium leading-tight text-[#F5F2ED]"
-            >
-              The most welcoming way to date
-            </h1>
-
-            {/* Buttons */}
-            <div className="flex flex-col sm:flex-row flex-wrap justify-start gap-3 sm:gap-4">
-              <button
-                className="rounded-full px-6 py-2 sm:px-8 sm:py-2.5 text-xs sm:text-sm md:text-[16px] font-semibold text-white transition hover:opacity-90 w-full sm:w-auto"
-                style={{
-                  background: "linear-gradient(to bottom, #D99F4F, #BF822E)",
-                }}
+        <div className="flex flex-1 items-center justify-center px-4 sm:px-6 md:px-8 lg:px-24">
+          <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            {/* Left Section - Text and CTA */}
+            <div className="text-start">
+              <h1
+                ref={heroTitleRef}
+                className="mb-4 sm:mb-6 font-clash text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight"
               >
-                Download for iOS
-              </button>
+                <span className="block text-[#2d2d2d] md:text-[#1a1a1a]">
+                  YOUR SOCIAL LIFE
+                </span>
+                <span className="block text-[#D99F4F] md:text-[#BF822E]">
+                  ALL IN ONE APP
+                </span>
+              </h1>
 
-              <button
-                className="rounded-full px-6 py-2 sm:px-8 sm:py-2.5 text-xs sm:text-sm md:text-[16px] font-semibold text-white transition hover:opacity-90 w-full sm:w-auto"
-                style={{
-                  background: "linear-gradient(to bottom, #D99F4F, #BF822E)",
-                }}
-              >
-                Download for Android
-              </button>
+              <p className="mb-6 sm:mb-8 text-sm md:text-base lg:text-lg text-[#4a4a4a] md:text-[#2d2d2d] max-w-lg">
+                Discover events, communities, and people around you, through
+                shared experiences.
+              </p>
+
+              {/* Buttons */}
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                <button
+                  className="rounded-full px-6 py-3 sm:px-8 sm:py-3.5 text-sm md:text-base font-semibold text-white transition hover:opacity-90 w-full sm:w-auto"
+                  style={{
+                    background: "linear-gradient(to bottom, #D99F4F, #BF822E)",
+                  }}
+                >
+                  Download for iOS
+                </button>
+
+                <button
+                  className="rounded-full px-6 py-3 sm:px-8 sm:py-3.5 text-sm md:text-base font-semibold text-white transition hover:opacity-90 w-full sm:w-auto"
+                  style={{
+                    background: "linear-gradient(to bottom, #D99F4F, #BF822E)",
+                  }}
+                >
+                  Download for Android
+                </button>
+              </div>
+            </div>
+
+            {/* Right Section - Three Phones */}
+            <div className="relative hidden lg:flex items-center justify-center h-[500px] md:h-[600px]">
+              {/* Background Phone (Rightmost) */}
+              <div className="absolute right-0 z-0 transform rotate-[-8deg] translate-x-8">
+                <Image
+                  src="/iPhone-13-Pro-Front (1).svg"
+                  width={200}
+                  height={400}
+                  alt="Phone 3"
+                  className="opacity-60"
+                />
+              </div>
+
+              {/* Middle Phone */}
+              <div className="absolute z-10 transform rotate-[5deg] translate-x-4">
+                <Image
+                  src="/iPhone-13-Pro-Front (2).svg"
+                  width={220}
+                  height={440}
+                  alt="Phone 2"
+                  className="opacity-80"
+                />
+              </div>
+
+              {/* Foreground Phone (Leftmost) */}
+              <div className="absolute left-0 z-20 transform rotate-[-3deg] -translate-x-4">
+                <Image
+                  src="/iPhone-13-Pro-Front.svg"
+                  width={240}
+                  height={480}
+                  alt="Phone 1"
+                  className="opacity-100"
+                />
+              </div>
             </div>
           </div>
-        </div>
-
-        {/* FOOTNOTE */}
-        <div
-          ref={footnoteRef}
-          className="px-4 sm:px-6 pb-4 sm:pb-6 text-center text-xs sm:text-sm md:text-[16px] md:-mb-4 text-white opacity-70 md:px-12"
-        >
-          Names are altered, images are illustrative and depict models: Persons
-          in videos are influencers, compensated by Hily.
         </div>
       </div>
     </section>
