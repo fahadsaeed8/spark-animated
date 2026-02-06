@@ -197,7 +197,7 @@ export default function FindYourPeopleSection() {
             {/* Bottom Left Image */}
             <div
               ref={image2Ref}
-              className="relative -mt-20 transform rotate-[0deg] hover:rotate-0 transition-transform duration-300 ml-4 md:ml-8 -mt-4"
+              className="relative md:-mt-20 transform rotate-[0deg] hover:rotate-0 transition-transform duration-300 ml-4 md:ml-8 -mt-4"
               style={{ zIndex: 5 }}
             >
               <div>
@@ -226,11 +226,16 @@ export default function FindYourPeopleSection() {
               </h2>
               <p
                 ref={descriptionRef}
-                className="text-lg sm:text-xl text-white md:text-2xl leading-relaxed"
+                className="text-lg sm:text-xl text-white md:text-lg leading-relaxed"
               >
-                Circle Society is built around activities, not algorithms. Join
-                communities, attend local events, and connect naturally through
-                what you enjoy doing in real life.
+                Circle Society is built around activities, not algorithms.
+              </p>
+              <p
+                ref={descriptionRef}
+                className="text-lg sm:text-xl md:mt-5 text-white md:text-lg leading-relaxed"
+              >
+                Join communities, attend local events, and connect naturally
+                through what you enjoy doing in real life.{" "}
               </p>
             </div>
 
@@ -281,7 +286,7 @@ export default function FindYourPeopleSection() {
             {/* Bottom Right Image */}
             <div
               ref={image4Ref}
-              className="relative -mt-20 transform -rotate-[0deg] hover:rotate-0 transition-transform duration-300 -mt-4"
+              className="relative md:-mt-20 transform -rotate-[0deg] hover:rotate-0 transition-transform duration-300 -mt-4"
               style={{ zIndex: 5 }}
             >
               <div>
