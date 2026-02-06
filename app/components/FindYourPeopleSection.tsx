@@ -75,9 +75,10 @@ export default function FindYourPeopleSection() {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: sectionRef.current,
-        start: "top 80%",
-        end: "top 50%",
+        start: "top 85%",
+        end: "top 20%",
         toggleActions: "play none none none",
+        scrub: false,
       },
     });
 
@@ -98,22 +99,50 @@ export default function FindYourPeopleSection() {
         },
         "-=0.4",
       )
+      // Animate images one by one with more delay
       .to(
-        [
-          image1Ref.current,
-          image2Ref.current,
-          image3Ref.current,
-          image4Ref.current,
-        ],
+        image1Ref.current,
         {
           opacity: 1,
           scale: 1,
           rotation: 0,
           duration: 0.8,
           ease: "back.out(1.7)",
-          stagger: 0.1,
         },
-        "-=0.6",
+        "-=0.2",
+      )
+      .to(
+        image2Ref.current,
+        {
+          opacity: 1,
+          scale: 1,
+          rotation: 0,
+          duration: 0.8,
+          ease: "back.out(1.7)",
+        },
+        "+=0.3",
+      )
+      .to(
+        image3Ref.current,
+        {
+          opacity: 1,
+          scale: 1,
+          rotation: 0,
+          duration: 0.8,
+          ease: "back.out(1.7)",
+        },
+        "+=0.3",
+      )
+      .to(
+        image4Ref.current,
+        {
+          opacity: 1,
+          scale: 1,
+          rotation: 0,
+          duration: 0.8,
+          ease: "back.out(1.7)",
+        },
+        "+=0.3",
       )
       .to(
         buttonsRef.current,
