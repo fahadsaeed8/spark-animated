@@ -40,15 +40,19 @@ export default function Home() {
       <HowCircleSocietyWorksSection />
       <VideoSection />
       <FindYourPeopleSection />
-      {/* <div className="w-full h-full bg-white flex justify-center items-center">
-        <Image
-          src={"/Frame 2131326897 (1).svg"}
-          alt={"Frame"}
-          width={1900}
-          height={1900}
-          className="w-full h-auto rounded-xl max-w-[1900px] md:max-w-[1000px]"
-        />
-      </div> */}
+      {/* Image Section - Properly contained to not break other components */}
+      <div className="w-full bg-white py-8 sm:py-12 md:py-16 flex justify-center items-center overflow-hidden">
+        <div className="w-full max-w-[95vw] sm:max-w-[90vw] md:max-w-[1000px] px-4">
+          <Image
+            src={"/Frame 2131326897 (1).svg"}
+            alt={"Frame"}
+            width={1900}
+            height={1900}
+            className="w-full h-auto rounded-xl"
+            style={{ maxWidth: "100%", height: "auto" }}
+          />
+        </div>
+      </div>
       {/* <TestimonialsSection /> */}
       <WhereRealConnectionsSection />
       <DownloadAppSection />
