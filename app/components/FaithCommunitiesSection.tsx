@@ -10,88 +10,96 @@ gsap.registerPlugin(ScrollTrigger);
 export default function FaithCommunitiesSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
-  const cardRef = useRef<HTMLDivElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
+  const descriptionRef = useRef<HTMLParagraphElement>(null);
+  const buttonsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (
       !sectionRef.current ||
       !headingRef.current ||
-      !cardRef.current ||
-      !contentRef.current
+      !imageRef.current ||
+      !descriptionRef.current ||
+      !buttonsRef.current
     )
       return;
 
     // Set initial states
+    if (imageRef.current) {
+      gsap.set(imageRef.current, {
+        opacity: 0,
+        scale: 0.8,
+        x: -50,
+      });
+    }
+
     gsap.set(headingRef.current, {
       opacity: 0,
       y: -30,
     });
 
-    gsap.set(cardRef.current, {
+    gsap.set(descriptionRef.current, {
       opacity: 0,
-      x: -50,
+      y: 20,
     });
 
-    if (imageRef.current) {
-      gsap.set(imageRef.current, {
-        opacity: 0,
-        scale: 0.8,
-      });
-    }
-
-    gsap.set(contentRef.current, {
+    gsap.set(buttonsRef.current, {
       opacity: 0,
-      x: 50,
+      y: 20,
     });
 
     // Create timeline for animations
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: sectionRef.current,
-        start: "top 80%",
-        end: "top 50%",
+        start: "top 85%",
+        end: "top 20%",
         toggleActions: "play none none none",
+        scrub: false,
       },
     });
 
-    // Animate elements
-    tl.to(headingRef.current, {
+    // Animate elements sequentially
+    // 1. Image first
+    tl.to(imageRef.current, {
       opacity: 1,
-      y: 0,
+      scale: 1,
+      x: 0,
       duration: 0.8,
-      ease: "power2.out",
+      ease: "back.out(1.7)",
     })
+      // 2. Then heading
       .to(
-        cardRef.current,
+        headingRef.current,
         {
           opacity: 1,
-          x: 0,
+          y: 0,
           duration: 0.8,
           ease: "power2.out",
         },
-        "-=0.4",
+        "+=0.3",
       )
+      // 3. Then description
       .to(
-        imageRef.current,
+        descriptionRef.current,
         {
           opacity: 1,
-          scale: 1,
-          duration: 0.8,
-          ease: "back.out(1.7)",
-        },
-        "-=0.6",
-      )
-      .to(
-        contentRef.current,
-        {
-          opacity: 1,
-          x: 0,
+          y: 0,
           duration: 0.8,
           ease: "power2.out",
         },
-        "-=0.6",
+        "+=0.3",
+      )
+      // 4. Then buttons
+      .to(
+        buttonsRef.current,
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power2.out",
+        },
+        "+=0.3",
       );
 
     return () => {
@@ -143,20 +151,23 @@ export default function FaithCommunitiesSection() {
           </div>
 
           {/* Right Side - Content */}
-          <div ref={contentRef} className="text-center md:text-left">
+          <div className="text-center md:text-left">
             <h2
               ref={headingRef}
               className="font-clash text-3xl text-white sm:text-4xl md:text-5xl lg:text-6xl font-medium mb-6"
             >
               Communities Built on Faith & Real Life
             </h2>
-            <p className="text-lg sm:text-xl text-white md:text-2xl mb-8 leading-relaxed">
+            <p
+              ref={descriptionRef}
+              className="text-lg sm:text-xl text-white md:text-2xl mb-8 leading-relaxed"
+            >
               Circle Society connects people through faith-based groups, events,
               and shared interests in real life.
             </p>
 
             {/* Download Buttons */}
-            <div className="max-w-6xl md:mt-10 w-full">
+            <div ref={buttonsRef} className="max-w-6xl md:mt-10 w-full">
               {/* Buttons */}
               <div className="flex flex-col sm:flex-row flex-wrap justify-start gap-3 sm:gap-4">
                 <button

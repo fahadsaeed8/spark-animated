@@ -170,7 +170,7 @@ export default function DownloadAppSection() {
             </div>
 
             {/* Phones - Diagonal arrangement from top-left to bottom-right, overlapping text */}
-            <div className="absolute left-1/2 top-1/2 -ml-32 md:mt-30 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center z-20">
+            <div className="absolute left-1/2 top-1/2 -ml-32 md:mt-20 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center z-20">
               {/* Left Phone - Appears on first scroll */}
               <div
                 ref={phone1Ref}
