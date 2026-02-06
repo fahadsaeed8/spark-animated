@@ -20,7 +20,7 @@ export default function StatisticsSection() {
   const animateCounter = (
     element: HTMLElement,
     target: number,
-    duration: number = 2
+    duration: number = 2,
   ) => {
     const obj = { value: 0 };
     gsap.to(obj, {
@@ -51,7 +51,8 @@ export default function StatisticsSection() {
           // Start counter animations
           if (number1Ref) animateCounter(number1Ref as HTMLElement, 10000, 2);
           if (number2Ref) animateCounter(number2Ref as HTMLElement, 100, 2);
-          if (number3Ref) animateCounter(number3Ref as HTMLElement, 100000, 2.5);
+          if (number3Ref)
+            animateCounter(number3Ref as HTMLElement, 100000, 2.5);
         }
       },
     });
@@ -64,7 +65,7 @@ export default function StatisticsSection() {
   return (
     <section
       ref={sectionRef}
-      className="bg-[#73542A] py-12 sm:py-14 md:py-8 px-4 sm:px-6 md:px-0"
+      className="bg-[#73542A] py-12 sm:py-14 md:py-18 px-4 sm:px-6 md:px-0"
     >
       <div className="mx-auto max-w-full">
         <div

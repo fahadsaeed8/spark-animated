@@ -547,12 +547,12 @@ export default function HeroSection() {
 
         {/* HERO CENTER */}
         <div className="flex flex-1 items-center justify-center px-4 sm:px-6 md:px-8 lg:px-24">
-          <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <div className="max-w-8xl w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Left Section - Text and CTA */}
-            <div className="text-start">
+            <div className="text-start md:-mt-20">
               <h1
                 ref={heroTitleRef}
-                className="mb-4 sm:mb-6 font-clash text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight"
+                className="mb-4 sm:mb-6 font-clash text-4xl sm:text-5xl md:text-6xl lg:text-[58px] font-bold leading-tight"
               >
                 <span className="block text-[#2d2d2d] md:text-[#1a1a1a]">
                   YOUR SOCIAL LIFE
@@ -562,7 +562,7 @@ export default function HeroSection() {
                 </span>
               </h1>
 
-              <p className="mb-6 sm:mb-8 text-sm md:text-base lg:text-lg text-[#4a4a4a] md:text-[#2d2d2d] max-w-lg">
+              <p className="mb-6 sm:mb-8 text-sm md:text-base lg:text-lg text-[#5A5A5A] max-w-md">
                 Discover events, communities, and people around you, through
                 shared experiences.
               </p>
