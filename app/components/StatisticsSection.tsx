@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -9,45 +9,57 @@ gsap.registerPlugin(ScrollTrigger);
 export default function StatisticsSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const statsRef = useRef<HTMLDivElement>(null);
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  // Format number with commas
+  const formatNumber = (num: number): string => {
+    return num.toLocaleString("en-US");
+  };
+
+  // Animate counter function
+  const animateCounter = (
+    element: HTMLElement,
+    target: number,
+    duration: number = 2
+  ) => {
+    const obj = { value: 0 };
+    gsap.to(obj, {
+      value: target,
+      duration: duration,
+      ease: "power2.out",
+      onUpdate: () => {
+        element.textContent = formatNumber(Math.floor(obj.value)) + "+";
+      },
+    });
+  };
 
   useEffect(() => {
-    if (!sectionRef.current || !statsRef.current) return;
+    if (!sectionRef.current || !statsRef.current || hasAnimated) return;
 
-    const statItems = statsRef.current.querySelectorAll(".stat-item");
+    const number1Ref = statsRef.current.querySelector(".number-1");
+    const number2Ref = statsRef.current.querySelector(".number-2");
+    const number3Ref = statsRef.current.querySelector(".number-3");
 
-    // Set initial states - text starts from above and invisible
-    gsap.set(statItems, {
-      opacity: 0,
-      y: -30,
-    });
-
-    // Create timeline for fade-in animations
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top 80%",
-        end: "top 50%",
-        toggleActions: "play none none none",
+    // Create scroll trigger only for number animations
+    const scrollTrigger = ScrollTrigger.create({
+      trigger: sectionRef.current,
+      start: "top 80%",
+      toggleActions: "play none none none",
+      onEnter: () => {
+        if (!hasAnimated) {
+          setHasAnimated(true);
+          // Start counter animations
+          if (number1Ref) animateCounter(number1Ref as HTMLElement, 10000, 2);
+          if (number2Ref) animateCounter(number2Ref as HTMLElement, 100, 2);
+          if (number3Ref) animateCounter(number3Ref as HTMLElement, 100000, 2.5);
+        }
       },
     });
 
-    // Animate stats with stagger
-    tl.to(statItems, {
-      opacity: 1,
-      y: 0,
-      duration: 0.8,
-      ease: "power2.out",
-      stagger: 0.2,
-    });
-
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => {
-        if (trigger.vars.trigger === sectionRef.current) {
-          trigger.kill();
-        }
-      });
+      scrollTrigger.kill();
     };
-  }, []);
+  }, [hasAnimated]);
 
   return (
     <section
@@ -62,7 +74,7 @@ export default function StatisticsSection() {
           {/* Stat 1: Downloads */}
           <div className="text-center stat-item">
             <div className="mb-2 text-2xl sm:text-3xl font-clash font-medium text-white md:text-4xl lg:text-4xl">
-              10,000+ Active
+              <span className="number-1">0+</span> Active
             </div>
             <div className="mb-2 text-2xl sm:text-3xl font-clash font-medium text-white md:text-4xl lg:text-4xl">
               Members
@@ -77,7 +89,7 @@ export default function StatisticsSection() {
           {/* Stat 2: Active Communities */}
           <div className="text-center stat-item">
             <div className="mb-2 text-2xl sm:text-3xl font-clash font-medium text-white md:text-4xl lg:text-4xl">
-              100+
+              <span className="number-2">0+</span>
             </div>
             <div className="mb-2 text-2xl sm:text-3xl font-clash font-medium text-white md:text-4xl lg:text-4xl">
               communities
@@ -92,7 +104,7 @@ export default function StatisticsSection() {
           {/* Stat 3: Daily Posts */}
           <div className="text-center stat-item">
             <div className="mb-2 text-2xl sm:text-3xl font-clash font-medium text-white md:text-4xl lg:text-4xl">
-              100,000+
+              <span className="number-3">0+</span>
             </div>
             <div className="mb-2 text-2xl sm:text-3xl font-clash font-medium text-white md:text-4xl lg:text-4xl">
               Events Hosted{" "}
