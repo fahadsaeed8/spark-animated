@@ -591,37 +591,75 @@ export default function HeroSection() {
 
             {/* Right Section - Three Phones */}
             <div className="relative hidden lg:flex items-center justify-center h-[500px] md:h-[600px]">
-              {/* Background Phone (Rightmost) */}
-              <div className="absolute right-0 z-0 transform rotate-[-8deg] translate-x-8">
+              {/* Decorative Background Elements */}
+              <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                {/* Circular Lines - Thin abstract circles */}
                 <Image
-                  src="/iPhone-13-Pro-Front (1).svg"
-                  width={200}
-                  height={400}
-                  alt="Phone 3"
-                  className="opacity-60"
+                  src="/Group 35887.svg"
+                  alt="Decorative Circles"
+                  width={210}
+                  height={210}
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] md:w-[900px] md:h-[900px] opacity-30"
+                />
+                <Image
+                  src="/Ellipse 2.svg"
+                  alt="Decorative Ellipse"
+                  width={210}
+                  height={210}
+                  className="absolute top-40 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] h-[250px] sm:w-[400px] sm:h-[400px] md:w-[800px] md:h-[800px] opacity-100"
+                />
+                <Image
+                  src="/Ellipse 2.svg"
+                  alt="Decorative Ellipse"
+                  width={210}
+                  height={210}
+                  className="absolute top-[60%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] h-[250px] sm:w-[400px] sm:h-[400px] md:w-[800px] md:h-[800px] opacity-100"
                 />
               </div>
 
-              {/* Middle Phone */}
-              <div className="absolute z-10 transform rotate-[5deg] translate-x-4">
-                <Image
-                  src="/iPhone-13-Pro-Front (2).svg"
-                  width={220}
-                  height={440}
-                  alt="Phone 2"
-                  className="opacity-80"
-                />
-              </div>
-
-              {/* Foreground Phone (Leftmost) */}
-              <div className="absolute left-0 z-20 transform rotate-[-3deg] -translate-x-4">
-                <Image
-                  src="/iPhone-13-Pro-Front.svg"
-                  width={240}
-                  height={480}
-                  alt="Phone 1"
-                  className="opacity-100"
-                />
+              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center z-20">
+                {/* Left Phone */}
+                <div className="relative z-10 w-24 md:w-40 lg:w-48 xl:w-56 transform -rotate-[5deg] md:-rotate-[6deg] -ml-4 md:-ml-18 -mt-8 md:mt-10">
+                  <div className="relative p-1.5 md:p-2">
+                    <div className="aspect-[9/19] w-[570px] h-[570px] overflow-hidden">
+                      <Image
+                        width={900}
+                        height={900}
+                        src="/iPhone-13-Pro-Front.svg"
+                        alt="App Screen 1"
+                        className="w-full h-full md:-mt-12"
+                      />
+                    </div>
+                  </div>
+                </div>
+                {/* Middle Phone */}
+                <div className="relative z-10 w-24 md:w-40 lg:w-48 xl:w-56 transform -rotate-[5deg] md:-rotate-[6deg] -ml-4 md:-ml-18 -mt-8 md:-mt-12">
+                  <div className="relative p-1.5 md:p-2">
+                    <div className="aspect-[9/19] w-[570px] h-[570px] overflow-hidden">
+                      <Image
+                        width={900}
+                        height={900}
+                        src="/iPhone-13-Pro-Front (1).svg"
+                        alt="App Screen 2"
+                        className="w-full h-full md:-ml-5"
+                      />
+                    </div>
+                  </div>
+                </div>
+                {/* Right Phone */}
+                <div className="relative z-10 w-24 md:w-40 lg:w-48 xl:w-56 transform -rotate-[5deg] md:-rotate-[6deg] -ml-4 md:-ml-18 -mt-8 md:-mt-12">
+                  <div className="relative p-1.5 md:p-2">
+                    <div className="aspect-[9/19] w-[570px] h-[570px] overflow-hidden">
+                      <Image
+                        width={900}
+                        height={900}
+                        src="/iPhone-13-Pro-Front (2).svg"
+                        alt="App Screen 3"
+                        className="w-full h-full md:mt-10 md:-ml-15"
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
