@@ -138,28 +138,28 @@ export default function FindYourPeopleSection() {
   const activities = [
     {
       id: 1,
-      image: "/Frame 2131326921.svg",
+      image: "/Frame 2131326922.svg",
       label: "Bike Trips",
       rotation: -8,
       position: "top-left",
     },
     {
       id: 2,
-      image: "/Frame 2131326922.svg",
+      image: "/Frame 2131326924.svg",
       label: "Hiking & Trekking",
       rotation: 8,
       position: "bottom-left",
     },
     {
       id: 3,
-      image: "/Frame 2131326923.svg",
+      image: "/Frame 2131326921.svg",
       label: "Gym Crew",
       rotation: 8,
       position: "top-right",
     },
     {
       id: 4,
-      image: "/Frame 2131326924.svg",
+      image: "/Frame 2131326923.svg",
       label: "Car Enthusiasts",
       rotation: -8,
       position: "bottom-right",
@@ -178,9 +178,9 @@ export default function FindYourPeopleSection() {
             {/* Top Left Image */}
             <div
               ref={image1Ref}
-              className="relative transform -rotate-[8deg] hover:rotate-0 transition-transform duration-300"
+              className="relative transform md:ml-8 -rotate-[0deg] hover:rotate-0 transition-transform duration-300"
             >
-              <div className="bg-white rounded-2xl p-2 shadow-xl overflow-hidden">
+              <div>
                 <Image
                   src={activities[0].image}
                   alt={activities[0].label}
@@ -191,17 +191,14 @@ export default function FindYourPeopleSection() {
                   style={{ imageRendering: "crisp-edges" }}
                 />
               </div>
-              <p className="text-white text-sm sm:text-base font-medium mt-2 text-center">
-                {activities[0].label}
-              </p>
             </div>
 
             {/* Bottom Left Image */}
             <div
               ref={image2Ref}
-              className="relative transform rotate-[8deg] hover:rotate-0 transition-transform duration-300 ml-4 md:ml-8 -mt-4"
+              className="relative -mt-20 transform rotate-[0deg] hover:rotate-0 transition-transform duration-300 ml-4 md:ml-8 -mt-4"
             >
-              <div className="bg-white rounded-2xl p-2 shadow-xl overflow-hidden">
+              <div>
                 <Image
                   src={activities[1].image}
                   alt={activities[1].label}
@@ -212,9 +209,6 @@ export default function FindYourPeopleSection() {
                   style={{ imageRendering: "crisp-edges" }}
                 />
               </div>
-              <p className="text-white text-sm sm:text-base font-medium mt-2 text-center">
-                {activities[1].label}
-              </p>
             </div>
           </div>
 
@@ -266,9 +260,9 @@ export default function FindYourPeopleSection() {
             {/* Top Right Image */}
             <div
               ref={image3Ref}
-              className="relative transform rotate-[8deg] hover:rotate-0 transition-transform duration-300 -mr-4 md:-mr-8"
+              className="relative  transform rotate-[0deg] hover:rotate-0 transition-transform duration-300 -mr-4 md:-mr-0"
             >
-              <div className="bg-white rounded-2xl p-2 shadow-xl overflow-hidden">
+              <div>
                 <Image
                   src={activities[2].image}
                   alt={activities[2].label}
@@ -279,17 +273,14 @@ export default function FindYourPeopleSection() {
                   style={{ imageRendering: "crisp-edges" }}
                 />
               </div>
-              <p className="text-white text-sm sm:text-base font-medium mt-2 text-center">
-                {activities[2].label}
-              </p>
             </div>
 
             {/* Bottom Right Image */}
             <div
               ref={image4Ref}
-              className="relative transform -rotate-[8deg] hover:rotate-0 transition-transform duration-300 -mt-4"
+              className="relative -mt-20 transform -rotate-[0deg] hover:rotate-0 transition-transform duration-300 -mt-4"
             >
-              <div className="bg-white rounded-2xl p-2 shadow-xl overflow-hidden">
+              <div>
                 <Image
                   src={activities[3].image}
                   alt={activities[3].label}
@@ -300,9 +291,6 @@ export default function FindYourPeopleSection() {
                   style={{ imageRendering: "crisp-edges" }}
                 />
               </div>
-              <p className="text-white text-sm sm:text-base font-medium mt-2 text-center">
-                {activities[3].label}
-              </p>
             </div>
           </div>
         </div>
