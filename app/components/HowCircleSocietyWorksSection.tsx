@@ -87,7 +87,7 @@ export default function HowCircleSocietyWorksSection() {
   return (
     <section
       ref={sectionRef}
-      className="py-12 px-4 sm:py-16 sm:px-6 bg-[#fbead0] md:py-24 md:px-12 relative overflow-hidden"
+      className="py-12 px-4 sm:py-16 sm:px-6 bg-[#F5F2ED] md:py-24 md:px-12 relative overflow-hidden"
     >
       {/* Background Image */}
       <div
@@ -105,7 +105,7 @@ export default function HowCircleSocietyWorksSection() {
         {/* Main Heading */}
         <h2
           ref={headingRef}
-          className="mb-12 sm:mb-16 text-center font-clash text-3xl sm:text-4xl font-medium text-[#1B1B1B] md:text-5xl lg:text-6xl"
+          className="mb-12 sm:mb-40 text-center font-clash text-3xl sm:text-4xl font-medium text-[#1B1B1B] md:text-5xl lg:text-6xl"
         >
           How Circle Society Works
         </h2>
@@ -116,17 +116,21 @@ export default function HowCircleSocietyWorksSection() {
           className="grid gap-8 sm:gap-10 md:grid-cols-3 md:gap-6 lg:gap-8"
         >
           {/* Step 1: Discover Activities */}
-          <div className="text-center bg-white p-5 rounded-2xl step-item">
-            <div className="relative mb-6 flex items-start justify-center min-h-[200px] sm:min-h-[250px] md:min-h-[300px] overflow-visible">
+          <div className="text-center bg-white p-4 sm:p-5 rounded-2xl step-item">
+            <div className="relative mb-4 sm:mb-5 flex items-start justify-center min-h-[150px] sm:min-h-[180px] md:min-h-[220px] overflow-visible">
               {/* Golden Number */}
-              <div className="absolute left-0 sm:left-2 md:left-4 top-0 z-10">
-                <span className="text-6xl sm:text-7xl md:text-[140px] lg:text-[180px] font-clash font-bold text-[#D4AF37] leading-none">
-                  1
-                </span>
+              <div className="absolute -left-2 sm:-left-4 md:-left-6 lg:-left-20 md:-top-22 z-10">
+                <Image
+                  src="/1.svg"
+                  alt="1"
+                  width={180}
+                  height={180}
+                  className="w-16 h-16 sm:w-20 sm:h-20 md:w-32 md:h-32 lg:w-[200px] lg:h-34 drop-shadow-lg"
+                />
               </div>
 
-              {/* iPhone Mockup */}
-              <div className="relative  w-full max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-[280px] mt-10 sm:mt-14 md:mt-20 ml-6 sm:ml-10 md:ml-14 lg:ml-16 transform rotate-[8deg]">
+              {/* iPhone Mockup - Left turn */}
+              <div className="relative w-full max-w-[140px] sm:max-w-[170px] md:max-w-[200px] lg:max-w-[240px] mt-8 sm:mt-10 md:mt-12 ml-8 sm:ml-12 md:ml-16 lg:ml-20 transform rotate-[-12deg] sm:rotate-[-10deg]">
                 <Image
                   src="/iPhone-13-Pro-Front.svg"
                   alt="Discover Activities"
@@ -137,27 +141,31 @@ export default function HowCircleSocietyWorksSection() {
               </div>
             </div>
 
-            <h3 className="mb-3 sm:mb-4 font-clash text-xl sm:text-2xl md:text-3xl font-medium text-[#1B1B1B]">
+            <h3 className="mb-2 sm:mb-3 font-clash text-lg sm:text-xl md:text-3xl font-medium text-[#1B1B1B]">
               Discover Activities
             </h3>
-            <p className="text-sm sm:text-base leading-relaxed text-[#5A5A5A] md:text-lg max-w-md mx-auto">
+            <p className="text-xs sm:text-sm leading-relaxed text-[#5A5A5A] md:text-base max-w-md mx-auto">
               Take our fun quiz, no boring questions. Just tell us what lights
               you up: Travel? Dogs? Memes?
             </p>
           </div>
 
           {/* Step 2: Join a Community or Event */}
-          <div className="text-center bg-white p-5 rounded-2xl step-item">
-            <div className="relative mb-6 flex items-start justify-center min-h-[200px] sm:min-h-[250px] md:min-h-[300px] overflow-visible">
+          <div className="text-center bg-white p-4 sm:p-5 rounded-2xl step-item">
+            <div className="relative mb-4 sm:mb-5 flex items-start justify-center min-h-[150px] sm:min-h-[180px] md:min-h-[220px] overflow-visible">
               {/* Golden Number */}
-              <div className="absolute left-0 sm:left-2 md:left-4 top-0 z-10">
-                <span className="text-6xl sm:text-7xl md:text-[140px] lg:text-[180px] font-clash font-bold text-[#D4AF37] leading-none">
-                  2
-                </span>
+              <div className="absolute -left-2 sm:-left-4 md:-left-6 lg:-left-20 md:-top-22 z-10">
+                <Image
+                  src="/2.svg"
+                  alt="2"
+                  width={180}
+                  height={180}
+                  className="w-16 h-16 sm:w-20 sm:h-20 md:w-32 md:h-32 lg:w-[200px] lg:h-34 drop-shadow-lg"
+                />
               </div>
 
-              {/* iPhone Mockup */}
-              <div className="relative w-full max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-[280px] mt-10 sm:mt-14 md:mt-20 ml-6 sm:ml-10 md:ml-14 lg:ml-16 transform rotate-[8deg]">
+              {/* iPhone Mockup - Center, slight right turn */}
+              <div className="relative w-full max-w-[140px] sm:max-w-[170px] md:max-w-[200px] lg:max-w-[240px] mt-8 sm:mt-10 md:mt-12 ml-8 sm:ml-12 md:ml-16 lg:ml-20 transform rotate-[8deg] sm:rotate-[6deg]">
                 <Image
                   src="/iPhone-13-Pro-Front (1).svg"
                   alt="Join a Community or Event"
@@ -168,27 +176,31 @@ export default function HowCircleSocietyWorksSection() {
               </div>
             </div>
 
-            <h3 className="mb-3 sm:mb-4 font-clash text-xl sm:text-2xl md:text-3xl font-medium text-[#1B1B1B]">
+            <h3 className="mb-2 sm:mb-3 font-clash text-lg sm:text-xl md:text-[27px] font-medium text-[#1B1B1B]">
               Join a Community or Event
             </h3>
-            <p className="text-sm sm:text-base leading-relaxed text-[#5A5A5A] md:text-lg max-w-md mx-auto">
+            <p className="text-xs sm:text-sm leading-relaxed text-[#5A5A5A] md:text-base max-w-md mx-auto">
               Our matching engine compares your vibe with everyone else's to
               find the strongest spark.
             </p>
           </div>
 
           {/* Step 3: Build Real Connections */}
-          <div className="text-center bg-white p-5 rounded-2xl step-item">
-            <div className="relative mb-6 flex items-start justify-center min-h-[200px] sm:min-h-[250px] md:min-h-[300px] overflow-visible">
+          <div className="text-center bg-white p-4 sm:p-5 rounded-2xl step-item">
+            <div className="relative mb-4 sm:mb-5 flex items-start justify-center min-h-[150px] sm:min-h-[180px] md:min-h-[220px] overflow-visible">
               {/* Golden Number */}
-              <div className="absolute left-0 sm:left-2 md:left-4 top-0 z-10">
-                <span className="text-6xl sm:text-7xl md:text-[140px] lg:text-[180px] font-clash font-bold text-[#D4AF37] leading-none">
-                  3
-                </span>
+              <div className="absolute -left-2 sm:-left-4 md:-left-6 lg:-left-20 md:-top-22 z-10">
+                <Image
+                  src="/3.svg"
+                  alt="3"
+                  width={180}
+                  height={180}
+                  className="w-16 h-16 sm:w-20 sm:h-20 md:w-32 md:h-32 lg:w-[200px] lg:h-34 drop-shadow-lg"
+                />
               </div>
 
-              {/* iPhone Mockup */}
-              <div className="relative w-full max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-[280px] mt-10 sm:mt-14 md:mt-20 ml-6 sm:ml-10 md:ml-14 lg:ml-16 transform rotate-[8deg]">
+              {/* iPhone Mockup - Right turn */}
+              <div className="relative w-full max-w-[140px] sm:max-w-[170px] md:max-w-[200px] lg:max-w-[240px] mt-8 sm:mt-10 md:mt-12 ml-8 sm:ml-12 md:ml-16 lg:ml-20 transform rotate-[12deg] sm:rotate-[10deg]">
                 <Image
                   src="/iPhone-13-Pro-Front (2).svg"
                   alt="Build Real Connections"
@@ -199,10 +211,10 @@ export default function HowCircleSocietyWorksSection() {
               </div>
             </div>
 
-            <h3 className="mb-3 sm:mb-4 font-clash text-xl sm:text-2xl md:text-3xl font-medium text-[#1B1B1B]">
+            <h3 className="mb-2 sm:mb-3 font-clash text-lg sm:text-xl md:text-3xl font-medium text-[#1B1B1B]">
               Build Real Connections
             </h3>
-            <p className="text-sm sm:text-base leading-relaxed text-[#5A5A5A] md:text-lg max-w-md mx-auto">
+            <p className="text-xs sm:text-sm leading-relaxed text-[#5A5A5A] md:text-base max-w-md mx-auto">
               No swiping. No awkward intros. Just show up and see who you
               matched with instantly.
             </p>
