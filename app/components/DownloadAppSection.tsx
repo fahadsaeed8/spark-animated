@@ -43,6 +43,8 @@ export default function DownloadAppSection() {
           trigger.kill();
         }
       });
+      // Refresh ScrollTrigger after cleanup
+      ScrollTrigger.refresh();
     };
   }, []);
 
@@ -75,6 +77,8 @@ export default function DownloadAppSection() {
         pin: true,
         pinSpacing: true,
         scrub: 1, // Smooth scrubbing tied to scroll
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
       },
     });
 
@@ -114,6 +118,8 @@ export default function DownloadAppSection() {
           trigger.kill();
         }
       });
+      // Refresh ScrollTrigger after cleanup
+      ScrollTrigger.refresh();
     };
   }, []);
 

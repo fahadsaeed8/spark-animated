@@ -23,6 +23,9 @@ export default function WhereRealConnectionsSection() {
         end: "+=1600",
         scrub: true,
         pin: true,
+        pinSpacing: true,
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
       },
     });
 
@@ -78,7 +81,18 @@ export default function WhereRealConnectionsSection() {
       "<+=0.2",
     );
 
-    return () => ScrollTrigger.getAll().forEach((t) => t.kill());
+    return () => {
+      if (tl) {
+        tl.kill();
+      }
+      ScrollTrigger.getAll().forEach((t) => {
+        if (t.vars.trigger === sectionRef.current) {
+          t.kill();
+        }
+      });
+      // Refresh ScrollTrigger after cleanup
+      ScrollTrigger.refresh();
+    };
   }, []);
 
   return (

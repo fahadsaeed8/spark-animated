@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import HeroSection from "./components/HeroSection";
 import WhoWeAreSection from "./components/WhoWeAreSection";
 import EasyAndSafeFeaturesSection from "./components/EasyAndSafeFeaturesSection";
@@ -30,6 +31,29 @@ export default function Home() {
     }
   }, []);
 
+  // Refresh ScrollTrigger after all components mount to fix scroll behavior
+  // This is especially important when there are multiple pinned sections
+  useEffect(() => {
+    // Wait for all components to mount and then refresh ScrollTrigger
+    const timer = setTimeout(() => {
+      if (typeof window !== "undefined") {
+        ScrollTrigger.refresh();
+      }
+    }, 100);
+
+    // Also refresh on window resize
+    const handleResize = () => {
+      ScrollTrigger.refresh();
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <main className="w-full overflow-x-hidden max-w-full">
       <HeroSection />
@@ -40,15 +64,6 @@ export default function Home() {
       <HowCircleSocietyWorksSection />
       <VideoSection />
       <FindYourPeopleSection />
-      {/* <div className="w-full h-full bg-white flex justify-center items-center">
-        <Image
-          src={"/Frame 2131326897 (1).svg"}
-          alt={"Frame"}
-          width={1900}
-          height={1900}
-          className="w-full h-auto rounded-xl max-w-[1900px] md:max-w-[1000px]"
-        />
-      </div> */}
       <TestimonialsSection />
       <WhereRealConnectionsSection />
       <DownloadAppSection />
