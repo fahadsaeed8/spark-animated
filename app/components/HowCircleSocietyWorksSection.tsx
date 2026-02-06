@@ -12,6 +12,9 @@ export default function HowCircleSocietyWorksSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const stepsRef = useRef<HTMLDivElement>(null);
+  const image1Ref = useRef<HTMLDivElement>(null);
+  const image2Ref = useRef<HTMLDivElement>(null);
+  const image3Ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!backgroundRef.current) return;
@@ -47,6 +50,29 @@ export default function HowCircleSocietyWorksSection() {
       y: 30,
     });
 
+    // Set initial states for images - scale down and slightly rotated
+    if (image1Ref.current) {
+      gsap.set(image1Ref.current, {
+        opacity: 0,
+        scale: 0.7,
+        rotation: -15,
+      });
+    }
+    if (image2Ref.current) {
+      gsap.set(image2Ref.current, {
+        opacity: 0,
+        scale: 0.7,
+        rotation: 0,
+      });
+    }
+    if (image3Ref.current) {
+      gsap.set(image3Ref.current, {
+        opacity: 0,
+        scale: 0.7,
+        rotation: 15,
+      });
+    }
+
     // Create timeline for fade-in animations
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -63,17 +89,52 @@ export default function HowCircleSocietyWorksSection() {
       y: 0,
       duration: 0.8,
       ease: "power2.out",
-    }).to(
-      stepItems,
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        ease: "power2.out",
-        stagger: 0.2,
-      },
-      "-=0.4",
-    );
+    })
+      .to(
+        stepItems,
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power2.out",
+          stagger: 0.2,
+        },
+        "-=0.4",
+      )
+      // Animate images with scale and rotation
+      .to(
+        image1Ref.current,
+        {
+          opacity: 1,
+          scale: 1,
+          rotation: -5,
+          duration: 1,
+          ease: "back.out(1.7)",
+        },
+        "-=0.6",
+      )
+      .to(
+        image2Ref.current,
+        {
+          opacity: 1,
+          scale: 1,
+          rotation: 0,
+          duration: 1,
+          ease: "back.out(1.7)",
+        },
+        "-=0.8",
+      )
+      .to(
+        image3Ref.current,
+        {
+          opacity: 1,
+          scale: 1,
+          rotation: 5,
+          duration: 1,
+          ease: "back.out(1.7)",
+        },
+        "-=0.8",
+      );
 
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => {
@@ -130,13 +191,16 @@ export default function HowCircleSocietyWorksSection() {
               </div>
 
               {/* iPhone Mockup - Left turn */}
-              <div className="relative mt-8 sm:mt-10 md:-mt-30 ml-8 sm:ml-12 md:ml-16 lg:ml-0 transform rotate-[0deg] sm:rotate-[0deg]">
+              <div
+                ref={image1Ref}
+                className="relative mt-8 sm:mt-10 md:-mt-30 ml-8 sm:ml-12 md:ml-16 lg:ml-0 transform rotate-[0deg] sm:rotate-[0deg]"
+              >
                 <div className="overflow-hidden md:w-[500px] md:h-[500px]">
                   <Image
                     src="/iPhone-13-Pro-Front.svg"
                     alt="Discover Activities"
-                    width={173.6595458984375}
-                    height={375.7525634765625}
+                    width={900}
+                    height={900}
                     className="w-full h-full drop-shadow-2xl"
                   />
                 </div>
@@ -167,7 +231,10 @@ export default function HowCircleSocietyWorksSection() {
               </div>
 
               {/* iPhone Mockup - Center, slight right turn */}
-              <div className="relative mt-8 sm:mt-10 md:-mt-30 ml-8 sm:ml-12 md:ml-16 lg:ml-20 transform rotate-[0deg] sm:rotate-[0deg]">
+              <div
+                ref={image2Ref}
+                className="relative mt-8 sm:mt-10 md:-mt-30 ml-8 sm:ml-12 md:ml-16 lg:ml-20 transform rotate-[0deg] sm:rotate-[0deg]"
+              >
                 <div className="overflow-hidden md:w-[500px] md:h-[500px]">
                   <Image
                     src="/iPhone-13-Pro-Front-new.svg"
@@ -204,7 +271,10 @@ export default function HowCircleSocietyWorksSection() {
               </div>
 
               {/* iPhone Mockup - Right turn */}
-              <div className="relative mt-8 sm:mt-10 md:-mt-30 ml-8 sm:ml-12 md:ml-16 lg:ml-20 transform rotate-[0deg] sm:rotate-[30deg]">
+              <div
+                ref={image3Ref}
+                className="relative mt-8 sm:mt-10 md:-mt-30 ml-8 sm:ml-12 md:ml-16 lg:ml-20 transform rotate-[0deg] sm:rotate-[30deg]"
+              >
                 <div className="overflow-hidden md:w-[500px] md:h-[500px]">
                   <Image
                     src="/iPhone-13-Pro-Front (2).svg"
