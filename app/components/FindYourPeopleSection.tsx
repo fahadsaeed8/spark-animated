@@ -179,6 +179,7 @@ export default function FindYourPeopleSection() {
             <div
               ref={image1Ref}
               className="relative transform md:ml-8 -rotate-[0deg] hover:rotate-0 transition-transform duration-300"
+              style={{ zIndex: 10 }}
             >
               <div>
                 <Image
@@ -197,6 +198,7 @@ export default function FindYourPeopleSection() {
             <div
               ref={image2Ref}
               className="relative -mt-20 transform rotate-[0deg] hover:rotate-0 transition-transform duration-300 ml-4 md:ml-8 -mt-4"
+              style={{ zIndex: 5 }}
             >
               <div>
                 <Image
@@ -261,6 +263,7 @@ export default function FindYourPeopleSection() {
             <div
               ref={image3Ref}
               className="relative  transform rotate-[0deg] hover:rotate-0 transition-transform duration-300 -mr-4 md:-mr-0"
+              style={{ zIndex: 10 }}
             >
               <div>
                 <Image
@@ -279,6 +282,7 @@ export default function FindYourPeopleSection() {
             <div
               ref={image4Ref}
               className="relative -mt-20 transform -rotate-[0deg] hover:rotate-0 transition-transform duration-300 -mt-4"
+              style={{ zIndex: 5 }}
             >
               <div>
                 <Image
