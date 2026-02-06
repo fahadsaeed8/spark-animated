@@ -14,7 +14,7 @@ export default function StatisticsSection() {
     if (!sectionRef.current || !statsRef.current) return;
 
     const statItems = statsRef.current.querySelectorAll(".stat-item");
-    
+
     // Set initial states - text starts from above and invisible
     gsap.set(statItems, {
       opacity: 0,
@@ -50,20 +50,28 @@ export default function StatisticsSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-[#2F5D50] py-12 sm:py-14 md:py-14 px-4 sm:px-6 md:px-0">
+    <section
+      ref={sectionRef}
+      className="bg-[#73542A] py-12 sm:py-14 md:py-8 px-4 sm:px-6 md:px-0"
+    >
       <div className="mx-auto max-w-full">
-        <div ref={statsRef} className="grid gap-8 sm:gap-10 md:grid-cols-3 md:gap-6 lg:gap-8">
+        <div
+          ref={statsRef}
+          className="grid gap-8 sm:gap-10 md:grid-cols-3 md:gap-6 lg:gap-8"
+        >
           {/* Stat 1: Downloads */}
           <div className="text-center stat-item">
             <div className="mb-2 text-2xl sm:text-3xl font-clash font-medium text-white md:text-4xl lg:text-4xl">
-              10,000+
+              10,000+ Active
             </div>
             <div className="mb-2 text-2xl sm:text-3xl font-clash font-medium text-white md:text-4xl lg:text-4xl">
-              downloads
+              Members
             </div>
-            <p className="text-xs sm:text-sm font-normal leading-relaxed text-white opacity-90 md:text-[15px] px-2">
-              Growing community across cities and interests.
-            </p>
+            <div className="flex justify-center">
+              <p className="text-xs  sm:text-sm font-normal md:w-[60%] leading-relaxed text-white opacity-90 md:text-[15px] px-2">
+                Active across cities and interest-based communities.{" "}
+              </p>
+            </div>
           </div>
 
           {/* Stat 2: Active Communities */}
@@ -72,11 +80,13 @@ export default function StatisticsSection() {
               100+
             </div>
             <div className="mb-2 text-2xl sm:text-3xl font-clash font-medium text-white md:text-4xl lg:text-4xl">
-              Active communities
+              communities
             </div>
-            <p className="text-xs sm:text-sm font-normal leading-relaxed text-white opacity-90 md:text-[15px] px-2">
-              From social meetups to lifestyle-based groups.
-            </p>
+            <div className="flex justify-center">
+              <p className="text-xs sm:text-sm font-normal md:w-[65%] leading-relaxed text-white opacity-90 md:text-[15px] px-2">
+                From fitness and food to faith, family, and business.{" "}
+              </p>
+            </div>
           </div>
 
           {/* Stat 3: Daily Posts */}
@@ -85,16 +95,16 @@ export default function StatisticsSection() {
               100,000+
             </div>
             <div className="mb-2 text-2xl sm:text-3xl font-clash font-medium text-white md:text-4xl lg:text-4xl">
-              Daily Posts
+              Events Hosted{" "}
             </div>
-            <p className="text-xs sm:text-sm font-normal leading-relaxed text-white opacity-90 md:text-[15px] px-2">
-              Designed to move beyond screens.
-            </p>
+            <div className="flex justify-center">
+              <p className="text-xs sm:text-sm md:w-[65%] font-normal leading-relaxed text-white opacity-90 md:text-[15px] px-2">
+                Events, meetups, and experiences happening every day.{" "}
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </section>
   );
 }
-
-
