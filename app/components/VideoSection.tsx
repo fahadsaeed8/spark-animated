@@ -8,6 +8,9 @@ export default function VideoSection() {
   const heroTitleRef = useRef<HTMLHeadingElement>(null);
   const footnoteRef = useRef<HTMLDivElement>(null);
 
+  const headingText = "Your social life, all in one place";
+  const words = headingText.split(" ");
+
   useEffect(() => {
     if (!heartBackgroundRef.current) return;
 
@@ -28,23 +31,27 @@ export default function VideoSection() {
     };
   }, []);
 
-  // Animate hero title zoom in on mount
+  // Animate hero title word by word on mount
   useEffect(() => {
     if (!heroTitleRef.current) return;
 
-    // Set initial state - text starts small and invisible
-    gsap.set(heroTitleRef.current, {
+    // Get all word spans
+    const wordSpans = heroTitleRef.current.querySelectorAll(".word");
+
+    // Set initial state - words start small and invisible
+    gsap.set(wordSpans, {
       opacity: 0,
       scale: 0.5,
       transformOrigin: "center center",
     });
 
-    // Animate title zoom in with slow speed
-    gsap.to(heroTitleRef.current, {
+    // Animate words one by one with stagger effect
+    gsap.to(wordSpans, {
       opacity: 1,
       scale: 1,
-      duration: 2.0,
+      duration: 0.8,
       ease: "power2.out",
+      stagger: 0.15, // Delay between each word
       delay: 0.3,
     });
   }, []);
@@ -87,13 +94,13 @@ export default function VideoSection() {
       </video>
 
       {/* Background Overlay (Heart/Decorative Pattern) */}
-      <div
+      {/* <div
         ref={heartBackgroundRef}
         className="absolute inset-0 bg-cover bg-center"
         style={{
           backgroundImage: "url('/Background.png')",
         }}
-      />
+      /> */}
 
       {/* Black Gradient Overlay at Top (for Navbar area) */}
       <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/80 to-transparent z-[5]" />
@@ -107,7 +114,12 @@ export default function VideoSection() {
               ref={heroTitleRef}
               className="mb-6 sm:mb-8 md:mb-0 font-clash text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-medium leading-tight text-[#F5F2ED]"
             >
-              Your social life, all in one place{" "}
+              {words.map((word, index) => (
+                <span key={index} className="word inline-block">
+                  {word}
+                  {index < words.length - 1 && "\u00A0"}
+                </span>
+              ))}
             </h1>
             <p className="px-4 sm:px-6 pb-4 sm:pb-6 text-center text-xs sm:text-sm md:text-[16px] md:-mb-4 text-white opacity-70 md:px-12">
               Discover events, communities, and people around you — all through
