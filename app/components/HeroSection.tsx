@@ -417,39 +417,6 @@ export default function HeroSection() {
     });
   }, [hasEntered]);
 
-  // Continuous floating animation for iPhone images
-  useEffect(() => {
-    if (!hasEntered) return;
-
-    const phones = [phoneLeftRef.current, phoneMiddleRef.current, phoneRightRef.current].filter(Boolean);
-
-    if (phones.length === 0) return;
-
-    // Create floating animation for each phone with different delays
-    phones.forEach((phone, index) => {
-      if (phone) {
-        const tl = gsap.timeline({ repeat: -1, ease: "power1.inOut" });
-
-        // Different floating patterns for each phone
-        const floatAmount = 15 + index * 5; // Varying float amounts
-        const duration = 3 + index * 0.5; // Varying durations
-
-        tl.to(phone, {
-          y: -floatAmount,
-          duration: duration,
-          ease: "power1.inOut",
-        }).to(phone, {
-          y: floatAmount,
-          duration: duration,
-          ease: "power1.inOut",
-        });
-      }
-    });
-
-    return () => {
-      // Cleanup will be handled by GSAP automatically
-    };
-  }, [hasEntered]);
 
   return (
     <section
