@@ -45,11 +45,11 @@ export default function HeroSection() {
     const buttonRect = ctaButton.getBoundingClientRect();
     const buttonCenterX = buttonRect.left + buttonRect.width / 2;
     const buttonCenterY = buttonRect.top + buttonRect.height / 2;
-    
+
     // Get viewport center for calculations
     const viewportCenterX = window.innerWidth / 2;
     const viewportCenterY = window.innerHeight / 2;
-    
+
     // Calculate offset to move everything towards button center
     const offsetX = buttonCenterX - viewportCenterX;
     const offsetY = buttonCenterY - viewportCenterY;
@@ -114,7 +114,8 @@ export default function HeroSection() {
       ctaButton,
       {
         scale: 1.1,
-        boxShadow: "0 0 60px rgba(255, 255, 255, 0.8), 0 0 120px rgba(255, 255, 255, 0.5)",
+        boxShadow:
+          "0 0 60px rgba(255, 255, 255, 0.8), 0 0 120px rgba(255, 255, 255, 0.5)",
         duration: 0.4,
         ease: "power2.out",
       },
@@ -482,7 +483,7 @@ export default function HeroSection() {
 
   return (
     <section
-      className="relative h-screen w-full overflow-hidden"
+      className="relative min-h-screen h-screen w-full overflow-hidden"
       style={{ overflow: "hidden" }}
     >
       {/* Character Hero Overlay - Fixed on top */}
@@ -518,7 +519,7 @@ export default function HeroSection() {
           {/* Single Character - Premium Design */}
           <div className="relative">
             {/* Character Circle - Minimal & Elegant */}
-            <div className="character-circle w-48 h-48 sm:w-56 sm:h-56 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-white/10 via-white/5 to-transparent border-2 border-white/15 flex items-center justify-center backdrop-blur-[4px] shadow-2xl overflow-hidden">
+            <div className="character-circle w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-80 lg:h-80 rounded-full bg-gradient-to-br from-white/10 via-white/5 to-transparent border-2 border-white/15 flex items-center justify-center backdrop-blur-[4px] shadow-2xl overflow-hidden">
               {/* Inner glow */}
               <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/10 to-transparent z-10" />
 
@@ -586,7 +587,7 @@ export default function HeroSection() {
             ref={ctaButtonRef}
             onClick={handleEnterCircle}
             data-enter-circle
-            className="group relative px-8 py-3 sm:px-10 sm:py-4 md:px-16 md:py-4 font-clash my-6 sm:my-8 md:my-10 bg-white text-black rounded-full font-medium text-base sm:text-lg md:text-xl tracking-wide hover:bg-white/95 transition-all duration-500 shadow-2xl hover:shadow-3xl hover:scale-105 active:scale-100 cursor-pointer z-20"
+            className="group relative px-6 py-2.5 sm:px-8 sm:py-3 md:px-10 md:py-4 lg:px-16 lg:py-4 font-clash my-4 sm:my-6 md:my-8 lg:my-10 bg-white text-black rounded-full font-medium text-sm sm:text-base md:text-lg lg:text-xl tracking-wide hover:bg-white/95 transition-all duration-500 shadow-2xl hover:shadow-3xl hover:scale-105 active:scale-100 cursor-pointer z-20"
           >
             <span className="relative z-10">Enter the Circle</span>
 
@@ -597,7 +598,7 @@ export default function HeroSection() {
           {/* Instruction text */}
           <p
             ref={instructionTextRef}
-            className="mt-6 sm:mt-8 md:mt-10 text-white/50 font-clash text-xs sm:text-sm tracking-wide z-20 px-4 text-center"
+            className="mt-4 sm:mt-6 md:mt-8 lg:mt-10 text-white/50 font-clash text-xs sm:text-sm tracking-wide z-20 px-4 text-center"
           >
             Click to begin your journey
           </p>
@@ -631,7 +632,14 @@ export default function HeroSection() {
             </div>
           </Link>
 
-          {/* Nav Links */}
+          {/* Hamburger Menu - Mobile Only */}
+          <button className="md:hidden flex flex-col gap-1.5 w-6 h-6 justify-center items-center">
+            <span className="w-full h-0.5 bg-black"></span>
+            <span className="w-full h-0.5 bg-black"></span>
+            <span className="w-full h-0.5 bg-black"></span>
+          </button>
+
+          {/* Nav Links - Desktop Only */}
           <nav className="hidden gap-6 md:text-[16px] font-semibold uppercase tracking-wide text-black md:flex lg:gap-8">
             <a className="hover:opacity-80 transition-opacity" href="#">
               ABOUT
@@ -652,11 +660,14 @@ export default function HeroSection() {
         </header>
 
         {/* HERO CENTER */}
-        <div className="flex flex-1 items-center justify-center px-4 sm:px-6 md:px-8 lg:px-24">
+        <div className="flex flex-1 items-center justify-start md:justify-center px-4 sm:px-6 md:px-8 lg:px-24 py-8 sm:py-12 md:py-0">
           <div className="max-w-8xl w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Left Section - Text and CTA */}
-            <div ref={heroTitleRef} className="text-start md:-mt-20">
-              <h1 className="mb-4 sm:mb-6 font-clash text-4xl sm:text-5xl md:text-6xl lg:text-[58px] font-bold leading-tight">
+            <div
+              ref={heroTitleRef}
+              className="text-center md:text-left md:-mt-20 lg:-mt-20 order-1 lg:order-1"
+            >
+              <h1 className="mb-4 sm:mb-6 font-clash text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[58px] font-bold leading-tight">
                 <span className="block text-[#2d2d2d] md:text-[#1a1a1a]">
                   YOUR SOCIAL LIFE
                 </span>
@@ -665,15 +676,15 @@ export default function HeroSection() {
                 </span>
               </h1>
 
-              <p className="mb-6 sm:mb-8 text-sm md:text-base lg:text-lg text-[#5A5A5A] max-w-md">
+              <p className="mb-6 sm:mb-8 text-sm sm:text-base md:text-base lg:text-lg text-[#5A5A5A] max-w-md">
                 Discover events, communities, and people around you, through
                 shared experiences.
               </p>
 
               {/* Buttons */}
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+              <div className="flex flex-row gap-3 sm:gap-4">
                 <button
-                  className="rounded-full px-6 py-3 sm:px-8 sm:py-3.5 text-sm md:text-base font-semibold text-white transition hover:opacity-90 w-full sm:w-auto"
+                  className="rounded-full px-4 py-2.5 sm:px-6 sm:py-3 md:px-8 md:py-3.5 text-xs sm:text-sm md:text-base font-semibold text-white transition hover:opacity-90 flex-1 sm:flex-initial"
                   style={{
                     background: "linear-gradient(to bottom, #D99F4F, #BF822E)",
                   }}
@@ -682,7 +693,7 @@ export default function HeroSection() {
                 </button>
 
                 <button
-                  className="rounded-full px-6 py-3 sm:px-8 sm:py-3.5 text-sm md:text-base font-semibold text-white transition hover:opacity-90 w-full sm:w-auto"
+                  className="rounded-full px-4 py-2.5 sm:px-6 sm:py-3 md:px-8 md:py-3.5 text-xs sm:text-sm md:text-base font-semibold text-white transition hover:opacity-90 flex-1 sm:flex-initial"
                   style={{
                     background: "linear-gradient(to bottom, #D99F4F, #BF822E)",
                   }}
@@ -692,8 +703,84 @@ export default function HeroSection() {
               </div>
             </div>
 
-            {/* Right Section - Three Phones */}
-            <div className="relative hidden lg:flex items-center justify-center h-[500px] md:h-[600px]">
+            {/* Mobile Phones Section - Shows below text on mobile */}
+            <div className="relative flex lg:hidden items-center justify-center h-[400px] sm:h-[450px] order-2 lg:order-2">
+              {/* Decorative Background Elements - Mobile */}
+              <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                <Image
+                  src="/Group 35887.svg"
+                  alt="Decorative Circles"
+                  width={210}
+                  height={210}
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] opacity-30"
+                />
+                <Image
+                  src="/Ellipse 2.svg"
+                  alt="Decorative Ellipse"
+                  width={210}
+                  height={210}
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] h-[250px] sm:w-[350px] sm:h-[350px] opacity-100"
+                />
+              </div>
+
+              {/* Three Phones for Mobile - Compact Arrangement */}
+              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center z-20">
+                {/* Left Phone */}
+                <div
+                  ref={phoneLeftRef}
+                  className="relative z-10 w-[100px] sm:w-[120px] transform -rotate-[5deg] -ml-2 sm:-ml-3"
+                >
+                  <div className="relative p-1">
+                    <div className="aspect-[9/19] w-full overflow-hidden">
+                      <Image
+                        width={900}
+                        height={900}
+                        src="/iPhone-13-Pro-Front.svg"
+                        alt="App Screen 1"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  </div>
+                </div>
+                {/* Middle Phone */}
+                <div
+                  ref={phoneMiddleRef}
+                  className="relative z-20 w-[110px] sm:w-[130px] transform"
+                >
+                  <div className="relative p-1">
+                    <div className="aspect-[9/19] w-full overflow-hidden">
+                      <Image
+                        width={900}
+                        height={900}
+                        src="/iPhone-13-Pro-Front (1).svg"
+                        alt="App Screen 2"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  </div>
+                </div>
+                {/* Right Phone */}
+                <div
+                  ref={phoneRightRef}
+                  className="relative z-10 w-[100px] sm:w-[120px] transform rotate-[5deg] -mr-2 sm:-mr-3"
+                >
+                  <div className="relative p-1">
+                    <div className="aspect-[9/19] w-full overflow-hidden">
+                      <Image
+                        width={900}
+                        height={900}
+                        src="/iPhone-13-Pro-Front (2).svg"
+                        alt="App Screen 3"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Section - Three Phones - Desktop Only */}
+            <div className="relative hidden lg:flex items-center justify-center h-[500px] md:h-[600px] order-2 lg:order-2">
               {/* Decorative Background Elements */}
               <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 {/* Circular Lines - Thin abstract circles */}
