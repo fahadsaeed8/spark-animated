@@ -111,24 +111,6 @@ export default function FaithCommunitiesSection() {
     };
   }, []);
 
-  const islamicGroups = [
-    "Dhikr Majlis",
-    "Prayer Partners",
-    "Quran Challenge",
-    "Muslim Sports Club",
-    "Weekly Potluck",
-    "Quran Study",
-  ];
-
-  const christianGroups = [
-    "Pottery Circle",
-    "Joyful Creators",
-    "Family Fun",
-    "Faith Fitness",
-    "Faith Travels",
-    "Worship Night",
-  ];
-
   return (
     <section
       ref={sectionRef}
@@ -137,21 +119,52 @@ export default function FaithCommunitiesSection() {
       <div className="mx-auto max-w-7xl relative z-10">
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-0 items-center">
           {/* Left Side - White Card with Groups */}
-          {/* Image */}
-          <div ref={imageRef} className="mb-6 flex items-center justify-center">
-            <Image
-              src="/Frame 2131326904.png"
-              alt="Decoration"
-              width={300}
-              height={300}
-              className="w-full max-w-[450px] h-auto"
-              unoptimized
-              style={{ imageRendering: "crisp-edges" }}
-            />
+
+          <div
+            ref={imageRef}
+            className="mb-6 flex w-full items-center justify-center"
+          >
+            <div className="w-full max-w-[900px] space-y-4">
+              {/* Top Image */}
+              <div className="overflow-hidden rounded-2xl">
+                <Image
+                  src="/Rectangle 40914.svg"
+                  alt="Top Group"
+                  width={900}
+                  height={500}
+                  className="w-full h-auto object-cover"
+                  unoptimized
+                />
+              </div>
+
+              {/* Bottom Two Images */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="overflow-hidden rounded-2xl">
+                  <Image
+                    src="/Rectangle 40915.svg"
+                    alt="Bottom Left"
+                    width={350}
+                    height={200}
+                    className="w-[350px] h-[220px] object-cover"
+                  />
+                </div>
+
+                <div className="overflow-hidden rounded-2xl">
+                  <Image
+                    src="/Rectangle 40916.svg"
+                    alt="Bottom Right"
+                    width={450}
+                    height={300}
+                    className="w-full h-auto object-cover"
+                    unoptimized
+                  />
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Right Side - Content */}
-          <div className="text-center md:text-left">
+          <div className="text-center md:ml-10 md:text-left">
             <h2
               ref={headingRef}
               className="font-clash text-3xl text-white sm:text-4xl md:text-5xl lg:text-6xl font-medium mb-6"
