@@ -189,14 +189,14 @@ export default function DownloadAppSection() {
       scale: 0.8,
     });
 
-    // Scroll distance for animation (each phone gets ~400px) - same as desktop
-    const scrollDistance = 1200;
+    // Scroll distance for animation (shorter for mobile)
+    const scrollDistance = 800;
 
     // Create timeline for phone animations
     const phoneTimeline = gsap.timeline({
       scrollTrigger: {
         trigger: section,
-        start: "center center",
+        start: "top 70%",
         end: `+=${scrollDistance}`,
         pin: true,
         pinSpacing: true,
@@ -266,7 +266,7 @@ export default function DownloadAppSection() {
           alt="Community Groups"
           width={210}
           height={210}
-          className="absolute top-[80%] md:top-40 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1900px] h-[1900px] md:w-[800px] md:h-[800px] opacity-100"
+          className="absolute top-[20%] md:top-40 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1900px] h-[1900px] md:w-[800px] md:h-[800px] opacity-100"
         />
         <Image
           src="/Ellipse 2.svg"
@@ -381,7 +381,7 @@ export default function DownloadAppSection() {
         </div>
 
         {/* Mobile View - Hidden on desktop */}
-        <div className="block md:hidden relative mb-12">
+        <div className="block md:hidden relative ">
           {/* Text: "Download the App Now" - Centered */}
           <div className="relative z-10 w-full px-4 mb-8">
             <div
