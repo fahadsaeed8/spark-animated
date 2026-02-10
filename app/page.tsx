@@ -65,7 +65,7 @@ export default function Home() {
       <VideoSection />
       <TestimonialsSection />
       <FindYourPeopleSection />
-      <WhereRealConnectionsSection />
+      {/* <WhereRealConnectionsSection /> */}
       <DownloadAppSection />
       <FooterSection />
     </main>
