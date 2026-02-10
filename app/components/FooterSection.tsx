@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function FooterSection() {
   return (
-    <footer className="bg-red-500 py-62 px-6 md:py-16 md:px-12">
+    <footer className="bg-[#F5F2ED] py-62 -mt-60 md:mt-0 px-6 md:py-16 md:px-12">
       <div className="mx-auto max-w-6xl flex flex-col items-center justify-center">
         {/* Logo - Centered at top */}
         <div className="mb-8 md:mb-12 flex items-center justify-center">
@@ -25,7 +25,7 @@ export default function FooterSection() {
         </div>
 
         {/* Social Media Icons - Centered row */}
-        <div className="flex flex-row gap-3 md:gap-4 items-center justify-center">
+        <div className="flex flex-row gap-3 md:gap-0 items-center justify-center">
           {/* TikTok - Using YouTube icon as placeholder, replace with TikTok icon when available */}
           <a
             href="#"
