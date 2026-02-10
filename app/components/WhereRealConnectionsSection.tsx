@@ -54,14 +54,14 @@ export default function WhereRealConnectionsSection() {
   };
 
   return (
-    <section className="relative min-h-screen bg-black flex items-center justify-center px-4 sm:px-6 py-20">
+    <section className="relative md:min-h-screen bg-black flex items-center justify-center px-4 sm:px-6 py-30 md:py-20">
       {/* Title Text */}
-      <h2 className="absolute top-4 sm:top-15 left-1/2 transform -translate-x-1/2 text-white text-xl sm:text-2xl md:text-4xl font-clash font-medium text-center z-30 px-4">
+      <h2 className="absolute top-4 sm:top-15 left-1/2 transform -translate-x-1/2 text-white w-[80%] md:w-full text-2xl md:text-4xl font-clash font-medium text-center z-30 md:px-4">
         Where real connections come to life
       </h2>
 
       {/* Carousel Container */}
-      <div className="relative w-full max-w-6xl mt-20 overflow-hidden">
+      <div className="relative w-full max-w-6xl md:mt-20 overflow-hidden">
         <div className="flex items-center justify-center gap-4 sm:gap-6 md:gap-8 relative">
           {getVisibleImages().map((item, index) => (
             <div
@@ -75,8 +75,8 @@ export default function WhereRealConnectionsSection() {
                   ? item.position === "left"
                     ? "-translate-x-8 opacity-30 scale-85"
                     : item.position === "right"
-                    ? "translate-x-8 opacity-30 scale-85"
-                    : "scale-105"
+                      ? "translate-x-8 opacity-30 scale-85"
+                      : "scale-105"
                   : ""
               }`}
             >
