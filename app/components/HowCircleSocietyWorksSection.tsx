@@ -177,8 +177,8 @@ export default function HowCircleSocietyWorksSection() {
           className="grid gap-8 sm:gap-10 md:grid-cols-3 md:gap-6 lg:gap-8"
         >
           {/* Step 1: Discover Activities */}
-          <div className="text-center bg-white p-4 sm:p-5 rounded-2xl step-item">
-            <div className="relative mb-4 sm:mb-5 flex items-start justify-center h-[150px] sm:h-[180px] md:h-[280px] overflow-visible">
+          <div className="text-center bg-white p-4 sm:p-5 mb-20 md:mb-0 rounded-2xl step-item">
+            <div className="relative mb-4 sm:mb-5 flex items-start justify-center h-[220px] md:h-[280px] overflow-visible">
               {/* Golden Number */}
               <div className="absolute -left-2 sm:-left-4 md:-left-6 lg:-left-20 md:-top-22 z-10">
                 <Image
@@ -186,7 +186,7 @@ export default function HowCircleSocietyWorksSection() {
                   alt="1"
                   width={180}
                   height={180}
-                  className="w-16 h-16 sm:w-20 sm:h-20 md:w-32 md:h-32 lg:w-[200px] lg:h-34 drop-shadow-lg"
+                  className="w-16 h-16 sm:w-20 sm:h-20 md:w-32 -mt-10 md:-mt-0 md:h-32 lg:w-[200px] lg:h-34 drop-shadow-lg"
                 />
               </div>
 
@@ -195,7 +195,7 @@ export default function HowCircleSocietyWorksSection() {
                 ref={image1Ref}
                 className="relative mt-8 sm:mt-10 md:-mt-30 ml-8 sm:ml-12 md:ml-16 lg:ml-0 transform rotate-[0deg] sm:rotate-[0deg]"
               >
-                <div className="overflow-hidden md:w-[500px] md:h-[500px]">
+                <div className="overflow-hidden w-[350px] h-[350px] -mt-28 md:-mt-0 -ml-24 md:-ml-0 md:w-[500px] md:h-[500px]">
                   <Image
                     src="/iPhone-13-Pro-Front.svg"
                     alt="Discover Activities"
@@ -217,8 +217,8 @@ export default function HowCircleSocietyWorksSection() {
           </div>
 
           {/* Step 2: Join a Community or Event */}
-          <div className="text-center bg-white p-4 sm:p-5 rounded-2xl step-item">
-            <div className="relative mb-4 sm:mb-5 flex items-start justify-center h-[150px] sm:h-[180px] md:h-[280px] overflow-visible">
+          <div className="text-center bg-white p-4 sm:p-5 mb-20 md:mb-0 rounded-2xl step-item">
+            <div className="relative mb-4 sm:mb-5 flex items-start justify-center h-[220px] md:h-[280px] md:h-[280px] overflow-visible">
               {/* Golden Number */}
               <div className="absolute -left-2 sm:-left-4 md:-left-6 lg:-left-20 md:-top-22 z-10">
                 <Image
@@ -226,7 +226,7 @@ export default function HowCircleSocietyWorksSection() {
                   alt="2"
                   width={180}
                   height={180}
-                  className="w-16 h-16 sm:w-20 sm:h-20 md:w-32 md:h-32 lg:w-[200px] lg:h-34 drop-shadow-lg"
+                  className="w-16 h-16 sm:w-20 sm:h-20 md:w-32 -mt-10 md:-mt-0 md:h-32 lg:w-[200px] lg:h-34 drop-shadow-lg"
                 />
               </div>
 
@@ -235,7 +235,7 @@ export default function HowCircleSocietyWorksSection() {
                 ref={image2Ref}
                 className="relative mt-8 sm:mt-10 md:-mt-30 ml-8 sm:ml-12 md:ml-16 lg:ml-20 transform rotate-[0deg] sm:rotate-[0deg]"
               >
-                <div className="overflow-hidden md:w-[500px] md:h-[500px]">
+                <div className="overflow-hidden w-[350px] h-[350px] -mt-28 md:-mt-0 -ml-24 md:-ml-0 md:w-[500px] md:h-[500px]">
                   <Image
                     src="/iPhone-13-Pro-Front-new.svg"
                     alt="Join a Community or Event"
@@ -258,7 +258,7 @@ export default function HowCircleSocietyWorksSection() {
 
           {/* Step 3: Build Real Connections */}
           <div className="text-center bg-white p-4 sm:p-5 rounded-2xl step-item">
-            <div className="relative mb-4 sm:mb-5 flex items-start justify-center h-[150px] sm:h-[180px] md:h-[280px] overflow-visible">
+            <div className="relative mb-4 sm:mb-5 flex items-start justify-center h-[220px] md:h-[280px] md:h-[280px] overflow-visible">
               {/* Golden Number */}
               <div className="absolute -left-2 sm:-left-4 md:-left-6 lg:-left-20 md:-top-22 z-10">
                 <Image
@@ -266,7 +266,7 @@ export default function HowCircleSocietyWorksSection() {
                   alt="3"
                   width={180}
                   height={180}
-                  className="w-16 h-16 sm:w-20 sm:h-20 md:w-32 md:h-32 lg:w-[200px] lg:h-34 drop-shadow-lg"
+                  className="w-16 h-16 sm:w-20 sm:h-20 md:w-32 -mt-10 md:-mt-0 md:h-32 lg:w-[200px] lg:h-34 drop-shadow-lg"
                 />
               </div>
 
@@ -275,7 +275,7 @@ export default function HowCircleSocietyWorksSection() {
                 ref={image3Ref}
                 className="relative mt-8 sm:mt-10 md:-mt-30 ml-8 sm:ml-12 md:ml-16 lg:ml-20 transform rotate-[0deg] sm:rotate-[30deg]"
               >
-                <div className="overflow-hidden md:w-[500px] md:h-[500px]">
+                <div className="overflow-hidden w-[350px] h-[350px] -mt-28 md:-mt-0 -ml-24 md:-ml-0 md:w-[500px] md:h-[500px]">
                   <Image
                     src="/iPhone-13-Pro-Front (2).svg"
                     alt="Build Real Connections"
