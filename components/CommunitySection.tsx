@@ -144,7 +144,7 @@ const CommunitySection = () => {
             </span>
           </div>
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 font-clash">
-            Get 50% Off & <br />
+            The Lifetime Deal <br />
             <span
               className="bg-clip-text text-transparent"
               style={{
@@ -154,7 +154,7 @@ const CommunitySection = () => {
                 WebkitTextFillColor: "transparent",
               }}
             >
-              Lifetime Access{" "}
+              (One-Time Only){" "}
             </span>
           </h2>
         </div>
@@ -188,10 +188,11 @@ const CommunitySection = () => {
               {/* Header */}
               <div className="text-center mb-12">
                 <h3 className="text-2xl lg:text-3xl font-bold text-white mb-2 font-clash">
-                  The Augment MBA Program
+                  Pay once: AED 2,500{" "}
                 </h3>
                 <p className="text-gray-400 text-sm">
-                  Choose Your Payment Plan
+                  No subscriptions. No recurring fees. No upsells. No add-ons.
+                  Yours for LIFE. You get:
                 </p>
               </div>
 
@@ -244,13 +245,15 @@ const CommunitySection = () => {
                         {/* Features - Compact List */}
                         <ul className="space-y-2.5 mb-6">
                           {[
-                            "Lifetime access & course updates",
-                            "Self-paced course",
-                            "700+ Masterclasses",
-                            "1 on 1 Office Hours",
-                            "Event & Community Access",
-                            "In-Person events",
-                            "Case studies from famous companies",
+                            "ALL current content",
+                            "ALL future updates",
+                            "ALL events free or discounted",
+                            "ALL courses",
+                            "ALL frameworks",
+                            "ALL idea vault updates",
+                            "ALL live sessions",
+                            "ALL tools",
+                            "Private community",
                           ].map((feature, idx) => (
                             <li key={idx} className="flex items-start gap-2">
                               <span
@@ -265,6 +268,13 @@ const CommunitySection = () => {
                             </li>
                           ))}
                         </ul>
+                        <p className="text-xs">
+                          This is the highest value we will ever offer.
+                        </p>
+                        <p className="text-xs">
+                          The price will rise to AED 5,000+ once we hit 500
+                          members.
+                        </p>
 
                         {/* CTA Button */}
                         <button
