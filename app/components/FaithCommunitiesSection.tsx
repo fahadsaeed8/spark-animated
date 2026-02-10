@@ -117,45 +117,55 @@ export default function FaithCommunitiesSection() {
       className="py-12 px-4 sm:py-16 bg-[#73542A] sm:px-6 md:py-24 md:px-12 relative overflow-hidden"
     >
       <div className="mx-auto max-w-7xl relative z-10">
-        <div className="grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-0 items-center">
-          {/* Left Side - White Card with Groups */}
-
+        <div className="flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-0 items-center">
+          {/* Mobile: Content First, Desktop: Images First (Left) */}
           <div
             ref={imageRef}
-            className="mb-6 flex w-full items-center justify-center"
+            className="mb-6 flex w-full items-center justify-center order-2 md:order-1"
           >
             <div className="w-full max-w-[900px] space-y-4">
               {/* Top Image */}
-              <div className="overflow-hidden rounded-2xl">
+              <div className="overflow-hidden rounded-2xl [&>span]:block [&>span]:w-full [&>span]:h-full [&>span>img]:block">
                 <Image
                   src="/Rectangle 40914.png"
                   alt="Top Group"
                   width={900}
                   height={500}
                   className="w-full h-auto object-cover"
+                  style={{ border: "none", outline: "none", display: "block" }}
                   unoptimized
                 />
               </div>
 
               {/* Bottom Two Images */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="overflow-hidden rounded-2xl">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="overflow-hidden rounded-2xl [&>span]:block [&>span]:w-full [&>span]:h-full [&>span>img]:block">
                   <Image
                     src="/Rectangle 40915.png"
                     alt="Bottom Left"
                     width={350}
                     height={200}
-                    className="w-[350px] h-[220px] object-cover"
+                    className="w-[200px] md:w-[350px] h-[140px] md:h-[220px] object-cover"
+                    style={{
+                      border: "none",
+                      outline: "none",
+                      display: "block",
+                    }}
                   />
                 </div>
 
-                <div className="overflow-hidden rounded-2xl">
+                <div className="overflow-hidden rounded-2xl [&>span]:block [&>span]:w-full [&>span]:h-full [&>span>img]:block">
                   <Image
                     src="/Rectangle 40916.png"
                     alt="Bottom Right"
                     width={450}
                     height={300}
                     className="w-full h-auto object-cover"
+                    style={{
+                      border: "none",
+                      outline: "none",
+                      display: "block",
+                    }}
                     unoptimized
                   />
                 </div>
@@ -163,11 +173,11 @@ export default function FaithCommunitiesSection() {
             </div>
           </div>
 
-          {/* Right Side - Content */}
-          <div className="text-center md:ml-10 md:text-left">
+          {/* Mobile: Content Second, Desktop: Content Second (Right) */}
+          <div className="text-center md:ml-10 md:text-left order-1 md:order-2">
             <h2
               ref={headingRef}
-              className="font-clash text-3xl text-white sm:text-4xl md:text-5xl lg:text-6xl font-medium mb-6"
+              className="font-clash text-white text-4xl md:text-5xl lg:text-6xl font-medium mb-6"
             >
               Communities Built on Faith & Real Life
             </h2>
@@ -182,9 +192,9 @@ export default function FaithCommunitiesSection() {
             {/* Download Buttons */}
             <div ref={buttonsRef} className="max-w-6xl md:mt-10 w-full">
               {/* Buttons */}
-              <div className="flex flex-col sm:flex-row flex-wrap justify-start gap-3 sm:gap-4">
+              <div className="flex flex-row flex-wrap justify-center md:justify-start gap-3 sm:gap-4">
                 <button
-                  className="rounded-full px-6 py-2 sm:px-8 sm:py-2.5 text-xs sm:text-sm md:text-[16px] font-semibold text-white transition hover:opacity-90 w-full sm:w-auto"
+                  className="rounded-full px-6 py-2 sm:px-8 sm:py-2.5 text-sm md:text-[16px] font-semibold text-white transition hover:opacity-90"
                   style={{
                     background: "linear-gradient(to bottom, #D99F4F, #BF822E)",
                   }}
@@ -192,7 +202,7 @@ export default function FaithCommunitiesSection() {
                   Download for Android
                 </button>
                 <button
-                  className="rounded-full px-6 py-2 sm:px-8 sm:py-2.5 text-xs sm:text-sm md:text-[16px] font-semibold text-white transition hover:opacity-90 w-full sm:w-auto"
+                  className="rounded-full px-6 py-2 sm:px-8 sm:py-2.5 text-sm md:text-[16px] font-semibold text-white transition hover:opacity-90"
                   style={{
                     background: "linear-gradient(to bottom, #D99F4F, #BF822E)",
                   }}
