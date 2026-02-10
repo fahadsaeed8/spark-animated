@@ -112,7 +112,7 @@ export default function VideoSection() {
           <div className="max-w-6xl md:mt-10 w-full">
             <h1
               ref={heroTitleRef}
-              className="mb-6 sm:mb-8 md:mb-0 font-clash text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-medium leading-tight text-[#F5F2ED]"
+              className="mb-6 sm:mb-8 md:mb-0 font-clash text-5xl md:text-6xl lg:text-7xl font-medium leading-tight text-[#F5F2ED]"
             >
               {words.map((word, index) => (
                 <span key={index} className="word inline-block">
@@ -121,15 +121,15 @@ export default function VideoSection() {
                 </span>
               ))}
             </h1>
-            <p className="px-4 sm:px-6 pb-4 sm:pb-6 text-center text-xs sm:text-sm md:text-[16px] md:-mb-4 text-white opacity-70 md:px-12">
+            <p className="px-4 sm:px-6 pb-4 sm:pb-6 text-center text-lg md:text-[16px] md:-mb-4 text-white opacity-70 md:px-12">
               Discover events, communities, and people around you — all through
               shared activities.
             </p>
 
             {/* Buttons */}
-            <div className="flex flex-col mt-5 md:mt-10 sm:flex-row flex-wrap justify-center gap-3 sm:gap-4">
+            <div className="flex flex-row mt-5 md:mt-10 flex-wrap justify-center gap-3 sm:gap-4">
               <button
-                className="rounded-full px-6 py-2 sm:px-8 sm:py-2.5 text-xs sm:text-sm md:text-[16px] font-semibold text-white transition hover:opacity-90 w-full sm:w-auto"
+                className="rounded-full px-6 py-2 sm:px-8 sm:py-2.5 text-sm md:text-[16px] font-semibold text-white transition hover:opacity-90"
                 style={{
                   background: "linear-gradient(to bottom, #D99F4F, #BF822E)",
                 }}
@@ -138,7 +138,7 @@ export default function VideoSection() {
               </button>
 
               <button
-                className="rounded-full px-6 py-2 sm:px-8 sm:py-2.5 text-xs sm:text-sm md:text-[16px] font-semibold text-white transition hover:opacity-90 w-full sm:w-auto"
+                className="rounded-full px-6 py-2 sm:px-8 sm:py-2.5 text-sm md:text-[16px] font-semibold text-white transition hover:opacity-90"
                 style={{
                   background: "linear-gradient(to bottom, #D99F4F, #BF822E)",
                 }}
