@@ -128,7 +128,7 @@ export default function FaithCommunitiesSection() {
               {/* Top Image */}
               <div className="overflow-hidden rounded-2xl">
                 <Image
-                  src="/Rectangle 40914.svg"
+                  src="/Rectangle 40914.png"
                   alt="Top Group"
                   width={900}
                   height={500}
@@ -141,7 +141,7 @@ export default function FaithCommunitiesSection() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="overflow-hidden rounded-2xl">
                   <Image
-                    src="/Rectangle 40915.svg"
+                    src="/Rectangle 40915.png"
                     alt="Bottom Left"
                     width={350}
                     height={200}
@@ -151,7 +151,7 @@ export default function FaithCommunitiesSection() {
 
                 <div className="overflow-hidden rounded-2xl">
                   <Image
-                    src="/Rectangle 40916.svg"
+                    src="/Rectangle 40916.png"
                     alt="Bottom Right"
                     width={450}
                     height={300}
