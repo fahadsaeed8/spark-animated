@@ -48,7 +48,7 @@ const CtaSection = () => {
         {/* Text Content */}
         <div className="relative z-10 text-center mb-8">
           <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 font-clash">
-            Are you ready to{" "}
+            Pay once. Get everything.
             <span
               className="bg-clip-text text-transparent"
               style={{
@@ -58,11 +58,11 @@ const CtaSection = () => {
                 WebkitTextFillColor: "transparent",
               }}
             >
-              learn
+              Build forever.{" "}
             </span>{" "}
           </h3>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            The best entrepreneurs in the world?{" "}
+            AED 2,500 — Limited Spots.{" "}
           </p>
         </div>
 
@@ -73,7 +73,7 @@ const CtaSection = () => {
             style={{ boxShadow: "0 25px 50px -12px rgba(214, 253, 58, 0.5)" }}
           >
             <span className="relative z-10 flex items-center gap-2">
-              Enroll Now{" "}
+              Get Lifetime Access Now{" "}
               <svg
                 className="w-5 h-5 group-hover:translate-x-1 transition-transform"
                 fill="none"
