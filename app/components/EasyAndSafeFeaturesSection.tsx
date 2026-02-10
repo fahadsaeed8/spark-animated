@@ -107,7 +107,7 @@ export default function EasyAndSafeFeaturesSection() {
   return (
     <section
       ref={sectionRef}
-      className="py-12 px-4 sm:py-16 sm:px-6 bg-[#fbead0] md:py-24 md:px-12 relative overflow-hidden"
+      className="py-12 px-4 sm:py-16 sm:px-6 bg-[#F4EDE2] md:py-24 md:px-12 relative overflow-hidden"
     >
       {/* Background Image */}
       <div
@@ -123,13 +123,13 @@ export default function EasyAndSafeFeaturesSection() {
       <div className="mx-auto max-w-6xl relative z-10">
         <h2
           ref={h2Ref1}
-          className="mb-2 sm:mb-4 text-center font-clash text-xl sm:text-2xl font-medium text-[#1B1B1B] md:text-5xl"
+          className="mb-2 sm:mb-4 text-center font-clash text-4xl font-medium text-[#1B1B1B] md:text-5xl"
         >
           What You Can Do on
         </h2>
         <h2
           ref={h2Ref2}
-          className="mb-6 sm:mb-4 text-center font-clash text-xl sm:text-2xl font-medium text-[#1B1B1B] md:text-5xl md:mb-4"
+          className="mb-6 sm:mb-4 text-center font-clash text-4xl font-medium text-[#1B1B1B] md:text-5xl md:mb-4"
         >
           The Circle Society{" "}
         </h2>
@@ -152,10 +152,10 @@ export default function EasyAndSafeFeaturesSection() {
                 />
               </div>
             </div>
-            <h4 className="mb-2 sm:mb-3 font-clash text-lg sm:text-xl md:text-3xl text-center md:text-start font-medium text-[#1B1B1B]">
+            <h4 className="mb-2 sm:mb-3 font-clash text-2xl md:text-3xl text-center md:text-start font-medium text-[#1B1B1B]">
               Join Communities{" "}
             </h4>
-            <p className="text-xs sm:text-sm leading-relaxed w-full sm:w-[80%] text-center md:text-start text-[#5A5A5A] md:text-[22px] mx-auto md:mx-0">
+            <p className="text-lg leading-relaxed w-[60%] sm:w-[80%] text-center md:text-start text-[#5A5A5A] md:text-[22px] mx-auto md:mx-0">
               Discover groups around shared interests, passions, and lifestyles.
             </p>
           </div>
@@ -173,10 +173,10 @@ export default function EasyAndSafeFeaturesSection() {
                 />
               </div>
             </div>
-            <h4 className="mb-2 sm:mb-3 font-clash text-lg sm:text-xl md:text-3xl text-center md:text-start font-medium text-[#1B1B1B]">
+            <h4 className="mb-2 sm:mb-3 font-clash text-2xl md:text-3xl text-center md:text-start font-medium text-[#1B1B1B]">
               Attend Events{" "}
             </h4>
-            <p className="text-xs sm:text-sm leading-relaxed w-full sm:w-[80%] text-center md:text-start text-[#5A5A5A] md:text-[22px] mx-auto md:mx-0">
+            <p className="text-lg leading-relaxed w-[60%] sm:w-[80%] text-center md:text-start text-[#5A5A5A] md:text-[22px] mx-auto md:mx-0">
               From small meetups to large gatherings — online discovery,
               real-life fun.{" "}
             </p>
@@ -195,10 +195,10 @@ export default function EasyAndSafeFeaturesSection() {
                 />
               </div>
             </div>
-            <h4 className="mb-2 sm:mb-3 font-clash text-lg sm:text-xl md:text-3xl text-center md:text-start font-medium text-[#1B1B1B]">
+            <h4 className="mb-2 sm:mb-3 font-clash text-2xl md:text-3xl text-center md:text-start font-medium text-[#1B1B1B]">
               Meet Naturally{" "}
             </h4>
-            <p className="text-xs sm:text-sm leading-relaxed w-full sm:w-[80%] text-center md:text-start text-[#5A5A5A] md:text-[22px] mx-auto md:mx-0">
+            <p className="text-lg leading-relaxed w-[60%] sm:w-[80%] text-center md:text-start text-[#5A5A5A] md:text-[22px] mx-auto md:mx-0">
               Connections happen through shared moments, not forced
               matching.{" "}
             </p>
