@@ -63,8 +63,8 @@ export default function Home() {
       <FaithCommunitiesSection />
       <HowCircleSocietyWorksSection />
       <VideoSection />
-      <FindYourPeopleSection />
       <TestimonialsSection />
+      <FindYourPeopleSection />
       <WhereRealConnectionsSection />
       <DownloadAppSection />
       <FooterSection />
