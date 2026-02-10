@@ -68,7 +68,7 @@ const FAQSection = () => {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="group bg-white rounded-xl overflow-hidden border-2 border-transparent hover:border-orange-500/50 transition-all duration-300 cursor-pointer"
+              className="group bg-white rounded-xl overflow-hidden border-2 border-transparent transition-all duration-300 cursor-pointer hover-border-lime"
               onClick={() => toggleFAQ(index)}
             >
               {/* Question Row */}
@@ -77,7 +77,7 @@ const FAQSection = () => {
                   {faq.question}
                 </h3>
                 <div className="flex-shrink-0">
-                  <div className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center transition-transform group-hover:bg-orange-500">
+                  <div className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center transition-transform hover-bg-lime-button">
                     <svg
                       className={`w-5 h-5 text-white transition-transform duration-300 ${
                         expandedIndex === index ? "rotate-180" : ""

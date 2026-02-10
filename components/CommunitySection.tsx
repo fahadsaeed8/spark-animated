@@ -102,19 +102,32 @@ const CommunitySection = () => {
     <section className="relative w-full py-14 lg:py-32 overflow-hidden bg-white rounded-[35px]">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-gradient-to-br from-orange-200/20 to-amber-200/20 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-yellow-200/15 to-orange-200/15 rounded-full blur-3xl"></div>
+        <div
+          className="absolute top-0 left-0 w-[600px] h-[600px] rounded-full blur-3xl"
+          style={{
+            background:
+              "linear-gradient(to bottom right, rgba(214, 253, 58, 0.2), rgba(214, 253, 58, 0.2))",
+          }}
+        ></div>
+        <div
+          className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full blur-3xl"
+          style={{
+            background:
+              "linear-gradient(to bottom right, rgba(214, 253, 58, 0.15), rgba(214, 253, 58, 0.15))",
+          }}
+        ></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Top Section - Community Header */}
         <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-gradient-to-r from-orange-100 to-amber-100 rounded-full">
+          <div className="inline-flex items-center gap-2 bg-black/70 mb-6 px-4 py-2 rounded-full">
             <svg
-              className="w-5 h-5 text-orange-600"
+              className="w-5 h-5"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
+              style={{ color: "#D6FD3A" }}
             >
               <path
                 strokeLinecap="round"
@@ -123,13 +136,24 @@ const CommunitySection = () => {
                 d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
               />
             </svg>
-            <span className="text-sm font-semibold text-orange-700 uppercase tracking-wide">
+            <span
+              className="text-sm font-semibold uppercase tracking-wide"
+              style={{ color: "#D6FD3A" }}
+            >
               SUMMER OFFER{" "}
             </span>
           </div>
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 font-clash">
             Get 50% Off & <br />
-            <span className="bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-500 bg-clip-text text-transparent">
+            <span
+              className="bg-clip-text text-transparent"
+              style={{
+                background:
+                  "linear-gradient(to right, #D6FD3A, #E8FF60, #D6FD3A)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
               Lifetime Access{" "}
             </span>
           </h2>
@@ -141,12 +165,24 @@ const CommunitySection = () => {
           <div className="relative bg-black rounded-3xl p-8 lg:p-12 overflow-hidden border border-gray-700/30">
             {/* Animated Background Elements */}
             <div className="absolute inset-0 overflow-hidden">
-              <div className="absolute -top-40 -left-40 w-80 h-80 bg-orange-500/10 rounded-full blur-3xl"></div>
-              <div className="absolute -bottom-40 -right-40 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl"></div>
+              <div
+                className="absolute -top-40 -left-40 w-80 h-80 rounded-full blur-3xl"
+                style={{ background: "rgba(214, 253, 58, 0.1)" }}
+              ></div>
+              <div
+                className="absolute -bottom-40 -right-40 w-80 h-80 rounded-full blur-3xl"
+                style={{ background: "rgba(214, 253, 58, 0.1)" }}
+              ></div>
             </div>
 
             {/* Top Orange Accent Bar */}
-            <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-500"></div>
+            <div
+              className="absolute top-0 left-0 right-0 h-1.5"
+              style={{
+                background:
+                  "linear-gradient(to right, #D6FD3A, #E8FF60, #D6FD3A)",
+              }}
+            ></div>
 
             <div className="relative z-10">
               {/* Header */}
@@ -171,7 +207,7 @@ const CommunitySection = () => {
                   return (
                     <div key={index} className="group relative">
                       {/* Pricing Box */}
-                      <div className="relative bg-gradient-to-br from-gray-800/80 to-gray-900/80 backdrop-blur-sm rounded-2xl p-6 lg:p-8 border border-gray-700/50 hover:border-orange-500/50 transition-all duration-500">
+                      <div className="relative bg-gradient-to-br from-gray-800/80 to-gray-900/80 backdrop-blur-sm rounded-2xl p-6 lg:p-8 border border-gray-700/50 transition-all duration-500 hover-border-lime">
                         {/* Pricing Display */}
                         <div className="mb-6">
                           {isOriginal && (
@@ -180,7 +216,10 @@ const CommunitySection = () => {
                             </div>
                           )}
                           <div className="flex items-baseline gap-2 flex-wrap">
-                            <span className="text-4xl lg:text-5xl font-bold text-orange-500 font-clash">
+                            <span
+                              className="text-4xl lg:text-5xl font-bold font-clash"
+                              style={{ color: "#D6FD3A" }}
+                            >
                               ${price}
                             </span>
                             {isPaymentPlan && (
@@ -189,7 +228,13 @@ const CommunitySection = () => {
                               </span>
                             )}
                             {isOneTime && (
-                              <span className="text-sm text-orange-500 font-semibold bg-orange-500/10 px-2 py-1 rounded">
+                              <span
+                                className="text-sm font-semibold px-2 py-1 rounded"
+                                style={{
+                                  color: "#D6FD3A",
+                                  background: "rgba(214, 253, 58, 0.1)",
+                                }}
+                              >
                                 One-time
                               </span>
                             )}
@@ -208,7 +253,10 @@ const CommunitySection = () => {
                             "Case studies from famous companies",
                           ].map((feature, idx) => (
                             <li key={idx} className="flex items-start gap-2">
-                              <span className="text-orange-500 text-base font-bold mt-0.5 flex-shrink-0">
+                              <span
+                                className="text-base font-bold mt-0.5 flex-shrink-0"
+                                style={{ color: "#D6FD3A" }}
+                              >
                                 ✓
                               </span>
                               <span className="text-xs lg:text-sm text-gray-300 leading-relaxed">
@@ -219,7 +267,13 @@ const CommunitySection = () => {
                         </ul>
 
                         {/* CTA Button */}
-                        <button className="w-full bg-gradient-to-r from-orange-500 to-amber-500 text-white font-bold py-3.5 px-6 rounded-xl hover:from-orange-600 hover:to-amber-600 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-orange-500/50 transform hover:scale-[1.02] flex items-center justify-center gap-2 group/btn">
+                        <button
+                          className="w-full text-black font-bold py-3.5 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-[1.02] flex items-center justify-center gap-2 group/btn btn-gradient-lime"
+                          style={{
+                            boxShadow:
+                              "0 10px 15px -3px rgba(214, 253, 58, 0.5)",
+                          }}
+                        >
                           <span>Enroll Now</span>
                           <svg
                             className="w-5 h-5 transform group-hover/btn:translate-x-1 transition-transform"
@@ -237,7 +291,7 @@ const CommunitySection = () => {
                         </button>
 
                         {/* Hover Glow Effect */}
-                        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-orange-500/0 to-amber-500/0 group-hover:from-orange-500/5 group-hover:to-amber-500/5 transition-opacity pointer-events-none"></div>
+                        <div className="absolute inset-0 rounded-2xl transition-opacity pointer-events-none hover-bg-lime-glow"></div>
                       </div>
                     </div>
                   );
@@ -252,7 +306,15 @@ const CommunitySection = () => {
           <div className="text-center mb-12">
             <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 font-clash">
               Join a Community of <br />
-              <span className="bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-500 bg-clip-text text-transparent">
+              <span
+                className="bg-clip-text text-transparent"
+                style={{
+                  background:
+                    "linear-gradient(to right, #D6FD3A, #E8FF60, #D6FD3A)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                }}
+              >
                 +5,000 Entrepreneurs {" "}
               </span>
             </h3>
@@ -263,18 +325,47 @@ const CommunitySection = () => {
             {communityFeatures.map((feature, index) => (
               <div
                 key={index}
-                className="group relative bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-8 border border-gray-700/50 hover:border-orange-500/50 transition-all duration-300 overflow-hidden"
+                className="group relative bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-8 border border-gray-700/50 transition-all duration-300 overflow-hidden hover-border-lime"
               >
                 {/* Device Mockup Background */}
                 <div className="absolute inset-0 opacity-10">
-                  <div className="absolute top-4 left-4 w-32 h-24 bg-gradient-to-br from-orange-400/20 to-amber-400/20 rounded-lg border border-orange-500/30"></div>
-                  <div className="absolute top-8 left-8 w-32 h-24 bg-gradient-to-br from-orange-500/20 to-amber-500/20 rounded-lg border border-orange-500/30 -z-10"></div>
-                  <div className="absolute top-12 left-12 w-32 h-24 bg-gradient-to-br from-amber-500/20 to-yellow-500/20 rounded-lg border border-orange-500/30 -z-20"></div>
+                  <div
+                    className="absolute top-4 left-4 w-32 h-24 rounded-lg"
+                    style={{
+                      background:
+                        "linear-gradient(to bottom right, rgba(214, 253, 58, 0.2), rgba(214, 253, 58, 0.2))",
+                      border: "1px solid rgba(214, 253, 58, 0.3)",
+                    }}
+                  ></div>
+                  <div
+                    className="absolute top-8 left-8 w-32 h-24 rounded-lg -z-10"
+                    style={{
+                      background:
+                        "linear-gradient(to bottom right, rgba(214, 253, 58, 0.2), rgba(214, 253, 58, 0.2))",
+                      border: "1px solid rgba(214, 253, 58, 0.3)",
+                    }}
+                  ></div>
+                  <div
+                    className="absolute top-12 left-12 w-32 h-24 rounded-lg -z-20"
+                    style={{
+                      background:
+                        "linear-gradient(to bottom right, rgba(214, 253, 58, 0.2), rgba(214, 253, 58, 0.2))",
+                      border: "1px solid rgba(214, 253, 58, 0.3)",
+                    }}
+                  ></div>
                 </div>
 
                 <div className="relative z-10">
                   {/* Icon */}
-                  <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-orange-500/20 to-amber-500/20 border border-orange-500/30 flex items-center justify-center text-orange-400 mb-6 group-hover:scale-110 transition-transform">
+                  <div
+                    className="w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
+                    style={{
+                      background:
+                        "linear-gradient(to bottom right, rgba(214, 253, 58, 0.2), rgba(214, 253, 58, 0.2))",
+                      border: "1px solid rgba(214, 253, 58, 0.3)",
+                      color: "#D6FD3A",
+                    }}
+                  >
                     {feature.icon}
                   </div>
 
@@ -287,7 +378,7 @@ const CommunitySection = () => {
                 </div>
 
                 {/* Hover Glow */}
-                <div className="absolute inset-0 bg-gradient-to-br from-orange-500/0 to-amber-500/0 group-hover:from-orange-500/5 group-hover:to-amber-500/5 transition-opacity pointer-events-none"></div>
+                <div className="absolute inset-0 transition-opacity pointer-events-none hover-bg-lime-glow"></div>
               </div>
             ))}
           </div>
@@ -297,8 +388,14 @@ const CommunitySection = () => {
         <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-3xl p-8 lg:p-12 border border-gray-700/50 relative overflow-hidden">
           {/* Background Pattern */}
           <div className="absolute inset-0 opacity-5">
-            <div className="absolute top-0 left-0 w-64 h-64 bg-orange-500 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-0 right-0 w-64 h-64 bg-amber-500 rounded-full blur-3xl"></div>
+            <div
+              className="absolute top-0 left-0 w-64 h-64 rounded-full blur-3xl"
+              style={{ background: "#D6FD3A" }}
+            ></div>
+            <div
+              className="absolute bottom-0 right-0 w-64 h-64 rounded-full blur-3xl"
+              style={{ background: "#D6FD3A" }}
+            ></div>
           </div>
 
           <div className="relative z-10">
@@ -312,7 +409,13 @@ const CommunitySection = () => {
                     marginLeft: index > 0 ? "-12px" : "0",
                   }}
                 >
-                  <div className="w-14 h-14 lg:w-16 lg:h-16 rounded-full bg-gradient-to-br from-orange-400 to-amber-500 p-0.5 group-hover:scale-110 transition-transform">
+                  <div
+                    className="w-14 h-14 lg:w-16 lg:h-16 rounded-full p-0.5 group-hover:scale-110 transition-transform"
+                    style={{
+                      background:
+                        "linear-gradient(to bottom right, #D6FD3A, #B8E030)",
+                    }}
+                  >
                     <div className="w-full h-full rounded-full overflow-hidden border-2 border-slate-900">
                       <Image
                         src={profile.image}
@@ -345,7 +448,15 @@ const CommunitySection = () => {
             <div className="text-center">
               <h4 className="text-2xl lg:text-3xl font-bold text-white mb-2 font-clash">
                 Connect on our{" "}
-                <span className="bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500 bg-clip-text text-transparent">
+                <span
+                  className="bg-clip-text text-transparent"
+                  style={{
+                    background:
+                      "linear-gradient(to right, #E8FF60, #D6FD3A, #B8E030)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                  }}
+                >
                   Private Platform
                 </span>
               </h4>
@@ -355,7 +466,12 @@ const CommunitySection = () => {
               </p>
 
               {/* CTA Button */}
-              <button className="bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500 text-white font-bold py-4 px-10 rounded-xl hover:from-yellow-500 hover:via-amber-600 hover:to-orange-600 transition-all duration-300 shadow-2xl hover:shadow-orange-500/50 transform hover:scale-105 text-lg">
+              <button
+                className="text-black font-bold py-4 px-10 rounded-xl transition-all duration-300 shadow-2xl transform hover:scale-105 text-lg btn-gradient-lime-reverse"
+                style={{
+                  boxShadow: "0 25px 50px -12px rgba(214, 253, 58, 0.5)",
+                }}
+              >
                 Enroll Now{" "}
               </button>
             </div>

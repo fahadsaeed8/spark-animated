@@ -71,14 +71,25 @@ const ComparisonSection = () => {
         {/* Mission Statement Header */}
         <div className="text-center mb-16">
           <div className="inline-block mb-4">
-            <span className="text-sm uppercase tracking-wider text-orange-600 font-semibold">
+            <span
+              className="text-sm uppercase tracking-wider font-semibold"
+              style={{ color: "#D6FD3A" }}
+            >
               Our Mission
             </span>
           </div>
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 font-clash text-white">
             High-Quality Business Education
             <br />
-            <span className="bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-500 bg-clip-text text-transparent">
+            <span
+              className="bg-clip-text text-transparent"
+              style={{
+                background:
+                  "linear-gradient(to right, #D6FD3A, #E8FF60, #D6FD3A)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
               at an Unbeatable Price
             </span>
           </h2>
@@ -88,8 +99,14 @@ const ComparisonSection = () => {
         <div className="relative mb-20">
           {/* VS Divider - Centered */}
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 hidden lg:block">
-            <div className="w-20 h-20 rounded-full bg-gradient-to-br from-orange-500 via-amber-500 to-yellow-500 flex items-center justify-center shadow-2xl border-4 border-white">
-              <span className="text-white font-bold text-xl font-clash">
+            <div
+              className="w-20 h-20 rounded-full flex items-center justify-center shadow-2xl border-4 border-gray-300"
+              style={{
+                background:
+                  "linear-gradient(to bottom right, #D6FD3A, #E8FF60, #D6FD3A)",
+              }}
+            >
+              <span className="text-black font-bold text-xl font-clash">
                 VS
               </span>
             </div>
@@ -139,11 +156,26 @@ const ComparisonSection = () => {
             </div>
 
             {/* Our Program Card - Right Side with Premium Design */}
-            <div className="relative bg-white p-8 lg:p-10 lg:pl-16 shadow-2xl rounded-r-2xl overflow-hidden border-l-4 border-orange-500">
+            <div
+              className="relative bg-white p-8 lg:p-10 lg:pl-16 shadow-2xl rounded-r-2xl overflow-hidden"
+              style={{ borderLeft: "4px solid #D6FD3A" }}
+            >
               {/* Animated Background Elements */}
               <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
-                <div className="absolute -top-20 -left-20 w-64 h-64 bg-gradient-to-br from-orange-400/10 to-amber-400/10 rounded-full blur-3xl"></div>
-                <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-gradient-to-tl from-yellow-400/10 to-orange-400/10 rounded-full blur-3xl"></div>
+                <div
+                  className="absolute -top-20 -left-20 w-64 h-64 rounded-full blur-3xl"
+                  style={{
+                    background:
+                      "linear-gradient(to bottom right, rgba(214, 253, 58, 0.1), rgba(214, 253, 58, 0.1))",
+                  }}
+                ></div>
+                <div
+                  className="absolute -bottom-20 -right-20 w-64 h-64 rounded-full blur-3xl"
+                  style={{
+                    background:
+                      "linear-gradient(to top left, rgba(214, 253, 58, 0.1), rgba(214, 253, 58, 0.1))",
+                  }}
+                ></div>
               </div>
 
               <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-6 font-clash relative z-10">
@@ -152,9 +184,27 @@ const ComparisonSection = () => {
 
               {/* Unique Divider with Gradient */}
               <div className="flex items-center gap-3 mb-8 relative z-10">
-                <div className="h-1 flex-1 bg-gradient-to-r from-transparent via-orange-400 to-orange-500 rounded-full"></div>
-                <div className="w-3 h-3 rounded-full bg-gradient-to-br from-orange-500 to-amber-500 shadow-lg"></div>
-                <div className="h-1 flex-1 bg-gradient-to-l from-transparent via-amber-400 to-amber-500 rounded-full"></div>
+                <div
+                  className="h-1 flex-1 rounded-full"
+                  style={{
+                    background:
+                      "linear-gradient(to right, transparent, #D6FD3A, #D6FD3A)",
+                  }}
+                ></div>
+                <div
+                  className="w-3 h-3 rounded-full shadow-lg"
+                  style={{
+                    background:
+                      "linear-gradient(to bottom right, #D6FD3A, #B8E030)",
+                  }}
+                ></div>
+                <div
+                  className="h-1 flex-1 rounded-full"
+                  style={{
+                    background:
+                      "linear-gradient(to left, transparent, #E8FF60, #D6FD3A)",
+                  }}
+                ></div>
               </div>
 
               <ul className="space-y-5 relative z-10 mb-8">
@@ -163,8 +213,15 @@ const ComparisonSection = () => {
                     key={index}
                     className="group flex items-start gap-4 p-3 rounded-lg hover:bg-gradient-to-r hover:from-orange-50 hover:to-amber-50 transition-all duration-300"
                   >
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-orange-100 to-amber-100 flex items-center justify-center group-hover:from-orange-200 group-hover:to-amber-200 transition-all border-2 border-orange-200 group-hover:border-orange-400 group-hover:scale-110">
-                      <span className="text-orange-600 text-lg font-bold">
+                    <div
+                      className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all border-2 group-hover:scale-110 hover-icon-bg-lime"
+                      style={{
+                        background:
+                          "linear-gradient(to bottom right, rgba(214, 253, 58, 0.2), rgba(214, 253, 58, 0.2))",
+                        borderColor: "rgba(214, 253, 58, 0.3)",
+                      }}
+                    >
+                      <span className="text-lg font-bold text-[#b6d634]">
                         {item.icon}
                       </span>
                     </div>
@@ -177,7 +234,13 @@ const ComparisonSection = () => {
 
               {/* Enhanced CTA Button */}
               <div className="relative z-10 mt-8">
-                <button className="group relative w-full bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-500 text-white font-bold py-4 px-8 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02]">
+                <button
+                  className="group relative w-full text-black font-bold py-4 px-8 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02]"
+                  style={{
+                    background:
+                      "linear-gradient(to right, #D6FD3A, #E8FF60, #D6FD3A)",
+                  }}
+                >
                   {/* Shine Effect */}
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                   <span className="relative z-10 flex items-center justify-center gap-2">
