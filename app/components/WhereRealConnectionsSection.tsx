@@ -1,219 +1,96 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
+// All available images for the carousel
+const carouselImages = [
+  "/Rectangle 40836.svg",
+  "/Rectangle 40837.svg",
+  "/Rectangle 40838.svg",
+  "/Rectangle 40839.svg",
+  "/Rectangle 40840.svg",
+  "/Rectangle 40841.svg",
+  "/Rectangle 40842.svg",
+  "/Rectangle 40843.svg",
+  "/Rectangle 40846.svg",
+  "/Rectangle 40847.svg",
+  "/Rectangle 40848.svg",
+  "/Rectangle 40849.svg",
+  "/Rectangle 40820.svg",
+];
 
 export default function WhereRealConnectionsSection() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const heroRef = useRef<HTMLDivElement>(null);
-  const collageRef = useRef<HTMLDivElement>(null);
-  const headingRef = useRef<HTMLHeadingElement>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    if (!sectionRef.current || !heroRef.current || !collageRef.current) return;
+    // Auto-scroll carousel every 3 seconds
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % carouselImages.length);
+    }, 3000);
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "center center",
-        end: "+=1600",
-        scrub: true,
-        pin: true,
-        pinSpacing: true,
-        anticipatePin: 1,
-        invalidateOnRefresh: true,
-      },
-    });
-
-    // initial states - collage starts much smaller for dramatic shrink effect on scroll up
-    gsap.set(collageRef.current, {
-      opacity: 0,
-      scale: 0.4,
-    });
-
-    // Set initial margin-top to 0 for hero
-    gsap.set(heroRef.current, {
-      marginTop: "0px",
-    });
-
-    // Animate heading fade-in from top when section enters view
-    if (headingRef.current) {
-      gsap.set(headingRef.current, {
-        opacity: 0,
-        y: -30,
-      });
-
-      ScrollTrigger.create({
-        trigger: sectionRef.current,
-        start: "top 80%",
-        toggleActions: "play none none none",
-        onEnter: () => {
-          gsap.to(headingRef.current, {
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            ease: "power2.out",
-          });
-        },
-      });
-    }
-
-    // HERO → shrink & move center with margin-top during animation
-    tl.to(heroRef.current, {
-      scale: 0.35,
-      y: "-10%",
-      marginTop: "110px",
-      ease: "none",
-    });
-
-    // COLLAGE → fade & expand (shrinks back to 0.6 when scrolling up)
-    tl.to(
-      collageRef.current,
-      {
-        opacity: 1,
-        scale: 1,
-        ease: "none",
-      },
-      "<+=0.2",
-    );
-
-    return () => {
-      if (tl) {
-        tl.kill();
-      }
-      ScrollTrigger.getAll().forEach((t) => {
-        if (t.vars.trigger === sectionRef.current) {
-          t.kill();
-        }
-      });
-      // Refresh ScrollTrigger after cleanup
-      ScrollTrigger.refresh();
-    };
+    return () => clearInterval(interval);
   }, []);
 
+  // Get the 3 visible images (previous, current, next)
+  const getVisibleImages = () => {
+    const prevIndex = (currentIndex - 1 + carouselImages.length) % carouselImages.length;
+    const nextIndex = (currentIndex + 1) % carouselImages.length;
+    return [
+      { src: carouselImages[prevIndex], isCenter: false },
+      { src: carouselImages[currentIndex], isCenter: true },
+      { src: carouselImages[nextIndex], isCenter: false },
+    ];
+  };
+
   return (
-    <section
-      ref={sectionRef}
-      className="relative min-h-screen bg-black flex md:pb-[50px] items-center justify-center px-4 sm:px-6"
-    >
+    <section className="relative min-h-screen bg-black flex items-center justify-center px-4 sm:px-6 py-20">
       {/* Title Text */}
-      <h2
-        ref={headingRef}
-        className="absolute top-4 sm:top-5 left-1/2 transform -translate-x-1/2 text-white text-xl sm:text-2xl md:text-4xl font-clash font-medium text-center z-30 px-4"
-      >
+      <h2 className="absolute top-4 sm:top-5 left-1/2 transform -translate-x-1/2 text-white text-xl sm:text-2xl md:text-4xl font-clash font-medium text-center z-30 px-4">
         Where real connections come to life
       </h2>
 
-      <div className="relative w-full max-w-6xl md:mt-[80px] h-[60vh] sm:h-[70vh] md:h-[80vh]">
-        {/* HERO PORTRAIT IMAGE */}
-        <div
-          ref={heroRef}
-          className="absolute inset-0 flex items-center justify-center z-20"
-        >
-          <div className="relative w-[200px] h-[230px] sm:w-[280px] sm:h-[320px] md:w-[417px] md:h-[480px] rounded-2xl overflow-hidden shadow-xl">
-            <Image
-              src="/Rectangle 40820.svg"
-              alt="Hero"
-              fill
-              className="object-cover rounded-xl"
-              priority
-            />
-          </div>
+      {/* Carousel Container */}
+      <div className="relative w-full max-w-6xl mt-20">
+        <div className="flex items-center justify-center gap-4 sm:gap-6 md:gap-8">
+          {getVisibleImages().map((item, index) => (
+            <div
+              key={`${currentIndex}-${index}`}
+              className={`flex-shrink-0 transition-all duration-1000 ease-in-out ${
+                item.isCenter
+                  ? "w-[200px] h-[280px] sm:w-[280px] sm:h-[400px] md:w-[350px] md:h-[500px] z-10"
+                  : "w-[120px] h-[160px] sm:w-[160px] sm:h-[220px] md:w-[200px] md:h-[280px] opacity-70 z-0"
+              }`}
+            >
+              <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-xl bg-blue-500">
+                <Image
+                  src={item.src}
+                  alt={`Connection ${index + 1}`}
+                  fill
+                  className="object-cover rounded-xl"
+                  priority={item.isCenter}
+                />
+              </div>
+            </div>
+          ))}
         </div>
 
-        {/* COLLAGE */}
-        <div ref={collageRef} className="absolute inset-0 z-10">
-          {/* example images – positions simple rakhe */}
-          <CollageImage
-            src="/Rectangle 40836.svg"
-            style={{ top: "0%", left: "0%" }}
-          />
-          <CollageImage
-            src="/Rectangle 40838.svg"
-            style={{ top: "37%", left: "0%" }}
-          />
-          <CollageImage
-            src="/Rectangle 40839.svg"
-            style={{ top: "75%", left: "0%" }}
-          />
-          <CollageImage
-            src="/Rectangle 40837.svg"
-            style={{ top: "0%", left: "20%" }}
-          />
-          <CollageImage
-            src="/Rectangle 40843.svg"
-            style={{ top: "37%", left: "20%" }}
-          />
-
-          <CollageImage
-            src="/Rectangle 40840.svg"
-            style={{ top: "75%", left: "20%" }}
-          />
-          <CollageImage
-            src="/Rectangle 40841.svg"
-            style={{ top: "0%", left: "43.5%" }}
-          />
-          <CollageImage
-            src="/Rectangle 40842.svg"
-            style={{ top: "75%", left: "43.5%" }}
-          />
-          {/* right */}
-          <CollageImage
-            src="/Rectangle 40847.svg"
-            style={{ top: "0%", right: "0%" }}
-          />
-          <CollageImage
-            src="/Rectangle 40848.svg"
-            style={{ top: "37%", right: "0%" }}
-          />
-          <CollageImage
-            src="/Rectangle 40849.svg"
-            style={{ top: "75%", right: "0%" }}
-          />
-          <CollageImage
-            src="/Rectangle 40843.svg"
-            style={{ top: "0%", right: "20%" }}
-          />
-          <CollageImage
-            src="/Rectangle 40836.svg"
-            style={{ top: "37%", right: "20%" }}
-          />
-          <CollageImage
-            src="/Rectangle 40846.svg"
-            style={{ top: "75%", right: "20%" }}
-          />
-          {/* <CollageImage
-            src="/Rectangle 40844.svg"
-            style={{ top: "15%", right: "30%" }}
-          />
-          <CollageImage
-            src="/Rectangle 40845.svg"
-            style={{ top: "55%", right: "30%" }}
-          /> */}
+        {/* Carousel Indicators */}
+        <div className="flex justify-center mt-8 gap-2">
+          {carouselImages.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentIndex(index)}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                index === currentIndex
+                  ? "w-8 bg-white"
+                  : "w-2 bg-white/40"
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
         </div>
       </div>
     </section>
-  );
-}
-
-/* helper component */
-function CollageImage({
-  src,
-  style,
-}: {
-  src: string;
-  style: React.CSSProperties;
-}) {
-  return (
-    <div
-      className="absolute w-[60px] h-[65px] sm:w-[90px] sm:h-[100px] md:w-[120px] md:h-[130px] lg:w-[150px] lg:h-[160px] rounded-xl overflow-hidden"
-      style={style}
-    >
-      <Image src={src} alt="" fill className="object-cover" />
-    </div>
   );
 }
