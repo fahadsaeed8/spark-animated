@@ -660,14 +660,14 @@ export default function HeroSection() {
         </header>
 
         {/* HERO CENTER */}
-        <div className="flex flex-1 items-center justify-start md:justify-center px-4 sm:px-6 md:px-8 lg:px-24 py-8 sm:py-12 md:py-0">
+        <div className="flex flex-1 items-center -mt-20 md:-mt-0 justify-start md:justify-center px-4 sm:px-6 md:px-8 lg:px-24 :py-12 md:py-0">
           <div className="max-w-8xl w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Left Section - Text and CTA */}
             <div
               ref={heroTitleRef}
               className="text-center md:text-left md:-mt-20 lg:-mt-20 order-1 lg:order-1"
             >
-              <h1 className="mb-4 sm:mb-6 font-clash text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[58px] font-bold leading-tight">
+              <h1 className="mb-4 sm:mb-6 font-clash text-4xl lg:text-6xl xl:text-[58px] font-bold leading-tight">
                 <span className="block text-[#2d2d2d] md:text-[#1a1a1a]">
                   YOUR SOCIAL LIFE
                 </span>
@@ -675,16 +675,17 @@ export default function HeroSection() {
                   ALL IN ONE APP
                 </span>
               </h1>
-
-              <p className="mb-6 sm:mb-8 text-sm sm:text-base md:text-base lg:text-lg text-[#5A5A5A] max-w-md">
-                Discover events, communities, and people around you, through
-                shared experiences.
-              </p>
+              <div className="flex md:block justify-center md:justify-start items-center md:items-start">
+                <p className="mb-6 sm:mb-8 text-base lg:text-lg text-[#5A5A5A] max-w-xs md:max-w-md">
+                  Discover events, communities, and people around you, through
+                  shared experiences.
+                </p>
+              </div>
 
               {/* Buttons */}
               <div className="flex flex-row gap-3 sm:gap-4">
                 <button
-                  className="rounded-full px-4 py-2.5 sm:px-6 sm:py-3 md:px-8 md:py-3.5 text-xs sm:text-sm md:text-base font-semibold text-white transition hover:opacity-90 flex-1 sm:flex-initial"
+                  className="rounded-full px-4 py-2.5 sm:px-6 sm:py-3 md:px-8 md:py-3.5 text-sm md:text-base font-semibold text-white transition hover:opacity-90 flex-1 sm:flex-initial"
                   style={{
                     background: "linear-gradient(to bottom, #D99F4F, #BF822E)",
                   }}
@@ -693,7 +694,7 @@ export default function HeroSection() {
                 </button>
 
                 <button
-                  className="rounded-full px-4 py-2.5 sm:px-6 sm:py-3 md:px-8 md:py-3.5 text-xs sm:text-sm md:text-base font-semibold text-white transition hover:opacity-90 flex-1 sm:flex-initial"
+                  className="rounded-full px-4 py-2.5 sm:px-6 sm:py-3 md:px-8 md:py-3.5 text-sm md:text-base font-semibold text-white transition hover:opacity-90 flex-1 sm:flex-initial"
                   style={{
                     background: "linear-gradient(to bottom, #D99F4F, #BF822E)",
                   }}
