@@ -147,9 +147,7 @@ const FeaturesSection = () => {
       title: "IRL Events in Dubai",
       description: (
         <>
-          <p className="mb-3">
-            Premium, curated, real-life connections:
-          </p>
+          <p className="mb-3">Premium, curated, real-life connections:</p>
           <BulletList
             items={[
               "Founder meetups",
@@ -171,8 +169,8 @@ const FeaturesSection = () => {
       description: (
         <>
           <p className="mb-3">
-            Answer 12 questions → receive 5–12 startup ideas customized to
-            your skills, lifestyle, and budget— with full roadmaps.
+            Answer 12 questions → receive 5–12 startup ideas customized to your
+            skills, lifestyle, and budget— with full roadmaps.
           </p>
           <p className="mt-4 font-semibold text-white">
             This is your personal business blueprint
@@ -254,45 +252,44 @@ const FeaturesSection = () => {
                   isEven ? "lg:flex-row" : "lg:flex-row-reverse"
                 } items-center gap-8 lg:gap-12`}
               >
-                {/* Number Badge */}
-                <div className="absolute -top-4 left-0 lg:left-8 z-20">
-                  <div className="relative w-16 h-16 lg:w-20 lg:h-20 flex items-center justify-center">
-                    <div
-                      className="absolute inset-0 rounded-full blur-xl"
-                      style={{
-                        background:
-                          "linear-gradient(to bottom right, rgba(214, 253, 58, 0.3), rgba(214, 253, 58, 0.3))",
-                      }}
-                    ></div>
-                    <div
-                      className="relative w-full h-full rounded-full flex items-center justify-center backdrop-blur-sm"
-                      style={{
-                        background:
-                          "linear-gradient(to bottom right, rgba(214, 253, 58, 0.2), rgba(214, 253, 58, 0.2))",
-                        border: "2px solid rgba(214, 253, 58, 0.4)",
-                      }}
-                    >
-                      <span
-                        className="text-2xl lg:text-3xl font-bold text-transparent bg-clip-text"
-                        style={{
-                          background:
-                            "linear-gradient(to right, #D6FD3A, #E8FF60)",
-                          WebkitBackgroundClip: "text",
-                          WebkitTextFillColor: "transparent",
-                        }}
-                      >
-                        {String(index + 1).padStart(2, "0")}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
                 {/* Image Section - Enhanced */}
                 <div
                   className={`relative w-full lg:w-1/2 ${
                     isEven ? "lg:order-1" : "lg:order-2"
                   }`}
                 >
+                  {/* Number Badge - Fixed to Image Section */}
+                  <div className="absolute -top-4 left-0 lg:left-8 z-20">
+                    <div className="relative w-16 h-16 lg:w-20 lg:h-20 flex items-center justify-center">
+                      <div
+                        className="absolute inset-0 rounded-full blur-xl"
+                        style={{
+                          background:
+                            "linear-gradient(to bottom right, rgba(214, 253, 58, 0.3), rgba(214, 253, 58, 0.3))",
+                        }}
+                      ></div>
+                      <div
+                        className="relative w-full h-full rounded-full flex items-center justify-center backdrop-blur-sm"
+                        style={{
+                          background:
+                            "linear-gradient(to bottom right, rgba(214, 253, 58, 0.2), rgba(214, 253, 58, 0.2))",
+                          border: "2px solid rgba(214, 253, 58, 0.4)",
+                        }}
+                      >
+                        <span
+                          className="text-2xl lg:text-3xl font-bold text-transparent bg-clip-text"
+                          style={{
+                            background:
+                              "linear-gradient(to right, #D6FD3A, #E8FF60)",
+                            WebkitBackgroundClip: "text",
+                            WebkitTextFillColor: "transparent",
+                          }}
+                        >
+                          {String(index + 1).padStart(2, "0")}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
                   <div className="relative aspect-[4/3] rounded-2xl overflow-hidden group-hover:rounded-3xl transition-all duration-500">
                     {/* Animated gradient border */}
                     <div
@@ -366,7 +363,7 @@ const FeaturesSection = () => {
                       <h3 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-white mb-4 lg:mb-6 font-clash transition-all duration-500 hover-text-gradient-lime">
                         {feature.title}
                       </h3>
-                      {typeof feature.description === 'string' ? (
+                      {typeof feature.description === "string" ? (
                         <p className="text-base sm:text-lg text-gray-300 leading-relaxed lg:leading-loose">
                           {feature.description}
                         </p>
