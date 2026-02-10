@@ -22,11 +22,20 @@ const carouselImages = [
 
 export default function WhereRealConnectionsSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   useEffect(() => {
     // Auto-scroll carousel every 4 seconds for smoother professional feel
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % carouselImages.length);
+      setIsTransitioning(true);
+      // Smooth slide animation like arrow button carousel
+      setTimeout(() => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % carouselImages.length);
+        // Reset transition after animation completes
+        setTimeout(() => {
+          setIsTransitioning(false);
+        }, 1600); // Match transition duration
+      }, 100);
     }, 4000);
 
     return () => clearInterval(interval);
@@ -38,9 +47,9 @@ export default function WhereRealConnectionsSection() {
       (currentIndex - 1 + carouselImages.length) % carouselImages.length;
     const nextIndex = (currentIndex + 1) % carouselImages.length;
     return [
-      { src: carouselImages[prevIndex], isCenter: false },
-      { src: carouselImages[currentIndex], isCenter: true },
-      { src: carouselImages[nextIndex], isCenter: false },
+      { src: carouselImages[prevIndex], isCenter: false, position: "left" },
+      { src: carouselImages[currentIndex], isCenter: true, position: "center" },
+      { src: carouselImages[nextIndex], isCenter: false, position: "right" },
     ];
   };
 
@@ -52,15 +61,23 @@ export default function WhereRealConnectionsSection() {
       </h2>
 
       {/* Carousel Container */}
-      <div className="relative w-full max-w-6xl mt-20">
-        <div className="flex items-center justify-center gap-4 sm:gap-6 md:gap-8">
+      <div className="relative w-full max-w-6xl mt-20 overflow-hidden">
+        <div className="flex items-center justify-center gap-4 sm:gap-6 md:gap-8 relative">
           {getVisibleImages().map((item, index) => (
             <div
               key={`${currentIndex}-${index}`}
-              className={`flex-shrink-0 transition-all duration-[2000ms] ease-[cubic-bezier(0.4,0,0.2,1)] ${
+              className={`flex-shrink-0 transition-all duration-[1500ms] ease-[cubic-bezier(0.25,0.46,0.45,0.94)] ${
                 item.isCenter
-                  ? "w-[200px] h-[280px] sm:w-[280px] sm:h-[400px] md:w-[350px] md:h-[500px] z-10"
-                  : "w-[120px] h-[160px] sm:w-[160px] sm:h-[220px] md:w-[200px] md:h-[280px] opacity-70 z-0"
+                  ? "w-[200px] h-[280px] sm:w-[280px] sm:h-[400px] md:w-[350px] md:h-[500px] z-10 scale-100"
+                  : "w-[120px] h-[160px] sm:w-[160px] sm:h-[220px] md:w-[200px] md:h-[280px] opacity-70 z-0 scale-90"
+              } ${
+                isTransitioning
+                  ? item.position === "left"
+                    ? "-translate-x-8 opacity-30 scale-85"
+                    : item.position === "right"
+                    ? "translate-x-8 opacity-30 scale-85"
+                    : "scale-105"
+                  : ""
               }`}
             >
               <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-xl">
@@ -68,7 +85,7 @@ export default function WhereRealConnectionsSection() {
                   src={item.src}
                   alt={`Connection ${index + 1}`}
                   fill
-                  className="object-cover rounded-xl"
+                  className="object-cover rounded-xl transition-opacity duration-1000 ease-in-out"
                   priority={item.isCenter}
                 />
               </div>
