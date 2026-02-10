@@ -65,23 +65,23 @@ export default function StatisticsSection() {
   return (
     <section
       ref={sectionRef}
-      className="bg-[#73542A] py-12 sm:py-14 md:py-18 px-4 sm:px-6 md:px-0"
+      className="bg-[#73542A] py-14 md:py-18 px-4 sm:px-6 md:px-0"
     >
       <div className="mx-auto max-w-full">
         <div
           ref={statsRef}
-          className="grid gap-8 sm:gap-10 md:grid-cols-3 md:gap-6 lg:gap-8"
+          className="grid gap-20 md:grid-cols-3 md:gap-6 lg:gap-8"
         >
           {/* Stat 1: Downloads */}
           <div className="text-center stat-item">
-            <div className="mb-2 text-2xl sm:text-3xl font-clash font-medium text-white md:text-4xl lg:text-4xl">
+            <div className="mb-2 text-3xl font-clash font-medium text-white md:text-4xl lg:text-4xl">
               <span className="number-1">0+</span> Active
             </div>
-            <div className="mb-2 text-2xl sm:text-3xl font-clash font-medium text-white md:text-4xl lg:text-4xl">
+            <div className="mb-2 text-3xl font-clash font-medium text-white md:text-4xl lg:text-4xl">
               Members
             </div>
             <div className="flex justify-center">
-              <p className="text-xs  sm:text-sm font-normal md:w-[60%] leading-relaxed text-white opacity-90 md:text-[15px] px-2">
+              <p className="text-lg font-normal w-[80%] md:w-[60%] leading-relaxed text-white opacity-90 md:text-[15px] px-2">
                 Active across cities and interest-based communities.{" "}
               </p>
             </div>
@@ -89,14 +89,14 @@ export default function StatisticsSection() {
 
           {/* Stat 2: Active Communities */}
           <div className="text-center stat-item">
-            <div className="mb-2 text-2xl sm:text-3xl font-clash font-medium text-white md:text-4xl lg:text-4xl">
+            <div className="mb-2 text-3xl font-clash font-medium text-white md:text-4xl lg:text-4xl">
               <span className="number-2">0+</span>
             </div>
-            <div className="mb-2 text-2xl sm:text-3xl font-clash font-medium text-white md:text-4xl lg:text-4xl">
+            <div className="mb-2 text-3xl font-clash font-medium text-white md:text-4xl lg:text-4xl">
               communities
             </div>
             <div className="flex justify-center">
-              <p className="text-xs sm:text-sm font-normal md:w-[65%] leading-relaxed text-white opacity-90 md:text-[15px] px-2">
+              <p className="text-lg font-normal w-[80%] md:w-[65%] leading-relaxed text-white opacity-90 md:text-[15px] px-2">
                 From fitness and food to faith, family, and business.{" "}
               </p>
             </div>
@@ -104,14 +104,14 @@ export default function StatisticsSection() {
 
           {/* Stat 3: Daily Posts */}
           <div className="text-center stat-item">
-            <div className="mb-2 text-2xl sm:text-3xl font-clash font-medium text-white md:text-4xl lg:text-4xl">
+            <div className="mb-2 text-3xl font-clash font-medium text-white md:text-4xl lg:text-4xl">
               <span className="number-3">0+</span>
             </div>
-            <div className="mb-2 text-2xl sm:text-3xl font-clash font-medium text-white md:text-4xl lg:text-4xl">
+            <div className="mb-2 text-3xl font-clash font-medium text-white md:text-4xl lg:text-4xl">
               Events Hosted{" "}
             </div>
             <div className="flex justify-center">
-              <p className="text-xs sm:text-sm md:w-[65%] font-normal leading-relaxed text-white opacity-90 md:text-[15px] px-2">
+              <p className="text-lg font-normal w-[80%] md:w-[65%] leading-relaxed text-white opacity-90 md:text-[15px] px-2">
                 Events, meetups, and experiences happening every day.{" "}
               </p>
             </div>
