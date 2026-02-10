@@ -519,7 +519,7 @@ export default function HeroSection() {
           {/* Single Character - Premium Design */}
           <div className="relative">
             {/* Character Circle - Minimal & Elegant */}
-            <div className="character-circle w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-80 lg:h-80 rounded-full bg-gradient-to-br from-white/10 via-white/5 to-transparent border-2 border-white/15 flex items-center justify-center backdrop-blur-[4px] shadow-2xl overflow-hidden">
+            <div className="character-circle w-52 h-52 md:w-56 md:h-56 lg:w-80 lg:h-80 rounded-full bg-gradient-to-br from-white/10 via-white/5 to-transparent border-2 border-white/15 flex items-center justify-center backdrop-blur-[4px] shadow-2xl overflow-hidden">
               {/* Inner glow */}
               <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/10 to-transparent z-10" />
 
@@ -587,7 +587,7 @@ export default function HeroSection() {
             ref={ctaButtonRef}
             onClick={handleEnterCircle}
             data-enter-circle
-            className="group relative px-6 py-2.5 sm:px-8 sm:py-3 md:px-10 md:py-4 lg:px-16 lg:py-4 font-clash my-4 sm:my-6 md:my-8 lg:my-10 bg-white text-black rounded-full font-medium text-sm sm:text-base md:text-lg lg:text-xl tracking-wide hover:bg-white/95 transition-all duration-500 shadow-2xl hover:shadow-3xl hover:scale-105 active:scale-100 cursor-pointer z-20"
+            className="group relative px-6 py-2 lg:px-16 lg:py-4 font-clash my-8 lg:my-10 bg-white text-black rounded-full font-medium text-sm sm:text-base md:text-lg lg:text-xl tracking-wide hover:bg-white/95 transition-all duration-500 shadow-2xl hover:shadow-3xl hover:scale-105 active:scale-100 cursor-pointer z-20"
           >
             <span className="relative z-10">Enter the Circle</span>
 
@@ -598,7 +598,7 @@ export default function HeroSection() {
           {/* Instruction text */}
           <p
             ref={instructionTextRef}
-            className="mt-4 sm:mt-6 md:mt-8 lg:mt-10 text-white/50 font-clash text-xs sm:text-sm tracking-wide z-20 px-4 text-center"
+            className="mt-4 sm:mt-6 md:mt-8 lg:mt-10 text-white/50 font-clash text-sm tracking-wide z-20 px-4 text-center"
           >
             Click to begin your journey
           </p>

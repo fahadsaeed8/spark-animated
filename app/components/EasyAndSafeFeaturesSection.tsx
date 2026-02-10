@@ -107,7 +107,7 @@ export default function EasyAndSafeFeaturesSection() {
   return (
     <section
       ref={sectionRef}
-      className="py-12 px-4 sm:py-16 sm:px-6 bg-[#F4EDE2] md:py-24 md:px-12 relative overflow-hidden"
+      className="py-12 px-4 sm:py-16 -mt-1 md:-mt-0 sm:px-6 bg-[#F4EDE2] md:py-24 md:px-12 relative overflow-hidden"
     >
       {/* Background Image */}
       <div
