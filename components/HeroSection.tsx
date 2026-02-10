@@ -54,15 +54,15 @@ const HeroSection = () => {
                   color: "#D6FD3A",
                 }}
               >
-                The AUGMENT MBA{" "}
+                The AI Startup Ideas Lab{" "}
               </span>
             </div>
 
             {/* Main Headline */}
             <div className="space-y-3 sm:space-y-4">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[72px] font-bold leading-tight px-2">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[60px] font-bold leading-tight px-2">
                 <span className="text-white font-clash">
-                  Learn From the Best{" "}
+                  Turn your ideas into income. Launch your startup with AI.{" "}
                 </span>
                 <br />
                 <span
@@ -74,15 +74,15 @@ const HeroSection = () => {
                     WebkitTextFillColor: "transparent",
                   }}
                 >
-                  Entrepreneurs in the World{" "}
+                  No subscriptions. No confusion. No waiting.{" "}
                 </span>
               </h1>
             </div>
 
             {/* Description */}
             <p className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto px-4">
-              Join the best alternative to traditional MBAs taught by the
-              founders of Wikipedia, Youtube, Shazam, and more.
+              One-time payment • Lifetime access • Dubai-focused AED 2,500 only
+              — limited-time launch deal{" "}
             </p>
 
             {/* Social Proof */}
