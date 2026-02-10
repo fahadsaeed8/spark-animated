@@ -3,62 +3,50 @@
 const ComparisonSection = () => {
   const traditionalProgram = [
     {
-      text: "$100,000+ tuition, on average",
+      text: "Idea overload",
       icon: "✗",
     },
     {
-      text: "Inflexible learning ",
+      text: "No clarity on what works in UAE",
       icon: "✗",
     },
     {
-      text: "No refund policy",
+      text: "Fear of wasting money on the wrong idea",
       icon: "✗",
     },
     {
-      text: "2 year time commitment",
+      text: "Analysis paralysis",
       icon: "✗",
     },
     {
-      text: "Academic instructors ",
-      icon: "✗",
-    },
-    {
-      text: "Outdated, rigid curriculum",
-      icon: "✗",
-    },
-    {
-      text: "Tedious admission process",
+      text: "Trying alone without guidance ",
       icon: "✗",
     },
   ];
 
   const ourProgram = [
     {
-      text: "$2,450 tuition with payment plan options",
+      text: "proven ideas",
       icon: "✓",
     },
     {
-      text: "Anywhere, anytime, on any device",
+      text: "a clear plan",
       icon: "✓",
     },
     {
-      text: "15-day money-back guarantee",
+      text: "the right tools",
       icon: "✓",
     },
     {
-      text: "2-6 month commitment",
+      text: "a supportive community",
       icon: "✓",
     },
     {
-      text: "Taught by recognized founders",
+      text: "accountability",
       icon: "✓",
     },
     {
-      text: "Constantly updated curriculum",
-      icon: "✓",
-    },
-    {
-      text: "Open Education",
+      text: "AI shortcuts",
       icon: "✓",
     },
   ];
@@ -78,9 +66,9 @@ const ComparisonSection = () => {
               Our Mission
             </span>
           </div>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 font-clash text-white">
-            High-Quality Business Education
-            <br />
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-bold mb-6 font-clash text-white">
+            What if you had a roadmap to launch a profitable AI business in
+            weeks <br />
             <span
               className="bg-clip-text text-transparent"
               style={{
@@ -90,9 +78,12 @@ const ComparisonSection = () => {
                 WebkitTextFillColor: "transparent",
               }}
             >
-              at an Unbeatable Price
+              — not years?{" "}
             </span>
           </h2>
+          {/* <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-4">
+            Most people in Dubai want to start something… But they’re stuck in:
+          </p> */}
         </div>
 
         {/* Comparison Cards - Unique Split Design */}
@@ -125,8 +116,9 @@ const ComparisonSection = () => {
                 <div className="absolute bottom-10 right-10 w-32 h-32 border-2 border-gray-600 rounded-full"></div>
               </div>
 
-              <h3 className="text-2xl lg:text-3xl font-bold text-white mb-6 font-clash relative z-10">
-                A Traditional MBA
+              <h3 className="text-2xl lg:text-2xl font-medium text-center text-white mb-6 font-clash relative z-10">
+                Most people in Dubai want to start something… But they’re stuck
+                in:
               </h3>
 
               {/* Unique Divider */}
@@ -178,8 +170,9 @@ const ComparisonSection = () => {
                 ></div>
               </div>
 
-              <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-6 font-clash relative z-10">
-                The Augment MBA
+              <h3 className="text-2xl lg:text-2xl font-medium text-center text-black mb-6 font-clash relative z-10">
+                Meanwhile, the people who do launch something usually win
+                because they get:
               </h3>
 
               {/* Unique Divider with Gradient */}
@@ -262,6 +255,12 @@ const ComparisonSection = () => {
                 </button>
               </div>
             </div>
+          </div>
+          <div className="flex justify-center mt-5 items-center">
+            <p className="text-center">
+              We built AI Startup Ideas Lab to give you ALL of that — in one
+              place.
+            </p>
           </div>
         </div>
       </div>
