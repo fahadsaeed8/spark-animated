@@ -660,7 +660,7 @@ export default function HeroSection() {
         </header>
 
         {/* HERO CENTER */}
-        <div className="flex flex-1 items-center -mt-20 md:-mt-0 justify-start md:justify-center px-4 sm:px-6 md:px-8 lg:px-24 :py-12 md:py-0">
+        <div className="flex flex-1 items-center  justify-start md:justify-center px-4 sm:px-6 md:px-8 lg:px-24 py-0 md:py-0">
           <div className="max-w-8xl w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Left Section - Text and CTA */}
             <div
@@ -704,84 +704,8 @@ export default function HeroSection() {
               </div>
             </div>
 
-            {/* Mobile Phones Section - Shows below text on mobile */}
-            <div className="relative flex lg:hidden items-center justify-center h-[400px] sm:h-[450px] order-2 lg:order-2">
-              {/* Decorative Background Elements - Mobile */}
-              <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <Image
-                  src="/Group 35887.svg"
-                  alt="Decorative Circles"
-                  width={210}
-                  height={210}
-                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] opacity-30"
-                />
-                <Image
-                  src="/Ellipse 2.svg"
-                  alt="Decorative Ellipse"
-                  width={210}
-                  height={210}
-                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] h-[250px] sm:w-[350px] sm:h-[350px] opacity-100"
-                />
-              </div>
-
-              {/* Three Phones for Mobile - Compact Arrangement */}
-              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center z-20">
-                {/* Left Phone */}
-                <div
-                  ref={phoneLeftRef}
-                  className="relative z-10 w-[100px] sm:w-[120px] transform -rotate-[5deg] -ml-2 sm:-ml-3"
-                >
-                  <div className="relative p-1">
-                    <div className="aspect-[9/19] w-full overflow-hidden">
-                      <Image
-                        width={900}
-                        height={900}
-                        src="/iPhone-13-Pro-Front.svg"
-                        alt="App Screen 1"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  </div>
-                </div>
-                {/* Middle Phone */}
-                <div
-                  ref={phoneMiddleRef}
-                  className="relative z-20 w-[110px] sm:w-[130px] transform"
-                >
-                  <div className="relative p-1">
-                    <div className="aspect-[9/19] w-full overflow-hidden">
-                      <Image
-                        width={900}
-                        height={900}
-                        src="/iPhone-13-Pro-Front (1).svg"
-                        alt="App Screen 2"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  </div>
-                </div>
-                {/* Right Phone */}
-                <div
-                  ref={phoneRightRef}
-                  className="relative z-10 w-[100px] sm:w-[120px] transform rotate-[5deg] -mr-2 sm:-mr-3"
-                >
-                  <div className="relative p-1">
-                    <div className="aspect-[9/19] w-full overflow-hidden">
-                      <Image
-                        width={900}
-                        height={900}
-                        src="/iPhone-13-Pro-Front (2).svg"
-                        alt="App Screen 3"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
             {/* Right Section - Three Phones - Desktop Only */}
-            <div className="relative hidden lg:flex items-center justify-center h-[500px] md:h-[600px] order-2 lg:order-2">
+            <div className="relative flex items-center justify-center mt-10 h-[500px] md:h-[600px] order-2 lg:order-2">
               {/* Decorative Background Elements */}
               <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 {/* Circular Lines - Thin abstract circles */}
@@ -790,32 +714,32 @@ export default function HeroSection() {
                   alt="Decorative Circles"
                   width={210}
                   height={210}
-                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] md:w-[900px] md:h-[900px] opacity-30"
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  w-[900px] h-[900px] opacity-30"
                 />
                 <Image
                   src="/Ellipse 2.svg"
                   alt="Decorative Ellipse"
                   width={210}
                   height={210}
-                  className="absolute top-40 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] h-[250px] sm:w-[400px] sm:h-[400px] md:w-[800px] md:h-[800px] opacity-100"
+                  className="absolute top-40 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] opacity-100"
                 />
                 <Image
                   src="/Ellipse 2.svg"
                   alt="Decorative Ellipse"
                   width={210}
                   height={210}
-                  className="absolute top-[60%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] h-[250px] sm:w-[400px] sm:h-[400px] md:w-[800px] md:h-[800px] opacity-100"
+                  className="absolute top-[60%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] opacity-100"
                 />
               </div>
 
-              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center z-20">
+              <div className="absolute left-10 md:left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center z-20">
                 {/* Left Phone */}
                 <div
                   ref={phoneLeftRef}
                   className="relative z-10 w-24 md:w-40 lg:w-48 xl:w-56 transform -rotate-[5deg] md:-rotate-[6deg] -ml-4 md:-ml-18 -mt-8 md:mt-10"
                 >
                   <div className="relative p-1.5 md:p-2">
-                    <div className="aspect-[9/19] w-[570px] h-[570px] overflow-hidden">
+                    <div className="aspect-[9/19] w-[480px] md:w-[570px] h-[480px] md:h-[570px] overflow-hidden">
                       <Image
                         width={900}
                         height={900}
@@ -832,7 +756,7 @@ export default function HeroSection() {
                   className="relative z-10 w-24 md:w-40 lg:w-48 xl:w-56 transform -rotate-[5deg] md:-rotate-[6deg] -ml-4 md:-ml-18 -mt-8 md:-mt-12"
                 >
                   <div className="relative p-1.5 md:p-2">
-                    <div className="aspect-[9/19] w-[570px] h-[570px] overflow-hidden">
+                    <div className="aspect-[9/19] w-[480px] md:w-[570px] h-[480px] md:h-[570px] overflow-hidden">
                       <Image
                         width={900}
                         height={900}
@@ -849,7 +773,7 @@ export default function HeroSection() {
                   className="relative z-10 w-24 md:w-40 lg:w-48 xl:w-56 transform -rotate-[5deg] md:-rotate-[6deg] -ml-4 md:-ml-18 -mt-8 md:-mt-12"
                 >
                   <div className="relative p-1.5 md:p-2">
-                    <div className="aspect-[9/19] w-[570px] h-[570px] overflow-hidden">
+                    <div className="aspect-[9/19] w-[480px] md:w-[570px] h-[480px] md:h-[570px] overflow-hidden">
                       <Image
                         width={900}
                         height={900}
