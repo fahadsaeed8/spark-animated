@@ -24,17 +24,18 @@ export default function WhereRealConnectionsSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    // Auto-scroll carousel every 3 seconds
+    // Auto-scroll carousel every 4 seconds for smoother professional feel
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % carouselImages.length);
-    }, 3000);
+    }, 4000);
 
     return () => clearInterval(interval);
   }, []);
 
   // Get the 3 visible images (previous, current, next)
   const getVisibleImages = () => {
-    const prevIndex = (currentIndex - 1 + carouselImages.length) % carouselImages.length;
+    const prevIndex =
+      (currentIndex - 1 + carouselImages.length) % carouselImages.length;
     const nextIndex = (currentIndex + 1) % carouselImages.length;
     return [
       { src: carouselImages[prevIndex], isCenter: false },
@@ -46,7 +47,7 @@ export default function WhereRealConnectionsSection() {
   return (
     <section className="relative min-h-screen bg-black flex items-center justify-center px-4 sm:px-6 py-20">
       {/* Title Text */}
-      <h2 className="absolute top-4 sm:top-5 left-1/2 transform -translate-x-1/2 text-white text-xl sm:text-2xl md:text-4xl font-clash font-medium text-center z-30 px-4">
+      <h2 className="absolute top-4 sm:top-15 left-1/2 transform -translate-x-1/2 text-white text-xl sm:text-2xl md:text-4xl font-clash font-medium text-center z-30 px-4">
         Where real connections come to life
       </h2>
 
@@ -56,13 +57,13 @@ export default function WhereRealConnectionsSection() {
           {getVisibleImages().map((item, index) => (
             <div
               key={`${currentIndex}-${index}`}
-              className={`flex-shrink-0 transition-all duration-1000 ease-in-out ${
+              className={`flex-shrink-0 transition-all duration-[2000ms] ease-[cubic-bezier(0.4,0,0.2,1)] ${
                 item.isCenter
                   ? "w-[200px] h-[280px] sm:w-[280px] sm:h-[400px] md:w-[350px] md:h-[500px] z-10"
                   : "w-[120px] h-[160px] sm:w-[160px] sm:h-[220px] md:w-[200px] md:h-[280px] opacity-70 z-0"
               }`}
             >
-              <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-xl bg-blue-500">
+              <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-xl">
                 <Image
                   src={item.src}
                   alt={`Connection ${index + 1}`}
@@ -82,9 +83,7 @@ export default function WhereRealConnectionsSection() {
               key={index}
               onClick={() => setCurrentIndex(index)}
               className={`h-2 rounded-full transition-all duration-300 ${
-                index === currentIndex
-                  ? "w-8 bg-white"
-                  : "w-2 bg-white/40"
+                index === currentIndex ? "w-8 bg-white" : "w-2 bg-white/40"
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />
