@@ -88,13 +88,13 @@ export default function WhoWeAreSection() {
         </h2>
         <h3
           ref={h3Ref}
-          className="mb-4 sm:mb-6 font-clash text-2xl sm:text-3xl font-medium text-[#1B1B1B] md:text-4xl lg:text-5xl"
+          className="mb-4 sm:mb-6 font-clash text-4xl font-medium text-[#1B1B1B] md:text-4xl lg:text-5xl"
         >
           A Social Hub for Everyday Life{" "}
         </h3>
         <p
           ref={pRef}
-          className="text-sm sm:text-base leading-relaxed text-[#5A5A5A] md:text-xl px-2 sm:px-0"
+          className="text-md leading-relaxed text-[#5A5A5A] md:text-xl px-2 sm:px-0"
         >
           Circle Society helps people discover communities, attend local events,
           and build meaningful social connections. Whether you’re new to a city,
