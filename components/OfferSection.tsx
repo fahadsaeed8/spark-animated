@@ -141,7 +141,7 @@ const OfferSection = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* What You'll Get Section */}
-        <div className="mb-24 lg:mb-2">
+        {/* <div className="mb-24 lg:mb-2">
           <div className="text-center mb-12">
             <div className="inline-flex items-center justify-center mb-6">
               <span
@@ -175,9 +175,7 @@ const OfferSection = () => {
             </p>
           </div>
 
-          {/* Benefits Slider */}
           <div className="relative mb-16">
-            {/* Slider Container */}
             <div className="relative overflow-hidden rounded-2xl">
               <div
                 className="flex transition-transform duration-1000 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]"
@@ -193,7 +191,6 @@ const OfferSection = () => {
                   >
                     <div className="group relative bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-xl border border-gray-700/50 rounded-2xl p-6 transition-all hover-border-lime">
                       <div className="relative z-10">
-                        {/* Image */}
                         <div
                           className="relative aspect-square rounded-xl overflow-hidden mb-4"
                           style={{
@@ -211,7 +208,6 @@ const OfferSection = () => {
                           />
                         </div>
 
-                        {/* Content */}
                         <h3 className="text-lg font-medium text-white mb-1 font-clash">
                           {benefit.title}
                         </h3>
@@ -231,7 +227,6 @@ const OfferSection = () => {
               </div>
             </div>
 
-            {/* Navigation Arrows */}
             {benefits.length > cardsPerView && (
               <>
                 <button
@@ -275,7 +270,6 @@ const OfferSection = () => {
               </>
             )}
 
-            {/* Dots Indicator */}
             {benefits.length > cardsPerView && (
               <div className="flex justify-center gap-2 mt-8">
                 {Array.from({ length: totalSlides }).map((_, index) => (
@@ -296,7 +290,7 @@ const OfferSection = () => {
               </div>
             )}
           </div>
-        </div>
+        </div> */}
 
         {/* Main Headline */}
         <div className="">
@@ -310,16 +304,18 @@ const OfferSection = () => {
                 WebkitTextFillColor: "transparent",
               }}
             >
-              <span className="text-white">
-                {" "}
-                AI Startup Ideas Lab — Lifetime Deal (Dubai Edition)
-              </span>{" "}
+              <span className="text-white"> AI Startup Ideas Lab </span>{" "}
             </span>
           </h1>
-          <p className="text-base text-center sm:text-lg md:text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto px-4">
-            One-time payment • Lifetime access • Dubai-focused AED 2,500 only —
-            limited-time launch deal No subscriptions. No upsells needed. Pay
-            once. Build forever.
+
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-center text-gray-200 mt-4 px-2 font-clash">
+            Lifetime Deal (Dubai Edition){" "}
+          </h2>
+
+          <p className="text-base text-center sm:text-lg md:text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto px-4 mt-6">
+            A complete ecosystem designed for ambitious people who want to start
+            a business FAST. No subscriptions. No upsells needed. Pay once.
+            Build forever.
           </p>
         </div>
 
