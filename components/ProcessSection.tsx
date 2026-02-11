@@ -295,7 +295,7 @@ const ProcessSection = () => {
           ))}
         </div>
 
-        <div className="relative z-10 mt-8 flex justify-center">
+        {/* <div className="relative z-10 mt-8 flex justify-center">
           <button
             className="group relative w-full md:w-[30%] text-black font-bold py-4 px-8 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02]"
             style={{
@@ -303,7 +303,6 @@ const ProcessSection = () => {
                 "linear-gradient(to right, #D6FD3A, #E8FF60, #D6FD3A)",
             }}
           >
-            {/* Shine Effect */}
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
             <span className="relative z-10 flex items-center justify-center gap-2">
               Enroll now{" "}
@@ -322,7 +321,7 @@ const ProcessSection = () => {
               </svg>
             </span>
           </button>
-        </div>
+        </div> */}
       </div>
     </section>
   );

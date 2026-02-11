@@ -312,7 +312,7 @@ const OfferSection = () => {
             Lifetime Deal (Dubai Edition){" "}
           </h2>
 
-          <p className="text-base text-center sm:text-lg md:text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto px-4 mt-6">
+          <p className="text-base text-center sm:text-lg md:text-lg text-gray-300 leading-relaxed max-w-2xl mx-auto px-4 mt-6">
             A complete ecosystem designed for ambitious people who want to start
             a business FAST. No subscriptions. No upsells needed. Pay once.
             Build forever.

@@ -274,13 +274,12 @@ const CommunitySection = () => {
           </div>
 
           {/* Community Features - Two Cards */}
-          <div className="grid md:grid-cols-2 gap-8 mb-20">
+          {/* <div className="grid md:grid-cols-2 gap-8 mb-20">
             {communityFeatures.map((feature, index) => (
               <div
                 key={index}
                 className="group relative bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-8 border border-gray-700/50 transition-all duration-300 overflow-hidden hover-border-lime"
               >
-                {/* Device Mockup Background */}
                 <div className="absolute inset-0 opacity-10">
                   <div
                     className="absolute top-4 left-4 w-32 h-24 rounded-lg"
@@ -309,7 +308,6 @@ const CommunitySection = () => {
                 </div>
 
                 <div className="relative z-10">
-                  {/* Icon */}
                   <div
                     className="w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
                     style={{
@@ -330,11 +328,10 @@ const CommunitySection = () => {
                   </p>
                 </div>
 
-                {/* Hover Glow */}
                 <div className="absolute inset-0 transition-opacity pointer-events-none hover-bg-lime-glow"></div>
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
 
         {/* Private Platform Connection Section */}

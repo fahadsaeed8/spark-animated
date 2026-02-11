@@ -18,7 +18,7 @@ export default function Home() {
       <ComparisonSection />
       <ProcessSection />
       <CommunitySection />
-      <TestimonialsSection />
+      {/* <TestimonialsSection /> */}
       <FAQSection />
       <CtaSection />
       <FooterSection />

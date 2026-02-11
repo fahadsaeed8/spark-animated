@@ -47,20 +47,20 @@ const CtaSection = () => {
 
         {/* Text Content */}
         <div className="relative z-10 text-center mb-8">
-          <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 font-clash">
+          <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 font-clash">
             Pay once. Get everything.
-            <span
-              className="bg-clip-text text-transparent"
-              style={{
-                background:
-                  "linear-gradient(to right, #D6FD3A, #E8FF60, #D6FD3A)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-              }}
-            >
-              Build forever.{" "}
-            </span>{" "}
           </h3>
+          <h4
+            className="text-2xl sm:text-3xl lg:text-5xl font-semibold mb-4 font-clash"
+            style={{
+              background:
+                "linear-gradient(to right, #D6FD3A, #E8FF60, #D6FD3A)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+          >
+            Build forever.
+          </h4>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             AED 2,500 — Limited Spots.{" "}
           </p>
