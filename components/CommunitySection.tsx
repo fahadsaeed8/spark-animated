@@ -118,7 +118,7 @@ const CommunitySection = () => {
         ></div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+      <div className="relative z-10 max-w-5xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Top Section - Community Header */}
         <div className="text-center mb-20">
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 font-clash">
@@ -165,7 +165,7 @@ const CommunitySection = () => {
             <div className="relative z-10">
               {/* Header */}
               <div className="text-center mb-12">
-                <h3 className="text-2xl lg:text-3xl font-bold text-white mb-2 font-clash">
+                <h3 className="text-2xl lg:text-4xl font-bold text-white mb-2 font-clash">
                   Pay once: AED 2,500{" "}
                 </h3>
                 <p className="text-gray-400 text-sm">
@@ -210,37 +210,15 @@ const CommunitySection = () => {
                         <p className="text-xs">
                           This is the highest value we will ever offer.
                         </p>
+
+                        {/* CTA Button */}
                         <h4
-                          className="text-base lg:text-lg font-bold text-white mt-4 mb-2 font-clash"
+                          className="text-base lg:text-lg text-center font-bold text-white mt-4 mb-0 font-clash"
                           style={{ color: "#D6FD3A" }}
                         >
                           The price will rise to AED 5,000+ once we hit 500
                           members.
                         </h4>
-
-                        {/* CTA Button */}
-                        <button
-                          className="w-full text-black font-bold py-3.5 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-[1.02] flex items-center justify-center gap-2 group/btn btn-gradient-lime"
-                          style={{
-                            boxShadow:
-                              "0 10px 15px -3px rgba(214, 253, 58, 0.5)",
-                          }}
-                        >
-                          <span>Enroll Now</span>
-                          <svg
-                            className="w-5 h-5 transform group-hover/btn:translate-x-1 transition-transform"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M13 7l5 5m0 0l-5 5m5-5H6"
-                            />
-                          </svg>
-                        </button>
 
                         {/* Hover Glow Effect */}
                         <div className="absolute inset-0 rounded-2xl transition-opacity pointer-events-none hover-bg-lime-glow"></div>
