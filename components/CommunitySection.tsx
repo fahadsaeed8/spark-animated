@@ -196,52 +196,13 @@ const CommunitySection = () => {
                 </p>
               </div>
 
-              {/* Pricing Options - Horizontal Layout */}
-              <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto">
-                {communityStats.slice(0, 2).map((stat, index) => {
-                  const priceMatch = stat.value.match(/(\d+)-USD/);
-                  const price = priceMatch ? priceMatch[1] : "0";
-                  const isPaymentPlan = index === 0;
-                  const isOneTime = index === 1;
-                  const isOriginal = false;
-
+              {/* Pricing Options - Single Card */}
+              <div className="max-w-md mx-auto">
+                {(() => {
                   return (
-                    <div key={index} className="group relative">
+                    <div className="group relative">
                       {/* Pricing Box */}
                       <div className="relative bg-gradient-to-br from-gray-800/80 to-gray-900/80 backdrop-blur-sm rounded-2xl p-6 lg:p-8 border border-gray-700/50 transition-all duration-500 hover-border-lime">
-                        {/* Pricing Display */}
-                        <div className="mb-6">
-                          {isOriginal && (
-                            <div className="text-sm text-red-400 line-through mb-2 font-medium">
-                              $2,450
-                            </div>
-                          )}
-                          <div className="flex items-baseline gap-2 flex-wrap">
-                            <span
-                              className="text-4xl lg:text-5xl font-bold font-clash"
-                              style={{ color: "#D6FD3A" }}
-                            >
-                              ${price}
-                            </span>
-                            {isPaymentPlan && (
-                              <span className="text-base text-gray-400 font-medium">
-                                x 5 months
-                              </span>
-                            )}
-                            {isOneTime && (
-                              <span
-                                className="text-sm font-semibold px-2 py-1 rounded"
-                                style={{
-                                  color: "#D6FD3A",
-                                  background: "rgba(214, 253, 58, 0.1)",
-                                }}
-                              >
-                                One-time
-                              </span>
-                            )}
-                          </div>
-                        </div>
-
                         {/* Features - Compact List */}
                         <ul className="space-y-2.5 mb-6">
                           {[
@@ -271,10 +232,10 @@ const CommunitySection = () => {
                         <p className="text-xs">
                           This is the highest value we will ever offer.
                         </p>
-                        <p className="text-xs">
+                        <h4 className="text-base lg:text-lg font-bold text-white mt-4 mb-2 font-clash" style={{ color: "#D6FD3A" }}>
                           The price will rise to AED 5,000+ once we hit 500
                           members.
-                        </p>
+                        </h4>
 
                         {/* CTA Button */}
                         <button
@@ -305,7 +266,7 @@ const CommunitySection = () => {
                       </div>
                     </div>
                   );
-                })}
+                })()}
               </div>
             </div>
           </div>

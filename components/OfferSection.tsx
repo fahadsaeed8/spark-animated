@@ -144,12 +144,28 @@ const OfferSection = () => {
         <div className="mb-24 lg:mb-2">
           <div className="text-center mb-12">
             <div className="inline-flex items-center justify-center mb-6">
-              <span className="px-4 py-1.5 rounded-full text-sm font-medium backdrop-blur-sm" style={{background: 'linear-gradient(to right, rgba(214, 253, 58, 0.2), rgba(214, 253, 58, 0.2))', border: '1px solid rgba(214, 253, 58, 0.3)', color: '#D6FD3A'}}>
+              <span
+                className="px-4 py-1.5 rounded-full text-sm font-medium backdrop-blur-sm"
+                style={{
+                  background:
+                    "linear-gradient(to right, rgba(214, 253, 58, 0.2), rgba(214, 253, 58, 0.2))",
+                  border: "1px solid rgba(214, 253, 58, 0.3)",
+                  color: "#D6FD3A",
+                }}
+              >
                 The Faculty{" "}
               </span>
             </div>
             <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 font-clash">
-              <span className="bg-clip-text text-transparent" style={{background: 'linear-gradient(to right, #D6FD3A, #E8FF60, #D6FD3A)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>
+              <span
+                className="bg-clip-text text-transparent"
+                style={{
+                  background:
+                    "linear-gradient(to right, #D6FD3A, #E8FF60, #D6FD3A)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                }}
+              >
                 Meet Your Instructors{" "}
               </span>
             </h2>
@@ -178,7 +194,14 @@ const OfferSection = () => {
                     <div className="group relative bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-xl border border-gray-700/50 rounded-2xl p-6 transition-all hover-border-lime">
                       <div className="relative z-10">
                         {/* Image */}
-                        <div className="relative aspect-square rounded-xl overflow-hidden mb-4" style={{background: 'linear-gradient(to bottom right, rgba(214, 253, 58, 0.2), rgba(214, 253, 58, 0.2))', border: '1px solid rgba(214, 253, 58, 0.3)'}}>
+                        <div
+                          className="relative aspect-square rounded-xl overflow-hidden mb-4"
+                          style={{
+                            background:
+                              "linear-gradient(to bottom right, rgba(214, 253, 58, 0.2), rgba(214, 253, 58, 0.2))",
+                            border: "1px solid rgba(214, 253, 58, 0.3)",
+                          }}
+                        >
                           <Image
                             src={benefit.image}
                             alt={benefit.title}
@@ -195,7 +218,10 @@ const OfferSection = () => {
                         <p className="text-sm text-gray-400 mb-2">
                           {benefit.subtitle}
                         </p>
-                        <p className="text-xs font-semibold" style={{color: '#D6FD3A'}}>
+                        <p
+                          className="text-xs font-semibold"
+                          style={{ color: "#D6FD3A" }}
+                        >
                           {benefit.value}
                         </p>
                       </div>
@@ -261,7 +287,9 @@ const OfferSection = () => {
                         ? "w-8"
                         : "bg-gray-600 hover:bg-gray-500 w-2"
                     }`}
-                    style={currentSlide === index ? {background: '#D6FD3A'} : {}}
+                    style={
+                      currentSlide === index ? { background: "#D6FD3A" } : {}
+                    }
                     aria-label={`Go to slide ${index + 1}`}
                   />
                 ))}
@@ -271,17 +299,35 @@ const OfferSection = () => {
         </div>
 
         {/* Main Headline */}
-        <div className="flex justify-center items-center">
+        <div className="">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[72px] font-bold leading-tight px-2 text-center">
-            <span className="bg-clip-text text-transparent font-clash" style={{background: 'linear-gradient(to right, #D6FD3A, #E8FF60, #D6FD3A)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>
-              <span className="text-white"> Entrepreneurs</span> in
-              theWorld{" "}
+            <span
+              className="bg-clip-text text-transparent font-clash"
+              style={{
+                background:
+                  "linear-gradient(to right, #D6FD3A, #E8FF60, #D6FD3A)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
+              <span className="text-white">
+                {" "}
+                AI Startup Ideas Lab — Lifetime Deal (Dubai Edition)
+              </span>{" "}
             </span>
           </h1>
+          <p className="text-base text-center sm:text-lg md:text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto px-4">
+            One-time payment • Lifetime access • Dubai-focused AED 2,500 only —
+            limited-time launch deal No subscriptions. No upsells needed. Pay
+            once. Build forever.
+          </p>
         </div>
 
         {/* Video Section */}
-        <div id="video-section" className="mt-16 sm:mt-20 lg:mt-14 flex flex-col items-center justify-center">
+        <div
+          id="video-section"
+          className="mt-16 sm:mt-20 lg:mt-14 flex flex-col items-center justify-center"
+        >
           <div className="w-full max-w-5xl mx-auto px-4 sm:px-6">
             {/* Desktop Video */}
             <div className="hidden md:block relative group">
