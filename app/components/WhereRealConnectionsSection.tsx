@@ -26,6 +26,7 @@ export default function WhereRealConnectionsSection() {
   const [dragStart, setDragStart] = useState(0);
   const [dragOffset, setDragOffset] = useState(0);
   const [autoPlayEnabled, setAutoPlayEnabled] = useState(true);
+  const [hasMoved, setHasMoved] = useState(false);
   const autoPlayTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   // Swipe/Drag handlers
@@ -33,6 +34,7 @@ export default function WhereRealConnectionsSection() {
     setIsDragging(true);
     setDragStart(clientX);
     setDragOffset(0);
+    setHasMoved(false);
     setAutoPlayEnabled(false);
     if (autoPlayTimeoutRef.current) {
       clearInterval(autoPlayTimeoutRef.current);
@@ -43,6 +45,9 @@ export default function WhereRealConnectionsSection() {
   const handleMove = (clientX: number) => {
     if (!isDragging) return;
     const offset = clientX - dragStart;
+    if (Math.abs(offset) > 5) {
+      setHasMoved(true);
+    }
     const maxOffset = 300;
     const dampedOffset = Math.max(-maxOffset, Math.min(maxOffset, offset));
     setDragOffset(dampedOffset);
@@ -69,11 +74,43 @@ export default function WhereRealConnectionsSection() {
 
     setDragOffset(0);
     setIsDragging(false);
+    setHasMoved(false);
 
     // Resume auto-play after 2 seconds
     setTimeout(() => {
       setAutoPlayEnabled(true);
-    }, 1400);
+    }, 1500);
+  };
+
+  // Handle click on side images to bring them to center
+  const handleImageClick = (position: string) => {
+    // Only handle clicks on side images, not center
+    if (position === "left") {
+      setCurrentIndex(
+        (prevIndex) =>
+          (prevIndex - 1 + carouselImages.length) % carouselImages.length,
+      );
+      setAutoPlayEnabled(false);
+      if (autoPlayTimeoutRef.current) {
+        clearInterval(autoPlayTimeoutRef.current);
+        autoPlayTimeoutRef.current = null;
+      }
+      // Resume auto-play after 2 seconds
+      setTimeout(() => {
+        setAutoPlayEnabled(true);
+      }, 2000);
+    } else if (position === "right") {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % carouselImages.length);
+      setAutoPlayEnabled(false);
+      if (autoPlayTimeoutRef.current) {
+        clearInterval(autoPlayTimeoutRef.current);
+        autoPlayTimeoutRef.current = null;
+      }
+      // Resume auto-play after 2 seconds
+      setTimeout(() => {
+        setAutoPlayEnabled(true);
+      }, 2000);
+    }
   };
 
   // Touch events
@@ -190,12 +227,18 @@ export default function WhereRealConnectionsSection() {
                 className={`flex-shrink-0 transition-all duration-300 ease-out ${
                   item.isCenter
                     ? "w-[200px] h-[280px] sm:w-[280px] sm:h-[400px] md:w-[350px] md:h-[500px] z-10"
-                    : "w-[120px] h-[160px] sm:w-[160px] sm:h-[220px] md:w-[200px] md:h-[280px] opacity-70 z-0"
+                    : "w-[120px] h-[160px] sm:w-[160px] sm:h-[220px] md:w-[200px] md:h-[280px] opacity-70 z-0 cursor-pointer"
                 }`}
                 style={{
                   transform: isDragging
                     ? `translateX(${transformX}px)`
                     : undefined,
+                }}
+                onClick={(e) => {
+                  // Only handle click if it's not a drag (no movement detected)
+                  if (!hasMoved && Math.abs(dragOffset) < 10) {
+                    handleImageClick(item.position);
+                  }
                 }}
               >
                 <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-xl">
