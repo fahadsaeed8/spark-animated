@@ -58,17 +58,16 @@ const ComparisonSection = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Mission Statement Header */}
         <div className="text-center mb-16">
-          <div className="inline-block mb-4">
+          {/* <div className="inline-block mb-4">
             <span
               className="text-sm uppercase tracking-wider font-semibold"
               style={{ color: "#D6FD3A" }}
             >
               Our Mission
             </span>
-          </div>
+          </div> */}
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-bold mb-6 font-clash text-white">
-            What if you had a roadmap to launch a profitable AI business in
-            weeks <br />
+            What if you had a roadmap to <br />
             <span
               className="bg-clip-text text-transparent"
               style={{
@@ -78,9 +77,13 @@ const ComparisonSection = () => {
                 WebkitTextFillColor: "transparent",
               }}
             >
-              — not years?{" "}
+              {" "}
+              launch a profitable
             </span>
           </h2>
+          <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-center text-gray-200 mt-4 px-2 font-clash">
+            AI business in weeks — not years?{" "}
+          </h3>
           {/* <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-4">
             Most people in Dubai want to start something… But they’re stuck in:
           </p> */}
@@ -226,7 +229,7 @@ const ComparisonSection = () => {
               </ul>
 
               {/* Enhanced CTA Button */}
-              <div className="relative z-10 mt-8">
+              {/* <div className="relative z-10 mt-8">
                 <button
                   className="group relative w-full text-black font-bold py-4 px-8 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02]"
                   style={{
@@ -234,7 +237,6 @@ const ComparisonSection = () => {
                       "linear-gradient(to right, #D6FD3A, #E8FF60, #D6FD3A)",
                   }}
                 >
-                  {/* Shine Effect */}
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                   <span className="relative z-10 flex items-center justify-center gap-2">
                     Enroll now{" "}
@@ -253,7 +255,7 @@ const ComparisonSection = () => {
                     </svg>
                   </span>
                 </button>
-              </div>
+              </div> */}
             </div>
           </div>
           <div className="flex justify-center mt-3 items-center">
