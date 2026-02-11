@@ -144,12 +144,28 @@ const OfferSection = () => {
         <div className="mb-24 lg:mb-2">
           <div className="text-center mb-12">
             <div className="inline-flex items-center justify-center mb-6">
-              <span className="px-4 py-1.5 bg-gradient-to-r from-orange-500/20 to-amber-500/20 border border-orange-500/30 rounded-full text-sm font-medium text-orange-300 backdrop-blur-sm">
+              <span
+                className="px-4 py-1.5 rounded-full text-sm font-medium backdrop-blur-sm"
+                style={{
+                  background:
+                    "linear-gradient(to right, rgba(214, 253, 58, 0.2), rgba(214, 253, 58, 0.2))",
+                  border: "1px solid rgba(214, 253, 58, 0.3)",
+                  color: "#D6FD3A",
+                }}
+              >
                 The Faculty{" "}
               </span>
             </div>
             <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 font-clash">
-              <span className="bg-gradient-to-r from-orange-400 via-amber-400 to-yellow-400 bg-clip-text text-transparent">
+              <span
+                className="bg-clip-text text-transparent"
+                style={{
+                  background:
+                    "linear-gradient(to right, #D6FD3A, #E8FF60, #D6FD3A)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                }}
+              >
                 Meet Your Instructors{" "}
               </span>
             </h2>
@@ -175,10 +191,17 @@ const OfferSection = () => {
                     key={index}
                     className="min-w-full sm:min-w-[calc(50%-12px)] lg:min-w-[calc(25%-18px)] px-3"
                   >
-                    <div className="group relative bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-xl border border-gray-700/50 rounded-2xl p-6 hover:border-orange-500/50 transition-all">
+                    <div className="group relative bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-xl border border-gray-700/50 rounded-2xl p-6 transition-all hover-border-lime">
                       <div className="relative z-10">
                         {/* Image */}
-                        <div className="relative aspect-square rounded-xl overflow-hidden bg-gradient-to-br from-orange-400/20 to-amber-500/20 border border-orange-500/30 mb-4">
+                        <div
+                          className="relative aspect-square rounded-xl overflow-hidden mb-4"
+                          style={{
+                            background:
+                              "linear-gradient(to bottom right, rgba(214, 253, 58, 0.2), rgba(214, 253, 58, 0.2))",
+                            border: "1px solid rgba(214, 253, 58, 0.3)",
+                          }}
+                        >
                           <Image
                             src={benefit.image}
                             alt={benefit.title}
@@ -195,7 +218,10 @@ const OfferSection = () => {
                         <p className="text-sm text-gray-400 mb-2">
                           {benefit.subtitle}
                         </p>
-                        <p className="text-xs text-orange-400 font-semibold">
+                        <p
+                          className="text-xs font-semibold"
+                          style={{ color: "#D6FD3A" }}
+                        >
                           {benefit.value}
                         </p>
                       </div>
@@ -210,7 +236,7 @@ const OfferSection = () => {
               <>
                 <button
                   onClick={prevSlide}
-                  className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 lg:-translate-x-12 w-12 h-12 rounded-full bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-xl border border-gray-700/50 flex items-center justify-center hover:border-orange-500/50 hover:scale-110 transition-all duration-300 z-20 shadow-lg"
+                  className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 lg:-translate-x-12 w-12 h-12 rounded-full bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-xl border border-gray-700/50 flex items-center justify-center hover:scale-110 transition-all duration-300 z-20 shadow-lg hover-border-lime"
                   aria-label="Previous slide"
                 >
                   <svg
@@ -229,7 +255,7 @@ const OfferSection = () => {
                 </button>
                 <button
                   onClick={nextSlide}
-                  className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 lg:translate-x-12 w-12 h-12 rounded-full bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-xl border border-gray-700/50 flex items-center justify-center hover:border-orange-500/50 hover:scale-110 transition-all duration-300 z-20 shadow-lg"
+                  className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 lg:translate-x-12 w-12 h-12 rounded-full bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-xl border border-gray-700/50 flex items-center justify-center hover:scale-110 transition-all duration-300 z-20 shadow-lg hover-border-lime"
                   aria-label="Next slide"
                 >
                   <svg
@@ -258,9 +284,12 @@ const OfferSection = () => {
                     onClick={() => setCurrentSlide(index)}
                     className={`h-2 rounded-full transition-all duration-500 ease-in-out ${
                       currentSlide === index
-                        ? "bg-orange-500 w-8"
+                        ? "w-8"
                         : "bg-gray-600 hover:bg-gray-500 w-2"
                     }`}
+                    style={
+                      currentSlide === index ? { background: "#D6FD3A" } : {}
+                    }
                     aria-label={`Go to slide ${index + 1}`}
                   />
                 ))}
@@ -270,17 +299,35 @@ const OfferSection = () => {
         </div>
 
         {/* Main Headline */}
-        <div className="flex justify-center items-center">
+        <div className="">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[72px] font-bold leading-tight px-2 text-center">
-            <span className="bg-gradient-to-r from-orange-400 via-amber-400 to-yellow-400 bg-clip-text text-transparent font-clash">
-              <span className="text-white"> Entrepreneurs</span> in
-              theWorld{" "}
+            <span
+              className="bg-clip-text text-transparent font-clash"
+              style={{
+                background:
+                  "linear-gradient(to right, #D6FD3A, #E8FF60, #D6FD3A)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
+              <span className="text-white">
+                {" "}
+                AI Startup Ideas Lab — Lifetime Deal (Dubai Edition)
+              </span>{" "}
             </span>
           </h1>
+          <p className="text-base text-center sm:text-lg md:text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto px-4">
+            One-time payment • Lifetime access • Dubai-focused AED 2,500 only —
+            limited-time launch deal No subscriptions. No upsells needed. Pay
+            once. Build forever.
+          </p>
         </div>
 
         {/* Video Section */}
-        <div id="video-section" className="mt-16 sm:mt-20 lg:mt-14 flex flex-col items-center justify-center">
+        <div
+          id="video-section"
+          className="mt-16 sm:mt-20 lg:mt-14 flex flex-col items-center justify-center"
+        >
           <div className="w-full max-w-5xl mx-auto px-4 sm:px-6">
             {/* Desktop Video */}
             <div className="hidden md:block relative group">

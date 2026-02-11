@@ -7,39 +7,34 @@ const FAQSection = () => {
 
   const faqs = [
     {
-      question: "WILL THIS ACTUALLY HELP ME GROW MY BUSINESS?",
+      question: "Is this beginner-friendly?",
       answer:
-        "Absolutely! Our program is designed by successful entrepreneurs who have built and scaled multiple businesses. You'll get proven frameworks, real-world strategies, and direct access to mentors who've been where you are. Over 5,000+ entrepreneurs have transformed their businesses using our methods.",
+        "Yes. Designed for people starting from zero.",
     },
     {
-      question: "AN MBA FOR $30. WHAT'S THE CATCH?",
+      question: "Do I need to be technical?",
       answer:
-        "No catch! We believe high-quality business education should be accessible to everyone. Our $30 challenge includes $30 in ad credits, so you essentially get the program for free. We make our money when you succeed—through our platform and community, not through expensive tuition fees.",
+        "No. Everything includes no-code & AI-based steps.",
     },
     {
-      question: "I DON'T HAVE TIME FOR THIS.",
+      question: "Is this only for Dubai?",
       answer:
-        "We understand—entrepreneurs are busy! That's why our program is designed to fit into your schedule. With flexible learning, on-demand content, and bite-sized daily actions, you can learn at your own pace. Most students spend just 30-60 minutes per day, and you can access everything on any device, anywhere.",
+        "It's optimized for Dubai & GCC, but ideas work globally.",
     },
     {
-      question: "IS THERE A REFUND POLICY?",
+      question: "Will I get future updates?",
       answer:
-        "Yes! We offer a 15-day money-back guarantee. If you're not completely satisfied with the program within the first 15 days, we'll refund your full payment—no questions asked. We're confident in the value we provide, and we want you to feel the same.",
+        "Yes — every update for life.",
     },
     {
-      question: "IS THIS JUST VIDEO LESSONS?",
+      question: "Are IRL events included?",
       answer:
-        "Not at all! While we do have comprehensive video content, our program includes live sessions with founders, interactive workshops, community access, one-on-one mentorship opportunities, practical templates, and real-time feedback. It's a complete learning ecosystem, not just passive video watching.",
+        "Many are free, some premium events are discounted.",
     },
     {
-      question: "CAN I EXPENSE THIS THROUGH MY COMPANY?",
+      question: "Who is this for?",
       answer:
-        "Yes, many of our students expense the program through their companies as professional development or business training. The program qualifies as business education and skill development. We can provide invoices and receipts for your accounting needs.",
-    },
-    {
-      question: "WHAT IF I ALREADY HAVE EXPERIENCE IN BUSINESS?",
-      answer:
-        "Perfect! Our program is designed for entrepreneurs at all levels. If you're experienced, you'll benefit from advanced strategies, new frameworks, networking opportunities, and fresh perspectives from other successful founders. Many experienced entrepreneurs use our program to scale faster and avoid common pitfalls.",
+        "Ambitious individuals who want to build, learn, connect, and launch businesses with AI.",
     },
   ];
 
@@ -68,7 +63,7 @@ const FAQSection = () => {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="group bg-white rounded-xl overflow-hidden border-2 border-transparent hover:border-orange-500/50 transition-all duration-300 cursor-pointer"
+              className="group bg-white rounded-xl overflow-hidden border-2 border-transparent transition-all duration-300 cursor-pointer hover-border-lime"
               onClick={() => toggleFAQ(index)}
             >
               {/* Question Row */}
@@ -77,7 +72,7 @@ const FAQSection = () => {
                   {faq.question}
                 </h3>
                 <div className="flex-shrink-0">
-                  <div className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center transition-transform group-hover:bg-orange-500">
+                  <div className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center transition-transform hover-bg-lime-button">
                     <svg
                       className={`w-5 h-5 text-white transition-transform duration-300 ${
                         expandedIndex === index ? "rotate-180" : ""

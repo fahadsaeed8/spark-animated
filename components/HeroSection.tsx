@@ -4,12 +4,36 @@ import Image from "next/image";
 
 const HeroSection = () => {
   return (
-    <section className="relative w-full md:min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-orange-500/10 to-yellow-500/10 ">
+    <section
+      className="relative w-full md:min-h-screen flex items-center justify-center overflow-hidden"
+      style={{
+        background:
+          "linear-gradient(to bottom right, rgba(214, 253, 58, 0.1), rgba(214, 253, 58, 0.1))",
+      }}
+    >
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-br from-orange-500/10 to-yellow-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-br from-orange-500/10 to-yellow-500/10  rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-br from-orange-500/10 to-yellow-500/10  rounded-full blur-3xl"></div>
+        <div
+          className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-3xl"
+          style={{
+            background:
+              "linear-gradient(to bottom right, rgba(214, 253, 58, 0.1), rgba(214, 253, 58, 0.1))",
+          }}
+        ></div>
+        <div
+          className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full blur-3xl"
+          style={{
+            background:
+              "linear-gradient(to bottom right, rgba(214, 253, 58, 0.1), rgba(214, 253, 58, 0.1))",
+          }}
+        ></div>
+        <div
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-3xl"
+          style={{
+            background:
+              "linear-gradient(to bottom right, rgba(214, 253, 58, 0.1), rgba(214, 253, 58, 0.1))",
+          }}
+        ></div>
       </div>
 
       {/* Grid pattern overlay */}
@@ -21,28 +45,44 @@ const HeroSection = () => {
           <div className="text-center space-y-6 sm:space-y-8 w-full max-w-4xl">
             {/* Badge */}
             <div className="inline-flex items-center justify-center">
-              <span className="px-4 py-1.5 bg-gradient-to-r from-orange-500/20 to-amber-500/20 border border-orange-500/30 rounded-full text-sm font-medium text-orange-300 backdrop-blur-sm">
-                The AUGMENT MBA{" "}
+              <span
+                className="px-4 py-1.5 rounded-full text-sm font-medium backdrop-blur-sm"
+                style={{
+                  background:
+                    "linear-gradient(to right, rgba(214, 253, 58, 0.2), rgba(214, 253, 58, 0.2))",
+                  border: "1px solid rgba(214, 253, 58, 0.3)",
+                  color: "#D6FD3A",
+                }}
+              >
+                The AI Startup Ideas Lab{" "}
               </span>
             </div>
 
             {/* Main Headline */}
             <div className="space-y-3 sm:space-y-4">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[72px] font-bold leading-tight px-2">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[60px] font-bold leading-tight px-2">
                 <span className="text-white font-clash">
-                  Learn From the Best{" "}
+                  Turn your ideas into income. Launch your startup with AI.{" "}
                 </span>
                 <br />
-                <span className="bg-gradient-to-r from-orange-400 via-amber-400 to-yellow-400 bg-clip-text text-transparent font-clash">
-                  Entrepreneurs in the World{" "}
+                <span
+                  className="bg-clip-text text-transparent font-clash"
+                  style={{
+                    background:
+                      "linear-gradient(to right, #D6FD3A, #E8FF60, #D6FD3A)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                  }}
+                >
+                  No subscriptions. No confusion. No waiting.{" "}
                 </span>
               </h1>
             </div>
 
             {/* Description */}
             <p className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto px-4">
-              Join the best alternative to traditional MBAs taught by the
-              founders of Wikipedia, Youtube, Shazam, and more.
+              One-time payment • Lifetime access • Dubai-focused AED 2,500 only
+              — limited-time launch deal{" "}
             </p>
 
             {/* Social Proof */}
@@ -68,7 +108,8 @@ const HeroSection = () => {
                 {[1, 2, 3, 4, 5].map((i) => (
                   <svg
                     key={i}
-                    className="w-5 h-5 text-amber-400"
+                    className="w-5 h-5"
+                    style={{ color: "#D6FD3A" }}
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
@@ -81,15 +122,28 @@ const HeroSection = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 pt-4 sm:pt-6 px-4">
-              <button className="group relative px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-orange-500 to-amber-500 text-white font-semibold rounded-lg overflow-hidden w-full sm:w-auto min-w-[200px] text-sm sm:text-base">
+              <button
+                className="group relative px-6 sm:px-8 py-3 sm:py-4 text-black font-semibold rounded-lg overflow-hidden w-full sm:w-auto min-w-[200px] text-sm sm:text-base transition-opacity"
+                style={{
+                  background: "linear-gradient(to right, #D6FD3A, #B8E030)",
+                }}
+              >
                 <span className="relative z-10">Enroll Now & Get 50% Off</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-amber-600 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity"
+                  style={{
+                    background: "linear-gradient(to right, #B8E030, #A0C820)",
+                  }}
+                ></div>
               </button>
-              <button 
+              <button
                 onClick={() => {
-                  const videoSection = document.getElementById('video-section');
+                  const videoSection = document.getElementById("video-section");
                   if (videoSection) {
-                    videoSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    videoSection.scrollIntoView({
+                      behavior: "smooth",
+                      block: "start",
+                    });
                   }
                 }}
                 className="px-6 sm:px-8 py-3 sm:py-4 border-2 border-gray-600 text-white font-semibold rounded-lg hover:border-gray-400 transition-colors w-full sm:w-auto min-w-[200px] text-sm sm:text-base"

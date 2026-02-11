@@ -1,3 +1,5 @@
+"use client";
+
 const CtaSection = () => {
   return (
     <div className="mb-10 p-5 md:mb-20">
@@ -5,21 +7,36 @@ const CtaSection = () => {
       <div className="relative bg-white rounded-3xl p-12 lg:p-16 overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-64 h-64 bg-orange-400 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 right-0 w-64 h-64 bg-amber-400 rounded-full blur-3xl"></div>
+          <div
+            className="absolute top-0 left-0 w-64 h-64 rounded-full blur-3xl"
+            style={{ background: "#D6FD3A" }}
+          ></div>
+          <div
+            className="absolute bottom-0 right-0 w-64 h-64 rounded-full blur-3xl"
+            style={{ background: "#D6FD3A" }}
+          ></div>
         </div>
 
         {/* Icon */}
         <div className="relative z-10 flex justify-center mb-8">
-          <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-orange-200/50 to-amber-200/50 backdrop-blur-sm border border-orange-300/30 flex items-center justify-center shadow-lg">
+          <div
+            className="w-20 h-20 rounded-2xl backdrop-blur-sm flex items-center justify-center shadow-lg"
+            style={{
+              background:
+                "linear-gradient(to bottom right, rgba(214, 253, 58, 0.5), rgba(214, 253, 58, 0.5))",
+              border: "1px solid rgba(214, 253, 58, 0.3)",
+            }}
+          >
             <svg
-              className="w-10 h-10 text-orange-600"
+              className="w-10 h-10"
+              style={{ color: "#D6FD3A" }}
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
             >
               <path
                 strokeLinecap="round"
+                style={{ color: "#000000" }}
                 strokeLinejoin="round"
                 strokeWidth={2}
                 d="M19 9l-7 7-7-7"
@@ -31,21 +48,32 @@ const CtaSection = () => {
         {/* Text Content */}
         <div className="relative z-10 text-center mb-8">
           <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 font-clash">
-            Are you ready to{" "}
-            <span className="bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-500 bg-clip-text text-transparent">
-              learn
+            Pay once. Get everything.
+            <span
+              className="bg-clip-text text-transparent"
+              style={{
+                background:
+                  "linear-gradient(to right, #D6FD3A, #E8FF60, #D6FD3A)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
+              Build forever.{" "}
             </span>{" "}
           </h3>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            The best entrepreneurs in the world?{" "}
+            AED 2,500 — Limited Spots.{" "}
           </p>
         </div>
 
         {/* CTA Button */}
         <div className="relative z-10 flex justify-center">
-          <button className="group bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500 text-white font-bold py-5 px-12 rounded-xl hover:from-yellow-500 hover:via-amber-600 hover:to-orange-600 transition-all duration-300 shadow-2xl hover:shadow-orange-500/50 transform hover:scale-105 text-lg">
+          <button
+            className="group text-black font-bold py-5 px-12 rounded-xl transition-all duration-300 shadow-2xl transform hover:scale-105 text-lg btn-gradient-lime-reverse"
+            style={{ boxShadow: "0 25px 50px -12px rgba(214, 253, 58, 0.5)" }}
+          >
             <span className="relative z-10 flex items-center gap-2">
-              Enroll Now{" "}
+              Get Lifetime Access Now{" "}
               <svg
                 className="w-5 h-5 group-hover:translate-x-1 transition-transform"
                 fill="none"

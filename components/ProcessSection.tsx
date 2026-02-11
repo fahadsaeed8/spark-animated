@@ -9,9 +9,8 @@ const ProcessSection = () => {
   const processSteps = [
     {
       step: 1,
-      title: "Sign Up For the Challenge",
-      description:
-        "Commit to preparing your business for success and learn directly from industry experts",
+      title: "Why One-Time LTD?",
+      description: "Because we believe:",
       icon: (
         <svg
           className="w-12 h-12"
@@ -28,16 +27,18 @@ const ProcessSection = () => {
         </svg>
       ),
       details: [
-        "Instant access to challenge materials",
-        "Join exclusive community network",
-        "Get personalized onboarding support",
+        "You should focus on building, not paying monthly",
+        "Dubai is a transient city — subscriptions don’t fit lifestyle",
+        "A one-time deal gives you permission to commit",
+        "You get lifetime ROI from a single investment",
+        "You get everything you need without worrying about canceling later",
       ],
     },
     {
       step: 2,
-      title: "Set up your Business Platform",
+      title: "Limited Launch Deal",
       description:
-        "Launch your business in minutes with our AI-powered platform with no code and zero stress",
+        "We’re releasing only 200 Lifetime Access spots to build the first inner circle of Dubai founders After that:",
       icon: (
         <svg
           className="w-12 h-12"
@@ -54,9 +55,10 @@ const ProcessSection = () => {
         </svg>
       ),
       details: [
-        "AI-powered business setup",
-        "Zero coding required",
-        "Customizable templates",
+        "Price increases",
+        "Subscription model returns",
+        "LTD disappears forever",
+        "You’re early",
       ],
     },
   ];
@@ -165,8 +167,20 @@ const ProcessSection = () => {
     <section className="relative w-full py-14 lg:py-16 overflow-hidden bg-black">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-gradient-to-br from-orange-500/10 to-amber-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-full blur-3xl"></div>
+        <div
+          className="absolute top-0 right-1/4 w-96 h-96 rounded-full blur-3xl"
+          style={{
+            background:
+              "linear-gradient(to bottom right, rgba(214, 253, 58, 0.1), rgba(214, 253, 58, 0.1))",
+          }}
+        ></div>
+        <div
+          className="absolute bottom-0 left-1/4 w-96 h-96 rounded-full blur-3xl"
+          style={{
+            background:
+              "linear-gradient(to bottom right, rgba(214, 253, 58, 0.1), rgba(214, 253, 58, 0.1))",
+          }}
+        ></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
@@ -175,17 +189,34 @@ const ProcessSection = () => {
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-12">
             <div className="mb-8 lg:mb-0">
               <div className="inline-block mb-4">
-                <span className="text-xs uppercase tracking-widest text-orange-400 font-semibold">
-                  Complete Learning Experience
+                <span
+                  className="text-xs uppercase tracking-widest font-semibold"
+                  style={{ color: "#D6FD3A" }}
+                >
+                  Your ROI, simplified{" "}
                 </span>
               </div>
-              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 font-clash">
-                A CURRICULUM MADE FOR
-                <br />
-                <span className="bg-gradient-to-r from-orange-400 via-amber-400 to-yellow-400 bg-clip-text text-transparent">
-                  ENTREPRENEURS
+              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-bold text-white mb-4 font-clash">
+                If you launch even a <br />
+                <span
+                  className="bg-clip-text text-transparent"
+                  style={{
+                    background:
+                      "linear-gradient(to right, #D6FD3A, #E8FF60, #D6FD3A)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                  }}
+                >
+                  micro business that{" "}
                 </span>
+                makes AED 2,500/month.
               </h2>
+              <p className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed max-w-full mx-auto">
+                You break even in one month. If you close just one client from
+                our scripts… You profit for life. If you launch an AI automation
+                agency charging AED 3,000 per client… One sale covers your
+                entire LTD.
+              </p>
             </div>
 
             {/* Stats */}
@@ -221,19 +252,33 @@ const ProcessSection = () => {
               {processSteps.map((step, index) => (
                 <div
                   key={index}
-                  className="group relative bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-xl border border-gray-700/50 rounded-2xl p-6 hover:border-orange-500/50 transition-all duration-300"
+                  className="group relative bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-xl border border-gray-700/50 rounded-2xl p-6 transition-all duration-300 hover-border-lime"
                 >
                   {/* Step Badge */}
                   <div className="flex items-start gap-4">
                     <div className="flex-shrink-0">
-                      <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-orange-500/20 to-amber-500/20 border border-orange-500/30 flex items-center justify-center text-orange-400 group-hover:scale-110 transition-transform">
+                      <div
+                        className="w-16 h-16 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform"
+                        style={{
+                          background:
+                            "linear-gradient(to bottom right, rgba(214, 253, 58, 0.2), rgba(214, 253, 58, 0.2))",
+                          border: "1px solid rgba(214, 253, 58, 0.3)",
+                          color: "#D6FD3A",
+                        }}
+                      >
                         {step.icon}
                       </div>
                     </div>
 
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-2">
-                        <span className="px-3 py-1 bg-gradient-to-r from-orange-500 to-amber-500 text-white text-xs font-medium rounded-lg">
+                        <span
+                          className="px-3 py-1 text-black text-xs font-medium rounded-lg"
+                          style={{
+                            background:
+                              "linear-gradient(to right, #D6FD3A, #B8E030)",
+                          }}
+                        >
                           Step {step.step}
                         </span>
                       </div>
@@ -250,7 +295,8 @@ const ProcessSection = () => {
                             className="flex items-center gap-2 text-xs text-gray-400"
                           >
                             <svg
-                              className="w-4 h-4 text-orange-500 flex-shrink-0"
+                              className="w-4 h-4 flex-shrink-0"
+                              style={{ color: "#D6FD3A" }}
                               fill="none"
                               stroke="currentColor"
                               viewBox="0 0 24 24"
@@ -270,7 +316,7 @@ const ProcessSection = () => {
                   </div>
 
                   {/* Hover Glow */}
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-orange-500/0 to-amber-500/0 group-hover:from-orange-500/5 group-hover:to-amber-500/5 transition-opacity pointer-events-none"></div>
+                  <div className="absolute inset-0 rounded-2xl transition-opacity pointer-events-none hover-bg-lime-glow"></div>
                 </div>
               ))}
             </div>
@@ -291,7 +337,7 @@ const ProcessSection = () => {
               {curriculumModules.map((module, index) => (
                 <div
                   key={module.id}
-                  className="bg-white/40 rounded-xl overflow-hidden border border-transparent hover:border-orange-500/50 transition-all cursor-pointer"
+                  className="bg-white/40 rounded-xl overflow-hidden border border-transparent transition-all cursor-pointer hover-border-lime"
                   onClick={() =>
                     setExpandedModule(
                       expandedModule === module.id ? null : module.id,
@@ -301,7 +347,13 @@ const ProcessSection = () => {
                   {/* Module Header */}
                   <div className="bg-gradient-to-r from-slate-800 to-slate-900 p-4 flex items-center justify-between">
                     <div className="flex items-center gap-4 flex-1">
-                      <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-orange-500 to-amber-500 flex items-center justify-center text-white font-medium text-lg">
+                      <div
+                        className="w-12 h-12 rounded-lg flex items-center justify-center text-black font-medium text-lg"
+                        style={{
+                          background:
+                            "linear-gradient(to bottom right, #D6FD3A, #B8E030)",
+                        }}
+                      >
                         {String(module.id).padStart(2, "0")}
                       </div>
                       <div className="flex-1">
@@ -359,7 +411,10 @@ const ProcessSection = () => {
                             key={idx}
                             className="flex items-start gap-2 p-3 bg-gray-50 rounded-lg"
                           >
-                            <div className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-1.5 flex-shrink-0"></div>
+                            <div
+                              className="w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0"
+                              style={{ background: "#D6FD3A" }}
+                            ></div>
                             <span className="text-xs font-semibold text-gray-800 uppercase">
                               {topic}
                             </span>
@@ -376,7 +431,13 @@ const ProcessSection = () => {
 
         {/* Enhanced CTA Button */}
         <div className="relative z-10 mt-8 flex justify-center">
-          <button className="group relative w-full md:w-[30%] bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-500 text-white font-bold py-4 px-8 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02]">
+          <button
+            className="group relative w-full md:w-[30%] text-black font-bold py-4 px-8 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02]"
+            style={{
+              background:
+                "linear-gradient(to right, #D6FD3A, #E8FF60, #D6FD3A)",
+            }}
+          >
             {/* Shine Effect */}
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
             <span className="relative z-10 flex items-center justify-center gap-2">

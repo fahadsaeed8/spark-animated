@@ -122,3 +122,81 @@
 .bg-gradient-radial {
   background: radial-gradient(circle at center, var(--tw-gradient-stops));
 }
+
+/* Custom hover border color */
+.hover-border-lime {
+  border-color: rgba(214, 253, 58, 0.2);
+  transition: border-color 0.3s;
+}
+
+.hover-border-lime:hover {
+  border-color: rgba(214, 253, 58, 0.5) !important;
+}
+
+.hover-border-lime-strong:hover {
+  border-color: rgba(214, 253, 58, 0.4) !important;
+}
+
+/* Button hover gradients */
+.btn-gradient-lime {
+  background: linear-gradient(to right, #D6FD3A, #B8E030);
+  transition: background 0.3s;
+}
+
+.btn-gradient-lime:hover {
+  background: linear-gradient(to right, #B8E030, #A0C820) !important;
+}
+
+.btn-gradient-lime-reverse {
+  background: linear-gradient(to right, #E8FF60, #D6FD3A, #B8E030);
+  transition: background 0.3s;
+}
+
+.btn-gradient-lime-reverse:hover {
+  background: linear-gradient(to right, #D6FD3A, #B8E030, #A0C820) !important;
+}
+
+/* Background hover effects */
+.hover-bg-lime-glow {
+  background: linear-gradient(to bottom right, rgba(214, 253, 58, 0), rgba(214, 253, 58, 0));
+  transition: background 0.3s;
+}
+
+.hover-bg-lime-glow:hover {
+  background: linear-gradient(to bottom right, rgba(214, 253, 58, 0.05), rgba(214, 253, 58, 0.05)) !important;
+}
+
+/* Icon background hover */
+.hover-icon-bg-lime {
+  background: linear-gradient(to bottom right, rgba(214, 253, 58, 0.2), rgba(214, 253, 58, 0.2));
+  border-color: rgba(214, 253, 58, 0.3);
+  transition: all 0.3s;
+}
+
+.hover-icon-bg-lime:hover {
+  background: linear-gradient(to bottom right, rgba(214, 253, 58, 0.3), rgba(214, 253, 58, 0.3)) !important;
+  border-color: #D6FD3A !important;
+}
+
+/* Text hover color */
+.hover-text-lime:hover {
+  color: #D6FD3A !important;
+}
+
+/* FAQ button hover */
+.hover-bg-lime-button {
+  background: #1f2937;
+  transition: background 0.3s;
+}
+
+.hover-bg-lime-button:hover {
+  background: #D6FD3A !important;
+}
+
+/* Text gradient on hover */
+.group:hover .hover-text-gradient-lime {
+  background: linear-gradient(to right, #D6FD3A, #E8FF60) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
