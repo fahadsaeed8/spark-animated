@@ -70,10 +70,10 @@ export default function WhereRealConnectionsSection() {
     setDragOffset(0);
     setIsDragging(false);
 
-    // Resume auto-play after 3 seconds
+    // Resume auto-play after 2 seconds
     setTimeout(() => {
       setAutoPlayEnabled(true);
-    }, 3000);
+    }, 1400);
   };
 
   // Touch events
@@ -119,11 +119,11 @@ export default function WhereRealConnectionsSection() {
   }, [isDragging, dragStart]);
 
   useEffect(() => {
-    // Simple auto-scroll carousel every 4 seconds
+    // Very fast continuous auto-scroll carousel every 1 second
     if (autoPlayEnabled) {
       const interval = setInterval(() => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % carouselImages.length);
-      }, 4000);
+      }, 1000);
 
       autoPlayTimeoutRef.current = interval as unknown as NodeJS.Timeout;
     } else {
@@ -187,7 +187,7 @@ export default function WhereRealConnectionsSection() {
             return (
               <div
                 key={`${currentIndex}-${index}`}
-                className={`flex-shrink-0 transition-all duration-500 ease-in-out ${
+                className={`flex-shrink-0 transition-all duration-300 ease-out ${
                   item.isCenter
                     ? "w-[200px] h-[280px] sm:w-[280px] sm:h-[400px] md:w-[350px] md:h-[500px] z-10"
                     : "w-[120px] h-[160px] sm:w-[160px] sm:h-[220px] md:w-[200px] md:h-[280px] opacity-70 z-0"
