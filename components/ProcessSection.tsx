@@ -9,9 +9,8 @@ const ProcessSection = () => {
   const processSteps = [
     {
       step: 1,
-      title: "Sign Up For the Challenge",
-      description:
-        "Commit to preparing your business for success and learn directly from industry experts",
+      title: "Why One-Time LTD?",
+      description: "Because we believe:",
       icon: (
         <svg
           className="w-12 h-12"
@@ -28,16 +27,18 @@ const ProcessSection = () => {
         </svg>
       ),
       details: [
-        "Instant access to challenge materials",
-        "Join exclusive community network",
-        "Get personalized onboarding support",
+        "You should focus on building, not paying monthly",
+        "Dubai is a transient city — subscriptions don’t fit lifestyle",
+        "A one-time deal gives you permission to commit",
+        "You get lifetime ROI from a single investment",
+        "You get everything you need without worrying about canceling later",
       ],
     },
     {
       step: 2,
-      title: "Set up your Business Platform",
+      title: "Limited Launch Deal",
       description:
-        "Launch your business in minutes with our AI-powered platform with no code and zero stress",
+        "We’re releasing only 200 Lifetime Access spots to build the first inner circle of Dubai founders After that:",
       icon: (
         <svg
           className="w-12 h-12"
@@ -54,9 +55,10 @@ const ProcessSection = () => {
         </svg>
       ),
       details: [
-        "AI-powered business setup",
-        "Zero coding required",
-        "Customizable templates",
+        "Price increases",
+        "Subscription model returns",
+        "LTD disappears forever",
+        "You’re early",
       ],
     },
   ];
@@ -191,12 +193,11 @@ const ProcessSection = () => {
                   className="text-xs uppercase tracking-widest font-semibold"
                   style={{ color: "#D6FD3A" }}
                 >
-                  Complete Learning Experience
+                  Your ROI, simplified{" "}
                 </span>
               </div>
-              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 font-clash">
-                A CURRICULUM MADE FOR
-                <br />
+              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-bold text-white mb-4 font-clash">
+                If you launch even a <br />
                 <span
                   className="bg-clip-text text-transparent"
                   style={{
@@ -206,9 +207,16 @@ const ProcessSection = () => {
                     WebkitTextFillColor: "transparent",
                   }}
                 >
-                  ENTREPRENEURS
+                  micro business that{" "}
                 </span>
+                makes AED 2,500/month.
               </h2>
+              <p className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed max-w-full mx-auto">
+                You break even in one month. If you close just one client from
+                our scripts… You profit for life. If you launch an AI automation
+                agency charging AED 3,000 per client… One sale covers your
+                entire LTD.
+              </p>
             </div>
 
             {/* Stats */}

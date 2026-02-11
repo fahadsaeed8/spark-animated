@@ -256,8 +256,8 @@ const ComparisonSection = () => {
               </div>
             </div>
           </div>
-          <div className="flex justify-center mt-5 items-center">
-            <p className="text-center">
+          <div className="flex justify-center mt-3 items-center">
+            <p className="text-center font-clash">
               We built AI Startup Ideas Lab to give you ALL of that — in one
               place.
             </p>

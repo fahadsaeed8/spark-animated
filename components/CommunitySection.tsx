@@ -232,7 +232,10 @@ const CommunitySection = () => {
                         <p className="text-xs">
                           This is the highest value we will ever offer.
                         </p>
-                        <h4 className="text-base lg:text-lg font-bold text-white mt-4 mb-2 font-clash" style={{ color: "#D6FD3A" }}>
+                        <h4
+                          className="text-base lg:text-lg font-bold text-white mt-4 mb-2 font-clash"
+                          style={{ color: "#D6FD3A" }}
+                        >
                           The price will rise to AED 5,000+ once we hit 500
                           members.
                         </h4>
@@ -276,7 +279,8 @@ const CommunitySection = () => {
         <div className="mb-20">
           <div className="text-center mb-12">
             <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 font-clash">
-              Join a Community of <br />
+              Join the AI Startup Ideas Lab
+              <br />
               <span
                 className="bg-clip-text text-transparent"
                 style={{
@@ -286,7 +290,7 @@ const CommunitySection = () => {
                   WebkitTextFillColor: "transparent",
                 }}
               >
-                +5,000 Entrepreneurs {" "}
+                — Lifetime Deal{" "}
               </span>
             </h3>
           </div>
@@ -418,7 +422,7 @@ const CommunitySection = () => {
 
             <div className="text-center">
               <h4 className="text-2xl lg:text-3xl font-bold text-white mb-2 font-clash">
-                Connect on our{" "}
+                AED 2,500 — Pay Once.{" "}
                 <span
                   className="bg-clip-text text-transparent"
                   style={{
@@ -428,12 +432,12 @@ const CommunitySection = () => {
                     WebkitTextFillColor: "transparent",
                   }}
                 >
-                  Private Platform
+                  Build Forever.{" "}
                 </span>
               </h4>
               <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-                Join exclusive discussions, share insights, and collaborate with
-                like-minded entrepreneurs in a secure, private environment
+                100% risk-free. If you feel it’s not valuable, request a refund
+                within 14 days.
               </p>
 
               {/* CTA Button */}
@@ -443,7 +447,7 @@ const CommunitySection = () => {
                   boxShadow: "0 25px 50px -12px rgba(214, 253, 58, 0.5)",
                 }}
               >
-                Enroll Now{" "}
+                Join Now — Secure Your Lifetime Access{" "}
               </button>
             </div>
           </div>
