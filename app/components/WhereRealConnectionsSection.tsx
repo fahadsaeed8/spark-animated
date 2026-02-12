@@ -5,18 +5,17 @@ import Image from "next/image";
 
 // All available images for the carousel
 const carouselImages = [
-  "/Rectangle 40836.svg",
-  "/Rectangle 40837.svg",
-  "/Rectangle 40838.svg",
-  "/Rectangle 40839.svg",
-  "/Rectangle 40840.svg",
-  "/Rectangle 40841.svg",
-  "/Rectangle 40842.svg",
-  "/Rectangle 40843.svg",
-  "/Rectangle 40846.svg",
-  "/Rectangle 40847.svg",
-  "/Rectangle 40848.svg",
-  "/Rectangle 40849.svg",
+  "/Rectangle 40856.svg",
+  "/Rectangle 40857.svg",
+  "/Rectangle 40858.svg",
+  "/Rectangle 40859.svg",
+  "/Rectangle 40860.svg",
+  "/Rectangle 40862.svg",
+  "/Rectangle 40864.svg",
+  "/Rectangle 40865.svg",
+  "/Rectangle 40866.svg",
+  "/Rectangle 40867.svg",
+  "/Rectangle 40868.svg",
   "/Rectangle 40820.svg",
 ];
 
@@ -286,7 +285,7 @@ export default function WhereRealConnectionsSection() {
                   }
                 }}
               >
-                <div 
+                <div
                   className="relative w-full h-full rounded-2xl overflow-hidden shadow-xl transition-transform duration-700 ease-in-out"
                   style={{
                     transform:
