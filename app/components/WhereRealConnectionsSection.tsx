@@ -27,7 +27,10 @@ export default function WhereRealConnectionsSection() {
   const [dragOffset, setDragOffset] = useState(0);
   const [autoPlayEnabled, setAutoPlayEnabled] = useState(true);
   const [hasMoved, setHasMoved] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [slideOffset, setSlideOffset] = useState(0);
   const autoPlayTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const currentIndexRef = useRef(currentIndex);
 
   // Swipe/Drag handlers
   const handleStart = (clientX: number) => {
@@ -62,13 +65,13 @@ export default function WhereRealConnectionsSection() {
     if (Math.abs(dragOffset) > threshold) {
       if (dragOffset < -swipeThreshold) {
         // Swipe left (next image)
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % carouselImages.length);
+        const nextIndex = (currentIndex + 1) % carouselImages.length;
+        smoothTransition(nextIndex);
       } else if (dragOffset > swipeThreshold) {
         // Swipe right (previous image)
-        setCurrentIndex(
-          (prevIndex) =>
-            (prevIndex - 1 + carouselImages.length) % carouselImages.length,
-        );
+        const prevIndex =
+          (currentIndex - 1 + carouselImages.length) % carouselImages.length;
+        smoothTransition(prevIndex);
       }
     }
 
@@ -86,30 +89,32 @@ export default function WhereRealConnectionsSection() {
   const handleImageClick = (position: string) => {
     // Only handle clicks on side images, not center
     if (position === "left") {
-      setCurrentIndex(
-        (prevIndex) =>
-          (prevIndex - 1 + carouselImages.length) % carouselImages.length,
-      );
+      const prevIndex =
+        (currentIndex - 1 + carouselImages.length) % carouselImages.length;
+      smoothTransition(prevIndex);
+      // Temporarily pause auto-play
       setAutoPlayEnabled(false);
       if (autoPlayTimeoutRef.current) {
         clearInterval(autoPlayTimeoutRef.current);
         autoPlayTimeoutRef.current = null;
       }
-      // Resume auto-play after 2 seconds
+      // Resume auto-play after 1.5 seconds
       setTimeout(() => {
         setAutoPlayEnabled(true);
-      }, 2000);
+      }, 1500);
     } else if (position === "right") {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % carouselImages.length);
+      const nextIndex = (currentIndex + 1) % carouselImages.length;
+      smoothTransition(nextIndex);
+      // Temporarily pause auto-play
       setAutoPlayEnabled(false);
       if (autoPlayTimeoutRef.current) {
         clearInterval(autoPlayTimeoutRef.current);
         autoPlayTimeoutRef.current = null;
       }
-      // Resume auto-play after 2 seconds
+      // Resume auto-play after 1.5 seconds
       setTimeout(() => {
         setAutoPlayEnabled(true);
-      }, 2000);
+      }, 1500);
     }
   };
 
@@ -155,11 +160,41 @@ export default function WhereRealConnectionsSection() {
     }
   }, [isDragging, dragStart]);
 
+  // Smooth transition function
+  const smoothTransition = (newIndex: number) => {
+    if (isAnimating) return; // Prevent multiple animations
+
+    // Set animation state first
+    setIsAnimating(true);
+    setSlideOffset(450); // Start from right
+
+    // Update index after a tiny delay to ensure animation state is set
+    setTimeout(() => {
+      setCurrentIndex(newIndex);
+
+      // Animate to center position
+      setTimeout(() => {
+        setSlideOffset(0);
+      }, 20);
+    }, 10);
+
+    // Reset animation after transition completes
+    setTimeout(() => {
+      setIsAnimating(false);
+    }, 800);
+  };
+
+  // Update ref whenever currentIndex changes
+  useEffect(() => {
+    currentIndexRef.current = currentIndex;
+  }, [currentIndex]);
+
   useEffect(() => {
     // Very fast continuous auto-scroll carousel every 1 second
     if (autoPlayEnabled) {
       const interval = setInterval(() => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % carouselImages.length);
+        const nextIndex = (currentIndexRef.current + 1) % carouselImages.length;
+        smoothTransition(nextIndex);
       }, 1000);
 
       autoPlayTimeoutRef.current = interval as unknown as NodeJS.Timeout;
@@ -207,8 +242,11 @@ export default function WhereRealConnectionsSection() {
           onMouseDown={handleMouseDown}
         >
           {getVisibleImages().map((item, index) => {
-            // Calculate transform based on drag offset - simple sliding only
+            // Calculate transform based on drag offset - only for dragging
             let transformX = 0;
+            let imageTransformX = 0;
+            let imageOpacity = 1;
+
             if (isDragging && dragOffset !== 0) {
               if (item.position === "center") {
                 transformX = dragOffset;
@@ -219,12 +257,19 @@ export default function WhereRealConnectionsSection() {
                 transformX =
                   dragOffset < 0 ? dragOffset * 0.6 : dragOffset * 0.3;
               }
+            } else if (isAnimating && !isDragging) {
+              // Smooth slide animation - only center image slides, frames stay static
+              if (item.position === "center") {
+                // Center image slides in from right (450px to 0px)
+                imageTransformX = slideOffset;
+              }
+              // Left and right images stay static (no animation)
             }
 
             return (
               <div
-                key={`${currentIndex}-${index}`}
-                className={`flex-shrink-0 transition-all duration-300 ease-out ${
+                key={`${item.position}-${item.src}`}
+                className={`flex-shrink-0 ${
                   item.isCenter
                     ? "w-[200px] h-[280px] sm:w-[280px] sm:h-[400px] md:w-[350px] md:h-[500px] z-10"
                     : "w-[120px] h-[160px] sm:w-[160px] sm:h-[220px] md:w-[200px] md:h-[280px] opacity-70 z-0 cursor-pointer"
@@ -241,7 +286,16 @@ export default function WhereRealConnectionsSection() {
                   }
                 }}
               >
-                <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-xl">
+                <div 
+                  className="relative w-full h-full rounded-2xl overflow-hidden shadow-xl transition-transform duration-700 ease-in-out"
+                  style={{
+                    transform:
+                      imageTransformX !== 0
+                        ? `translateX(${imageTransformX}px)`
+                        : undefined,
+                    opacity: imageOpacity,
+                  }}
+                >
                   <Image
                     src={item.src}
                     alt={`Connection ${index + 1}`}
