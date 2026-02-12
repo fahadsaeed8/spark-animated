@@ -115,9 +115,9 @@ const FooterSection = () => {
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             {/* Left Side - Copyright and Info */}
             <div className="flex items-center gap-2 text-gray-500 text-sm flex-wrap justify-center">
-              <span>© 2023</span>
+              <span>© 2026</span>
               <span>|</span>
-              <span>AUGMENT.ORG</span>
+              <span>SPARK.VENTURES</span>
               <span>|</span>
               <span>ENGLISH (US)</span>
             </div>

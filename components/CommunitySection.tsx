@@ -118,31 +118,9 @@ const CommunitySection = () => {
         ></div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+      <div className="relative z-10 max-w-5xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Top Section - Community Header */}
         <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 bg-black/70 mb-6 px-4 py-2 rounded-full">
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              style={{ color: "#D6FD3A" }}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-              />
-            </svg>
-            <span
-              className="text-sm font-semibold uppercase tracking-wide"
-              style={{ color: "#D6FD3A" }}
-            >
-              SUMMER OFFER{" "}
-            </span>
-          </div>
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 font-clash">
             The Lifetime Deal <br />
             <span
@@ -187,7 +165,7 @@ const CommunitySection = () => {
             <div className="relative z-10">
               {/* Header */}
               <div className="text-center mb-12">
-                <h3 className="text-2xl lg:text-3xl font-bold text-white mb-2 font-clash">
+                <h3 className="text-2xl lg:text-4xl font-bold text-white mb-2 font-clash">
                   Pay once: AED 2,500{" "}
                 </h3>
                 <p className="text-gray-400 text-sm">
@@ -232,37 +210,15 @@ const CommunitySection = () => {
                         <p className="text-xs">
                           This is the highest value we will ever offer.
                         </p>
+
+                        {/* CTA Button */}
                         <h4
-                          className="text-base lg:text-lg font-bold text-white mt-4 mb-2 font-clash"
+                          className="text-base lg:text-lg text-center font-bold text-white mt-4 mb-0 font-clash"
                           style={{ color: "#D6FD3A" }}
                         >
                           The price will rise to AED 5,000+ once we hit 500
                           members.
                         </h4>
-
-                        {/* CTA Button */}
-                        <button
-                          className="w-full text-black font-bold py-3.5 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-[1.02] flex items-center justify-center gap-2 group/btn btn-gradient-lime"
-                          style={{
-                            boxShadow:
-                              "0 10px 15px -3px rgba(214, 253, 58, 0.5)",
-                          }}
-                        >
-                          <span>Enroll Now</span>
-                          <svg
-                            className="w-5 h-5 transform group-hover/btn:translate-x-1 transition-transform"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M13 7l5 5m0 0l-5 5m5-5H6"
-                            />
-                          </svg>
-                        </button>
 
                         {/* Hover Glow Effect */}
                         <div className="absolute inset-0 rounded-2xl transition-opacity pointer-events-none hover-bg-lime-glow"></div>
@@ -296,13 +252,12 @@ const CommunitySection = () => {
           </div>
 
           {/* Community Features - Two Cards */}
-          <div className="grid md:grid-cols-2 gap-8 mb-20">
+          {/* <div className="grid md:grid-cols-2 gap-8 mb-20">
             {communityFeatures.map((feature, index) => (
               <div
                 key={index}
                 className="group relative bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-8 border border-gray-700/50 transition-all duration-300 overflow-hidden hover-border-lime"
               >
-                {/* Device Mockup Background */}
                 <div className="absolute inset-0 opacity-10">
                   <div
                     className="absolute top-4 left-4 w-32 h-24 rounded-lg"
@@ -331,7 +286,6 @@ const CommunitySection = () => {
                 </div>
 
                 <div className="relative z-10">
-                  {/* Icon */}
                   <div
                     className="w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
                     style={{
@@ -352,11 +306,10 @@ const CommunitySection = () => {
                   </p>
                 </div>
 
-                {/* Hover Glow */}
                 <div className="absolute inset-0 transition-opacity pointer-events-none hover-bg-lime-glow"></div>
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
 
         {/* Private Platform Connection Section */}

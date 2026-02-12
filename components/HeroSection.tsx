@@ -59,34 +59,41 @@ const HeroSection = () => {
             </div>
 
             {/* Main Headline */}
-            <div className="space-y-3 sm:space-y-4">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[60px] font-bold leading-tight px-2">
+            <div className="space-y-3 sm:space-y-4 px-2">
+              {/* Main Heading */}
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[60px] font-bold leading-tight">
                 <span className="text-white font-clash">
-                  Turn your ideas into income. Launch your startup with AI.{" "}
-                </span>
-                <br />
-                <span
-                  className="bg-clip-text text-transparent font-clash"
-                  style={{
-                    background:
-                      "linear-gradient(to right, #D6FD3A, #E8FF60, #D6FD3A)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                  }}
-                >
-                  No subscriptions. No confusion. No waiting.{" "}
+                  Turn your ideas into income.
                 </span>
               </h1>
+
+              {/* Sub Heading (lighter than main) */}
+              <h2
+                className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold font-clash
+               bg-clip-text text-transparent"
+                style={{
+                  background:
+                    "linear-gradient(to right, #D6FD3A, #E8FF60, #D6FD3A)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                }}
+              >
+                Launch your startup with AI.
+                <span className="text-white">
+                  {" "}
+                  No subscriptions. No confusion. No waiting.
+                </span>
+              </h2>
             </div>
 
-            {/* Description */}
+            {/* Description (unchanged) */}
             <p className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto px-4">
               One-time payment • Lifetime access • Dubai-focused AED 2,500 only
-              — limited-time launch deal{" "}
+              — limited-time launch deal
             </p>
 
             {/* Social Proof */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 pt-2 sm:pt-4">
+            {/* <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 pt-2 sm:pt-4">
               <div className="flex items-center gap-2">
                 <div className="flex -space-x-2">
                   {[1, 2, 3, 4, 5].map((i) => (
@@ -118,11 +125,11 @@ const HeroSection = () => {
                 ))}
                 <span className="text-sm text-gray-400 ml-2">4.9 Rating</span>
               </div>
-            </div>
+            </div> */}
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 pt-4 sm:pt-6 px-4">
-              <button
+              {/* <button
                 className="group relative px-6 sm:px-8 py-3 sm:py-4 text-black font-semibold rounded-lg overflow-hidden w-full sm:w-auto min-w-[200px] text-sm sm:text-base transition-opacity"
                 style={{
                   background: "linear-gradient(to right, #D6FD3A, #B8E030)",
@@ -135,7 +142,7 @@ const HeroSection = () => {
                     background: "linear-gradient(to right, #B8E030, #A0C820)",
                   }}
                 ></div>
-              </button>
+              </button> */}
               <button
                 onClick={() => {
                   const videoSection = document.getElementById("video-section");
@@ -146,7 +153,10 @@ const HeroSection = () => {
                     });
                   }
                 }}
-                className="px-6 sm:px-8 py-3 sm:py-4 border-2 border-gray-600 text-white font-semibold rounded-lg hover:border-gray-400 transition-colors w-full sm:w-auto min-w-[200px] text-sm sm:text-base"
+                className="group relative px-6 sm:px-8 py-3 sm:py-4 text-black font-semibold rounded-lg overflow-hidden w-full sm:w-auto min-w-[200px] text-sm sm:text-base transition-opacity"
+                style={{
+                  background: "linear-gradient(to right, #D6FD3A, #B8E030)",
+                }}
               >
                 Watch Demo
               </button>

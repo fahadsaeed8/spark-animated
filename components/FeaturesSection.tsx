@@ -344,14 +344,14 @@ const FeaturesSection = () => {
                   >
                     {/* Decorative corner elements */}
                     <div
-                      className="absolute top-0 left-0 w-20 h-20 rounded-br-full"
+                      className="absolute top-0 left-0 w-20 h-20 rounded-2xl"
                       style={{
                         background:
                           "linear-gradient(to bottom right, rgba(214, 253, 58, 0.1), transparent)",
                       }}
                     ></div>
                     <div
-                      className="absolute bottom-0 right-0 w-20 h-20 rounded-tl-full"
+                      className="absolute bottom-0 right-0 w-20 h-20 rounded-2xl"
                       style={{
                         background:
                           "linear-gradient(to top left, rgba(214, 253, 58, 0.1), transparent)",

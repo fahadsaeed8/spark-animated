@@ -8,28 +8,23 @@ const FAQSection = () => {
   const faqs = [
     {
       question: "Is this beginner-friendly?",
-      answer:
-        "Yes. Designed for people starting from zero.",
+      answer: "Yes. Designed for people starting from zero.",
     },
     {
       question: "Do I need to be technical?",
-      answer:
-        "No. Everything includes no-code & AI-based steps.",
+      answer: "No. Everything includes no-code & AI-based steps.",
     },
     {
       question: "Is this only for Dubai?",
-      answer:
-        "It's optimized for Dubai & GCC, but ideas work globally.",
+      answer: "It's optimized for Dubai & GCC, but ideas work globally.",
     },
     {
       question: "Will I get future updates?",
-      answer:
-        "Yes — every update for life.",
+      answer: "Yes — every update for life.",
     },
     {
       question: "Are IRL events included?",
-      answer:
-        "Many are free, some premium events are discounted.",
+      answer: "Many are free, some premium events are discounted.",
     },
     {
       question: "Who is this for?",
@@ -53,9 +48,9 @@ const FAQSection = () => {
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 font-clash">
             Frequently Asked Questions
           </h2>
-          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+          {/* <p className="text-lg text-gray-400 max-w-2xl mx-auto">
             Everything you need to know about the challenge
-          </p>
+          </p> */}
         </div>
 
         {/* FAQ Items */}
