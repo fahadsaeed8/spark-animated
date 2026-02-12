@@ -24,7 +24,7 @@ export default function WhereRealConnectionsSection() {
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
-    }, 1000);
+    }, 1200);
 
     return () => clearInterval(interval);
   }, [current]);
@@ -71,12 +71,22 @@ export default function WhereRealConnectionsSection() {
               className={`
                 absolute transition-all duration-700 ease-in-out
                 ${position === "center" && "z-30 scale-100 translate-x-0 opacity-100"}
-                ${position === "left" && "-translate-x-[360px] scale-75 opacity-70 z-20 cursor-pointer"}
-                ${position === "right" && "translate-x-[360px] scale-75 opacity-70 z-20 cursor-pointer"}
+                ${position === "left" && "-translate-x-[360px] scale-90 opacity-70 z-20 cursor-pointer"}
+                ${position === "right" && "translate-x-[360px] scale-90 opacity-70 z-20 cursor-pointer"}
                 ${position === "hidden" && "opacity-0 scale-50 z-0"}
               `}
             >
-              <div className="relative w-[250px] h-[350px] md:w-[350px] md:h-[520px]">
+              {/* 👇 Height difference applied here */}
+              <div
+                className={`
+                  relative transition-all duration-700
+                  ${
+                    position === "center"
+                      ? "w-[250px] h-[350px] md:w-[350px] md:h-[500px]"
+                      : "w-[220px] h-[300px] md:w-[320px] md:h-[380px]"
+                  }
+                `}
+              >
                 <Image
                   src={src}
                   alt="carousel"
